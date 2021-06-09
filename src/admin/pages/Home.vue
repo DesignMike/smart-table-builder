@@ -8,12 +8,7 @@
 			</div>
 		</form>
 	</div></div>
-	<div class="row"><div class="col-xs-12">
-		<button :disabled="data.length ? false : true" class="btn btn-success" @click="_export">Export</button>
-	</div></div>
-	<div class="row"><div class="col-xs-12">
-	</div></div>
-  <canvas-datagrid @contextmenu="handleRightClick" :data.prop="grid.data"></canvas-datagrid>
+  <canvas-datagrid v-if="grid.data.length" @contextmenu="handleRightClick" :data.prop="grid.data"></canvas-datagrid>
 </div>
 </template>
 
@@ -27,22 +22,13 @@ const _SheetJSFT = [
 export default {
 	data() {
 		return {
-			data: ["SheetJS".split(""), "1234567".split("")],
-			cols: [
-				{name:"A", key:0},
-				{name:"B", key:1},
-				{name:"C", key:2},
-				{name:"D", key:3},
-				{name:"E", key:4},
-				{name:"F", key:5},
-				{name:"G", key:6},
-			],
-      grid: {
-        data: [
-        ]
-      },
+			grid: {
+				data: [
+				]
+			},
 			SheetJSFT: _SheetJSFT
-	}; },
+		}; 
+	},
 	methods: {
 		_suppress(evt) { evt.stopPropagation(); evt.preventDefault(); },
 		_drop(evt) {
@@ -99,13 +85,20 @@ export default {
 		},
 		handleRightClick(e,i,v,c) {
 			e.items.push({
-            title: 'Process selected row(s)',
-            click: function () {
-                // e.cell.value contains the cell's value
-                // e.cell.data contains the row values
-                	console.log(e.cell.value, e.cell.data);
-            	}
-        	});
+				title: 'delete this row',
+				click: function (w,q) {
+						this.deleteRow();
+						console.log(e.cell.value, e.cell.data);
+					}
+        	},
+			{
+				title: 'add row',
+				click: function () {
+					// debugger;
+					// this.addRow([]);
+					this.insertRow([], e.cell.boundRowIndex);
+				}
+			});
 		}
 	}
 };
