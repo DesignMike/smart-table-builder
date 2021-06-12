@@ -1,5 +1,5 @@
 <template>
-  <div id="vue-backend-app">
+  <div class="container border rounded pb-6 tab-component bg-white w-full" id="vue-backend-app">
     <h1>Backend App</h1>
 
     <router-view />
@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import 'windi.css'
 export default {
   name: 'App'
 }

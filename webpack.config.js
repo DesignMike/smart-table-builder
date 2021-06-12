@@ -7,6 +7,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WindiCSS = require('windicss-webpack-plugin').default;
 const config = require( './config.json' );
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -44,6 +45,8 @@ plugins.push(new BrowserSyncPlugin( {
   cors: true,
   reloadDelay: 0
 } ));
+
+plugins.push(new WindiCSS());
 
 plugins.push(new VueLoaderPlugin());
 
