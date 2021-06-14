@@ -8,6 +8,7 @@
 
 <script>
 import 'windi.css'
+// import 'tablesaw/dist/tablesaw.css'
 export default {
   name: 'App'
 }
