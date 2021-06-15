@@ -1,9 +1,13 @@
 <template>
 <div @drop="_drop" @dragenter="_suppress" @dragover="_suppress">
-		<form class="form-inline">
-			<div class="form-group">
-				<label for="file">Spreadsheet</label>
-				<input type="file" class="form-control" id="file" :accept="SheetJSFT" @change="_change" />
+		<form>
+			<div class="mb-4">
+				<label class="block uppercase tracking-wide text-xs font-bold">Name</label>
+				<input v-model="tableTitle" class="w-full shadow-inner p-4 border-0" type="text" name="name" placeholder="Enter the Table Name">
+			</div>
+			<div class="mb-4">
+				<label class="block uppercase tracking-wide text-xs font-bold">Upload a Spreadsheet</label>
+				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
 			</div>
 		</form>
 		<ul class="flex main-nav border-b tab-buttons">
@@ -15,11 +19,13 @@
 			</li>
 		</ul>
 		<div v-if="tabNavigation == 0">
-			<canvas-datagrid v-if="grid.data.length" @contextmenu="handleRightClick" :data.prop="grid.data"></canvas-datagrid>
+			<div  class="px-5 py-3">
+				<canvas-datagrid v-if="grid.data.length" @contextmenu="handleRightClick" ref="grid" :data.prop="grid.data"></canvas-datagrid>
+			</div>
 		</div>
 		<div v-if="tabNavigation == 1">
 			<div  class="px-5 py-3">
-				<table-preview v-if="grid.data.length" :cellItems="grid.data"></table-preview>
+				<table-preview v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle"></table-preview>
 			</div>
 		</div>
 </div>
@@ -48,7 +54,8 @@ export default {
 			SheetJSFT: _SheetJSFT,
 			tabNavigation: 0,
 			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
-			tabInactiveClass: 'text-blue-500 hover:text-blue-800'
+			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
+			tableTitle: ''
 		}; 
 	},
 	methods: {

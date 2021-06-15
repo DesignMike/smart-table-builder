@@ -1,6 +1,14 @@
 <template>
 <div class="table-preview">
-  <table class="min-w-full leading-normal">
+  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+  <div class="block w-full overflow-x-auto">
+    <div v-if="tableTitle.length" class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3 class="font-semibold text-base text-blueGray-700">{{ tableTitle }}</h3>
+        <div v-bind="{ 'other-attr': cellItems[0] }"></div>
+      </div>
+    </div>
+    <table class="min-w-full leading-normal">
           <thead>
             <tr>
               <th
@@ -18,13 +26,15 @@
               </td>
             </tr>
           </tbody>
-        </table>
+    </table>
+  </div>
+  </div>
 </div>
 </template>
 
 <script>
 export default{
-  props:['cellItems'],
+  props:['cellItems', 'tableTitle'],
   mounted() {
   },
   computed: {
