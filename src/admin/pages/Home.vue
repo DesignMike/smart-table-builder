@@ -19,8 +19,8 @@
 			</li>
 		</ul>
 		<div v-if="tabNavigation == 0">
-			<div  class="px-5 py-3">
-				<canvas-datagrid v-if="grid.data.length" @contextmenu="handleRightClick" ref="grid" :data.prop="grid.data"></canvas-datagrid>
+			<div  class="px-5 py-3 w-full h-full">
+				<canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" ref="grid" :data.prop="grid.data"></canvas-datagrid>
 			</div>
 		</div>
 		<div v-if="tabNavigation == 1">
@@ -33,6 +33,9 @@
 <style scoped>
 .main-nav li {
 	margin-bottom: 0;
+}
+canvas-datagrid {
+	overflow: scroll;
 }
 </style>
 <script>
@@ -100,12 +103,6 @@ export default {
 				const ws = wb.Sheets[wsname];
 				/* Convert array of arrays */
 				const data = XLSX.utils.sheet_to_json(ws, {raw:true, cellDates:false});
-				debugger;
-        /* Resize canvas */
-        let canvas = document.getElementsByTagName('canvas-datagrid');
-        if(canvas.length && window) {
-          ;(() => {canvas[0].style.width = (window.innerWidth - 200) + "px"; canvas[0].style.height = (window.innerHeight - 200) + "px";})();
-        };
 				/* Update state */
 				this.grid = {data: json};
 				this.cols = make_cols(ws['!ref']);
@@ -114,6 +111,16 @@ export default {
 		},
 		handleTabSwitch(event) {
 			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
+			// this.$refs.grid
+			debugger;
+			if (typeof(this.$refs.grid) !== 'undefined') {
+				try {
+					this.$refs.grid.endEdit();	
+				} catch (error) {
+					// no need to handle
+				}
+			}
+			debugger;
 			this.tabNavigation = selectedTabIndex;
 			if (selectedTabIndex == 1) {
 				debugger;
@@ -123,7 +130,12 @@ export default {
 				}, 3000);
 			};
 		},
+		handleGridEvent(e,v,i,c) {
+			debugger;
+			this.$refs.grid.setActiveCell(null);
+		},
 		handleRightClick(e,i,v,c) {
+			debugger;
 			e.items.push({
 				title: 'Delete this row',
 				click: function (w,q) {
@@ -139,6 +151,14 @@ export default {
 					this.insertRow([], e.cell.boundRowIndex);
 				}
 			});
+		}
+	},
+	computed: {
+		canvasHeight() {
+			return window.innerHeight - 200 + 'px';
+		},
+		canvasWidth() {
+			return window.innerWidth - 300 + 'px';
 		}
 	},
 	components: {
