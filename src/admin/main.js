@@ -5,6 +5,7 @@ import menuFix from './utils/admin-menu-fix'
 // import XLSX from 'xlsx';
 Vue.config.productionTip = false
 Vue.config.ignoredElements = ['canvas-datagrid'];
+import '../../assets/css/tail.css';
 
 /* eslint-disable no-new */
 new Vue({

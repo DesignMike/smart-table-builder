@@ -7,10 +7,13 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const WindiCSS = require('windicss-webpack-plugin').default;
 const config = require( './config.json' );
 
 const devMode = process.env.NODE_ENV !== 'production';
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 
 // Naming and path settings
 var appName = 'app';
@@ -46,7 +49,6 @@ plugins.push(new BrowserSyncPlugin( {
   reloadDelay: 0
 } ));
 
-plugins.push(new WindiCSS());
 
 plugins.push(new VueLoaderPlugin());
 
@@ -131,6 +133,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'vue-style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
@@ -141,6 +144,21 @@ module.exports = {
             },
           },
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('postcss-import'),
+                //TailWindCSS(tailwindConfig),
+                require('tailwindcss')(resolve('_config/tailwind.config.js')),
+                require('postcss-preset-env')({ stage: 1 }),
+                require('postcss-prefix-selector')({
+                  prefix: '.wptable'
+                })
+              ],
+            },
+          },
         ],
       },
     ]

@@ -2,9 +2,9 @@
   <div class="border mx-auto rounded p-6 tab-component bg-gray-100 w-full" id="vue-backend-app">
     <div class="relative flex items-center justify-between">
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        <h1>WP Spreadsheet &amp; Table Builder</h1>
+        <h1 class="capitalize font-medium text-3xl font-sans">WP Spreadsheet &amp; Table Builder</h1>
       </div>
-      <p>Save</p>
+      <button class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
     </div>
 
     <router-view />
@@ -16,7 +16,6 @@
 }
 </style>
 <script>
-import 'windi.css'
 // import 'tablesaw/dist/tablesaw.css'
 export default {
   name: 'App'
