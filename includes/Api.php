@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Spreadsheet2Table;
 
 use WP_REST_Controller;
 

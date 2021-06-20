@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Spreadsheet2Table;
 
 /**
  * Scripts and Styles Class

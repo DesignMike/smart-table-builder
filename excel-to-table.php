@@ -211,19 +211,19 @@ final class Excel_To_Table {
     public function init_classes() {
 
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin'] = new App\Admin();
+            $this->container['admin'] = new Spreadsheet2Table\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new App\Frontend();
+            $this->container['frontend'] = new Spreadsheet2Table\Frontend();
         }
 
         if ( $this->is_request( 'ajax' ) ) {
-            // $this->container['ajax'] =  new App\Ajax();
+            // $this->container['ajax'] =  new Spreadsheet2Table\Ajax();
         }
 
-        $this->container['api'] = new App\Api();
-        $this->container['assets'] = new App\Assets();
+        $this->container['api'] = new Spreadsheet2Table\Api();
+        $this->container['assets'] = new Spreadsheet2Table\Assets();
     }
 
     /**
