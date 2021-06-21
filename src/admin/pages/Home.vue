@@ -50,15 +50,10 @@ const _SheetJSFT = [
 export default {
 	data() {
 		return {
-			grid: {
-				data: [
-				]
-			},
 			SheetJSFT: _SheetJSFT,
 			tabNavigation: 0,
 			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
 			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
-			tableTitle: ''
 		}; 
 	},
 	methods: {
@@ -159,6 +154,23 @@ export default {
 		},
 		canvasWidth() {
 			return window.innerWidth - 300 + 'px';
+		},
+		grid: {
+			get: function () {
+				return this.$store.state.grid;
+			},
+			// setter
+			set: function (newGrid) {
+				return this.$store.commit('updateGrid', newGrid);
+			}
+		},
+		tableTitle: {
+			get: function () {
+				return this.$store.state.tableTitle;
+			},
+			set: function (newString) {
+				return this.$store.state.tableTitle = newString;
+			}
 		}
 	},
 	components: {

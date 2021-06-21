@@ -182,7 +182,8 @@ final class Excel_To_Table {
         }
 
         if ( $this->is_request( 'ajax' ) ) {
-            // require_once EXCELTOTABLE_INCLUDES . '/class-ajax.php';
+            require_once EXCELTOTABLE_INCLUDES . '/Ajax/AjaxAction.php';
+            require_once EXCELTOTABLE_INCLUDES . '/Ajax/AjaxCallbacks.php';
         }
 
         require_once EXCELTOTABLE_INCLUDES . '/Api.php';
@@ -219,7 +220,7 @@ final class Excel_To_Table {
         }
 
         if ( $this->is_request( 'ajax' ) ) {
-            // $this->container['ajax'] =  new Spreadsheet2Table\Ajax();
+            $this->container['ajax'] =  new Spreadsheet2Table\Ajax\AjaxAction();
         }
 
         $this->container['api'] = new Spreadsheet2Table\Api();
