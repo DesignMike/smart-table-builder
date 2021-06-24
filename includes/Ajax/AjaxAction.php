@@ -15,5 +15,7 @@ class AjaxAction {
 
     public static function init() {
         AjaxAction::addAction('create_new_table_entry', [AjaxCallbacks::class , 'create_new_table_entry']);
+        AjaxAction::addAction('sprdsh_get_table_cells', [AjaxCallbacks::class, 'get_table_cells']);
+        AjaxAction::addAction('sprdsh_list_tables', [AjaxCallbacks::class, 'list_tables']);
     }
 }

@@ -16,21 +16,24 @@ const store = new Vuex.Store({
       data: [
       ]
     },
+    route: null,
     tableTitle: ''
   },
   mutations: {
     updateGrid (state, newData) {
       state.grid = newData;
+    },
+    SET_ROUTE (state, route) {
+      state.route = route;
     }
   }
 })
 /* eslint-disable no-new */
 new Vue({
-  el: '#vue-admin-app',
   router,
   render: h => h(App),
   store: store
-});
+}).$mount('#vue-admin-app');
 
 // fix the admin menu for the slug "vue-app"
 menuFix('vue-app');
