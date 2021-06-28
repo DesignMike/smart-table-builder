@@ -12,14 +12,12 @@
     "build": "webpack -p --mode production"
   },
   "dependencies": {
-    "autoprefixer": "^10.2.6",
     "canvas-datagrid": "^0.3.4",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-prefix-selector": "^1.10.0",
     "postcss-preset-env": "^6.7.0",
     "tablesaw": "^3.1.2",
-    "tailwindcss": "^1.5.2",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
     "vuex": "^3.6.2",
@@ -30,6 +28,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "latest",
+    "autoprefixer": "^10.2.6",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "browser-sync-webpack-plugin": "^2.2.2",
@@ -41,6 +40,8 @@
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4",
     "terser-webpack-plugin": "^4.1.0",
     "url-loader": "^2.3.0",
     "vue-loader": "^15.9.3",

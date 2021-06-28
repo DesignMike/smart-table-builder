@@ -17,7 +17,8 @@ const store = new Vuex.Store({
       ]
     },
     route: null,
-    tableTitle: ''
+    tableTitle: '',
+    tableList: []
   },
   mutations: {
     updateGrid (state, newData) {
@@ -25,6 +26,9 @@ const store = new Vuex.Store({
     },
     SET_ROUTE (state, route) {
       state.route = route;
+    },
+    availableTables (state, data) {
+      state.tableList = data;
     }
   }
 })

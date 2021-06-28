@@ -37,7 +37,7 @@ class AjaxCallbacks
             'post_type' => 'sprdsh_table',
             'posts_per_page' => 1
         ]);
-        $response = [];
+        $response = $table;
         wp_send_json($response);
     }
 }
