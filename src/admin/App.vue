@@ -21,7 +21,10 @@ export default {
   name: 'App',
   methods: {
     handleSave() {
-      let data =  this.$store.state.grid.data;
+      let data =  {
+        title: this.$store.state.tableTitle,
+        cells: this.$store.state.grid.data
+      };
       jQuery.ajax({
         type: 'POST',
         url: ajaxurl+ '?action=create_new_table_entry',

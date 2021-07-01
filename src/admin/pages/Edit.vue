@@ -1,12 +1,17 @@
 <template>
 <div class="container container m-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
-    <div v-for="(tableName, key) in avaiableTables" class="w-full p-3" :key="key">
-      <div class="flex flex-col lg:flex-row rounded overflow-hidden h-auto lg:h-32 border shadow shadow-lg">
-        <img class="block h-auto w-full lg:w-48 flex-none bg-cover"
-             src="https://source.unsplash.com/random/200x125">
-        <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+    <div v-for="(tableName, key) in avaiableTables" class="w-full md:w-1/3 p-3" :key="key">
+      <div class="flex flex-col lg:flex-row rounded overflow-hidden h-auto lg:h-32 border shadow shadow-lg ">
+        <div class="bg-grey rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal flex-grow-default">
           <div class="text-black font-bold text-xl mb-2 leading-tight">{{ tableName.post_name }}</div>
-          <p class="text-red-100 text-base">Read more</p>
+          <ul class="flex main-nav border-b tab-buttons">
+              <li class="mr-1">
+                <button class="tab-item bg-white inline-block py-2 px-4 font-semibold border-l border-t border-r rounded-t text-blue-700 active">Edit</button>
+              </li>
+              <li class="mr-1">
+                <button class="tab-item bg-white inline-block py-2 px-4 font-semibold border-l border-t border-r rounded-t text-red-700 active">Delete</button>
+              </li>
+          </ul>
         </div>
       </div>
     </div>

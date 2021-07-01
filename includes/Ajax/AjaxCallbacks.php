@@ -6,14 +6,16 @@ class AjaxCallbacks
 {
     public static function create_new_table_entry()
     {
+        $newData = file_get_contents('php://input');
+        $newData = json_decode($newData, true);
+        $cells = $newData['cells'];
+        $tableTitle = $newData['title'];
         // create table post and return ID
-        // $id = wp_insert_post([
-        //     'post_type' => 'sprdsh_table',
-        //     'post_status' => 'publish',
-        // ]);
-        $id = 21;
-        $cells = file_get_contents('php://input');
-        $cells = json_decode($cells, true);
+        $id = wp_insert_post([
+            'post_type' => 'sprdsh_table',
+            'post_status' => 'publish',
+            "post_title" => $tableTitle
+        ]);
         update_post_meta($id, 'table_cells', apply_filters('wpspreadsheet_table_sanitize_array', $cells));
         $response = [
             'ok' => $id,
@@ -35,7 +37,7 @@ class AjaxCallbacks
     {
         $table = get_posts([
             'post_type' => 'sprdsh_table',
-            'posts_per_page' => 1
+            'posts_per_page' => 10
         ]);
         $response = $table;
         wp_send_json($response);
