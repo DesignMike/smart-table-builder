@@ -21,3 +21,85 @@
     </div>
 </div>
 </template>
+
+<script>
+import tablePreview from './tablePreview.vue';
+export default {
+    data() {
+        return {
+			tabNavigation: 0,
+			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
+			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
+        }
+    },
+	computed: {
+		canvasHeight() {
+			return window.innerHeight - 200 + 'px';
+		},
+		canvasWidth() {
+			return window.innerWidth - 300 + 'px';
+		},
+		grid: {
+			get: function () {
+				return this.$store.state.grid;
+			},
+			// setter
+			set: function (newGrid) {
+				return this.$store.commit('updateGrid', newGrid);
+			}
+		},
+		tableTitle: {
+			get: function () {
+				return this.$store.state.tableTitle;
+			}
+		}
+	},
+    methods: {
+		handleTabSwitch(event) {
+			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
+			// this.$refs.grid
+			debugger;
+			if (typeof(this.$refs.grid) !== 'undefined') {
+				try {
+					this.$refs.grid.endEdit();	
+				} catch (error) {
+					// no need to handle
+				}
+			}
+			debugger;
+			this.tabNavigation = selectedTabIndex;
+			if (selectedTabIndex == 1) {
+				debugger;
+				setTimeout(() => {
+					let tablePreview = document.getElementById('table-preview');
+					Tablesaw.init(tablePreview);
+				}, 3000);
+			};
+		},
+		handleGridEvent(e,v,i,c) {
+			debugger;
+			this.$refs.grid.setActiveCell(null);
+		},
+		handleRightClick(e,i,v,c) {
+			e.items.push({
+				title: 'Delete this row',
+				click: function (w,q) {
+						this.deleteRow(e.cell.boundRowIndex);
+						console.log(e.cell.value, e.cell.data);
+					}
+        	},
+			{
+				title: 'Add row',
+				click: function () {
+					// debugger;
+					// this.addRow([]);
+					this.insertRow([], e.cell.boundRowIndex);
+				}
+			});
+		}
+    },
+    components: {
+		tablePreview,
+    }
+}
+</script>

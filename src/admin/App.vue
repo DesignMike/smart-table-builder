@@ -4,7 +4,7 @@
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <h1 class="capitalize font-medium text-3xl font-sans">WP Spreadsheet &amp; Table Builder</h1>
       </div>
-      <button v-if="$route.path !== '/settings' " @click="handleSave" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
+      <button v-if="!['/settings', '/edit'].some(e => e == $route.path)" @click="handleSave" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
     </div>
 
     <router-view />

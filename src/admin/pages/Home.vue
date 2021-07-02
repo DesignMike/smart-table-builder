@@ -10,27 +10,10 @@
 				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
 			</div>
 		</form>
-		<ul class="flex main-nav border-b tab-buttons" v-if="grid.data.length">
-			<li class="mr-1">
-				<button data-tab-index="0" @click="handleTabSwitch" v-bind:class="[tabNavigation == 0 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Excel Sheet</button>
-			</li>
-			<li class="mr-1">
-				<button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Table</button>
-			</li>
-		</ul>
-		<div v-if="tabNavigation == 0">
-			<div  class="px-5 py-3 w-full h-full">
-				<canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" ref="grid" :data.prop="grid.data"></canvas-datagrid>
-			</div>
-		</div>
-		<div v-if="tabNavigation == 1">
-			<div  class="px-5 py-3">
-				<table-preview v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle"></table-preview>
-			</div>
-		</div>
+		<table-editor />
 </div>
 </template>
-<style scoped>
+<style>
 .main-nav li {
 	margin-bottom: 0;
 }
@@ -40,9 +23,9 @@ canvas-datagrid {
 </style>
 <script>
 import XLSX from 'xlsx';
-import tablePreview from '../components/tablePreview.vue';
 import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
+import tableEditor from '../components/tableEditor.vue';
 const make_cols = refstr => Array(XLSX.utils.decode_range(refstr).e.c + 1).fill(0).map((x,i) => ({name:XLSX.utils.encode_col(i), key:i}));
 const _SheetJSFT = [
 	"xlsx", "xlsb", "xlsm", "xls", "xml", "csv", "txt", "ods", "fods", "uos", "sylk", "dif", "dbf", "prn", "qpw", "123", "wb*", "wq*", "html", "htm"
@@ -51,9 +34,6 @@ export default {
 	data() {
 		return {
 			SheetJSFT: _SheetJSFT,
-			tabNavigation: 0,
-			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
-			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
 		}; 
 	},
 	methods: {
@@ -99,71 +79,14 @@ export default {
 				/* Convert array of arrays */
 				const data = XLSX.utils.sheet_to_json(ws, {raw:true, cellDates:false});
 				/* Update state */
-				this.grid = {data: json};
+				// this.grid = {data: json};
+				this.$store.state.grid = {data: json};
 				this.cols = make_cols(ws['!ref']);
 			};
 			reader.readAsBinaryString(file);
 		},
-		handleTabSwitch(event) {
-			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
-			// this.$refs.grid
-			debugger;
-			if (typeof(this.$refs.grid) !== 'undefined') {
-				try {
-					this.$refs.grid.endEdit();	
-				} catch (error) {
-					// no need to handle
-				}
-			}
-			debugger;
-			this.tabNavigation = selectedTabIndex;
-			if (selectedTabIndex == 1) {
-				debugger;
-				setTimeout(() => {
-					let tablePreview = document.getElementById('table-preview');
-					Tablesaw.init(tablePreview);
-				}, 3000);
-			};
-		},
-		handleGridEvent(e,v,i,c) {
-			debugger;
-			this.$refs.grid.setActiveCell(null);
-		},
-		handleRightClick(e,i,v,c) {
-			debugger;
-			e.items.push({
-				title: 'Delete this row',
-				click: function (w,q) {
-						this.deleteRow(e.cell.boundRowIndex);
-						console.log(e.cell.value, e.cell.data);
-					}
-        	},
-			{
-				title: 'Add row',
-				click: function () {
-					// debugger;
-					// this.addRow([]);
-					this.insertRow([], e.cell.boundRowIndex);
-				}
-			});
-		}
 	},
 	computed: {
-		canvasHeight() {
-			return window.innerHeight - 200 + 'px';
-		},
-		canvasWidth() {
-			return window.innerWidth - 300 + 'px';
-		},
-		grid: {
-			get: function () {
-				return this.$store.state.grid;
-			},
-			// setter
-			set: function (newGrid) {
-				return this.$store.commit('updateGrid', newGrid);
-			}
-		},
 		tableTitle: {
 			get: function () {
 				return this.$store.state.tableTitle;
@@ -174,7 +97,7 @@ export default {
 		}
 	},
 	components: {
-		tablePreview
+		tableEditor
   	},
 	mounted() {
 		// Tablesaw.init();

@@ -2,10 +2,10 @@
   background-color: white;
 }
 
-.wptable .main-nav li[data-v-9e5983fa] {
+.wptable .main-nav li {
   margin-bottom: 0;
 }
-.wptable canvas-datagrid[data-v-9e5983fa] {
+.wptable canvas-datagrid {
   overflow: scroll;
 }
 
