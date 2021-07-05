@@ -16,7 +16,7 @@ const store = new Vuex.Store({
       data: [
       ]
     },
-    route: null,
+    editingTableId: null,
     tableTitle: '',
     tableList: []
   },
@@ -24,8 +24,11 @@ const store = new Vuex.Store({
     updateGrid (state, newData) {
       state.grid = newData;
     },
-    SET_ROUTE (state, route) {
-      state.route = route;
+    setTitle (state, title) {
+      state.tableTitle = title;
+    },
+    setEditingTableId (state, tableId) {
+      state.editingTableId = tableId;
     },
     availableTables (state, data) {
       state.tableList = data;

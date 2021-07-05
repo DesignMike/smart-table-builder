@@ -17,5 +17,6 @@ class AjaxAction {
         AjaxAction::addAction('create_new_table_entry', [AjaxCallbacks::class , 'create_new_table_entry']);
         AjaxAction::addAction('sprdsh_get_table_cells', [AjaxCallbacks::class, 'get_table_cells']);
         AjaxAction::addAction('sprdsh_list_tables', [AjaxCallbacks::class, 'list_tables']);
+        AjaxAction::addAction('sprdsh_update_table_cells', [AjaxCallbacks::class, 'update_table_cells']);
     }
 }

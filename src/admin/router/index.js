@@ -20,16 +20,29 @@ const router = new Router({
     {
       path: '/edit',
       name: 'Edit Existing',
-      component: () => {
-        debugger;
-        return import('admin/pages/Edit.vue');
-      }
+      component: Edit
     },
   ]
 })
 
 router.beforeEach((to, from, next) => {
   // router.app.$store.commit('SET_ROUTE', to);
+  if (from.path == "/edit" && to.path == "/") {
+    router.app.$store.commit('setEditingTableId', null);
+    router.app.$store.commit('updateGrid', {data: []});
+    router.app.$store.commit('setTitle', null);
+  }
+  if (from.query.table_id) {
+    let updateListTables = (data) => {
+      router.app.$store.commit('availableTables', data );
+    }
+    
+    jQuery.ajax({
+        type: "GET",
+        url: ajaxurl + '?action=sprdsh_list_tables',
+        success: updateListTables
+    })
+  }
   next();
 });
 

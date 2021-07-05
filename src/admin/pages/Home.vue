@@ -10,7 +10,7 @@
 				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
 			</div>
 		</form>
-		<table-editor />
+		<table-editor v-if="$store.state.grid.data.length" />
 </div>
 </template>
 <style>
