@@ -5,9 +5,6 @@
 .wptable .main-nav li {
   margin-bottom: 0;
 }
-.wptable canvas-datagrid {
-  overflow: scroll;
-}
 
 /*! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */
 

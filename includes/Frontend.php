@@ -7,7 +7,7 @@ namespace Spreadsheet2Table;
 class Frontend {
 
     public function __construct() {
-        add_shortcode( 'vue-app', [ $this, 'render_frontend' ] );
+        add_shortcode( 'wp-table', [ $this, 'render_frontend' ] );
     }
 
     /**

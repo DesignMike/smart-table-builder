@@ -34,7 +34,7 @@
 
 <script>
 export default{
-  props:['cellItems', 'tableTitle'],
+  props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}},
   mounted() {
   },
   computed: {

@@ -1,17 +1,16 @@
 <template>
   <div id="vue-frontend-app">
-    <h2>Frontend App</h2>
-
-    <router-link to="/">Home</router-link>
-    <router-link to="/profile">Profile</router-link>
-
-    <router-view />
+    <table-element />
   </div>
 </template>
 
 <script>
+import tableElement from "../common/components/tableElement.vue"
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+		tableElement,
+  }
 }
 </script>
 
