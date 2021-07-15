@@ -22,7 +22,7 @@ class Frontend {
         wp_enqueue_style( 'exceltotable-frontend' );
         wp_enqueue_script( 'exceltotable-frontend' );
 
-        $content .= '<div id="vue-frontend-app"></div>';
+        $content .= '<div id="excel-to-table-app"></div>';
 
         return $content;
     }
