@@ -34,7 +34,7 @@ const store = new Vuex.Store({
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#excel-to-table-app',
+  el: '.excel-to-table-app',
   store: store,
   render: h => h(App)
 })
