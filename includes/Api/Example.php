@@ -12,8 +12,8 @@ class Example extends WP_REST_Controller {
      * [__construct description]
      */
     public function __construct() {
-        $this->namespace = 'myapp/v1';
-        $this->rest_base = 'test';
+        $this->namespace = 'tablecells/v1';
+        $this->rest_base = 'get-table-cells';
     }
 
     /**
@@ -34,6 +34,18 @@ class Example extends WP_REST_Controller {
                 )
             )
         );
+        register_rest_route(
+            $this->namespace,
+            '/' . $this->rest_base . '/(?P<id>[\d]+)',
+            array(
+                array(
+                    'methods'             => \WP_REST_Server::READABLE,
+                    'callback'            => array( $this, 'get_table' ),
+                    'permission_callback' => array( $this, 'get_items_permissions_check' ),
+                    'args'                => $this->get_collection_params(),
+                )
+            )
+        );
     }
 
     /**
@@ -49,6 +61,19 @@ class Example extends WP_REST_Controller {
         ];
 
         $response = rest_ensure_response( $items );
+
+        return $response;
+    }
+    public function get_table( $request ) {
+        $id = (int) $request['id'];
+        $table = get_post($id);
+        $response = [
+            'id' => $table->ID,
+            'grid' => ['data' => get_post_meta($id, 'table_cells')[0]],
+            'title' => $table->post_title
+        ];
+
+        $response = rest_ensure_response( $response );
 
         return $response;
     }

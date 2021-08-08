@@ -1,5 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["frontend"],{
 
+/***/ "./assets/css/tail.css":
+/*!*****************************!*\
+  !*** ./assets/css/tail.css ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !../../node_modules/mini-css-extract-plugin/dist/loader.js??ref--4-1!../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/src??postcss!./tail.css */ \"./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./assets/css/tail.css\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.i, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\").default\nvar update = add(\"22a83a8e\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack:///./assets/css/tail.css?");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./src/common/components/tableElement.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/common/components/tableElement.vue?vue&type=script&lang=js& ***!
@@ -45,6 +56,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n/* ha
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'Profile',\n\n  data() {\n    return {};\n  }\n\n});\n\n//# sourceURL=webpack:///./src/frontend/pages/Profile.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./assets/css/tail.css":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--4-1!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??postcss!./assets/css/tail.css ***!
+  \******************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./assets/css/tail.css?./node_modules/mini-css-extract-plugin/dist/loader.js??ref--4-1!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??postcss");
 
 /***/ }),
 
@@ -176,7 +198,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./src/frontend/App.vue\");\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ \"./src/frontend/router/index.js\");\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].config.productionTip = false;\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(vuex__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_2__[\"default\"].Store({\n  state: {\n    grid: {\n      data: []\n    },\n    editingTableId: null,\n    tableTitle: '',\n    tableList: []\n  },\n  mutations: {\n    updateGrid(state, newData) {\n      state.grid = newData;\n    },\n\n    setTitle(state, title) {\n      state.tableTitle = title;\n    },\n\n    setEditingTableId(state, tableId) {\n      state.editingTableId = tableId;\n    },\n\n    availableTables(state, data) {\n      state.tableList = data;\n    }\n\n  }\n});\n/* eslint-disable no-new */\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  el: '.excel-to-table-app',\n  store: store,\n  render: h => h(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\n});\n\n//# sourceURL=webpack:///./src/frontend/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./src/frontend/App.vue\");\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ \"./src/frontend/router/index.js\");\n/* harmony import */ var _assets_css_tail_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/css/tail.css */ \"./assets/css/tail.css\");\n/* harmony import */ var _assets_css_tail_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_css_tail_css__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].config.productionTip = false;\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(vuex__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_2__[\"default\"].Store({\n  state: {\n    grid: {\n      data: []\n    },\n    editingTableId: null,\n    tableTitle: '',\n    tableList: []\n  },\n  mutations: {\n    updateGrid(state, newData) {\n      state.grid = newData;\n    },\n\n    setTitle(state, title) {\n      state.tableTitle = title;\n    },\n\n    setEditingTableId(state, tableId) {\n      state.editingTableId = tableId;\n    },\n\n    availableTables(state, data) {\n      state.tableList = data;\n    }\n\n  }\n});\n/* eslint-disable no-new */\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  el: '.excel-to-table-app',\n  store: store,\n  render: h => h(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\n});\n\n//# sourceURL=webpack:///./src/frontend/main.js?");
 
 /***/ }),
 

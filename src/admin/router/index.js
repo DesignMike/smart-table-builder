@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from 'admin/pages/Home.vue'
 import Settings from 'admin/pages/Settings.vue'
 import Edit from 'admin/pages/Edit.vue'
+import AddFromScratch from 'admin/pages/AddFromScratch.vue'
 
 Vue.use(Router)
 const router = new Router({
@@ -21,6 +22,11 @@ const router = new Router({
       path: '/edit',
       name: 'Edit Existing',
       component: Edit
+    },
+    {
+      path: '/create-from-scratch',
+      name: 'Add From Scratch',
+      component: AddFromScratch
     },
   ]
 })

@@ -11,7 +11,7 @@
     </ul>
     <div v-if="tabNavigation == 0">
         <div  class="px-5 py-3 w-full h-full">
-            <canvas-datagrid v-if="grid.data.length" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" ref="grid" :data.prop="grid.data"></canvas-datagrid>
+            <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" ref="grid" :data.prop="grid.data"></canvas-datagrid>
         </div>
     </div>
     <div v-if="tabNavigation == 1">
@@ -26,7 +26,6 @@
 import tableElement from '../../common/components/tableElement.vue';
 export default {
     data() {
-		debugger;
         return {
 			tabNavigation: 0,
 			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
@@ -42,7 +41,6 @@ export default {
 		},
 		grid: {
 			get: function () {
-				debugger;
 				return this.$store.state.grid;
 			},
 			// setter
@@ -59,8 +57,6 @@ export default {
     methods: {
 		handleTabSwitch(event) {
 			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
-			// this.$refs.grid
-			debugger;
 			if (typeof(this.$refs.grid) !== 'undefined') {
 				try {
 					this.$refs.grid.endEdit();	
@@ -68,10 +64,8 @@ export default {
 					// no need to handle
 				}
 			}
-			debugger;
 			this.tabNavigation = selectedTabIndex;
 			if (selectedTabIndex == 1) {
-				debugger;
 				setTimeout(() => {
 					let tablePreview = document.getElementById('table-preview');
 					Tablesaw.init(tablePreview);
@@ -83,7 +77,6 @@ export default {
 			this.$refs.grid.style.width = '100%';
 		},
 		handleGridEvent(e,v,i,c) {
-			debugger;
 			this.$refs.grid.setActiveCell(null);
 		},
 		handleRightClick(e,i,v,c) {
@@ -108,9 +101,7 @@ export default {
 		tableElement,
     },
 	mounted() {
-		debugger;
 		setTimeout(() => {
-			debugger;
 		}, 3000);
 	},
 }

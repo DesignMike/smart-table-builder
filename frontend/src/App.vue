@@ -1,12 +1,11 @@
 <template>
   <div class="excel-to-table-app">
-	  <h3>h</h3>
     <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle"></table-element>
   </div>
 </template>
 
 <script>
-import tableElement from "../common/components/tableElement.vue"
+import tableElement from "../../src/common/components/tableElement.vue"
 export default {
   name: 'App',
   data() {
@@ -20,7 +19,6 @@ export default {
   computed: {
     grid: {
 			get: function () {
-				debugger;
 				return this.$store.state.grid;
 			},
 			// setter
@@ -38,8 +36,16 @@ export default {
 		}
   },
   mounted() {
-	  debugger;
-	  jQuery;
+	  jQuery.ajax({
+			type: "GET",
+			vm: this,
+			url: `http://modernwp.test/wp-json/tablecells/v1/get-table-cells/${this.tableId}`,
+			success(data) {
+				let {vm} = this;
+				vm.$store.commit('updateGrid', data.grid );
+				vm.$store.commit('setTitle', data.title);
+			}
+		})
   },
 }
 </script>

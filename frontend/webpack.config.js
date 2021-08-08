@@ -18,8 +18,7 @@ function resolve (dir) {
 // Naming and path settings
 var appName = 'app';
 var entryPoint = {
-  admin: './src/admin/main.js',
-  style: './assets/less/style.css',
+  frontend: './src/main.js',
 };
 
 var exportPath = path.resolve(__dirname, './assets/js');
@@ -146,8 +145,8 @@ module.exports = {
                 require('tailwindcss')(resolve('_config/tailwind.config.js')),
                 require('postcss-preset-env')({ stage: 1 }),
                 require('postcss-prefix-selector')({
-                  prefix: '.wptable'
-                })
+                  prefix: '.excel-to-table-app'
+                }),
               ],
             },
           },

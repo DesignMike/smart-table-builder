@@ -17,6 +17,9 @@
 .main-nav li {
 	margin-bottom: 0;
 }
+canvas-datagrid {
+	overflow: scroll;
+}
 </style>
 <script>
 import XLSX from 'xlsx';

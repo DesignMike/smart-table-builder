@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex'
-import router from './router'
-
+import '../../assets/css/tail.css'
 Vue.config.productionTip = false
 Vue.use(Vuex);
 

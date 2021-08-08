@@ -127,6 +127,7 @@ final class Excel_To_Table {
         define( 'EXCELTOTABLE_INCLUDES', EXCELTOTABLE_PATH . '/includes' );
         define( 'EXCELTOTABLE_URL', plugins_url( '', EXCELTOTABLE_FILE ) );
         define( 'EXCELTOTABLE_ASSETS', EXCELTOTABLE_URL . '/assets' );
+        define( 'EXCELTOTABLE_FRONTEND_ASSETS', EXCELTOTABLE_URL . '/frontend/assets' );
     }
 
     /**

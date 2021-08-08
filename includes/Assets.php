@@ -76,10 +76,20 @@ class Assets {
                 'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/vendors.js' ),
                 'in_footer' => true
             ],
+            'exceltotable-frontend-runtime' => [
+                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/runtime.js',
+                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/runtime.js' ),
+                'in_footer' => true
+            ],
+            'exceltotable-frontend-vendor' => [
+                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/vendors.js',
+                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/vendors.js' ),
+                'in_footer' => true
+            ],
             'exceltotable-frontend' => [
-                'src'       => EXCELTOTABLE_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery', 'exceltotable-vendor', 'exceltotable-runtime' ],
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/frontend.js' ),
+                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/frontend.js',
+                'deps'      => [ 'jquery', 'exceltotable-frontend-vendor', 'exceltotable-frontend-runtime' ],
+                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/frontend.js' ),
                 'in_footer' => true
             ],
             'exceltotable-admin' => [
@@ -101,11 +111,8 @@ class Assets {
     public function get_styles() {
 
         $styles = [
-            'exceltotable-style' => [
-                'src' =>  EXCELTOTABLE_ASSETS . '/css/style.css'
-            ],
             'exceltotable-frontend' => [
-                'src' =>  EXCELTOTABLE_ASSETS . '/css/frontend.css'
+                'src' =>  EXCELTOTABLE_FRONTEND_ASSETS . '/css/frontend.css'
             ],
             'exceltotable-admin' => [
                 'src' =>  EXCELTOTABLE_ASSETS . '/css/admin.css'

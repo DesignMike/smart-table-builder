@@ -1,16 +1,28 @@
 module.exports = {
     purge: {
-      //enabled: false,
+      enabled: true,
       content: [
-        './src/**/*.html',
-        './src/**/*.vue',
-        './src/**/*.js',
+        '../src/**/*.html',
+        '../src/**/*.vue',
+        '../src/**/*.js',
       ],
     },
-    prefix: '',
     important: false,
     separator: ':',
     theme: {
+        extinguish: {
+            legacy: true,
+            boxSizing: false, // "unset" "content-box" "border-box" "inherit"
+            layout: false,
+            borderColor: false,
+            font: true,
+            pseudoElements: false,
+            placeholders: false,
+            images: true,
+            forms: false,
+            lists: false,
+            forElements(element,spec){}
+        },
         screens: {
             sm: '640px',
             md: '768px',
@@ -494,7 +506,9 @@ module.exports = {
         wordBreak: ['responsive'],
         zIndex: ['responsive'],
     },
-    corePlugins: {},
-    plugins: [],
+    corePlugins: {
+        preflight: false,
+    },
+    plugins: [require("mass-extinction")],
 }
 
