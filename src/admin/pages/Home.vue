@@ -1,106 +1,69 @@
 <template>
-<div @drop="_drop" @dragenter="_suppress" @dragover="_suppress">
-		<form>
-			<div class="mb-4">
-				<label class="block uppercase tracking-wide text-xs font-bold">Name</label>
-				<input v-model="tableTitle" type="text" class="block w-full focus:outline-0 bg-white py-3 px-6 mb-2 sm:mb-0" name="name" placeholder="Enter the Table Name" required="">
-			</div>
-			<div class="mb-4">
-				<label class="block uppercase tracking-wide text-xs font-bold">Upload a Spreadsheet</label>
-				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
-			</div>
-		</form>
-		<table-editor v-if="$store.state.grid.data.length" />
+<div class="flex flex-wrap justify-center">
+    <div v-if="!defineCells">
+                    <button @click="setDefineCells" class="text-purple-500 bg-transparent border-2 border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                      Create New Table
+                    </button>
+                    <button @click="navigateToUpload" class="text-purple-500 bg-transparent border-2 border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                      Upload SpreadSheet
+                    </button>
+    </div>
+    <div v-if="defineCells">
+        <div>
+            <div class="py-3">
+                <label for="title" class="font-semibold text-sm text-gray-600 pr-1 block">Table Title</label>
+                <input v-model="title" type="text" id="title" placeholder="Table Title" class="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full">
+            </div>
+            <div class="flex">
+                <div class="flex-col">
+                    <label for="columns" class="font-semibold text-sm text-gray-600 pr-1 block">Columns</label>
+                    <input v-model="columns" type="number" id="columns" placeholder="Columns" class="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring">
+                </div>
+                <div class="flex-col">
+                    <label for="rows" class="font-semibold text-sm text-gray-600 pr-1 block">Rows</label>
+                    <input v-model="rows" type="number" id="rows" placeholder="Rows" class="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring">
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3">
+            <button v-if="requiredFields" @click="createTable" class="text-purple-500 bg-transparent border-2 border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            Create
+            </button>
+        </div>
+    </div>
 </div>
 </template>
-<style>
-.main-nav li {
-	margin-bottom: 0;
-}
-canvas-datagrid {
-	overflow: scroll;
-}
-</style>
-<script>
-import XLSX from 'xlsx';
-import CanvasDatagrid from 'canvas-datagrid';
-import tablesaw from 'tablesaw';
-import tableEditor from '../components/tableEditor.vue';
-const make_cols = refstr => Array(XLSX.utils.decode_range(refstr).e.c + 1).fill(0).map((x,i) => ({name:XLSX.utils.encode_col(i), key:i}));
-const _SheetJSFT = [
-	"xlsx", "xlsb", "xlsm", "xls", "xml", "csv", "txt", "ods", "fods", "uos", "sylk", "dif", "dbf", "prn", "qpw", "123", "wb*", "wq*", "html", "htm"
-].map(function(x) { return "." + x; }).join(",");
-export default {
-	data() {
-		return {
-			SheetJSFT: _SheetJSFT,
-		}; 
-	},
-	methods: {
-		_suppress(evt) { evt.stopPropagation(); evt.preventDefault(); },
-		_drop(evt) {
-			evt.stopPropagation(); evt.preventDefault();
-			const files = evt.dataTransfer.files;
-			if(files && files[0]) this._file(files[0]);
-		},
-		_change(evt) {
-			const files = evt.target.files;
-			if(files && files[0]) this._file(files[0]);
-		},
-		_export(evt) {
-			/* convert state to workbook */
-			const ws = XLSX.utils.aoa_to_sheet(this.data);
-			const wb = XLSX.utils.book_new();
-			XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
-			/* generate file and send to client */
-			XLSX.writeFile(wb, "sheetjs.xlsx");
-		},
-		to_json(workbook) {
-			if(workbook.SSF) XLSX.SSF.load_table(workbook.SSF);
-			var result = {};
-			workbook.SheetNames.forEach(function(sheetName) {
-			var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {raw:false, header:1});
-			if(roa.length > 0) result[sheetName] = roa;
-			});
-			return result;
-  		},
-		_file(file) {
-			/* Boilerplate to set up FileReader */
-			const reader = new FileReader();
-			reader.onload = (e) => {
-				/* Parse data */
-				const bstr = e.target.result;
-				const wb = XLSX.read(bstr, {type:'binary'});
-				/* Get first worksheet */
-				const wsname = wb.SheetNames[0];
 
-				var json = this.to_json(wb)[wsname];
-				const ws = wb.Sheets[wsname];
-				/* Convert array of arrays */
-				const data = XLSX.utils.sheet_to_json(ws, {raw:true, cellDates:false});
-				/* Update state */
-				// this.grid = {data: json};
-				this.$store.state.grid = {data: json};
-				this.cols = make_cols(ws['!ref']);
-			};
-			reader.readAsBinaryString(file);
-		},
-	},
-	computed: {
-		tableTitle: {
-			get: function () {
-				return this.$store.state.tableTitle;
-			},
-			set: function (newString) {
-				return this.$store.state.tableTitle = newString;
-			}
-		}
-	},
-	components: {
-		tableEditor
-  	},
-	mounted() {
-		// Tablesaw.init();
-	},
-};
+<script>
+export default {
+    data() {
+        return {
+            defineCells: false,
+            rows: 3,
+            columns: 3,
+            title: ""
+        }
+    },
+    methods: {
+        setDefineCells() {
+            debugger
+            this.defineCells = !this.defineCells;
+        },
+        createTable() {
+            this.$router.push({ name: "Add From Scratch", query: {
+                title: this.title,
+                col: this.columns,
+                row: this.rows
+            }});
+        },
+        navigateToUpload() {
+            this.$router.push({ name: "New table from excel file"})
+        }
+    },
+    computed: {
+        requiredFields() {
+            return (this.rows && this.columns && this.title.length) ? true : false
+        }
+    },
+}
 </script>

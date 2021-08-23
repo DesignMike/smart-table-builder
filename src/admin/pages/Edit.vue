@@ -44,6 +44,7 @@ export default {
                 vm: this,
                 success(data) {
                     let {vm} = this;
+                    debugger;
                     vm.$store.commit('updateGrid', data.grid );
                     vm.$store.commit('setTitle', data.title);
                     vm.$store.commit('setEditingTableId', data.id);
@@ -88,6 +89,7 @@ export default {
                     vm.$store.commit('setEditingTableId', data.id);
                 }
             })
+            this.$store.commit('setPageTitle', "Editing Table" );
         }
         if (!this.toEditTable) {
             let updateListTables = (data) => {

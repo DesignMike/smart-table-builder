@@ -19586,6 +19586,26 @@ Add the correct display in Chrome and Safari.
   opacity: 1;
 }
 
+.wptable .disabled\:opacity-0:disabled {
+  opacity: 0;
+}
+
+.wptable .disabled\:opacity-25:disabled {
+  opacity: 0.25;
+}
+
+.wptable .disabled\:opacity-50:disabled {
+  opacity: 0.5;
+}
+
+.wptable .disabled\:opacity-75:disabled {
+  opacity: 0.75;
+}
+
+.wptable .disabled\:opacity-100:disabled {
+  opacity: 1;
+}
+
 .wptable .bg-blend-normal {
   background-blend-mode: normal;
 }
@@ -43147,6 +43167,26 @@ Add the correct display in Chrome and Safari.
     opacity: 1;
   }
 
+  .wptable .sm\:disabled\:opacity-0:disabled {
+    opacity: 0;
+  }
+
+  .wptable .sm\:disabled\:opacity-25:disabled {
+    opacity: 0.25;
+  }
+
+  .wptable .sm\:disabled\:opacity-50:disabled {
+    opacity: 0.5;
+  }
+
+  .wptable .sm\:disabled\:opacity-75:disabled {
+    opacity: 0.75;
+  }
+
+  .wptable .sm\:disabled\:opacity-100:disabled {
+    opacity: 1;
+  }
+
   .wptable .sm\:bg-blend-normal {
     background-blend-mode: normal;
   }
@@ -66673,6 +66713,26 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .md\:focus\:opacity-100:focus {
+    opacity: 1;
+  }
+
+  .wptable .md\:disabled\:opacity-0:disabled {
+    opacity: 0;
+  }
+
+  .wptable .md\:disabled\:opacity-25:disabled {
+    opacity: 0.25;
+  }
+
+  .wptable .md\:disabled\:opacity-50:disabled {
+    opacity: 0.5;
+  }
+
+  .wptable .md\:disabled\:opacity-75:disabled {
+    opacity: 0.75;
+  }
+
+  .wptable .md\:disabled\:opacity-100:disabled {
     opacity: 1;
   }
 
@@ -90205,6 +90265,26 @@ Add the correct display in Chrome and Safari.
     opacity: 1;
   }
 
+  .wptable .lg\:disabled\:opacity-0:disabled {
+    opacity: 0;
+  }
+
+  .wptable .lg\:disabled\:opacity-25:disabled {
+    opacity: 0.25;
+  }
+
+  .wptable .lg\:disabled\:opacity-50:disabled {
+    opacity: 0.5;
+  }
+
+  .wptable .lg\:disabled\:opacity-75:disabled {
+    opacity: 0.75;
+  }
+
+  .wptable .lg\:disabled\:opacity-100:disabled {
+    opacity: 1;
+  }
+
   .wptable .lg\:bg-blend-normal {
     background-blend-mode: normal;
   }
@@ -113731,6 +113811,26 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .xl\:focus\:opacity-100:focus {
+    opacity: 1;
+  }
+
+  .wptable .xl\:disabled\:opacity-0:disabled {
+    opacity: 0;
+  }
+
+  .wptable .xl\:disabled\:opacity-25:disabled {
+    opacity: 0.25;
+  }
+
+  .wptable .xl\:disabled\:opacity-50:disabled {
+    opacity: 0.5;
+  }
+
+  .wptable .xl\:disabled\:opacity-75:disabled {
+    opacity: 0.75;
+  }
+
+  .wptable .xl\:disabled\:opacity-100:disabled {
     opacity: 1;
   }
 

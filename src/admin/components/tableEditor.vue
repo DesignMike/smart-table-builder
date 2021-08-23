@@ -45,6 +45,7 @@ export default {
 			},
 			// setter
 			set: function (newGrid) {
+				debugger;
 				return this.$store.commit('updateGrid', newGrid);
 			}
 		},
@@ -80,6 +81,16 @@ export default {
 			this.$refs.grid.setActiveCell(null);
 		},
 		handleRightClick(e,i,v,c) {
+			// e.items.map((e,i) => e.title == 'Add/Remove columns' ? i : '').filter(ee => ee).forEach(eee => delete e.items[eee])
+			let {$store: store} = this;
+			let manipulateStore = (evt) => {
+				store;
+				debugger;
+			}
+			for (let index = 0; index < e.items.length; index++) {
+				// const element = array[index];
+				delete e.items[index];
+			}
 			e.items.push({
 				title: 'Delete this row',
 				click: function (w,q) {
@@ -90,9 +101,14 @@ export default {
 			{
 				title: 'Add row',
 				click: function () {
-					// debugger;
-					// this.addRow([]);
-					this.insertRow([], e.cell.boundRowIndex);
+					this.insertRow({}, e.cell.boundRowIndex);
+				}
+			},
+			{
+				title: 'Add column',
+				click: () => {
+					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(1)])
+					store.commit('updateGrid', {data: newCells})
 				}
 			});
 		}

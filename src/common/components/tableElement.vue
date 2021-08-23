@@ -42,6 +42,7 @@ export default{
       return this.cellItems.filter((e,i) => i == 0);
     },
     nonHeaderCells () {
+      debugger
       return this.cellItems.filter((e,i) => i !== 0);
     }
   }
