@@ -13,7 +13,7 @@
         required=""
       />
     </div>
-    <div v-if="!avaiableTables.length" class="flex justify-center items-center">
+    <div v-if="!avaiableTables.length && !toEditTable" class="flex justify-center items-center">
         <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
     </div>
     <table-editor v-if="toEditTable" />

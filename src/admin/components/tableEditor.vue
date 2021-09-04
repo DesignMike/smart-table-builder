@@ -101,13 +101,14 @@ export default {
 			{
 				title: 'Add row',
 				click: function () {
-					this.insertRow({}, e.cell.boundRowIndex);
+					this.insertRow([], e.cell.boundRowIndex);
 				}
 			},
 			{
 				title: 'Add column',
 				click: () => {
-					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(1)])
+					debugger
+					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(e.cell.boundColumnIndex)])
 					store.commit('updateGrid', {data: newCells})
 				}
 			});
