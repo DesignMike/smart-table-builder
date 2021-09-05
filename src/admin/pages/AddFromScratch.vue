@@ -44,7 +44,7 @@ export default {
 		},
         tableTitle: {
 			get: function () {
-				return this.$store.state.tableTitle;
+				return this.$store.state.grid.tableTitle;
 			},
 			set: function (newString) {
 				return this.$store.state.tableTitle = newString;
@@ -53,7 +53,7 @@ export default {
     },
     mounted() {
         debugger
-        this.$store.commit('updateGrid', defautlSheetData(this.$route.query).grid );
+        this.$store.commit('updateGrid', defautlSheetData(this.$route.query).grid.data );
         this.$store.commit('setTitle', defautlSheetData(this.$route.query).title );
     },
 }

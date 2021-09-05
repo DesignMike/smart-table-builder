@@ -1,12 +1,19 @@
 .wptable #wpcontent, .wptable #wpfooter {
   background-color: white;
 }
+.wrap.wptable {
+  margin-top: 0 !important;
+}
 
 .wptable .main-nav li {
   margin-bottom: 0;
 }
 .wptable canvas-datagrid {
   overflow: scroll;
+}
+
+.wrap.wptable[data-v-2d4b29ae] {
+  background-color: aqua;
 }
 
 /*! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */

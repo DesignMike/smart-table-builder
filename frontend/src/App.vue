@@ -1,6 +1,6 @@
 <template>
-  <div class="excel-to-table-app">
-    <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle"></table-element>
+  <div class="excel-to-table-app" v-bind:data-table-id=[tableId] >
+    <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element>
   </div>
 </template>
 
@@ -33,7 +33,12 @@ export default {
 			set: function (newString) {
 				return this.$store.state.tableTitle = newString;
 			}
+		},
+	showSearchBar: {
+		get: function () {
+			return this.$store.state.grid.showSearchBar;
 		}
+	}
   },
   mounted() {
 	  jQuery.ajax({

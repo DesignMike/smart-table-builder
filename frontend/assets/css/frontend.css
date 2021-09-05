@@ -48,12 +48,34 @@ img, .excel-to-table-app video {
   }
 }
 
+.excel-to-table-app .pointer-events-none {
+  pointer-events: none
+}
+
+.excel-to-table-app .absolute {
+  position: absolute
+}
+
 .excel-to-table-app .relative {
   position: relative
 }
 
+.excel-to-table-app .inset-y-0 {
+  top: 0;
+  bottom: 0
+}
+
+.excel-to-table-app .left-0 {
+  left: 0
+}
+
 .excel-to-table-app .m-auto {
   margin: auto
+}
+
+.excel-to-table-app .mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem
 }
 
 .excel-to-table-app .mx-auto {
@@ -61,12 +83,24 @@ img, .excel-to-table-app video {
   margin-right: auto
 }
 
+.excel-to-table-app .mt-2 {
+  margin-top: 0.5rem
+}
+
+.excel-to-table-app .mt-6 {
+  margin-top: 1.5rem
+}
+
+.excel-to-table-app .mt-8 {
+  margin-top: 2rem
+}
+
 .excel-to-table-app .mr-1 {
   margin-right: 0.25rem
 }
 
-.excel-to-table-app .mb-0 {
-  margin-bottom: 0
+.excel-to-table-app .mb-1 {
+  margin-bottom: 0.25rem
 }
 
 .excel-to-table-app .mb-2 {
@@ -77,8 +111,8 @@ img, .excel-to-table-app video {
   margin-bottom: 1rem
 }
 
-.excel-to-table-app .mb-6 {
-  margin-bottom: 1.5rem
+.excel-to-table-app .ml-3 {
+  margin-left: 0.75rem
 }
 
 .excel-to-table-app .block {
@@ -101,6 +135,22 @@ img, .excel-to-table-app video {
   display: grid
 }
 
+.excel-to-table-app .hidden {
+  display: none
+}
+
+.excel-to-table-app .h-3 {
+  height: 0.75rem
+}
+
+.excel-to-table-app .h-6 {
+  height: 1.5rem
+}
+
+.excel-to-table-app .h-32 {
+  height: 8rem
+}
+
 .excel-to-table-app .h-auto {
   height: auto
 }
@@ -109,20 +159,20 @@ img, .excel-to-table-app video {
   height: 100%
 }
 
+.excel-to-table-app .w-3 {
+  width: 0.75rem
+}
+
+.excel-to-table-app .w-6 {
+  width: 1.5rem
+}
+
+.excel-to-table-app .w-32 {
+  width: 8rem
+}
+
 .excel-to-table-app .w-full {
   width: 100%
-}
-
-.excel-to-table-app .min-w-0 {
-  min-width: 0
-}
-
-.excel-to-table-app .min-w-full {
-  min-width: 100%
-}
-
-.excel-to-table-app .max-w-full {
-  max-width: 100%
 }
 
 .excel-to-table-app .flex-1 {
@@ -131,6 +181,14 @@ img, .excel-to-table-app video {
 
 .excel-to-table-app .flex-grow-default {
   flex-grow: 1
+}
+
+.excel-to-table-app .table-auto {
+  table-layout: auto
+}
+
+.excel-to-table-app .border-collapse {
+  border-collapse: collapse
 }
 
 @-webkit-keyframes spin {
@@ -199,6 +257,25 @@ img, .excel-to-table-app video {
   }
 }
 
+.excel-to-table-app .animate-spin {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite
+}
+
+.excel-to-table-app .cursor-pointer {
+  cursor: pointer
+}
+
+.excel-to-table-app .appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none
+}
+
+.excel-to-table-app .flex-row {
+  flex-direction: row
+}
+
 .excel-to-table-app .flex-col {
   flex-direction: column
 }
@@ -213,6 +290,10 @@ img, .excel-to-table-app video {
 
 .excel-to-table-app .justify-start {
   justify-content: flex-start
+}
+
+.excel-to-table-app .justify-end {
+  justify-content: flex-end
 }
 
 .excel-to-table-app .justify-center {
@@ -231,21 +312,62 @@ img, .excel-to-table-app video {
   overflow-x: auto
 }
 
-.excel-to-table-app .break-words {
-  word-wrap: break-word
+.excel-to-table-app .rounded-lg {
+  border-radius: 0.5rem
+}
+
+.excel-to-table-app .rounded-full {
+  border-radius: 9999px
 }
 
 .excel-to-table-app .border-0 {
   border-width: 0
 }
 
+.excel-to-table-app .border-2 {
+  border-width: 2px
+}
+
 .excel-to-table-app .border-b-2 {
   border-bottom-width: 2px
+}
+
+.excel-to-table-app .border-solid {
+  border-style: solid
+}
+
+.excel-to-table-app .border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgba(247, 250, 252, var(--tw-border-opacity))
 }
 
 .excel-to-table-app .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgba(237, 242, 247, var(--tw-border-opacity))
+}
+
+.excel-to-table-app .border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgba(226, 232, 240, var(--tw-border-opacity))
+}
+
+.excel-to-table-app .border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgba(203, 213, 224, var(--tw-border-opacity))
+}
+
+.excel-to-table-app .border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgba(26, 32, 44, var(--tw-border-opacity))
+}
+
+.excel-to-table-app .border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgba(159, 122, 234, var(--tw-border-opacity))
+}
+
+.excel-to-table-app .bg-transparent {
+  background-color: transparent
 }
 
 .excel-to-table-app .bg-white {
@@ -258,14 +380,43 @@ img, .excel-to-table-app video {
   background-color: rgba(247, 250, 252, var(--tw-bg-opacity))
 }
 
+.excel-to-table-app .bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(237, 242, 247, var(--tw-bg-opacity))
+}
+
 .excel-to-table-app .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgba(66, 153, 225, var(--tw-bg-opacity))
 }
 
+.excel-to-table-app .hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(247, 250, 252, var(--tw-bg-opacity))
+}
+
+.excel-to-table-app .hover\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(237, 242, 247, var(--tw-bg-opacity))
+}
+
 .excel-to-table-app .hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(44, 82, 130, var(--tw-bg-opacity))
+}
+
+.excel-to-table-app .hover\:bg-purple-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(159, 122, 234, var(--tw-bg-opacity))
+}
+
+.excel-to-table-app .focus\:bg-gray-200:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgba(237, 242, 247, var(--tw-bg-opacity))
+}
+
+.excel-to-table-app .fill-current {
+  fill: currentColor
 }
 
 .excel-to-table-app .p-3 {
@@ -276,8 +427,14 @@ img, .excel-to-table-app video {
   padding: 1rem
 }
 
-.excel-to-table-app .p-6 {
-  padding: 1.5rem
+.excel-to-table-app .px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem
+}
+
+.excel-to-table-app .px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem
 }
 
 .excel-to-table-app .px-4 {
@@ -295,6 +452,11 @@ img, .excel-to-table-app video {
   padding-right: 1.5rem
 }
 
+.excel-to-table-app .py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem
+}
+
 .excel-to-table-app .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem
@@ -305,8 +467,51 @@ img, .excel-to-table-app video {
   padding-bottom: 0.75rem
 }
 
+.excel-to-table-app .py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem
+}
+
+.excel-to-table-app .py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem
+}
+
+.excel-to-table-app .py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem
+}
+
+.excel-to-table-app .pt-4 {
+  padding-top: 1rem
+}
+
+.excel-to-table-app .pt-6 {
+  padding-top: 1.5rem
+}
+
+.excel-to-table-app .pr-1 {
+  padding-right: 0.25rem
+}
+
+.excel-to-table-app .pb-4 {
+  padding-bottom: 1rem
+}
+
+.excel-to-table-app .pl-3 {
+  padding-left: 0.75rem
+}
+
+.excel-to-table-app .pl-8 {
+  padding-left: 2rem
+}
+
 .excel-to-table-app .text-left {
   text-align: left
+}
+
+.excel-to-table-app .text-center {
+  text-align: center
 }
 
 .excel-to-table-app .font-sans {
@@ -321,8 +526,8 @@ img, .excel-to-table-app video {
   font-size: 0.875rem
 }
 
-.excel-to-table-app .text-base {
-  font-size: 1rem
+.excel-to-table-app .text-lg {
+  font-size: 1.125rem
 }
 
 .excel-to-table-app .text-xl {
@@ -331,6 +536,10 @@ img, .excel-to-table-app video {
 
 .excel-to-table-app .text-3xl {
   font-size: 1.875rem
+}
+
+.excel-to-table-app .font-normal {
+  font-weight: 400
 }
 
 .excel-to-table-app .font-medium {
@@ -357,16 +566,24 @@ img, .excel-to-table-app video {
   line-height: 1.25
 }
 
+.excel-to-table-app .leading-snug {
+  line-height: 1.375
+}
+
 .excel-to-table-app .leading-normal {
   line-height: 1.5
+}
+
+.excel-to-table-app .leading-relaxed {
+  line-height: 1.625
 }
 
 .excel-to-table-app .tracking-wide {
   letter-spacing: 0.025em
 }
 
-.excel-to-table-app .tracking-wider {
-  letter-spacing: 0.05em
+.excel-to-table-app .tracking-widest {
+  letter-spacing: 0.1em
 }
 
 .excel-to-table-app .text-black {
@@ -377,6 +594,16 @@ img, .excel-to-table-app video {
 .excel-to-table-app .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgba(226, 232, 240, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgba(113, 128, 150, var(--tw-text-opacity))
 }
 
 .excel-to-table-app .text-gray-700 {
@@ -399,14 +626,59 @@ img, .excel-to-table-app video {
   color: rgba(66, 153, 225, var(--tw-text-opacity))
 }
 
+.excel-to-table-app .text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgba(49, 130, 206, var(--tw-text-opacity))
+}
+
 .excel-to-table-app .text-blue-700 {
   --tw-text-opacity: 1;
   color: rgba(43, 108, 176, var(--tw-text-opacity))
 }
 
+.excel-to-table-app .text-purple-500 {
+  --tw-text-opacity: 1;
+  color: rgba(159, 122, 234, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .hover\:text-gray-900:hover {
+  --tw-text-opacity: 1;
+  color: rgba(26, 32, 44, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgba(49, 130, 206, var(--tw-text-opacity))
+}
+
 .excel-to-table-app .hover\:text-blue-800:hover {
   --tw-text-opacity: 1;
   color: rgba(44, 82, 130, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .focus\:text-gray-900:focus {
+  --tw-text-opacity: 1;
+  color: rgba(26, 32, 44, var(--tw-text-opacity))
+}
+
+.excel-to-table-app .placeholder-gray-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgba(203, 213, 224, var(--tw-placeholder-opacity))
+}
+
+.excel-to-table-app .placeholder-gray-400:-ms-input-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgba(203, 213, 224, var(--tw-placeholder-opacity))
+}
+
+.excel-to-table-app .placeholder-gray-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgba(203, 213, 224, var(--tw-placeholder-opacity))
 }
 
 .excel-to-table-app *, .excel-to-table-app ::before, .excel-to-table-app ::after {
@@ -425,6 +697,22 @@ img, .excel-to-table-app video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow)
 }
 
+.excel-to-table-app .focus\:shadow-outline:focus {
+  --tw-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow)
+}
+
+.excel-to-table-app .outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px
+}
+
+.excel-to-table-app .focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px
+}
+
 .excel-to-table-app *, .excel-to-table-app ::before, .excel-to-table-app ::after {
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
@@ -432,6 +720,13 @@ img, .excel-to-table-app video {
   --tw-ring-color: rgba(66, 153, 225, 0.5);
   --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
   --tw-ring-shadow: 0 0 rgba(0,0,0,0)
+}
+
+.excel-to-table-app .focus\:ring:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 rgba(0,0,0,0);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 rgba(0,0,0,0))
 }
 
 .excel-to-table-app .filter {
@@ -447,9 +742,27 @@ img, .excel-to-table-app video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
 }
 
+.excel-to-table-app .transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.excel-to-table-app .duration-150 {
+  transition-duration: 150ms
+}
+
+.excel-to-table-app .ease-linear {
+  transition-timing-function: linear
+}
+
 @media (min-width: 640px) {
   .excel-to-table-app .sm\:mb-0 {
     margin-bottom: 0
+  }
+
+  .excel-to-table-app .sm\:w-64 {
+    width: 16rem
   }
 
   .excel-to-table-app .sm\:items-stretch {
@@ -462,12 +775,45 @@ img, .excel-to-table-app video {
 }
 
 @media (min-width: 768px) {
+  .excel-to-table-app .md\:mt-0 {
+    margin-top: 0
+  }
+
+  .excel-to-table-app .md\:ml-4 {
+    margin-left: 1rem
+  }
+
+  .excel-to-table-app .md\:flex {
+    display: flex
+  }
+
   .excel-to-table-app .md\:w-1\/3 {
     width: 33.333333%
   }
 
   .excel-to-table-app .md\:flex-row {
     flex-direction: row
+  }
+
+  .excel-to-table-app .md\:items-center {
+    align-items: center
+  }
+
+  .excel-to-table-app .md\:justify-end {
+    justify-content: flex-end
+  }
+
+  .excel-to-table-app .md\:justify-between {
+    justify-content: space-between
+  }
+
+  .excel-to-table-app .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem
+  }
+
+  .excel-to-table-app .md\:pb-0 {
+    padding-bottom: 0
   }
 }
 
@@ -483,6 +829,11 @@ img, .excel-to-table-app video {
   .excel-to-table-app .lg\:rounded-b-none {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0
+  }
+
+  .excel-to-table-app .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem
   }
 }
 

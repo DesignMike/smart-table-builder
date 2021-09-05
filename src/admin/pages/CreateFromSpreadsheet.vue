@@ -89,7 +89,7 @@ export default {
 	computed: {
 		tableTitle: {
 			get: function () {
-				return this.$store.state.tableTitle;
+				return this.$store.state.grid.tableTitle;
 			},
 			set: function (newString) {
 				return this.$store.state.tableTitle = newString;

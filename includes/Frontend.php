@@ -19,10 +19,11 @@ class Frontend {
      * @return string
      */
     public function render_frontend( $atts, $content = '' ) {
+        $id = wp_parse_args($atts, ["id" => 0])['id'];
         wp_enqueue_style( 'exceltotable-frontend' );
         wp_enqueue_script( 'exceltotable-frontend' );
 
-        $content .= '<div class="excel-to-table-app" data-table-id=21></div>';
+        $content .= "<div class=\"excel-to-table-app\" data-table-id=$id></div>";
 
         return $content;
     }

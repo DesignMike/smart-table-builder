@@ -146,7 +146,8 @@ module.exports = {
                 require('tailwindcss')(resolve('_config/tailwind.config.js')),
                 require('postcss-preset-env')({ stage: 1 }),
                 require('postcss-prefix-selector')({
-                  prefix: '.wptable'
+                  prefix: '.wptable',
+                  exclude: ['.wrap.wptable']
                 })
               ],
             },

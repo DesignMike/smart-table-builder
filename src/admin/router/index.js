@@ -38,11 +38,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  debugger;
-  // router.app.$store.commit('SET_ROUTE', to);
   if ((from.path == "/edit" || from.path == "/") && to.path == "/create-from-excel") {
     router.app.$store.commit('setEditingTableId', null);
-    router.app.$store.commit('updateGrid', {data: []});
+    router.app.$store.commit('updateGrid', []);
     router.app.$store.commit('setTitle', null);
   }
   if (from.query.table_id) {

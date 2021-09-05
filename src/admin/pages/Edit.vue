@@ -105,7 +105,11 @@
     </div>
   </div>
 </template>
-
+<style scoped>
+.wrap.wptable {
+  background-color: aqua;
+}
+</style>
 <script>
 import tableEditor from "../components/tableEditor.vue";
 export default {
@@ -123,7 +127,7 @@ export default {
         success(data) {
           let { vm } = this;
           debugger;
-          vm.$store.commit("updateGrid", data.grid);
+          vm.$store.commit("updateGrid", data.grid.data);
           vm.$store.commit("setTitle", data.title);
           vm.$store.commit("setEditingTableId", data.id);
           vm.$router.push({
@@ -143,7 +147,7 @@ export default {
     },
     tableTitle: {
       get: function () {
-        return this.$store.state.tableTitle;
+        return this.$store.state.grid.tableTitle;
       },
       set: function (newString) {
         return (this.$store.state.tableTitle = newString);
@@ -155,16 +159,13 @@ export default {
   },
   mounted() {
     if (this.toEditTable) {
-      let doProcess = (initialGridData) => {
-        this.$store.commit("updateGrid", initialGridData);
-      };
       jQuery.ajax({
         type: "GET",
         vm: this,
         url: ajaxurl + `?action=sprdsh_get_table_cells&id=${this.toEditTable}`,
         success(data) {
           let { vm } = this;
-          vm.$store.commit("updateGrid", data.grid);
+          vm.$store.commit("updateGrid", data.grid.data);
           vm.$store.commit("setTitle", data.title);
           vm.$store.commit("setEditingTableId", data.id);
         },

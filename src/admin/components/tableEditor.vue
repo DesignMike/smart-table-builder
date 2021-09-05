@@ -3,10 +3,10 @@
 <div>
     <ul class="flex main-nav border-b tab-buttons">
         <li class="mr-1">
-            <button data-tab-index="0" @click="handleTabSwitch" v-bind:class="[tabNavigation == 0 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Excel Sheet</button>
+            <button data-tab-index="0" @click="handleTabSwitch" v-bind:class="[tabNavigation == 0 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Table Editor</button>
         </li>
         <li class="mr-1">
-            <button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Table</button>
+            <button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Preview</button>
         </li>
     </ul>
     <div v-if="tabNavigation == 0">
@@ -16,7 +16,8 @@
     </div>
     <div v-if="tabNavigation == 1">
         <div  class="px-5 py-3">
-            <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle"></table-element>
+            <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
+			<div class="table-container"></div>
         </div>
     </div>
 </div>
@@ -46,12 +47,17 @@ export default {
 			// setter
 			set: function (newGrid) {
 				debugger;
-				return this.$store.commit('updateGrid', newGrid);
+				return this.$store.commit('updateGrid', newGrid.data);
 			}
 		},
 		tableTitle: {
 			get: function () {
-				return this.$store.state.tableTitle;
+				return this.$store.state.grid.tableTitle;
+			}
+		},
+		showSearchBar: {
+			get: function() {
+				return this.$store.state.grid.showSearchBar || true
 			}
 		}
 	},
@@ -109,7 +115,7 @@ export default {
 				click: () => {
 					debugger
 					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(e.cell.boundColumnIndex)])
-					store.commit('updateGrid', {data: newCells})
+					store.commit('updateGrid', {data: newCells.data})
 				}
 			});
 		}
