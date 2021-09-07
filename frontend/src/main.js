@@ -24,7 +24,7 @@ const store = new Vuex.Store({
       state.grid.data = newData.data;
     },
     setTitle (state, title) {
-      state.grid.tableTitle = title;
+      state.tableTitle = title;
     },
     setEditingTableId (state, tableId) {
       state.editingTableId = tableId;

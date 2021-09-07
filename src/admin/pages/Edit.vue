@@ -147,7 +147,7 @@ export default {
     },
     tableTitle: {
       get: function () {
-        return this.$store.state.grid.tableTitle;
+        return this.$store.state.tableTitle;
       },
       set: function (newString) {
         return (this.$store.state.tableTitle = newString);

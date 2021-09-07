@@ -6,19 +6,19 @@ const store = new Vuex.Store({
       grid: {
         data: [
         ],
-        tableTitle: '',
         showSearchBar: true
       },
       editingTableId: null,
+      tableTitle: '',
       tableList: [],
       pageTitle: "WP Spreadsheet & Table Builder",
     },
     mutations: {
       updateGrid (state, newData) {
-        state.grid.data = newData.data;
+        state.grid.data = newData;
       },
       setTitle (state, title) {
-        state.grid.tableTitle = title;
+        state.tableTitle = title;
       },
       setEditingTableId (state, tableId) {
         state.editingTableId = tableId;

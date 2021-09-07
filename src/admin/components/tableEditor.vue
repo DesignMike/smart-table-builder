@@ -11,7 +11,7 @@
     </ul>
     <div v-if="tabNavigation == 0">
         <div  class="px-5 py-3 w-full h-full">
-            <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" ref="grid" :data.prop="grid.data"></canvas-datagrid>
+            <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data"></canvas-datagrid>
         </div>
     </div>
     <div v-if="tabNavigation == 1">
@@ -52,7 +52,7 @@ export default {
 		},
 		tableTitle: {
 			get: function () {
-				return this.$store.state.grid.tableTitle;
+				return this.$store.state.tableTitle;
 			}
 		},
 		showSearchBar: {
@@ -82,6 +82,13 @@ export default {
 		adjustGridSize() {
 			this.$refs.grid.style.height = window.innerHeight - 300 + 'px';
 			this.$refs.grid.style.width = '100%';
+		},
+		handleRender(e) {
+			if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1) {
+				e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue;">'
+				+ e.cell.value
+				+ '</div>'
+    		}
 		},
 		handleGridEvent(e,v,i,c) {
 			this.$refs.grid.setActiveCell(null);
@@ -115,7 +122,18 @@ export default {
 				click: () => {
 					debugger
 					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(e.cell.boundColumnIndex)])
-					store.commit('updateGrid', {data: newCells.data})
+					store.commit('updateGrid', newCells)
+				}
+			},
+			{
+				title: 'Do htmls',
+				click: () => {
+					e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue; font-size: 2em;">'
+					+ e.cell.value
+					+ '</div>'
+					+ '<div style="display: inline-block; margin: -20px -20px; filter: blur(5px); font-size: 2em;">'
+					+ e.cell.value
+					+ '</div>';
 				}
 			});
 		}
