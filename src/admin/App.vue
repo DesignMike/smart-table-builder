@@ -42,7 +42,6 @@ export default {
         title: this.$store.state.tableTitle,
         cells: this.$store.state.grid.data
       };
-      debugger;
       jQuery.ajax({
         type: 'POST',
         url: ajaxurl+ '?action=create_new_table_entry',

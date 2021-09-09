@@ -49,6 +49,8 @@ class Admin {
     public function enqueue_scripts() {
         wp_enqueue_style( 'exceltotable-admin' );
         wp_enqueue_script( 'exceltotable-admin' );
+        wp_enqueue_style( 'exceltotable-frontend' );
+        wp_enqueue_script( 'exceltotable-frontend' );
     }
 
     /**

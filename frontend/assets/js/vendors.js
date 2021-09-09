@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors"],{
+(window["frontJsonp"] = window["frontJsonp"] || []).push([["vendors"],{
 
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\

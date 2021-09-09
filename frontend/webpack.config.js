@@ -63,6 +63,7 @@ module.exports = {
   output: {
     path: exportPath,
     filename: appName,
+    jsonpFunction: 'frontJsonp'
   },
 
   resolve: {

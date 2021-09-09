@@ -77,7 +77,7 @@ export default{
   },
   methods: {
     handleSearchQuery(val, oldVal) {
-      this.nonHeaderCells = this.cellItems.filter((e,i) => i !== 0).filter(ee => ee.some(eee => {return Boolean(eee.toUpperCase().match(val.toUpperCase()))}))
+      this.nonHeaderCells = this.cellItems.filter((e,i) => i !== 0).filter(ee => ee.some(eee => {return Boolean(eee.toUpperCase().startsWith(val.toUpperCase()))}))
     }
   },
   computed: {

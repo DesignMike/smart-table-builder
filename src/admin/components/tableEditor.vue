@@ -8,17 +8,27 @@
         <li class="mr-1">
             <button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Preview</button>
         </li>
+        <li class="mr-1">
+            <button data-tab-index="2" @click="handleTabSwitch" v-bind:class="[tabNavigation == 2 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Embed</button>
+        </li>
     </ul>
     <div v-if="tabNavigation == 0">
         <div  class="px-5 py-3 w-full h-full">
             <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data"></canvas-datagrid>
         </div>
     </div>
-    <div v-if="tabNavigation == 1">
+    <div>
         <div  class="px-5 py-3">
             <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
-			<div class="table-container"></div>
+			<div class="table-container" v-bind:data-table="getStateDump()">
+				<div class="table-mount excel-to-table-app-front" data-table-id=48>
+
+				</div>
+			</div>
         </div>
+    </div>
+    <div v-if="tabNavigation == 2">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis aspernatur iure esse non autem excepturi officia quo, dolore architecto quod sint vitae quaerat nisi maxime exercitationem tenetur dolorum recusandae iste distinctio. Tempora facere veritatis, doloremque ipsam consectetur aliquid adipisci fugiat quidem, ducimus illo architecto dolorum obcaecati sequi nesciunt vitae et natus animi fuga ipsum impedit laudantium! Magni placeat odio, reiciendis tenetur repudiandae ut aspernatur voluptatum eaque saepe est consequuntur quaerat fugiat ad omnis nisi laborum sint officia! Iusto saepe hic optio nulla maiores molestias non, aut dignissimos consequatur et ut eaque fugiat enim accusantium laudantium odio possimus corporis ea.</p>
     </div>
 </div>
 </template>
@@ -27,6 +37,7 @@
 import tableElement from '../../common/components/tableElement.vue';
 export default {
     data() {
+		debugger
         return {
 			tabNavigation: 0,
 			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
@@ -62,6 +73,9 @@ export default {
 		}
 	},
     methods: {
+		getStateDump() {
+			return JSON.stringify(this.$store.state);
+		},
 		handleTabSwitch(event) {
 			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
 			if (typeof(this.$refs.grid) !== 'undefined') {
@@ -118,22 +132,17 @@ export default {
 				}
 			},
 			{
-				title: 'Add column',
-				click: () => {
+				title: 'Duplicate row',
+				click: function () {
 					debugger
-					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(e.cell.boundColumnIndex)])
-					store.commit('updateGrid', newCells)
+					this.insertRow(e.cell.data, e.cell.boundRowIndex);
 				}
 			},
 			{
-				title: 'Do htmls',
+				title: 'Add column',
 				click: () => {
-					e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue; font-size: 2em;">'
-					+ e.cell.value
-					+ '</div>'
-					+ '<div style="display: inline-block; margin: -20px -20px; filter: blur(5px); font-size: 2em;">'
-					+ e.cell.value
-					+ '</div>';
+					let newCells = store.state.grid.data.map(ee => [...ee.slice(0, e.cell.boundColumnIndex), '', ...ee.slice(e.cell.boundColumnIndex)])
+					store.commit('updateGrid', newCells)
 				}
 			});
 		}

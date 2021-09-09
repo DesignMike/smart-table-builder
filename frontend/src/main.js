@@ -40,3 +40,36 @@ const store = new Vuex.Store({
     render: h => h(App)
   })
 })
+
+if (jQuery('.table-mount.excel-to-table-app-front').length) {
+  Vue.config.productionTip = false
+  Vue.use(Vuex);
+
+  const store = new Vuex.Store({
+    state: {
+      grid: {
+        data: [
+        ],
+        tableTitle: '',
+        showSearchBar: true
+      },
+      editingTableId: null,
+      tableList: []
+    },
+  })
+  window['frontVue'] = (node) => {
+    // Vue.destroy(node);
+    if (window.hasOwnProperty('frontInstance')) {
+      frontInstance.$destroy(node);
+      return;
+    }
+    const instance = new Vue({
+      el: node,
+      store: new Vuex.Store({
+        state:jQuery(node).closest('.table-container').data('table'),
+      }),
+      render: h => h(App)
+    });
+    window['frontInstance'] = instance;
+  };
+}
