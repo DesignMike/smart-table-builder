@@ -41,7 +41,12 @@ export default {
 	}
   },
   mounted() {
-	  jQuery.ajax({
+	  let {isBackend} = this.$store.state;
+	//   if (isBackend) {
+	// 	  jQuery('#vue-backend-app').trigger('doPreview')
+	//   }
+	  if (!isBackend) {
+		jQuery.ajax({
 			type: "GET",
 			vm: this,
 			url: `http://modernwp.test/wp-json/tablecells/v1/get-table-cells/${this.tableId}`,
@@ -51,6 +56,7 @@ export default {
 				vm.$store.commit('setTitle', data.title);
 			}
 		})
+	  }
   },
 }
 </script>

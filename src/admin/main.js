@@ -16,6 +16,5 @@ new Vue({
   render: h => h(App),
   store: store
 }).$mount('#vue-admin-app');
-
 // fix the admin menu for the slug "vue-app"
 menuFix('vue-app');

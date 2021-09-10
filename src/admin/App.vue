@@ -74,6 +74,10 @@ export default {
   },
   mounted() {
     debugger;
+    jQuery('#vue-backend-app').parent().on('doPreview', () => {
+      debugger
+      frontVue(jQuery('.excel-to-table-app').get(0));
+  })
   },
 }
 </script>

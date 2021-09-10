@@ -41,7 +41,7 @@ const store = new Vuex.Store({
   })
 })
 
-if (jQuery('.table-mount.excel-to-table-app-front').length) {
+if (jQuery('#vue-backend-app').length) {
   Vue.config.productionTip = false
   Vue.use(Vuex);
 
@@ -57,16 +57,18 @@ if (jQuery('.table-mount.excel-to-table-app-front').length) {
       tableList: []
     },
   })
+  debugger
   window['frontVue'] = (node) => {
     // Vue.destroy(node);
     if (window.hasOwnProperty('frontInstance')) {
       frontInstance.$destroy(node);
-      return;
     }
+    let tableData = jQuery(node).closest('.table-container').data('table');
+    tableData.isBackend = true;
     const instance = new Vue({
       el: node,
       store: new Vuex.Store({
-        state:jQuery(node).closest('.table-container').data('table'),
+        state:tableData,
       }),
       render: h => h(App)
     });

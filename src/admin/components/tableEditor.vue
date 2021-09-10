@@ -17,16 +17,14 @@
             <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data"></canvas-datagrid>
         </div>
     </div>
-    <div>
-        <div  class="px-5 py-3">
-            <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
-			<div class="table-container" v-bind:data-table="getStateDump()">
-				<div class="table-mount excel-to-table-app-front" data-table-id=48>
+	<div  class="px-5 py-3" v-if="tabNavigation == 1">
+		<!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
+		<div v-if="grid.data.length" class="table-container" v-bind:data-table="getStateDump()">
+			<div class="excel-to-table-app">
 
-				</div>
 			</div>
-        </div>
-    </div>
+		</div>
+	</div>
     <div v-if="tabNavigation == 2">
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis aspernatur iure esse non autem excepturi officia quo, dolore architecto quod sint vitae quaerat nisi maxime exercitationem tenetur dolorum recusandae iste distinctio. Tempora facere veritatis, doloremque ipsam consectetur aliquid adipisci fugiat quidem, ducimus illo architecto dolorum obcaecati sequi nesciunt vitae et natus animi fuga ipsum impedit laudantium! Magni placeat odio, reiciendis tenetur repudiandae ut aspernatur voluptatum eaque saepe est consequuntur quaerat fugiat ad omnis nisi laborum sint officia! Iusto saepe hic optio nulla maiores molestias non, aut dignissimos consequatur et ut eaque fugiat enim accusantium laudantium odio possimus corporis ea.</p>
     </div>
@@ -37,7 +35,6 @@
 import tableElement from '../../common/components/tableElement.vue';
 export default {
     data() {
-		debugger
         return {
 			tabNavigation: 0,
 			tabActiveClass: 'border-l border-t border-r rounded-t text-blue-700 active',
@@ -87,9 +84,12 @@ export default {
 			}
 			this.tabNavigation = selectedTabIndex;
 			if (selectedTabIndex == 1) {
+				jQuery('#vue-backend-app').parent().trigger('doPreview')
 				setTimeout(() => {
-					let tablePreview = document.getElementById('table-preview');
-					Tablesaw.init(tablePreview);
+					debugger;
+					// frontVue(jQuery('.excel-to-table-app').get(0));
+					// let tablePreview = document.getElementById('table-preview');
+					// Tablesaw.init(tablePreview);
 				}, 3000);
 			};
 		},
