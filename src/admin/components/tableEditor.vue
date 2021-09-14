@@ -17,9 +17,9 @@
             <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data"></canvas-datagrid>
         </div>
     </div>
-	<div  class="px-5 py-3" v-if="tabNavigation == 1">
+	<div  class="px-5 py-3" v-bind:style="{display: tabNavigation == 1 ? 'block' : 'none'}">
 		<!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
-		<div v-if="grid.data.length" class="table-container" v-bind:data-table="getStateDump()">
+		<div v-if="grid.data.length" class="table-container">
 			<div class="excel-to-table-app">
 
 			</div>
@@ -33,6 +33,7 @@
 
 <script>
 import tableElement from '../../common/components/tableElement.vue';
+import indexedDBHelper from '../../admin/utils/indexedDBHelper';
 export default {
     data() {
         return {
@@ -73,7 +74,8 @@ export default {
 		getStateDump() {
 			return JSON.stringify(this.$store.state);
 		},
-		handleTabSwitch(event) {
+		async handleTabSwitch(event) {
+			debugger
 			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
 			if (typeof(this.$refs.grid) !== 'undefined') {
 				try {
@@ -84,7 +86,10 @@ export default {
 			}
 			this.tabNavigation = selectedTabIndex;
 			if (selectedTabIndex == 1) {
-				jQuery('#vue-backend-app').parent().trigger('doPreview')
+				// jQuery('#vue-backend-app').parent().trigger('doPreview')
+				jQuery('#vue-backend-app').parent().data('table', JSON.stringify(this.$store.state));
+				// await indexedDBHelper.saveCat(this.$store.state.grid)
+				frontVue(jQuery('.excel-to-table-app').get(0))
 				setTimeout(() => {
 					debugger;
 					// frontVue(jQuery('.excel-to-table-app').get(0));

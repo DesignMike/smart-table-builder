@@ -63,7 +63,7 @@ if (jQuery('#vue-backend-app').length) {
     if (window.hasOwnProperty('frontInstance')) {
       frontInstance.$destroy(node);
     }
-    let tableData = jQuery(node).closest('.table-container').data('table');
+    let tableData = JSON.parse(jQuery('#vue-backend-app').parent().data('table'));
     tableData.isBackend = true;
     const instance = new Vue({
       el: node,

@@ -58,8 +58,8 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach((to, from) => {
-  debugger;
-})
+// router.afterEach((to, from) => {
+//   debugger;
+// })
 
 export default router;
