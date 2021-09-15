@@ -5,6 +5,13 @@
   margin-top: 0 !important;
 }
 
+.wptable .copy-icon svg[data-v-4a48ad0a] {
+  display: inline;
+}
+.wptable .copy-icon[data-v-4a48ad0a] {
+  cursor: pointer;
+}
+
 .wptable .main-nav li {
   margin-bottom: 0;
 }

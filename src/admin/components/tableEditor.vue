@@ -26,11 +26,45 @@
 		</div>
 	</div>
     <div v-if="tabNavigation == 2">
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis aspernatur iure esse non autem excepturi officia quo, dolore architecto quod sint vitae quaerat nisi maxime exercitationem tenetur dolorum recusandae iste distinctio. Tempora facere veritatis, doloremque ipsam consectetur aliquid adipisci fugiat quidem, ducimus illo architecto dolorum obcaecati sequi nesciunt vitae et natus animi fuga ipsum impedit laudantium! Magni placeat odio, reiciendis tenetur repudiandae ut aspernatur voluptatum eaque saepe est consequuntur quaerat fugiat ad omnis nisi laborum sint officia! Iusto saepe hic optio nulla maiores molestias non, aut dignissimos consequatur et ut eaque fugiat enim accusantium laudantium odio possimus corporis ea.</p>
+    <div class="flex flex-col bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 p-4 rounded-xl text-white w-8/12 mx-auto my-auto">
+        <div>
+            <p class="text-xl font-bold mt-3 mb-5">Insert the table to any of your posts or pages</p>
+        </div>
+        <div class="text-xl mb-2">
+            <span>[wp-table id="{{editingTableId}}"]</span>
+			<span @click="handleShortcodeCopy" class="copy-icon">
+				<svg
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				>
+				<path d="M13 7H7V5H13V7Z" fill="currentColor" />
+				<path d="M13 11H7V9H13V11Z" fill="currentColor" />
+				<path d="M7 15H13V13H7V15Z" fill="currentColor" />
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z"
+					fill="currentColor"
+				/>
+				</svg>
+			</span>
+        </div>
+    </div>
     </div>
 </div>
 </template>
 
+<style scoped>
+.copy-icon svg {
+	display: inline;
+}
+.copy-icon {
+	cursor: pointer;
+}
+</style>
 <script>
 import tableElement from '../../common/components/tableElement.vue';
 import indexedDBHelper from '../../admin/utils/indexedDBHelper';
@@ -68,6 +102,9 @@ export default {
 			get: function() {
 				return this.$store.state.grid.showSearchBar || true
 			}
+		},
+		editingTableId: function () {
+			return this.$store.state.editingTableId
 		}
 	},
     methods: {
@@ -98,12 +135,15 @@ export default {
 				}, 3000);
 			};
 		},
+		handleShortcodeCopy() {
+			window.navigator.clipboard.writeText(`[wp-table id=\"${this.editingTableId}\"]`)
+		},
 		adjustGridSize() {
 			this.$refs.grid.style.height = window.innerHeight - 300 + 'px';
 			this.$refs.grid.style.width = '100%';
 		},
 		handleRender(e) {
-			if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1) {
+			if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {
 				e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue;">'
 				+ e.cell.value
 				+ '</div>'

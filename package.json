@@ -12,7 +12,7 @@
     "build": "webpack -p --mode production"
   },
   "dependencies": {
-    "canvas-datagrid": "^0.3.4",
+    "canvas-datagrid": "^0.3.8",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-prefix-selector": "^1.10.0",

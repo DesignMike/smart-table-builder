@@ -57,7 +57,6 @@ if (jQuery('#vue-backend-app').length) {
       tableList: []
     },
   })
-  debugger
   window['frontVue'] = (node) => {
     // Vue.destroy(node);
     if (window.hasOwnProperty('frontInstance')) {
@@ -65,6 +64,9 @@ if (jQuery('#vue-backend-app').length) {
     }
     let tableData = JSON.parse(jQuery('#vue-backend-app').parent().data('table'));
     tableData.isBackend = true;
+    if (!tableData.tableTitle) {
+      tableData.tableTitle = '';
+    }
     const instance = new Vue({
       el: node,
       store: new Vuex.Store({
