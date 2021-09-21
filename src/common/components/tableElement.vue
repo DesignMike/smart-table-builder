@@ -60,11 +60,6 @@ export default{
   props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}, 'showSearchBar': false},
   mounted() {
   },
-  methods: {
-    handleSearchQuery (e,v,b) {
-      debugger;
-    }
-  },
   data() {
     return {
       searchQuery : '',
@@ -77,7 +72,13 @@ export default{
   },
   methods: {
     handleSearchQuery(val, oldVal) {
-      this.nonHeaderCells = this.cellItems.filter((e,i) => i !== 0).filter(ee => ee.some(eee => {return Boolean(eee.toUpperCase().startsWith(val.toUpperCase()))}))
+
+      this.nonHeaderCells = this.cellItems.filter((e,i) => i !== 0).filter(ee => ee.some(eee => {
+        if (Boolean(eee) == false) {
+          return false
+        }
+        return Boolean(eee.toUpperCase().startsWith(val.toUpperCase()))
+      }))
     }
   },
   computed: {
