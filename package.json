@@ -9,7 +9,10 @@
     "dev": "webpack --watch --progress --hide-modules",
     "tail": "npx tailwindcss build src/assets/css/tailwind/custom.css -o src/assets/css/tail.css",
     "dev-build": "webpack -d --mode development",
-    "build": "webpack -p --mode production"
+    "build": "webpack -p --mode production",
+    "dev:frontend": "cd frontend && yarn dev",
+    "dev-build:frontend": "cd frontend && yarn dev-build",
+    "build:frontend": "cd frontend && yarn build"
   },
   "dependencies": {
     "canvas-datagrid": "^0.3.8",

@@ -42,9 +42,6 @@ export default {
   },
   mounted() {
 	  let {isBackend} = this.$store.state;
-	//   if (isBackend) {
-	// 	  jQuery('#vue-backend-app').trigger('doPreview')
-	//   }
 	  if (!isBackend) {
 		jQuery.ajax({
 			type: "GET",

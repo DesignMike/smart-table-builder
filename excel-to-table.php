@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Excel to Table
+ * Plugin Name: WP Ultimate Table and Spreadsheet
  * Description: Convert excel sheets to an embeddable table 
  * Plugin URI: https://github.com/nahinakbar
  * Author: Nahin Akbar
