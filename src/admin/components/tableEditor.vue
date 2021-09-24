@@ -14,7 +14,7 @@
     </ul>
     <div v-if="tabNavigation == 0">
         <div  class="px-5 py-3 w-full h-full">
-            <canvas-datagrid v-if="grid.data.length" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data"></canvas-datagrid>
+            <canvas-datagrid v-if="grid.data.length" allowSorting="false" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data" allow-sorting=0 columnHeaderClickBehavior=0></canvas-datagrid>
         </div>
     </div>
 	<div  class="px-5 py-3" v-bind:style="{display: tabNavigation == 1 ? 'block' : 'none'}">
@@ -78,7 +78,7 @@ export default {
     },
 	computed: {
 		canvasHeight() {
-			return window.innerHeight - 200 + 'px';
+			return window.innerHeight - 500 + 'px';
 		},
 		canvasWidth() {
 			return window.innerWidth - 300 + 'px';
@@ -138,10 +138,6 @@ export default {
 		handleShortcodeCopy() {
 			window.navigator.clipboard.writeText(`[wp-table id=\"${this.editingTableId}\"]`)
 		},
-		adjustGridSize() {
-			this.$refs.grid.style.height = window.innerHeight - 300 + 'px';
-			this.$refs.grid.style.width = '100%';
-		},
 		handleRender(e) {
 			if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {
 				e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue;">'
@@ -196,8 +192,16 @@ export default {
 		tableElement,
     },
 	mounted() {
-		setTimeout(() => {
-		}, 3000);
+		[1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
+            let setTheme = false;
+            setTimeout(() => {
+				debugger
+                this.$refs.grid.style.height = '100%';
+                this.$refs.grid.style.width = '100%';
+				this.$refs.grid.style.gridBackgroundColor = 'red';
+				this.$refs.grid.style.cellHeight = 30
+            }, n);
+        });
 	},
 }
 </script>
