@@ -114,6 +114,9 @@ export default {
 		async handleTabSwitch(event) {
 			debugger
 			let selectedTabIndex = parseInt(event.target.getAttribute('data-tab-index'));
+			if (selectedTabIndex == 0) {
+				this.setGridStyle()
+			}
 			if (typeof(this.$refs.grid) !== 'undefined') {
 				try {
 					this.$refs.grid.endEdit();	
@@ -147,6 +150,16 @@ export default {
 		},
 		handleGridEvent(e,v,i,c) {
 			this.$refs.grid.setActiveCell(null);
+		},
+		setGridStyle() {
+			[1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
+            setTimeout(() => {
+					this.$refs.grid.style.height = '100%';
+					this.$refs.grid.style.width = '100%';
+					this.$refs.grid.style.gridBackgroundColor = 'red';
+					this.$refs.grid.style.cellHeight = 35
+				}, n);
+        	});
 		},
 		handleRightClick(e,i,v,c) {
 			// e.items.map((e,i) => e.title == 'Add/Remove columns' ? i : '').filter(ee => ee).forEach(eee => delete e.items[eee])
@@ -192,16 +205,7 @@ export default {
 		tableElement,
     },
 	mounted() {
-		[1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
-            let setTheme = false;
-            setTimeout(() => {
-				debugger
-                this.$refs.grid.style.height = '100%';
-                this.$refs.grid.style.width = '100%';
-				this.$refs.grid.style.gridBackgroundColor = 'red';
-				this.$refs.grid.style.cellHeight = 30
-            }, n);
-        });
+		this.setGridStyle()
 	},
 }
 </script>
