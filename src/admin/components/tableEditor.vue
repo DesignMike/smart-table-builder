@@ -19,6 +19,7 @@
     </div>
 	<div  class="px-5 py-3" v-bind:style="{display: tabNavigation == 1 ? 'block' : 'none'}">
 		<!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
+		
 		<div v-if="grid.data.length" class="table-container">
 			<div class="excel-to-table-app">
 
@@ -143,9 +144,9 @@ export default {
 		},
 		handleRender(e) {
 			if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {
-				e.cell.innerHTML = '<div style="display: inline-block; color: dodgerblue;">'
+				e.cell.innerHTML = '<a style="display: inline-block; color: dodgerblue;" href="https://bing.com">'
 				+ e.cell.value
-				+ '</div>'
+				+ '</a>'
     		}
 		},
 		handleGridEvent(e,v,i,c) {

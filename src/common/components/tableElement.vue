@@ -6,7 +6,7 @@
       </div>
   <div v-if="showSearchBar" class="w-full flex justify-end px-2 mt-2">
         <div class="w-full sm:w-64 inline-block relative ">
-          <input v-model="searchQuery" class="leading-snug border border-gray-300 block w-full appearance-none bg-gray-100 text-sm text-gray-600 py-1 px-4 pl-8 rounded-lg" placeholder="Search" />
+          <input v-model="searchQuery" class="leading-snug border border-gray-300 block w-full appearance-none bg-gray-100 text-gray-600 py-1 px-4 pl-8 rounded-lg" placeholder="Search" />
 
           <div class="pointer-events-none absolute pl-3 inset-y-0 left-0 flex items-center px-2 text-gray-300">
 
@@ -20,11 +20,11 @@
 
       <table class="table-auto border-collapse w-full">
         <thead>
-          <tr class="rounded-lg text-sm font-medium text-gray-700 text-left" style="font-size: 0.9674rem">
+          <tr class="rounded-lg font-medium text-gray-700 text-left">
             <th v-for="(cell, key1) in headCells[0]" :key="key1" class="px-4 py-2 bg-gray-200 " style="background-color:#f8f8f8">{{ cell }}</th>
           </tr>
         </thead>
-        <tbody class="text-sm font-normal text-gray-700">
+        <tbody class="font-normal text-gray-700">
           <tr v-for="(row, key) in nonHeaderCells" :key="key" class="hover:bg-gray-100 border-b border-gray-200 py-10">
             <td v-for="(cell, key1) in row" :key="key1" class="px-4 py-4">
               <p class="text-gray-900 whitespace-no-wrap">
@@ -44,9 +44,9 @@
 </svg>
 
         <p class="leading-relaxed cursor-pointer mx-2 text-blue-600 hover:text-blue-600 text-sm">1</p>
-        <p class="leading-relaxed cursor-pointer mx-2 text-sm hover:text-blue-600" >2</p>
-        <p class="leading-relaxed cursor-pointer mx-2 text-sm hover:text-blue-600"> 3 </p>
-        <p class="leading-relaxed cursor-pointer mx-2 text-sm hover:text-blue-600"> 4 </p>
+        <p class="leading-relaxed cursor-pointer mx-2 hover:text-blue-600" >2</p>
+        <p class="leading-relaxed cursor-pointer mx-2 hover:text-blue-600"> 3 </p>
+        <p class="leading-relaxed cursor-pointer mx-2 hover:text-blue-600"> 4 </p>
         <svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M15 12C15 11.7348 14.8946 11.4804 14.7071 11.2929L10.7071 7.2929C10.3166 6.9024 9.6834 6.9024 9.2929 7.2929C8.9024 7.6834 8.9024 8.3166 9.2929 8.7071L12.5858 12L9.2929 15.2929C8.9024 15.6834 8.9024 16.3166 9.2929 16.7071C9.6834 17.0976 10.3166 17.0976 10.7071 16.7071L14.7071 12.7071C14.8946 12.5196 15 12.2652 15 12Z" fill="#18A0FB"/>
 </svg>
