@@ -1,17 +1,19 @@
 <template>
     
 <div>
-    <ul class="flex main-nav border-b tab-buttons">
-        <li class="mr-1">
-            <button data-tab-index="0" @click="handleTabSwitch" v-bind:class="[tabNavigation == 0 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Table Editor</button>
-        </li>
-        <li class="mr-1">
-            <button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Preview</button>
-        </li>
-        <li class="mr-1">
-            <button data-tab-index="2" @click="handleTabSwitch" v-bind:class="[tabNavigation == 2 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Embed</button>
-        </li>
-    </ul>
+	<div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
+		<ul class="flex main-nav border-b tab-buttons">
+			<li class="mr-1">
+				<button data-tab-index="0" @click="handleTabSwitch" v-bind:class="[tabNavigation == 0 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Table Editor</button>
+			</li>
+			<li class="mr-1">
+				<button data-tab-index="1" @click="handleTabSwitch" v-bind:class="[tabNavigation == 1 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Preview</button>
+			</li>
+			<li class="mr-1">
+				<button data-tab-index="2" @click="handleTabSwitch" v-bind:class="[tabNavigation == 2 ? tabActiveClass : tabInactiveClass]" class="tab-item bg-white inline-block py-2 px-4 font-semibold">Embed</button>
+			</li>
+		</ul>
+	</div>
     <div v-if="tabNavigation == 0">
         <div  class="px-5 py-3 w-full h-full">
             <canvas-datagrid v-if="grid.data.length" allowSorting="false" v-bind:style="{ width: canvasWidth, height: canvasHeight }" @contextmenu="handleRightClick" @sortcolumn="handleGridEvent" @afterrendercell="handleRender" ref="grid" :data.prop="grid.data" allow-sorting=0 columnHeaderClickBehavior=0></canvas-datagrid>
@@ -19,7 +21,7 @@
     </div>
 	<div  class="px-5 py-3" v-bind:style="{display: tabNavigation == 1 ? 'block' : 'none'}">
 		<!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
-		
+
 		<div v-if="grid.data.length" class="table-container">
 			<div class="excel-to-table-app">
 
