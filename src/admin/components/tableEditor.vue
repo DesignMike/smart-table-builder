@@ -159,7 +159,7 @@ export default {
             setTimeout(() => {
 					this.$refs.grid.style.height = '100%';
 					this.$refs.grid.style.width = '100%';
-					this.$refs.grid.style.gridBackgroundColor = 'red';
+					this.$refs.grid.style.gridBackgroundColor = 'white';
 					this.$refs.grid.style.cellHeight = 35
 				}, n);
         	});
