@@ -5,6 +5,74 @@
   margin-top: 0 !important;
 }
 
+.wptable button[data-v-aba41c7e]{
+  cursor:pointer
+}
+.wptable button[data-v-aba41c7e]:focus{
+    outline:none;
+}
+
+/* Animations */
+.wptable .fade-enter-active[data-v-aba41c7e], .wptable .fade-leave-active[data-v-aba41c7e] {
+  transition: opacity .5s;
+}
+.wptable .dropdown-wrapper svg[data-v-aba41c7e] {
+  display: inline;
+}
+.wptable .fade-enter[data-v-aba41c7e], .wptable .fade-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+}
+
+/* Slide-in-up animation*/
+.wptable .slide-in-up-enter-active[data-v-aba41c7e], .wptable .slide-in-up-leave-active[data-v-aba41c7e] {
+  transition: all .5s;
+  transform: translateY(0);
+}
+.wptable .slide-in-up-enter[data-v-aba41c7e], .wptable .slide-in-up-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Slide-in-right animation*/
+.wptable .slide-in-right-enter-active[data-v-aba41c7e], .wptable .slide-in-right-leave-active[data-v-aba41c7e] {
+  transition: all .5s;
+  transform: translateX(0);
+}
+.wptable .slide-in-right-enter[data-v-aba41c7e], .wptable .slide-in-right-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Slide-in-left animation*/
+.wptable .slide-in-left-enter-active[data-v-aba41c7e], .wptable .slide-in-left-leave-active[data-v-aba41c7e] {
+  transition: all .5s;
+  transform: translateX(0);
+}
+.wptable .slide-in-left-enter[data-v-aba41c7e], .wptable .slide-in-left-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* Scale animation*/
+.wptable .scale-enter-active[data-v-aba41c7e], .wptable .scale-leave-active[data-v-aba41c7e] {
+  transition: all .5s;
+  transform: scale(1);
+}
+.wptable .scale-enter[data-v-aba41c7e], .wptable .scale-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Rotate animation*/
+.wptable .rotate-enter-active[data-v-aba41c7e], .wptable .rotate-leave-active[data-v-aba41c7e] {
+  transition: all .5s;
+  transform: scale(1) rotate(-360deg);
+}
+.wptable .rotate-enter[data-v-aba41c7e], .wptable .rotate-leave-to[data-v-aba41c7e] {
+  opacity: 0;
+  transform: scale(0) rotate(360deg);
+}
+
 .wptable .copy-icon svg[data-v-4a48ad0a] {
   display: inline;
 }

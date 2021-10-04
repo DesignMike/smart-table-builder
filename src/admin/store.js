@@ -17,6 +17,7 @@ const store = new Vuex.Store({
       tableTitle: '',
       tableList: [],
       pageTitle: "WP Spreadsheet & Table Builder",
+      currentStyle: 'Style 1'
     },
     mutations: {
       updateGrid (state, newData) {
