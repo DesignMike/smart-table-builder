@@ -51,7 +51,7 @@ class Admin {
         wp_enqueue_script( 'exceltotable-admin' );
         wp_enqueue_style( 'exceltotable-frontend' );
         wp_enqueue_script( 'exceltotable-frontend' );
-        wp_enqueue_script( 'exceltotable-style2' );
+        wp_enqueue_script( 'exceltotable-premium-frontend-runtime' );
     }
 
     /**
@@ -60,6 +60,8 @@ class Admin {
      * @return void
      */
     public function plugin_page() {
+        $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
+        echo '<script id="js-links" type="text/json">'.json_encode($dd).'</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
     }
 }

@@ -16,7 +16,7 @@
       <div :class="'bg-'+color+'-500'" class="dropdown-menu text-white mt-1 rounded absolute z-10 shadow-lg w-40 max-w-xs" v-if="show">
         <ul class="list-none overflow-hidden rounded">
           <li class="mb-0" v-for="(style, index) in styles" :key="index">
-            <a href="javascript:void(0)" class="flex py-2 px-4 transition duration-300" :class="'hover:bg-'+color+'-800'+ ' ' + 'theme-'+color">{{style}}</a>
+            <a href="javascript:void(0)" @click="handleStyleSwitch(style)" class="flex py-2 px-4 transition duration-300" :class="'hover:bg-'+color+'-800'+ ' ' + 'theme-'+color">{{style}}</a>
           </li>
         </ul>
       </div>
@@ -98,6 +98,23 @@ export default {
     data() {
     return{
       show: false,
+    }
+  },
+  methods: {
+    handleStyleSwitch(a) {
+      if (a == "Style 2") {
+        let ll = JSON.parse($0.innerText);
+        let xz = Object.keys(ll).filter(e => e !== 'exceltotable-premium-frontend-runtime').map(e => ({[e] : ll[e].src}))[0]
+        xz['exceltotable-style2'];
+        var script = document.createElement('script');
+        script.onload = function () {
+            //do stuff with the script
+            debugger;
+        };
+        script.src = xz['exceltotable-style2'];
+
+        document.head.appendChild(script);
+      }
     }
   },
   props: {

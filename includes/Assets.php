@@ -62,7 +62,7 @@ class Assets {
      *
      * @return array
      */
-    public function get_scripts() {
+    public static function get_scripts() {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
