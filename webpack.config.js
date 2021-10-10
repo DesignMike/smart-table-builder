@@ -37,16 +37,16 @@ plugins.push(new MiniCssExtractPlugin({
 // set your WordPress site URL in config.json
 // file and uncomment the snippet below.
 // --------------------------------------
-plugins.push(new BrowserSyncPlugin( {
-  proxy: {
-    target: config.proxyURL
-  },
-  files: [
-    '**/*.php'
-  ],
-  cors: true,
-  reloadDelay: 0
-} ));
+// plugins.push(new BrowserSyncPlugin( {
+//   proxy: {
+//     target: config.proxyURL
+//   },
+//   files: [
+//     '**/*.php'
+//   ],
+//   cors: true,
+//   reloadDelay: 0
+// } ));
 
 
 plugins.push(new VueLoaderPlugin());
