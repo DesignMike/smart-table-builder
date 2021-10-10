@@ -4,14 +4,19 @@
       <label class="block uppercase tracking-wide text-xs font-bold"
         >Name</label
       >
-      <input
-        v-model="tableTitle"
-        type="text"
-        class="block w-full focus:outline-0 bg-white py-3 px-6 mb-2 sm:mb-0"
-        name="name"
-        placeholder="Enter the Table Name"
-        required=""
-      />
+      <div class="flex">
+        <input
+          v-model="tableTitle"
+          type="text"
+          class="block w-full focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
+          name="name"
+          placeholder="Enter the Table Name"
+          required=""
+        />
+
+        <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
+        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Update</button>
+      </div>
     </div>
     <div v-if="!avaiableTables.length && !toEditTable && !isEmptyTableList" class="flex justify-center items-center">
         <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
@@ -129,6 +134,35 @@ export default {
   },
   methods: {
     sampleFunc: () => {},
+    handleSave() {
+      let data =  {
+        title: this.$store.state.tableTitle,
+        cells: this.$store.state.grid.data
+      };
+      jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl+ '?action=create_new_table_entry',
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: (responseData) => {
+          this.$router.push({ name: "Edit Existing", query: {table_id : responseData.ok} });
+        }
+      });
+    },
+    handleUpdate() {
+      let data =  {
+        title: this.$store.state.tableTitle,
+        cells: this.$store.state.grid.data
+      };
+      jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl+ `?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}`,
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: () => {
+        }
+      });
+    },
     goToAppHome() {
       this.$router.push({name: 'Create A new Table'});
     },
