@@ -13,9 +13,13 @@
           placeholder="Enter the Table Name"
           required=""
         />
-
+        <div v-if="!isSaving" style="display: contents">
         <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
         <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Update</button>
+        </div>
+        <div v-if="isSaving">
+        <button class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>
+        </div>
       </div>
     </div>
     <div v-if="!avaiableTables.length && !toEditTable && !isEmptyTableList" class="flex justify-center items-center">
@@ -122,6 +126,32 @@
 .wrap.wptable {
   background-color: aqua;
 }
+ @keyframes spinneralt {
+ 0% { transform: rotate(0deg) }
+ to { transform: rotate(359deg) }
+}
+
+.gg-spinner-alt {
+ transform: scale(var(--ggs,1))
+}
+
+.gg-spinner-alt,
+.gg-spinner-alt::before {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ width: 20px;
+ height: 20px
+}
+
+.gg-spinner-alt::before {
+ content: "";
+ position: absolute;
+ border-radius: 100px;
+ animation: spinneralt 1s cubic-bezier(.6,0,.4,1) infinite;
+ border: 3px solid transparent;
+ border-top-color: currentColor
+}
 </style>
 <script>
 import tableEditor from "../components/tableEditor.vue";
@@ -129,7 +159,8 @@ export default {
   name: "Edit",
   data() {
     return {
-      isEmptyTableList: false
+      isEmptyTableList: false,
+      isSaving: false
     };
   },
   methods: {
@@ -154,13 +185,16 @@ export default {
         title: this.$store.state.tableTitle,
         cells: this.$store.state.grid.data
       };
+      let setLoadingStatus = (status) => {
+        this.isSaving = !Boolean(status.success)
+      };
       jQuery.ajax({
         type: 'POST',
         url: ajaxurl+ `?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}`,
         dataType: 'json',
         data: JSON.stringify(data),
-        success: () => {
-        }
+        beforeSend: setLoadingStatus,
+        success: setLoadingStatus
       });
     },
     goToAppHome() {

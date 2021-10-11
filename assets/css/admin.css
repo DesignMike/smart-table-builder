@@ -90,6 +90,39 @@
 .wrap.wptable[data-v-2d4b29ae] {
   background-color: aqua;
 }
+@-webkit-keyframes spinneralt-data-v-2d4b29ae {
+0% { transform: rotate(0deg)
+}
+to { transform: rotate(359deg)
+}
+}
+@keyframes spinneralt-data-v-2d4b29ae {
+0% { transform: rotate(0deg)
+}
+to { transform: rotate(359deg)
+}
+}
+.wptable .gg-spinner-alt[data-v-2d4b29ae] {
+  transform: scale(1);
+  transform: scale(var(--ggs,1))
+}
+.wptable .gg-spinner-alt[data-v-2d4b29ae],
+.wptable .gg-spinner-alt[data-v-2d4b29ae]::before {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px
+}
+.wptable .gg-spinner-alt[data-v-2d4b29ae]::before {
+  content: "";
+  position: absolute;
+  border-radius: 100px;
+  -webkit-animation: spinneralt-data-v-2d4b29ae 1s cubic-bezier(.6,0,.4,1) infinite;
+          animation: spinneralt-data-v-2d4b29ae 1s cubic-bezier(.6,0,.4,1) infinite;
+  border: 3px solid transparent;
+  border-top-color: currentColor
+}
 
 /*! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */
 
