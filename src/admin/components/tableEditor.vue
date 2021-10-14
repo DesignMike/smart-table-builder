@@ -2,6 +2,7 @@
   <div>
     <div
       class="
+        mb-4 bg-white rounded-lg p-6
         flex flex-col
         space-y-4
         lg:space-y-0
@@ -82,14 +83,10 @@
       <div
         class="
           flex flex-col
-          bg-gradient-to-r
-          from-blue-500
-          via-purple-500
-          to-purple-600
           p-4
-          rounded-xl
-          text-white
-          w-8/12
+          rounded-lg
+          text-gray-900
+          w-8/12 bg-white
           mx-auto
           my-auto
         "
@@ -143,7 +140,7 @@ export default {
     return {
       tabNavigation: 0,
       tabActiveClass:
-        "border-l border-t border-r rounded-t text-blue-700 active",
+        "tab-item bg-blue-500 inline-block py-2 px-4 font-semibold text-white",
       tabInactiveClass: "text-blue-500 hover:text-blue-800",
       styles: [
         "Style 1",
@@ -251,43 +248,57 @@ export default {
         store;
         debugger;
       };
+      debugger
       for (let index = 0; index < e.items.length; index++) {
         // const element = array[index];
         delete e.items[index];
       }
-      e.items.push(
-        {
-          title: "Delete this row",
-          click: function (w, q) {
-            this.deleteRow(e.cell.boundRowIndex);
-            console.log(e.cell.value, e.cell.data);
+      if (typeof(e.cell.boundColumnIndex) == "number" && typeof(e.cell.boundRowIndex) == "number") {
+        e.items.push(
+          {
+            title: "Delete this row",
+            click: function (w, q) {
+              this.deleteRow(e.cell.boundRowIndex);
+              console.log(e.cell.value, e.cell.data);
+            },
           },
-        },
-        {
-          title: "Add row",
-          click: function () {
-            this.insertRow([], e.cell.boundRowIndex);
+          {
+            title: "Add row",
+            click: function () {
+              this.insertRow([], e.cell.boundRowIndex);
+            },
           },
-        },
-        {
-          title: "Duplicate row",
-          click: function () {
-            debugger;
-            this.insertRow(e.cell.data, e.cell.boundRowIndex);
+          {
+            title: "Duplicate row",
+            click: function () {
+              debugger;
+              this.insertRow(e.cell.data, e.cell.boundRowIndex);
+            },
           },
-        },
-        {
-          title: "Add column",
-          click: () => {
-            let newCells = store.state.grid.data.map((ee) => [
-              ...ee.slice(0, e.cell.boundColumnIndex),
-              "",
-              ...ee.slice(e.cell.boundColumnIndex),
-            ]);
-            store.commit("updateGrid", newCells);
-          },
-        }
-      );
+          {
+            title: "Add column",
+            click: () => {
+              let newCells = store.state.grid.data.map((ee) => [
+                ...ee.slice(0, e.cell.boundColumnIndex),
+                "",
+                ...ee.slice(e.cell.boundColumnIndex),
+              ]);
+              store.commit("updateGrid", newCells);
+            },
+          }
+        );
+      }
+      if (typeof(e.cell.boundColumnIndex) == "number" && typeof(e.cell.boundRowIndex) == "undefined" && e.cell.boundColumnIndex >= 0) {
+        e.items.push(
+          {
+            title: "Delete this row",
+            click: function (w, q) {
+              this.deleteRow(e.cell.boundRowIndex);
+              console.log(e.cell.value, e.cell.data);
+            },
+          }
+        )
+      }
     },
   },
   components: {

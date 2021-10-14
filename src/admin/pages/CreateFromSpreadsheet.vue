@@ -1,11 +1,11 @@
 <template>
 <div @drop="_drop" @dragenter="_suppress" @dragover="_suppress">
 		<form>
-			<div class="mb-4">
+			<div class="mb-4 bg-white rounded-lg p-6">
 				<label class="block uppercase tracking-wide text-xs font-bold">Name</label>
 				<input v-model="tableTitle" type="text" class="block w-full focus:outline-0 bg-white py-3 px-6 mb-2 sm:mb-0" name="name" placeholder="Enter the Table Name" required="">
 			</div>
-			<div class="mb-4">
+			<div class="mb-4 bg-white rounded-lg p-6">
 				<label class="block uppercase tracking-wide text-xs font-bold">Upload a Spreadsheet</label>
 				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
 			</div>

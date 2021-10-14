@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="toEditTable" class="mb-4">
+    <div v-if="toEditTable" class="mb-4 bg-white rounded-lg p-6">
       <label class="block uppercase tracking-wide text-xs font-bold"
         >Name</label
       >
