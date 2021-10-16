@@ -1,6 +1,6 @@
 <template>
     <div class="dropdown-wrapper relative">
-    <button v-on:click="show = !show" :class="'bg-'+color+'-500'" class="text-white font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300">Choose a style <svg
+    <button v-on:click="show = !show" :class="'bg-'+color+'-500'" class="rounded-lg text-white font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300">Choose a style <svg
   width="24"
   height="24"
   viewBox="0 0 24 24"
@@ -13,8 +13,8 @@
   />
 </svg></button>
     <transition :name="animation">
-      <div :class="'bg-'+color+'-500'" class="dropdown-menu text-white mt-1 rounded absolute z-10 shadow-lg w-40 max-w-xs" v-if="show">
-        <ul class="list-none overflow-hidden rounded">
+      <div :class="'bg-'+color+'-500'" class="dropdown-menu text-white mt-1 rounded-lg absolute z-10 shadow-lg w-40 max-w-xs" v-if="show">
+        <ul class="list-none overflow-hidden rounded-lg">
           <li class="mb-0" v-for="(style, index) in styles" :key="index">
             <a href="javascript:void(0)" @click="handleStyleSwitch(style)" class="flex py-2 px-4 transition duration-300" :class="'hover:bg-'+color+'-800'+ ' ' + 'theme-'+color">{{style}}</a>
           </li>

@@ -14,11 +14,11 @@
           required=""
         />
         <div v-if="!isSaving" style="display: contents">
-        <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
-        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Update</button>
+        <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
+        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Update</button>
         </div>
         <div v-if="isSaving">
-        <button class="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>
+        <button class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
           class="
             flex flex-col
             lg:flex-row
-            rounded
+            rounded-lg
             overflow-hidden
             h-auto
             lg:h-32
@@ -64,7 +64,7 @@
         >
           <div
             class="
-              bg-grey
+              bg-blue-900 bg-opacity-75 transition duration-300
               rounded-b
               lg:rounded-b-none lg:rounded-r
               p-4
@@ -74,7 +74,7 @@
               flex-grow-default
             "
           >
-            <div class="text-black font-bold text-xl mb-2 leading-tight">
+            <div class="text-white font-bold text-xl mb-2 leading-tight">
               {{ tableName.post_title }}
             </div>
             <ul class="flex main-nav border-b tab-buttons">

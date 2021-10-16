@@ -140,7 +140,7 @@ export default {
     return {
       tabNavigation: 0,
       tabActiveClass:
-        "tab-item bg-blue-500 inline-block py-2 px-4 font-semibold text-white",
+        "rounded-lg bg-blue-500 inline-block py-2 px-4 font-semibold text-white",
       tabInactiveClass: "text-blue-500 hover:text-blue-800",
       styles: [
         "Style 1",
