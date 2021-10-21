@@ -34,6 +34,7 @@
         </div>
     </div>
     <table-editor v-if="toEditTable" />
+    <settings-modal v-if="showSettings" />
     <div
       v-if="!toEditTable"
       class="
@@ -155,12 +156,13 @@
 </style>
 <script>
 import tableEditor from "../components/tableEditor.vue";
+import settingsModal from "../components/settings-modal.vue";
 export default {
   name: "Edit",
   data() {
     return {
       isEmptyTableList: false,
-      isSaving: false
+      isSaving: false,
     };
   },
   methods: {
@@ -226,6 +228,9 @@ export default {
     avaiableTables: (vm) => {
       return vm.$store.state.tableList;
     },
+    showSettings: (vm) => {
+      return vm.$store.state.showSettings;
+    },
     tableTitle: {
       get: function () {
         return this.$store.state.tableTitle;
@@ -237,6 +242,7 @@ export default {
   },
   components: {
     tableEditor,
+    settingsModal
   },
   mounted() {
     if (this.toEditTable) {

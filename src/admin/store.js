@@ -17,11 +17,15 @@ const store = new Vuex.Store({
       tableTitle: '',
       tableList: [],
       pageTitle: "WP Spreadsheet & Table Builder",
-      currentStyle: 'Style 1'
+      currentStyle: 'Style 1',
+      showSettings: false
     },
     mutations: {
       updateGrid (state, newData) {
         state.grid.data = newData;
+      },
+      setSettingsModalStatus (state, status) {
+        state.showSettings = status;
       },
       setTitle (state, title) {
         state.tableTitle = title;
