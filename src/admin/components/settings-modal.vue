@@ -48,3 +48,24 @@
 <div class="opacity-25 fixed inset-0 z-40 bg-black" id="modal-example-small-backdrop"></div>
 </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      fontSettings: '',
+      isLoading: true,
+      googleFontsMetadata: []
+    }
+  },
+  mounted() {
+    jQuery.ajax({
+      url: 'https://fonts.google.com/metadata/fonts',
+      success: function(data) {
+        this.googleFontsMetadata = JSON.parse(data);
+      }
+    });
+  }
+}
+
+</script>
