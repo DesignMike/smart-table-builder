@@ -188,6 +188,7 @@ final class Excel_To_Table {
         }
 
         require_once EXCELTOTABLE_INCLUDES . '/Api.php';
+        require_once EXCELTOTABLE_INCLUDES . '/GoogleFontsCache.php';
     }
 
     /**
@@ -225,6 +226,7 @@ final class Excel_To_Table {
         }
 
         $this->container['api'] = new Spreadsheet2Table\Api();
+        $this->container['fonts'] = new Spreadsheet2Table\GoogleFontsCache("a");
         $this->container['assets'] = new Spreadsheet2Table\Assets();
     }
 

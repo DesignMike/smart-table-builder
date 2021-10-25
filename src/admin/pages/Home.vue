@@ -46,7 +46,6 @@ export default {
     },
     methods: {
         setDefineCells() {
-            debugger
             this.defineCells = !this.defineCells;
         },
         createTable() {

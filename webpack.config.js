@@ -147,7 +147,7 @@ module.exports = {
                 require('postcss-preset-env')({ stage: 1 }),
                 require('postcss-prefix-selector')({
                   prefix: '.wptable',
-                  exclude: ['.wrap.wptable']
+                  exclude: ['.wrap.wptable', '.ui']
                 })
               ],
             },

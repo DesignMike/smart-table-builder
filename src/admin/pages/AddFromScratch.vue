@@ -52,7 +52,6 @@ export default {
 		}
     },
     mounted() {
-        debugger
         this.$store.commit('updateGrid', defautlSheetData(this.$route.query).grid.data );
         this.$store.commit('setTitle', defautlSheetData(this.$route.query).title );
     },

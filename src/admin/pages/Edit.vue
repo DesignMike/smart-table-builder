@@ -209,7 +209,6 @@ export default {
         vm: this,
         success(data) {
           let { vm } = this;
-          debugger;
           vm.$store.commit("updateGrid", data.grid.data);
           vm.$store.commit("setTitle", data.title);
           vm.$store.commit("setEditingTableId", data.id);

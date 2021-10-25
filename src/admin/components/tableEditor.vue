@@ -168,7 +168,6 @@ export default {
       },
       // setter
       set: function (newGrid) {
-        debugger;
         return this.$store.commit("updateGrid", newGrid.data);
       },
     },
@@ -191,7 +190,6 @@ export default {
       return JSON.stringify(this.$store.state);
     },
     async handleTabSwitch(event) {
-      debugger;
       let selectedTabIndex = parseInt(
         event.target.getAttribute("data-tab-index")
       );
@@ -213,12 +211,6 @@ export default {
           .data("table", JSON.stringify(this.$store.state));
         // await indexedDBHelper.saveCat(this.$store.state.grid)
         frontVue(jQuery(".excel-to-table-app").get(0));
-        setTimeout(() => {
-          debugger;
-          // frontVue(jQuery('.excel-to-table-app').get(0));
-          // let tablePreview = document.getElementById('table-preview');
-          // Tablesaw.init(tablePreview);
-        }, 3000);
       }
     },
     showSettings() {
@@ -253,11 +245,6 @@ export default {
     handleRightClick(e, i, v, c) {
       // e.items.map((e,i) => e.title == 'Add/Remove columns' ? i : '').filter(ee => ee).forEach(eee => delete e.items[eee])
       let { $store: store } = this;
-      let manipulateStore = (evt) => {
-        store;
-        debugger;
-      };
-      debugger
       for (let index = 0; index < e.items.length; index++) {
         // const element = array[index];
         delete e.items[index];
@@ -280,7 +267,6 @@ export default {
           {
             title: "Duplicate row",
             click: function () {
-              debugger;
               this.insertRow(e.cell.data, e.cell.boundRowIndex);
             },
           },

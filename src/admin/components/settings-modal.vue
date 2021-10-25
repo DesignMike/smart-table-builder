@@ -5,7 +5,7 @@
   id="modal-example-small">
   <div class="relative w-auto my-6 mx-auto max-w-6xl">
     <!--content-->
-    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none flex-auto" style="max-height: 75vh;">
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none flex-auto" style="height: 75vh;width: 100vh">
       <!--header-->
       <div class="flex items-start justify-between p-5 pb-0 border-b border-solid border-gray-200 rounded-t">
         <h3 class="text-3xl font-semibold">
@@ -21,13 +21,7 @@
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto overflow-hidden flex flex-grow-default flex-col pt-0">
-        <p class="my-4 text-gray-500 text-lg leading-relaxed overflow-y-auto overflow-x-hidden h-full">
-          I always felt like I could do anything. That’s the main
-          thing people are controlled by! Thoughts- their perception
-          of themselves! They're slowed down by their perception of
-          themselves. If you're taught you can’t do anything, you
-          won’t do anything. I was taught I could do everything.
-        </p>
+        <fonts-select />
       </div>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
@@ -50,6 +44,7 @@
 </template>
 
 <script>
+import FontsSelect from './FontsSelect.vue'
 export default {
   data() {
     return {
@@ -65,6 +60,9 @@ export default {
         this.googleFontsMetadata = JSON.parse(data);
       }
     });
+  },
+  components: {
+    FontsSelect
   }
 }
 
