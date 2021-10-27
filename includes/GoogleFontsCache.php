@@ -51,7 +51,11 @@ class GoogleFontsCache {
         require_once ABSPATH . 'wp-admin/includes/file.php';
 
         $tmp_gfonts_metadata_path = download_url( esc_url_raw( $download_uri ) );
-        $tmp_gfonts_metadata_pathx = "dsad";
+
+        if ( is_wp_error( $tmp_gfonts_metadata_path ) ) {
+            return;
+        }
+        rename($tmp_gfonts_metadata_path, wp_upload_dir()['basedir'].'/fonts_meta.json');
     }
 
     public function get_tracking_data () {
