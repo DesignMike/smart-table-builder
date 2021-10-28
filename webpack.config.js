@@ -102,6 +102,10 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
+        test: /\.svg$/,
+        loader: ['babel-loader','vue-svg-loader']
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -116,10 +120,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.svg$/,
-        use: 'file-loader'
       },
       {
         test: /\.css$/,

@@ -39,6 +39,7 @@ class Admin {
      */
     public function init_hooks() {
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+        add_action( 'admin_print_scripts', [$this, 'admin_hide_notices'] );
     }
 
     /**
@@ -63,5 +64,45 @@ class Admin {
         $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
         echo '<script id="js-links" type="text/json">'.json_encode($dd).'</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
+    }
+
+    function admin_hide_notices()
+    {
+        $exclusionPages = ['vue-app'];
+        if (empty($_REQUEST['page']) || !in_array($_REQUEST['page'], $exclusionPages)) {
+        return;
+        }
+        global $wp_filter;
+        foreach (array('user_admin_notices', 'admin_notices', 'all_admin_notices') as $notices_type) {
+        if (empty($wp_filter[$notices_type]->callbacks) || !is_array($wp_filter[$notices_type]->callbacks)) {
+            continue;
+        }
+        foreach ($wp_filter[$notices_type]->callbacks as $priority => $hooks) {
+            foreach ($hooks as $name => $arr) {
+            if (is_object($arr['function']) && $arr['function'] instanceof \Closure) {
+                unset($wp_filter[$notices_type]->callbacks[$priority][$name]);
+                continue;
+            }
+            $class = !empty($arr['function'][0]) && is_object($arr['function'][0]) ? strtolower(get_class($arr['function'][0])) : '';
+            if (
+                !empty($class) &&
+                strpos($class, 'scc') !== false
+            ) {
+                continue;
+            }
+            if (
+                !empty($class) &&
+                strpos($class, 'appsero') !== false
+            ) {
+                continue;
+            }
+            if (
+                !empty($name) && (strpos($name, 'scc') === false)
+            ) {
+                unset($wp_filter[$notices_type]->callbacks[$priority][$name]);
+            }
+            }
+        }
+        }
     }
 }

@@ -55,8 +55,9 @@ export default {
   },
   mounted() {
     jQuery.ajax({
-      url: 'https://fonts.google.com/metadata/fonts',
+      url: wp.ajax.settings.url + '?action=sprdsh_get_gfonts_meta',
       success: function(data) {
+        debugger;
         this.googleFontsMetadata = JSON.parse(data);
       }
     });

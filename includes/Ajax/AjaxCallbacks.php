@@ -64,4 +64,15 @@ class AjaxCallbacks
         $response = $table;
         wp_send_json($response);
     }
+    public static function get_gfonts_meta()
+    {
+        $gfonts_metadata_file = EXCELTOTABLE_ASSETS . '/fonts_meta.json';
+        $fonts_metadata = file_get_contents($gfonts_metadata_file);
+        header('Content-type: audio/mpeg');
+
+        header('Content-Disposition: attachment; filename="fonts.txt"');
+        
+        echo ($fonts_metadata);
+        wp_die();
+    }
 }
