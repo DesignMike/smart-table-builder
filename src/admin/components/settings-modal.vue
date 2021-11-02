@@ -20,20 +20,18 @@
         </button>
       </div>
       <!--body-->
-      <div class="relative p-6 flex-auto overflow-hidden flex flex-grow-default flex-col pt-0">
-        <fonts-select />
+      <div v-if="!isLoading" class="relative grid grid-cols-3 p-6 flex-auto overflow-hidden flex flex-grow-default flex-col pt-0">
+        <fonts-select :options="getFontFamilyList(this)" @updateFont="handleFontUpdate" context="fontFamily" />
+        <fonts-select :options="getSizes()" context="fontSize" />
+        <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
+      <p v-if="isLoading" class="text-center text-gray">Please Wait</p>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
         <button
           class="text-purple-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button" onclick="toggleModal('modal-example-small')">
+          type="button" @click="handleModalClose()">
           Close
-        </button>
-        <button
-          class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button" onclick="toggleModal('modal-example-small')">
-          Save Changes
         </button>
       </div>
     </div>
@@ -48,19 +46,46 @@ import FontsSelect from './FontsSelect.vue'
 export default {
   data() {
     return {
-      fontSettings: '',
       isLoading: true,
-      googleFontsMetadata: []
+      googleFontsMetadata: [],
+      componentKey: 0
     }
   },
   mounted() {
+    const updateGoogleFontsMetaData = (data) => {
+      this.googleFontsMetadata = JSON.parse(data)
+      this.isLoading = false;
+    }
     jQuery.ajax({
       url: wp.ajax.settings.url + '?action=sprdsh_get_gfonts_meta',
-      success: function(data) {
-        debugger;
-        this.googleFontsMetadata = JSON.parse(data);
-      }
+      success: updateGoogleFontsMetaData
     });
+  },
+  computed: {
+  },
+  methods: {
+    getFontFamilyList: (proxy) => {
+      return proxy.googleFontsMetadata.familyMetadataList.map(e => ({value: e.family, text: e.family}));
+    },
+    findFontFamilyWeights() {
+      let family = this.$store.state.fontSettings[0];
+      let weights = this.googleFontsMetadata.familyMetadataList.filter(e => e.family == family).map(e => Object.keys(e.fonts))[0];
+      return weights.map(e => ({text: e, value: e}));
+    },
+    getSizes() {
+      return [...Array(80).keys()].map(e => ({text: e+' px', value: e+' px'}));
+    },
+    handleFontUpdate(family) {
+      // this.$refs.weightDropDown.options = this.findFontFamilyWeights();
+      // // this.$refs.weightDropDown.inputText = this.findFontFamilyWeights()[0].text;
+      // // this.$refs.weightDropDown.searchText = this.findFontFamilyWeights()[0].text;
+      // this.$refs.weightDropDown.searchText = this.findFontFamilyWeights()[0].text;
+      this.componentKey = !this.componentKey;
+    },
+    handleModalClose() {
+      this.$store.commit("setSettingsModalStatus", false);
+      this.$parent.mountFonts();
+    }
   },
   components: {
     FontsSelect

@@ -18,7 +18,8 @@ const store = new Vuex.Store({
       tableList: [],
       pageTitle: "WP Spreadsheet & Table Builder",
       currentStyle: 'Style 1',
-      showSettings: false
+      showSettings: false,
+      fontSettings: ['Montserrat', '20px', '400']
     },
     mutations: {
       updateGrid (state, newData) {
@@ -38,6 +39,9 @@ const store = new Vuex.Store({
       },
       setPageTitle (state, data) {
         state.pageTitle = data;
+      },
+      updatefontSettings (state, data) {
+        state.fontSettings = data;
       }
     }
   })

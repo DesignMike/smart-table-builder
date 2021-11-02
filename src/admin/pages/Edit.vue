@@ -219,6 +219,21 @@ export default {
         },
       });
     },
+    mountFonts() {
+      var myobj = document.getElementById("gfonts");
+      if(myobj) {
+        myobj.remove();
+      }
+
+      var head  = document.getElementsByTagName('head')[0];
+      var link  = document.createElement('link');
+      link.id   = 'gfonts';
+      link.rel  = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap';
+      link.media = 'all';
+      head.appendChild(link);
+    }
   },
   computed: {
     toEditTable: (vm) => {
@@ -257,6 +272,7 @@ export default {
         },
       });
       this.$store.commit("setPageTitle", "Editing Table");
+      this.mountFonts();
     }
     if (!this.toEditTable) {
       let updateListTables = (data) => {
