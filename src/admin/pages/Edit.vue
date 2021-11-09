@@ -15,7 +15,7 @@
         />
         <div v-if="!isSaving" style="display: contents">
         <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
-        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Update</button>
+        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="rounded-lg bg-blue-500 hover:bg-blue-800 font-bold text-white py-2 px-4">Update</button>
         </div>
         <div v-if="isSaving">
         <button class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>

@@ -59,7 +59,15 @@
 		  <drop-down animation="fade" color="blue" :styles="styles"></drop-down>
       </div>
     </div>
-    <div v-if="tabNavigation == 0">
+    <div v-if="tabNavigation == 0" class="
+        mb-4 bg-white rounded-lg p-6
+        flex flex-col
+        space-y-4
+        lg:space-y-0
+        lg:flex-row
+        lg:items-center
+        lg:justify-between
+      ">
       <div class="px-5 py-3 w-full h-full">
         <canvas-datagrid
           v-if="grid.data.length"
@@ -76,7 +84,7 @@
       </div>
     </div>
     <div
-      class="px-5 py-3"
+      class="pb-5"
       v-bind:style="{ display: tabNavigation == 1 ? 'block' : 'none' }"
     >
       <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
@@ -222,12 +230,12 @@ export default {
       );
     },
     handleRender(e) {
-      if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {
-        e.cell.innerHTML =
-          '<a style="display: inline-block; color: dodgerblue;" href="https://bing.com">' +
-          e.cell.value +
-          "</a>";
-      }
+      // if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {
+      //   e.cell.innerHTML =
+      //     '<a style="display: inline-block; color: dodgerblue;" href="https://bing.com">' +
+      //     e.cell.value +
+      //     "</a>";
+      // }
     },
     handleGridEvent(e, v, i, c) {
       this.$refs.grid.setActiveCell(null);
@@ -238,6 +246,9 @@ export default {
           this.$refs.grid.style.height = "100%";
           this.$refs.grid.style.width = "100%";
           this.$refs.grid.style.gridBackgroundColor = "white";
+          this.$refs.grid.style.scrollBarBackgroundColor = "white";
+          this.$refs.grid.style.scrollBarBorderColor = "white";
+          // this.$refs.grid.style.moveOverlayBorderColor = "blue";
           this.$refs.grid.style.cellHeight = 35;
         }, n);
       });
