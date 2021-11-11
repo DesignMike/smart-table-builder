@@ -65,10 +65,10 @@
         >
           <div
             class="
-              bg-blue-900 bg-opacity-75 transition duration-300
+              bg-blue-500 bg-opacity-75 transition duration-300
               rounded-b
               lg:rounded-b-none lg:rounded-r
-              p-4
+              p-6
               flex flex-col
               justify-between
               leading-normal

@@ -69,6 +69,67 @@
         lg:justify-between
       ">
       <div class="px-5 py-3 w-full h-full">
+        <div class="mb-2" style="width: fit-content">
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M3,5v14h18V5H3z M8.33,17H5V7h3.33V17z M13.67,17h-3.33V7h3.33V17z M19,17h-3.33V7H19V17z"/></svg>
+            <span>Column</span>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,5v3H5V5H19z M19,10v4H5v-4H19z M5,19v-3h14v3H5z"/></svg>
+            <span>Rows</span>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4h-8z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 17v2h14v-2H5zm4.5-4.2h5l.9 2.2h2.1L12.75 4h-1.5L6.5 15h2.1l.9-2.2zM12 5.98L13.87 11h-3.74L12 5.98z"/></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><g><g><path d="M12,22C6.49,22,2,17.51,2,12S6.49,2,12,2s10,4.04,10,9c0,3.31-2.69,6-6,6h-1.77c-0.28,0-0.5,0.22-0.5,0.5 c0,0.12,0.05,0.23,0.13,0.33c0.41,0.47,0.64,1.06,0.64,1.67C14.5,20.88,13.38,22,12,22z M12,4c-4.41,0-8,3.59-8,8s3.59,8,8,8 c0.28,0,0.5-0.22,0.5-0.5c0-0.16-0.08-0.28-0.14-0.35c-0.41-0.46-0.63-1.05-0.63-1.65c0-1.38,1.12-2.5,2.5-2.5H16 c2.21,0,4-1.79,4-4C20,7.14,16.41,4,12,4z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></g></g></g></g></svg>
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            Alignment
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            u/d
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            hist
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            fontchoose
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            fontsize
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            Link
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            Image
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            shortcode
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            rating
+          </button>
+          <button class="bg-gray-100 py-2 px-4">
+            clear
+          </button>
+        </div>
         <canvas-datagrid
           v-if="grid.data.length"
           allowSorting="false"
@@ -84,9 +145,7 @@
       </div>
     </div>
     <div
-      class="pb-5"
-      v-bind:style="{ display: tabNavigation == 1 ? 'block' : 'none' }"
-    >
+      class="pb-5" style="display: none">
       <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
 
       <div v-if="grid.data.length" class="table-container">
@@ -95,14 +154,13 @@
     </div>
     <div v-if="tabNavigation == 2">
       <div
-        class="
+        class="mb-4 bg-white rounded-lg p-6
           flex flex-col
-          p-4
-          rounded-lg
-          text-gray-900
-          w-8/12 bg-white
-          mx-auto
-          my-auto
+          space-y-4
+          lg:space-y-0
+          lg:flex-row
+          lg:items-center
+          lg:justify-between
         "
       >
         <div>
@@ -219,6 +277,10 @@ export default {
           .data("table", JSON.stringify(this.$store.state));
         // await indexedDBHelper.saveCat(this.$store.state.grid)
         frontVue(jQuery(".excel-to-table-app").get(0));
+        jQuery(".table-container").parent().show();
+      }
+      if (selectedTabIndex !== 1) {
+        jQuery(".table-container").parent().hide();
       }
     },
     showSettings() {
@@ -243,6 +305,7 @@ export default {
     setGridStyle() {
       [1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
         setTimeout(() => {
+          if (!this.$refs.hasOwnProperty('grid')) return;
           this.$refs.grid.style.height = "100%";
           this.$refs.grid.style.width = "100%";
           this.$refs.grid.style.gridBackgroundColor = "white";
