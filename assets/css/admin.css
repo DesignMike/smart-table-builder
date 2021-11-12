@@ -79,6 +79,9 @@
 .wptable .copy-icon[data-v-4a48ad0a] {
   cursor: pointer;
 }
+.wptable .toolbar button svg[data-v-4a48ad0a] {
+  display: inline;
+}
 
 .wptable .main-nav li {
   margin-bottom: 0;
