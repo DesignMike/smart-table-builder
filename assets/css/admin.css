@@ -73,6 +73,77 @@
   transform: scale(0) rotate(360deg);
 }
 
+.wptable button[data-v-37b0ea28]{
+  cursor:pointer
+}
+.wptable button[data-v-37b0ea28]:focus{
+    outline:none;
+}
+
+/* Animations */
+.wptable .fade-enter-active[data-v-37b0ea28], .wptable .fade-leave-active[data-v-37b0ea28] {
+  transition: opacity .5s;
+}
+.wptable .dropdown-wrapper svg[data-v-37b0ea28] {
+  display: inline;
+}
+.wptable .toolbar-tool svg[data-v-37b0ea28], .wptable .toolbar-tool svg[data-v-37b0ea28]:hover {
+  display: inline;
+}
+.wptable .fade-enter[data-v-37b0ea28], .wptable .fade-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+}
+
+/* Slide-in-up animation*/
+.wptable .slide-in-up-enter-active[data-v-37b0ea28], .wptable .slide-in-up-leave-active[data-v-37b0ea28] {
+  transition: all .5s;
+  transform: translateY(0);
+}
+.wptable .slide-in-up-enter[data-v-37b0ea28], .wptable .slide-in-up-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Slide-in-right animation*/
+.wptable .slide-in-right-enter-active[data-v-37b0ea28], .wptable .slide-in-right-leave-active[data-v-37b0ea28] {
+  transition: all .5s;
+  transform: translateX(0);
+}
+.wptable .slide-in-right-enter[data-v-37b0ea28], .wptable .slide-in-right-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Slide-in-left animation*/
+.wptable .slide-in-left-enter-active[data-v-37b0ea28], .wptable .slide-in-left-leave-active[data-v-37b0ea28] {
+  transition: all .5s;
+  transform: translateX(0);
+}
+.wptable .slide-in-left-enter[data-v-37b0ea28], .wptable .slide-in-left-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* Scale animation*/
+.wptable .scale-enter-active[data-v-37b0ea28], .wptable .scale-leave-active[data-v-37b0ea28] {
+  transition: all .5s;
+  transform: scale(1);
+}
+.wptable .scale-enter[data-v-37b0ea28], .wptable .scale-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Rotate animation*/
+.wptable .rotate-enter-active[data-v-37b0ea28], .wptable .rotate-leave-active[data-v-37b0ea28] {
+  transition: all .5s;
+  transform: scale(1) rotate(-360deg);
+}
+.wptable .rotate-enter[data-v-37b0ea28], .wptable .rotate-leave-to[data-v-37b0ea28] {
+  opacity: 0;
+  transform: scale(0) rotate(360deg);
+}
+
 .wptable .copy-icon svg[data-v-4a48ad0a] {
   display: inline;
 }

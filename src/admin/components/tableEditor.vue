@@ -69,17 +69,14 @@
         lg:justify-between
       ">
       <div class="px-5 py-3 w-full h-full">
-        <div class="mb-2 toolbar" style="width: fit-content">
+        <div class="mb-2 toolbar flex" style="width: fit-content">
           <button class="bg-gray-100 py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
           </button>
           <button class="bg-gray-100 py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
           </button>
-          <button class="bg-gray-100 py-2 px-4">
-            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M3,5v14h18V5H3z M8.33,17H5V7h3.33V17z M13.67,17h-3.33V7h3.33V17z M19,17h-3.33V7H19V17z"/></svg>
-            <span>Column</span>
-          </button>
+          <toolbar-dropdown animation="fade" color="blue" :styles="styles"></toolbar-dropdown>
           <button class="bg-gray-100 py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,5v3H5V5H19z M19,10v4H5v-4H19z M5,19v-3h14v3H5z"/></svg>
             <span>Rows</span>
@@ -210,6 +207,7 @@
 import tableElement from "../../common/components/tableElement.vue";
 import indexedDBHelper from "../../admin/utils/indexedDBHelper";
 import dropDown from '../components/dropDown.vue';
+import toolbarDropdown from '../components/toolbarDropDown.vue';
 export default {
   data() {
     return {
@@ -375,7 +373,8 @@ export default {
   },
   components: {
     tableElement,
-	dropDown
+	dropDown,
+  toolbarDropdown
   },
   mounted() {
     this.setGridStyle();

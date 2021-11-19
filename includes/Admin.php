@@ -61,9 +61,9 @@ class Admin {
      * @return void
      */
     public function plugin_page() {
-        $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
-        echo '<script id="js-links" type="text/json">'.json_encode($dd).'</script>';
-        echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
+        // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
+        // echo '<script id="js-links" type="text/json">'.json_encode($dd).'</script>';
+        // echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
     }
 
     function admin_hide_notices()
