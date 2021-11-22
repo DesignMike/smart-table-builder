@@ -76,11 +76,8 @@
           <button class="bg-gray-100 py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
           </button>
-          <toolbar-dropdown animation="fade" color="blue" :styles="styles"></toolbar-dropdown>
-          <button class="bg-gray-100 py-2 px-4">
-            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,5v3H5V5H19z M19,10v4H5v-4H19z M5,19v-3h14v3H5z"/></svg>
-            <span>Rows</span>
-          </button>
+          <columntoolbar-dropdown animation="fade" color="blue" :styles="styles"></columntoolbar-dropdown>
+          <rowtoolbar-dropdown animation="fade" color="blue" :styles="styles"></rowtoolbar-dropdown>
           <button class="bg-gray-100 py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z"/></svg>
           </button>
@@ -207,7 +204,8 @@
 import tableElement from "../../common/components/tableElement.vue";
 import indexedDBHelper from "../../admin/utils/indexedDBHelper";
 import dropDown from '../components/dropDown.vue';
-import toolbarDropdown from '../components/toolbarDropDown.vue';
+import columntoolbarDropdown from '../components/columntoolbarDropdown.vue';
+import rowtoolbarDropdown from '../components/rowtoolbarDropdown.vue'
 export default {
   data() {
     return {
@@ -374,7 +372,8 @@ export default {
   components: {
     tableElement,
 	dropDown,
-  toolbarDropdown
+  columntoolbarDropdown,
+  rowtoolbarDropdown
   },
   mounted() {
     this.setGridStyle();

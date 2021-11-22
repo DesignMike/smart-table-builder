@@ -9,11 +9,11 @@
     <transition :name="animation">
       <div class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs" v-if="show">
         <div class="list-none overflow-hidden rounded-lg">
-          <button class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABSklEQVRIibXVTytEYRTH8Q+JRJnEQkqysJJYUBaiZGOlJBsbL8C7sbJQdlLsSHkHNjM7hY0/SaxsDJKxGLfGuHfm3ufyq1PPPZ1zvs/TPc95+KltVDLaPXo1UWvd91SzhBgNYCgrKNIkWlJYKe1ukkB/rrygVxzgsVlgW07QAl7SBOYFvWAOqxhDO25xgj2UkxKLqi07kQLS910wqe1vMJ8XVMB5A0hkb1jMA9qNKRrlFOv8TyiEdN0w1jPE92EzBLQk+7VYDgGN1KxrJ0ipgW80BFQJyPkMAV3VrGt/fFwzRL6LENARPjLmHIaA7rCTIf4BW/XOtPeo2+/7EmdlzMYVyDKCelQndxLkEtNRcJ6h+owVzGAN4+jANY6xj/ek5Cwngs60u8r78J2qNkb/f4O6sIHB/walVlIzFP8aVH+is4Aa96qvaUN9AdL9bthjaNBeAAAAAElFTkSuQmCC"/>
+          <button @click="addColumnRight" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABC0lEQVRIid2VPQoCMRCFP7UXtBD0EGIniB5g/cETaSOCp7Gz9OcEtmKrrTYqWq7FJhLGzW52V0F8MEVeZuZNMhMC/4oucAR8ix0Bz/BvAKUkAlHJtR0M/zuwA6quAnHJtUn/PVD7pECYbc1EedcjJYAf7/JDV6Tx9SbXsYxpLkLABbb4F77R5MwCJ2BM8HpTw3bnc6CSJXGUwAIoqP0hsAFuytbAIIvAGSiqvZmlAB+YphWYGJWbfAtoC66fRqCp+I3gw/xXaQTKir8alUvok1xM0nVMH2IdFhf76EzID0fP/Jr4K1q6CHgEP5YOGil+IJK1gY7geklOEoYp7z2S05YZfYJpuSpbYqn8CVxttbGJIJXVAAAAAElFTkSuQmCC"/>
           </button>
-          <button class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABT0lEQVRIie3Uvy5mQRjH8c/Lm/gTknUBCsV2GqGRlWho3ACVuAGXsDoXgXbbFZVWs4nmINptZNefhmhUi+xRmMMY55y8XjmJwi95cmaemef3nZnMGT7VpVrYwkTDnMMW/gdgk8pbyENnqiFIxuNOClBTu8qhpyHzV/oEfXxQ+w1zR7GAr6H/G7s469Qg93zFyzSMTdxHc4u4wwaGOvGvA43guASQxhG+dArKQuyhN0zaKTGdDJHmf4aaQfyK/J5AF0nBj1DwrWL16UrjmA5j20n+vI1xjEUGp+G7WHEUdVrCPlaxHuVP2rgOkWo8apc9uHEuS2rOQzyp7nr3R+2DkvGy3ECVWR3or+czz6L8VEmu0J8av0qtePtlWO4G1B9W2CnoBH3dgGAWt4lh+n/k+IeZbiGF5nGl/KhyXGLuvZBCI1jzuJObEBm+q356XugBFBWELDgCbQcAAAAASUVORK5CYII="/>
+          <button @click="addColumnLeft" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIid2VPW4CMRCFP6BHCgWIS6B0SBEcgD/lRKSJVuI06VJu2BvQgOihhQZQKKFYWzITO2vvT8OTpvCz/d54PJbh2fACvBrjMbAHbo7YAyNf8S6wBX4N7j9xHTsf8Q6wMTZpZInL9U6sAsSCDOo+7mWgDaypsERgv+RSDSBt016ZBrUMQ9/snDqVX3IRgwPwwePLD4ar5l+knVcYNvFvoKHm34EEuKhYArMiBkegqeYWjgRuQJTX4NPI3OTfgIHgpnkM+opPBG9b/5PHoKX4s5G5hD7JCcLb9CrGtv1Zj/cB8sPRPb8ku0Sxj8GI9MfSm+aKnwmxATAU3CTkJDZE/L0j2W2FMSXtlrOKGJH5HeqytKMUvYpHAAAAAElFTkSuQmCC"/>
           </button>
         </div>
       </div>
@@ -118,6 +118,34 @@ export default {
 
         document.head.appendChild(script);
       }
+    },
+    addColumnLeft(a) {
+      let {activeCell} = this.$parent.$refs.grid;
+      if (typeof(activeCell.columnIndex) == 'undefined') return;
+      let newCells = this.$store.state.grid.data.map((ee) => [
+                ...ee.slice(0, activeCell.columnIndex),
+                "",
+                ...ee.slice(activeCell.columnIndex),
+              ]);
+              this.$store.commit("updateGrid", newCells);
+              this.$parent.$refs.grid.setActiveCell(activeCell.columnIndex +1 ,activeCell.rowIndex);
+              this.$parent.$refs.grid.refresh();
+              this.$parent.$refs.grid.selectNone();
+              // this.$parent.$refs.grid.activeCell = activeCell;
+    },
+    addColumnRight(a) {
+      let {activeCell} = this.$parent.$refs.grid;
+      if (typeof(activeCell.columnIndex) == 'undefined') return;
+      let newCells = this.$store.state.grid.data.map((ee) => [
+                ...ee.slice(0, activeCell.columnIndex + 1),
+                "",
+                ...ee.slice(activeCell.columnIndex + 1),
+              ]);
+              this.$store.commit("updateGrid", newCells);
+              
+              this.$parent.$refs.grid.setActiveCell(activeCell.columnIndex ,activeCell.rowIndex);
+              this.$parent.$refs.grid.refresh();
+              this.$parent.$refs.grid.selectNone();
     }
   },
   props: {
