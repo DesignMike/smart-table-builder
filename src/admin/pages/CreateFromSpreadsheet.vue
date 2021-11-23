@@ -1,24 +1,28 @@
 <template>
 <div @drop="_drop" @dragenter="_suppress" @dragover="_suppress">
-		<form>
-			
-			<div class="flex">
-				<input
-				v-model="tableTitle"
-				type="text"
-				class="block w-full focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
-				name="name"
-				placeholder="Enter the Table Name"
-				required=""
-				/>
-				<div v-if="!isSaving" style="display: contents">
-				<button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
-				<button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="rounded-lg bg-blue-500 hover:bg-blue-800 font-bold text-white py-2 px-4">Update</button>
-				</div>
-				<div v-if="isSaving">
-				<button class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>
-				</div>
-			</div>
+	<div v-if="fileUploadDone" class="mb-4 bg-white rounded-lg p-6">
+      <label class="block uppercase tracking-wide text-xs font-bold"
+        >Name</label
+      >
+      <div class="flex">
+        <input
+          v-model="tableTitle"
+          type="text"
+          class="block w-full focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
+          name="name"
+          placeholder="Enter the Table Name"
+          required=""
+        />
+        <div v-if="!isSaving" style="display: contents">
+        <button v-if="!['/settings', '/edit', '/'].some(e => e == $route.path)" @click="handleSave" class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4">Save</button>
+        <button v-if="($route.path == '/edit') && $route.query.table_id" @click="handleUpdate" class="rounded-lg bg-blue-500 hover:bg-blue-800 font-bold text-white py-2 px-4">Update</button>
+        </div>
+        <div v-if="isSaving">
+        <button class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"><i class="gg-spinner-alt"></i></button>
+        </div>
+      </div>
+    </div>
+		<form v-if="!fileUploadDone">
 			<div class="mb-4 bg-white rounded-lg p-6">
 				<label class="block uppercase tracking-wide text-xs font-bold">Upload a Spreadsheet</label>
 				<input type="file" class="w-full shadow-inner p-4 border-0" id="file" :accept="SheetJSFT" @change="_change" />
@@ -49,6 +53,7 @@ export default {
 		return {
 			SheetJSFT: _SheetJSFT,
 			isSaving: false,
+			fileUploadDone: false
 		}; 
 	},
 	methods: {
@@ -99,6 +104,25 @@ export default {
 				this.cols = make_cols(ws['!ref']);
 			};
 			reader.readAsBinaryString(file);
+			let fileNameDotLength = file.name.split('.').length - 1;
+			let possibleTitle = file.name.split('.', fileNameDotLength).join('_');
+			this.$store.commit("setTitle", possibleTitle);
+			this.fileUploadDone = true;
+		},
+		handleSave() {
+			let data =  {
+				title: this.$store.state.tableTitle,
+				cells: this.$store.state.grid.data
+			};
+			jQuery.ajax({
+				type: 'POST',
+				url: ajaxurl+ '?action=create_new_table_entry',
+				dataType: 'json',
+				data: JSON.stringify(data),
+				success: (responseData) => {
+				this.$router.push({ name: "Edit Existing", query: {table_id : responseData.ok} });
+				}
+			});
 		},
 	},
 	computed: {
@@ -109,7 +133,10 @@ export default {
 			set: function (newString) {
 				return this.$store.state.tableTitle = newString;
 			}
-		}
+		},
+		showSettings: (vm) => {
+			return vm.$store.state.showSettings;
+		},
 	},
 	components: {
 		tableEditor
