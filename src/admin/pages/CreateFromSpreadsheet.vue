@@ -29,6 +29,7 @@
 			</div>
 		</form>
 		<table-editor v-if="$store.state.grid.data.length" />
+		<settings-modal v-if="showSettings" />
 </div>
 </template>
 <style>
@@ -44,6 +45,7 @@ import XLSX from 'xlsx';
 import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
 import tableEditor from '../components/tableEditor.vue';
+import settingsModal from "../components/settings-modal.vue";
 const make_cols = refstr => Array(XLSX.utils.decode_range(refstr).e.c + 1).fill(0).map((x,i) => ({name:XLSX.utils.encode_col(i), key:i}));
 const _SheetJSFT = [
 	"xlsx", "xlsb", "xlsm", "xls", "xml", "csv", "txt", "ods", "fods", "uos", "sylk", "dif", "dbf", "prn", "qpw", "123", "wb*", "wq*", "html", "htm"
@@ -53,7 +55,7 @@ export default {
 		return {
 			SheetJSFT: _SheetJSFT,
 			isSaving: false,
-			fileUploadDone: false
+			fileUploadDone: false,
 		}; 
 	},
 	methods: {
@@ -124,6 +126,9 @@ export default {
 				}
 			});
 		},
+		showSettings: (vm) => {
+			return vm.$store.state.showSettings;
+		},
 	},
 	computed: {
 		tableTitle: {
@@ -139,7 +144,8 @@ export default {
 		},
 	},
 	components: {
-		tableEditor
+		tableEditor,
+		settingsModal
   	},
 	mounted() {
 		// Tablesaw.init();

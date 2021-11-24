@@ -5,11 +5,13 @@
         <input v-model="tableTitle" type="text" class="block w-full focus:outline-0 bg-white py-3 px-6 mb-2 sm:mb-0" name="name" placeholder="Enter the Table Name" required="">
     </div>
     <table-editor v-if="grid.data.length" />
+    <settings-modal v-if="showSettings" />
 </div>
 </template>
 
 <script>
 import tableEditor from '../components/tableEditor.vue';
+import settingsModal from "../components/settings-modal.vue";
 const defautlSheetData = ({title, col, row}) => {
     let colsArray = new Array()
     let rowsArray = new Array()
@@ -30,11 +32,12 @@ export default {
     name: 'AddFromScratch',
     data() {
         return {
-            loaded: false
+            loaded: false,
         }
     },
     components: {
-		tableEditor
+		tableEditor,
+        settingsModal
   	},
     computed: {
         grid: {
@@ -49,7 +52,10 @@ export default {
 			set: function (newString) {
 				return this.$store.state.tableTitle = newString;
 			}
-		}
+		},
+        showSettings: (vm) => {
+            return vm.$store.state.showSettings;
+        },
     },
     mounted() {
         this.$store.commit('updateGrid', defautlSheetData(this.$route.query).grid.data );

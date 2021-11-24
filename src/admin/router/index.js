@@ -42,6 +42,7 @@ router.beforeEach((to, from, next) => {
     router.app.$store.commit('setEditingTableId', null);
     router.app.$store.commit('updateGrid', []);
     router.app.$store.commit('setTitle', null);
+    router.app.$store.commit('setSettingsModalStatus', false);
   }
   if (from.query.table_id) {
     let updateListTables = (data) => {

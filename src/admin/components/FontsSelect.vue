@@ -2,7 +2,7 @@
   <div class="ui vertical segment">
     <div class="flexbox">
       <div class="flex-content">
-        <h3>{{title}}</h3>
+        <h3 class="font-semibold">{{title}}</h3>
         <div>
           <basic-select
             :options="options1"

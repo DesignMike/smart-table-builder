@@ -5,9 +5,9 @@
   id="modal-example-small">
   <div class="relative w-auto my-6 mx-auto max-w-6xl">
     <!--content-->
-    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none flex-auto" style="height: 75vh;width: 100vh">
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col p-12 pb-0 w-full bg-white outline-none focus:outline-none flex-auto" style="height: 75vh;width: 100vh">
       <!--header-->
-      <div class="flex items-start justify-between p-5 pb-0 border-b border-solid border-gray-200 rounded-t">
+      <div class="flex items-start justify-between border-b border-solid border-gray-200 rounded-t">
         <h3 class="text-3xl font-semibold">
           Table Settings
         </h3>
@@ -20,12 +20,17 @@
         </button>
       </div>
       <!--body-->
-      <div v-if="!isLoading" class="relative grid grid-cols-3 p-6 flex-auto overflow-hidden flex flex-grow-default flex-col pt-0">
+      <div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
         <fonts-select :options="getFontFamilyList(this)" @updateFont="handleFontUpdate" context="fontFamily" />
         <fonts-select :options="getSizes()" context="fontSize" />
         <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
-      <p v-if="isLoading" class="text-center text-gray">Please Wait</p>
+      <label v-for="obj in Object.keys(settingsItems)" :key="obj" class="inline-flex mt-2 items-center">
+        <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" />
+        <span>0</span>
+        <span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
+      </label>
+      <p v-if="isLoading" class="font-semibold text-center text-gray">Please Wait</p>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
         <button
@@ -48,7 +53,29 @@ export default {
     return {
       isLoading: true,
       googleFontsMetadata: [],
-      componentKey: 0
+      componentKey: 0,
+      settingsItems: {
+        addBorderToTableCells: {
+          type: 'boolean',
+          default: false,
+          title: "Add border to table cells"
+        },
+        tableHeaderBg: {
+          type: 'color',
+          default: 'gray',
+          title: "Table Header background color"
+        },
+        tableCellsBg: {
+          type: 'color',
+          default: 'gray',
+          title: "Add borders to table cells"
+        },
+        tableCellsBorderBg: {
+          type: 'color',
+          default: 'gray',
+          title: "Table cell border colors"
+        }
+      }
     }
   },
   mounted() {
