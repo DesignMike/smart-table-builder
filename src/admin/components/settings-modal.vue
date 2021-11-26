@@ -25,9 +25,9 @@
         <fonts-select :options="getSizes()" context="fontSize" />
         <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
-      <label v-for="obj in Object.keys(settingsItems)" :key="obj" class="inline-flex mt-2 items-center">
-        <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" />
-        <span>0</span>
+      <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
+        <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" v-model="settingsItemProps[obj]" />
+        <span v-if="settingsItems[obj].type == 'color'" v-bind:style="{ backgroundColor: settingsItemProps[obj] + ' !important' }">&nbsp;&nbsp;&nbsp;</span>
         <span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
       </label>
       <p v-if="isLoading" class="font-semibold text-center text-gray">Please Wait</p>
@@ -58,22 +58,26 @@ export default {
         addBorderToTableCells: {
           type: 'boolean',
           default: false,
-          title: "Add border to table cells"
+          title: "Add border to table cells",
+          dependencies: []
         },
         tableHeaderBg: {
           type: 'color',
           default: 'gray',
-          title: "Table Header background color"
+          title: "Table Header background color",
+          dependencies: []
         },
         tableCellsBg: {
           type: 'color',
           default: 'gray',
-          title: "Add borders to table cells"
+          title: "Add borders to table cells",
+          dependencies: []
         },
         tableCellsBorderBg: {
           type: 'color',
           default: 'gray',
-          title: "Table cell border colors"
+          title: "Table cell border colors",
+          dependencies: ['addBorderToTableCells']
         }
       }
     }
@@ -89,6 +93,15 @@ export default {
     });
   },
   computed: {
+    settingsItemProps: {
+      get: function () {
+        debugger
+        return this.$store.state.settingsItemProps;
+      },
+      set: function (data) {
+        debugger;
+      }
+    }
   },
   methods: {
     getFontFamilyList: (proxy) => {
@@ -112,6 +125,10 @@ export default {
     handleModalClose() {
       this.$store.commit("setSettingsModalStatus", false);
       this.$parent.mountFonts();
+    },
+    evaluateDeps(obj) {
+      let depResults = this.settingsItems[obj].dependencies.map(dep => Boolean(this.settingsItemProps[dep]));
+      return (depResults.length ? depResults.some(e => e == true) : true) ? 'inline' : 'none';
     }
   },
   components: {

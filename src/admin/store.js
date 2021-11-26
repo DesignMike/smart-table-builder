@@ -19,7 +19,13 @@ const store = new Vuex.Store({
       pageTitle: "WP Spreadsheet & Table Builder",
       currentStyle: 'Style 1',
       showSettings: false,
-      fontSettings: ['Montserrat', '20px', '400']
+      fontSettings: ['Montserrat', '20px', '400'],
+      settingsItemProps: {
+        tableHeaderBg: '#000',
+        tableCellsBg: '#000',
+        tableCellsBorderBg: '#000',
+        addBorderToTableCells: true
+      }
     },
     mutations: {
       updateGrid (state, newData) {
@@ -42,6 +48,10 @@ const store = new Vuex.Store({
       },
       updatefontSettings (state, data) {
         state.fontSettings = data;
+      },
+      updateSettings (state, data) {
+        debugger;
+        state;
       }
     }
   })
