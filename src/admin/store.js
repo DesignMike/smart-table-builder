@@ -50,8 +50,7 @@ const store = new Vuex.Store({
         state.fontSettings = data;
       },
       updateSettings (state, data) {
-        debugger;
-        state;
+        // state.settingsItemProps = data;
       }
     }
   })

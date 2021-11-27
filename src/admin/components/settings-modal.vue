@@ -95,15 +95,29 @@ export default {
   computed: {
     settingsItemProps: {
       get: function () {
-        debugger
         return this.$store.state.settingsItemProps;
       },
       set: function (data) {
         debugger;
       }
+    },
+    getBool: {
+      get: function() {
+        return true;
+      },
+      set: function() {
+        return false;
+      }
     }
   },
   methods: {
+    handleChkbx: (evt,obj, settingsItemProps, store) => {
+      // let currentSettings = this.settingsItemProps;
+      debugger;
+      settingsItemProps.set(obj, evt.target.checked);
+      // this.settingsItemProps = currentSettings;
+      // this.$store.commit('');
+    },
     getFontFamilyList: (proxy) => {
       return proxy.googleFontsMetadata.familyMetadataList.map(e => ({value: e.family, text: e.family}));
     },
