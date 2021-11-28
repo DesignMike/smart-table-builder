@@ -26,7 +26,7 @@
         <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
       <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
-        <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" v-model="settingsItemProps[obj]" />
+                <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
         <span v-if="settingsItems[obj].type == 'color'" v-bind:style="{ backgroundColor: settingsItemProps[obj] + ' !important' }">&nbsp;&nbsp;&nbsp;</span>
         <span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
       </label>
@@ -113,10 +113,8 @@ export default {
   methods: {
     handleChkbx: (evt,obj, settingsItemProps, store) => {
       // let currentSettings = this.settingsItemProps;
-      debugger;
-      settingsItemProps.set(obj, evt.target.checked);
-      // this.settingsItemProps = currentSettings;
-      // this.$store.commit('');
+      let isChecked = evt.target.checked;
+      store.commit('updateSettings', {key: obj, value: isChecked});
     },
     getFontFamilyList: (proxy) => {
       return proxy.googleFontsMetadata.familyMetadataList.map(e => ({value: e.family, text: e.family}));

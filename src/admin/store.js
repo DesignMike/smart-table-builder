@@ -49,8 +49,11 @@ const store = new Vuex.Store({
       updatefontSettings (state, data) {
         state.fontSettings = data;
       },
-      updateSettings (state, data) {
-        // state.settingsItemProps = data;
+      updateSettings (state, args) {
+        // let tmpSettings = state.settingsItemProps;
+        let {key, value} = args;
+        // tmpSettings[key] = 
+        state.settingsItemProps[key] = value;
       }
     }
   })
