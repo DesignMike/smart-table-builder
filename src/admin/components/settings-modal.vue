@@ -31,6 +31,22 @@
         <span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
       </label>
       <p v-if="isLoading" class="font-semibold text-center text-gray">Please Wait</p>
+      <ZipifyColorPicker
+  v-model="color"
+  :palette-key="paletteKey"
+  type="rgba"
+  :preset-colors="presetColors"
+  :max-palette-colors="14"
+  :duration-enter="150"
+  :duration-leave="100"
+  placement="bottom-end"
+  :is-over-top="true"
+>
+  <template #activator="{ toggle }">
+    <span v-bind:style="{ backgroundColor: color }">&nbsp;&nbsp;&nbsp;</span>
+    <button type="button" :disabled="false" class="text-purple-500 bg-blue-600 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 zpc-color-preview" @click="toggle($event.target)" />
+  </template>
+</ZipifyColorPicker>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
         <button
@@ -48,9 +64,24 @@
 
 <script>
 import FontsSelect from './FontsSelect.vue'
+import { ZipifyColorPicker } from 'zipify-colorpicker'
+
+const presetColors = [
+    '#3bb44a', '#ffffff', '#d9dee3', '#e49b9b', '#7eaae2',
+    '#e4c438', '#c5f0ca', '#000000', '#633185', '#fb8622',
+    '#e56565', '#3846ba', '#9ea5b0', 'transparent'
+];
+const paletteKey = 'colorpicker.palate';
+const maxPaletteColors = 14;
+
+
 export default {
   data() {
     return {
+      paletteKey,
+      maxPaletteColors,
+      presetColors,
+      color: '#BBF8DF',
       isLoading: true,
       googleFontsMetadata: [],
       componentKey: 0,
@@ -128,10 +159,6 @@ export default {
       return [...Array(80).keys()].map(e => ({text: e+' px', value: e+' px'}));
     },
     handleFontUpdate(family) {
-      // this.$refs.weightDropDown.options = this.findFontFamilyWeights();
-      // // this.$refs.weightDropDown.inputText = this.findFontFamilyWeights()[0].text;
-      // // this.$refs.weightDropDown.searchText = this.findFontFamilyWeights()[0].text;
-      // this.$refs.weightDropDown.searchText = this.findFontFamilyWeights()[0].text;
       this.componentKey = !this.componentKey;
     },
     handleModalClose() {
@@ -144,7 +171,8 @@ export default {
     }
   },
   components: {
-    FontsSelect
+    FontsSelect,
+    ZipifyColorPicker
   }
 }
 
