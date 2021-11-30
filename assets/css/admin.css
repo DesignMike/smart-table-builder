@@ -931,6 +931,7 @@ Add the correct display in Chrome and Safari.
 }
 
 .wptable .sticky {
+  position: -webkit-sticky;
   position: sticky;
 }
 
@@ -25859,6 +25860,7 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .sm\:sticky {
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -49408,6 +49410,7 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .md\:sticky {
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -72957,6 +72960,7 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .lg\:sticky {
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -96506,6 +96510,7 @@ Add the correct display in Chrome and Safari.
   }
 
   .wptable .xl\:sticky {
+    position: -webkit-sticky;
     position: sticky;
   }
 

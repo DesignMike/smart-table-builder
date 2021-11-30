@@ -26,27 +26,28 @@
         <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
       <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
-                <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
-        <span v-if="settingsItems[obj].type == 'color'" v-bind:style="{ backgroundColor: settingsItemProps[obj] + ' !important' }">&nbsp;&nbsp;&nbsp;</span>
-        <span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
+        <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
+        <ZipifyColorPicker
+          v-model="settingsItemProps[obj]"
+          @change="handleColorChange"
+          v-if="settingsItems[obj].type == 'color'"
+          :palette-key="paletteKey"
+          type="rgba"
+          :preset-colors="presetColors"
+          :max-palette-colors="14"
+          :duration-enter="150"
+          :duration-leave="100"
+          placement="bottom-end"
+          :is-over-top="true"
+        >
+          <template #activator="{ toggle }">
+            <span v-if="settingsItems[obj].type == 'color'" v-bind:style="{ backgroundColor: settingsItemProps[obj] + ' !important' }" @click="toggle($event.target)">&nbsp;&nbsp;&nbsp;</span>
+            <span v-if="settingsItems[obj].type == 'color'" class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
+          </template>
+        </ZipifyColorPicker>
+        <span v-if="settingsItems[obj].type !== 'color'" class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
       </label>
       <p v-if="isLoading" class="font-semibold text-center text-gray">Please Wait</p>
-      <ZipifyColorPicker
-  v-model="color"
-  :palette-key="paletteKey"
-  type="rgba"
-  :preset-colors="presetColors"
-  :max-palette-colors="14"
-  :duration-enter="150"
-  :duration-leave="100"
-  placement="bottom-end"
-  :is-over-top="true"
->
-  <template #activator="{ toggle }">
-    <span v-bind:style="{ backgroundColor: color }">&nbsp;&nbsp;&nbsp;</span>
-    <button type="button" :disabled="false" class="text-purple-500 bg-blue-600 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 zpc-color-preview" @click="toggle($event.target)" />
-  </template>
-</ZipifyColorPicker>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
         <button
@@ -168,6 +169,9 @@ export default {
     evaluateDeps(obj) {
       let depResults = this.settingsItems[obj].dependencies.map(dep => Boolean(this.settingsItemProps[dep]));
       return (depResults.length ? depResults.some(e => e == true) : true) ? 'inline' : 'none';
+    },
+    handleColorChange(ll) {
+      debugger;
     }
   },
   components: {
