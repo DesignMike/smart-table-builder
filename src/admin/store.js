@@ -21,10 +21,10 @@ const store = new Vuex.Store({
       showSettings: false,
       fontSettings: ['Montserrat', '20px', '400'],
       settingsItemProps: {
-        tableHeaderBg: '#000',
-        tableCellsBg: '#000',
+        tableHeaderBg: '#4A5568',
+        tableRowsBg: '#EDF2F7',
         tableCellsBorderBg: '#000',
-        addBorderToTableCells: true
+        addBorderToTableCells: false
       }
     },
     mutations: {
@@ -49,11 +49,14 @@ const store = new Vuex.Store({
       updatefontSettings (state, data) {
         state.fontSettings = data;
       },
-      updateSettings (state, args) {
+      updateSettingsByKey (state, args) {
         // let tmpSettings = state.settingsItemProps;
         let {key, value} = args;
         // tmpSettings[key] = 
         state.settingsItemProps[key] = value;
+      },
+      updateSettings (state, data) {
+        state.settingsItemProps = data;
       }
     }
   })

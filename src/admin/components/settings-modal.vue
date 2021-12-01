@@ -28,8 +28,8 @@
       <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
         <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
         <ZipifyColorPicker
-          v-model="settingsItemProps[obj]"
-          @change="handleColorChange"
+          :color="settingsItemProps[obj]"
+          @input="handleColorChange($event, obj)"
           v-if="settingsItems[obj].type == 'color'"
           :palette-key="paletteKey"
           type="rgba"
@@ -99,10 +99,10 @@ export default {
           title: "Table Header background color",
           dependencies: []
         },
-        tableCellsBg: {
+        tableRowsBg: {
           type: 'color',
           default: 'gray',
-          title: "Add borders to table cells",
+          title: "Table rows color",
           dependencies: []
         },
         tableCellsBorderBg: {
@@ -146,7 +146,7 @@ export default {
     handleChkbx: (evt,obj, settingsItemProps, store) => {
       // let currentSettings = this.settingsItemProps;
       let isChecked = evt.target.checked;
-      store.commit('updateSettings', {key: obj, value: isChecked});
+      store.commit('updateSettingsByKey', {key: obj, value: isChecked});
     },
     getFontFamilyList: (proxy) => {
       return proxy.googleFontsMetadata.familyMetadataList.map(e => ({value: e.family, text: e.family}));
@@ -170,8 +170,8 @@ export default {
       let depResults = this.settingsItems[obj].dependencies.map(dep => Boolean(this.settingsItemProps[dep]));
       return (depResults.length ? depResults.some(e => e == true) : true) ? 'inline' : 'none';
     },
-    handleColorChange(ll) {
-      debugger;
+    handleColorChange(newColor, key) {
+      // this.$store.commit("updateSettingsByKey", {key, newColor});
     }
   },
   components: {

@@ -269,6 +269,8 @@ export default {
           vm.$store.commit("updateGrid", data.grid.data);
           vm.$store.commit("setTitle", data.title);
           vm.$store.commit("setEditingTableId", data.id);
+          data.settingsItemProps && vm.$store.commit("updateSettings", data.settingsItemProps);
+          data.fontSettings && vm.$store.commit("updatefontSettings", data.fontSettings);
         },
       });
       this.$store.commit("setPageTitle", "Editing Table");

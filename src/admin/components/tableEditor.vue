@@ -88,7 +88,7 @@
       </div>
     </div>
     <div
-      class="pb-5" style="display: none">
+      class="pb-5" :style="{display: tabNavigation == 1 ? 'block': 'none'}">
       <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
 
       <div v-if="grid.data.length" class="table-container">

@@ -53,7 +53,9 @@ export default {
     handleUpdate() {
       let data =  {
         title: this.$store.state.tableTitle,
-        cells: this.$store.state.grid.data
+        cells: this.$store.state.grid.data,
+        fontSettings: this.$store.state.grid.fontSettings,
+        settingsItemProps: this.$store.state.grid.settingsItemProps
       };
       jQuery.ajax({
         type: 'POST',
