@@ -9,10 +9,10 @@
     <transition :name="animation">
       <div class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs" v-if="show">
         <div class="list-none overflow-hidden rounded-lg">
-          <button @click="addColumnRight" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+          <button @click="addColumnRight" class="bg-white py-2 px-4 hover:bg-gray-800">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABC0lEQVRIid2VPQoCMRCFP7UXtBD0EGIniB5g/cETaSOCp7Gz9OcEtmKrrTYqWq7FJhLGzW52V0F8MEVeZuZNMhMC/4oucAR8ix0Bz/BvAKUkAlHJtR0M/zuwA6quAnHJtUn/PVD7pECYbc1EedcjJYAf7/JDV6Tx9SbXsYxpLkLABbb4F77R5MwCJ2BM8HpTw3bnc6CSJXGUwAIoqP0hsAFuytbAIIvAGSiqvZmlAB+YphWYGJWbfAtoC66fRqCp+I3gw/xXaQTKir8alUvok1xM0nVMH2IdFhf76EzID0fP/Jr4K1q6CHgEP5YOGil+IJK1gY7geklOEoYp7z2S05YZfYJpuSpbYqn8CVxttbGJIJXVAAAAAElFTkSuQmCC"/>
           </button>
-          <button @click="addColumnLeft" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+          <button @click="addColumnLeft" class="bg-white py-2 px-4 hover:bg-gray-800">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIid2VPW4CMRCFP6BHCgWIS6B0SBEcgD/lRKSJVuI06VJu2BvQgOihhQZQKKFYWzITO2vvT8OTpvCz/d54PJbh2fACvBrjMbAHbo7YAyNf8S6wBX4N7j9xHTsf8Q6wMTZpZInL9U6sAsSCDOo+7mWgDaypsERgv+RSDSBt016ZBrUMQ9/snDqVX3IRgwPwwePLD4ar5l+knVcYNvFvoKHm34EEuKhYArMiBkegqeYWjgRuQJTX4NPI3OTfgIHgpnkM+opPBG9b/5PHoKX4s5G5hD7JCcLb9CrGtv1Zj/cB8sPRPb8ku0Sxj8GI9MfSm+aKnwmxATAU3CTkJDZE/L0j2W2FMSXtlrOKGJH5HeqytKMUvYpHAAAAAElFTkSuQmCC"/>
           </button>
         </div>

@@ -21,7 +21,7 @@ class Admin {
         $capability = 'manage_options';
         $slug       = 'vue-app';
 
-        $hook = add_menu_page( __( 'WP Ultimate Tables', 'textdomain' ), __( 'WP Ultimate Tables', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
+        $hook = add_menu_page( __( ' WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), __( 'WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
 
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = array( __( 'Create New Table', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/' );

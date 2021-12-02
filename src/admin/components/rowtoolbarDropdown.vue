@@ -9,10 +9,10 @@
     <transition :name="animation">
       <div class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs" v-if="show">
         <div class="list-none overflow-hidden rounded-lg">
-          <button @click="addRow" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+          <button @click="addRow" class="bg-white py-2 px-4 hover:bg-gray-800">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABA0lEQVRIie3TMUoDURAG4C9qLdiInsBSbSUeIJrghewk4Ak8hpWWMbmAtinsTClYGIllLPIWHi9vs4bdLvlhYPnf/PPPDLNssVG4wgTzmjFBJ2fQRPEiPoqirchgXmP6HFqw03DRJezV1H/hAU94xy9O0Mslr7vnZ+yv0806xR+xG3Q3GOEnxLDuBJ84DJr7FXn91OC/Z3obdR7zF2gnXDc26Fjcb5XBWcgfJXxuEy+5VcVJqzCNOk9RTPLdxH+Qq9HKcM4xs7ySGU4z+UPVKxrEggOMMwbj8Jail+S1cZlw16noODEZB64M/UxDRdyViY7whtfwXYWuxbVMQwxynW9Rij+5ga2gTkQyZAAAAABJRU5ErkJggg=="/>
           </button>
-          <button @click="addRowAbove" class="bg-gray-100 py-2 px-4 hover:bg-gray-800">
+          <button @click="addRowAbove" class="bg-white py-2 px-4 hover:bg-gray-800">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABEElEQVRIid3TMUoDQRgF4C9qLdho8AKWppZ4gGiCF7ITwRN4DCstY3ICKyGInSkFCyOx1CKzsA4Ts5tZLHzwmn/+ee/Nv//yH9HGQ2C7afE9POIr8An7TYnvYFISLzgJZ9noYJ4wmOOwCYMyCvFsbDQhUtXgBFM/k8fjqsIpeimz6Rpiy/hSiLaitE2ixR98g63M+2+4xi2e8YkDDFLNded8h+06aeqI32Az3DvDGB+Bo9wXvGI33Ln6pe8yNqi6puel5OX6EbpRrV826Fns7yqDTugfR/XUJO5To6qKWSl5jOIl7038BymNVqJWGyOrRzTMMRhEYl0cR7XTHAMWq7hsGS5yxQv0LbZlFjhUSv4Nt4WrpM/C+VsAAAAASUVORK5CYII="/>
           </button>
         </div>

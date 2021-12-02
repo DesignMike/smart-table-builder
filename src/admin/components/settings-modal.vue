@@ -28,7 +28,7 @@
       <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
         <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
         <ZipifyColorPicker
-          :color="settingsItemProps[obj]"
+          v-model="settingsItemProps[obj]"
           @input="handleColorChange($event, obj)"
           v-if="settingsItems[obj].type == 'color'"
           :palette-key="paletteKey"
@@ -111,7 +111,8 @@ export default {
           title: "Table cell border colors",
           dependencies: ['addBorderToTableCells']
         }
-      }
+      },
+      colors: [],
     }
   },
   mounted() {
@@ -129,9 +130,6 @@ export default {
       get: function () {
         return this.$store.state.settingsItemProps;
       },
-      set: function (data) {
-        debugger;
-      }
     },
     getBool: {
       get: function() {
@@ -171,7 +169,7 @@ export default {
       return (depResults.length ? depResults.some(e => e == true) : true) ? 'inline' : 'none';
     },
     handleColorChange(newColor, key) {
-      // this.$store.commit("updateSettingsByKey", {key, newColor});
+      this.$store.commit("updateSettingsByKey", {key, value: newColor});
     }
   },
   components: {
