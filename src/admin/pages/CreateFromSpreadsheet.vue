@@ -114,7 +114,9 @@ export default {
 		handleSave() {
 			let data =  {
 				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data
+				cells: this.$store.state.grid.data,
+				fontSettings: this.$store.state.fontSettings,
+				settingsItemProps: this.$store.state.settingsItemProps
 			};
 			jQuery.ajax({
 				type: 'POST',

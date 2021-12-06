@@ -30,7 +30,9 @@ class AjaxCallbacks
         $response = [
             'id' => $table->ID,
             'grid' => ['data' => get_post_meta($id, 'table_cells')[0]],
-            'title' => $table->post_title
+            'title' => $table->post_title,
+            'settingsItemProps' => get_post_meta($id, 'settingsItemProps')[0],
+            'fontSettings' => get_post_meta($id, 'fontSettings')[0]
         ];
         wp_send_json($response);
     }
@@ -41,6 +43,8 @@ class AjaxCallbacks
         $updatableData = json_decode($updatableData, true);
         $cells = $updatableData['cells'];
         $tableTitle = $updatableData['title'];
+        $fontSettings = $updatableData['fontSettings'];
+        $settingsItemProps = $updatableData['settingsItemProps'];
         // create table post and return ID
         wp_update_post([
             "ID" => $id,
@@ -49,6 +53,8 @@ class AjaxCallbacks
             "post_title" => $tableTitle
         ]);
         update_post_meta($id, 'table_cells', apply_filters('wpspreadsheet_table_sanitize_array', $cells));
+        update_post_meta($id, 'fontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $fontSettings));
+        update_post_meta($id, 'settingsItemProps', apply_filters('wpspreadsheet_table_sanitize_array', $settingsItemProps));
         $response = [
             'ok' => $id,
             "success" => true

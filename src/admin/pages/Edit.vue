@@ -170,7 +170,9 @@ export default {
     handleSave() {
       let data =  {
         title: this.$store.state.tableTitle,
-        cells: this.$store.state.grid.data
+        cells: this.$store.state.grid.data,
+        fontSettings: this.$store.state.fontSettings,
+        settingsItemProps: this.$store.state.settingsItemProps
       };
       jQuery.ajax({
         type: 'POST',
@@ -185,7 +187,9 @@ export default {
     handleUpdate() {
       let data =  {
         title: this.$store.state.tableTitle,
-        cells: this.$store.state.grid.data
+        cells: this.$store.state.grid.data,
+        fontSettings: this.$store.state.fontSettings,
+        settingsItemProps: this.$store.state.settingsItemProps
       };
       let setLoadingStatus = (status) => {
         this.isSaving = !Boolean(status.success)
@@ -269,6 +273,7 @@ export default {
           vm.$store.commit("updateGrid", data.grid.data);
           vm.$store.commit("setTitle", data.title);
           vm.$store.commit("setEditingTableId", data.id);
+          debugger
           data.settingsItemProps && vm.$store.commit("updateSettings", data.settingsItemProps);
           data.fontSettings && vm.$store.commit("updatefontSettings", data.fontSettings);
         },

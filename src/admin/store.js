@@ -52,7 +52,6 @@ const store = new Vuex.Store({
       updateSettingsByKey (state, args) {
         // let tmpSettings = state.settingsItemProps;
         let {key, value} = args;
-        debugger;
         // tmpSettings[key] = 
         state.settingsItemProps[key] = value;
       },

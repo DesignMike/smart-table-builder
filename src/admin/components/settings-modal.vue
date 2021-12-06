@@ -93,6 +93,12 @@ export default {
           title: "Add border to table cells",
           dependencies: []
         },
+        showSearchBar: {
+          type: 'boolean',
+          default: false,
+          title: "Show SearchBar",
+          dependencies: []
+        },
         tableHeaderBg: {
           type: 'color',
           default: 'gray',
@@ -116,6 +122,7 @@ export default {
     }
   },
   mounted() {
+    debugger
     const updateGoogleFontsMetaData = (data) => {
       this.googleFontsMetadata = JSON.parse(data)
       this.isLoading = false;
