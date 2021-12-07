@@ -105,6 +105,12 @@ export default {
           title: "Table Header background color",
           dependencies: []
         },
+        tableHeaderTextColor: {
+          type: 'color',
+          default: '#000',
+          title: "Table Header text color",
+          dependencies: []
+        },
         tableRowsBg: {
           type: 'color',
           default: 'gray',
@@ -122,7 +128,6 @@ export default {
     }
   },
   mounted() {
-    debugger
     const updateGoogleFontsMetaData = (data) => {
       this.googleFontsMetadata = JSON.parse(data)
       this.isLoading = false;

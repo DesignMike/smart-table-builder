@@ -1,6 +1,11 @@
 <template>
   <div class="excel-to-table-app" v-bind:data-table-id=[tableId] >
-    <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element>
+    <table-element v-if="grid.data.length" 
+		:cellItems="grid.data"
+		:tableTitle="tableTitle"
+		:fontSettings="fontSettings"
+		:settingsItemProps="settingsItemProps"
+		:showSearchBar="showSearchBar" />
   </div>
 </template>
 
@@ -34,6 +39,16 @@ export default {
 				return this.$store.state.tableTitle = newString;
 			}
 		},
+	fontSettings: {
+		get: function () {
+				return this.$store.state.fontSettings;
+			}
+		},
+	settingsItemProps: {
+		get: function () {
+				return this.$store.state.settingsItemProps;
+			}
+		},
 	showSearchBar: {
 		get: function () {
 			return this.$store.state.grid.showSearchBar;
@@ -46,7 +61,7 @@ export default {
 		jQuery.ajax({
 			type: "GET",
 			vm: this,
-			url: `http://modernwp.test/wp-json/tablecells/v1/get-table-cells/${this.tableId}`,
+			url: `http://wpdevsite.test/wp-json/tablecells/v1/get-table-cells/${this.tableId}`,
 			success(data) {
 				let {vm} = this;
 				vm.$store.commit('updateGrid', data.grid );

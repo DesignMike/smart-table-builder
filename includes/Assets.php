@@ -94,7 +94,7 @@ class Assets {
             ],
             'exceltotable-admin' => [
                 'src'       => EXCELTOTABLE_ASSETS . '/js/admin.js',
-                'deps'      => [ 'jquery', 'exceltotable-vendor', 'exceltotable-runtime' ],
+                'deps'      => [ 'jquery', 'exceltotable-vendor', 'wp-util', 'exceltotable-runtime' ],
                 'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/admin.js' ),
                 'in_footer' => true
             ]

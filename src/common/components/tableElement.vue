@@ -57,7 +57,13 @@
 
 <script>
 export default{
-  props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}, 'showSearchBar': false},
+  props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}, 'showSearchBar': false, 'fontSettings': {default: ['Montserrat', '20px', '400'], type: Array}, 'settingsItemProps': {
+    tableHeaderBg: '#4A5568',
+    tableRowsBg: '#EDF2F7',
+    tableCellsBorderBg: '#FFFFF',
+    tableHeaderTextColor: '#000000',
+    addBorderToTableCells: false
+  }, type: Object},
   mounted() {
   },
   data() {
