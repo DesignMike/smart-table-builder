@@ -61,7 +61,7 @@ export default {
 		jQuery.ajax({
 			type: "GET",
 			vm: this,
-			url: `http://wpdevsite.test/wp-json/tablecells/v1/get-table-cells/${this.tableId}`,
+			url: `${wpUltimateTablesRoute}/get-table-cells/${this.tableId}`,
 			success(data) {
 				let {vm} = this;
 				vm.$store.commit('updateGrid', data.grid );

@@ -221,7 +221,7 @@ final class Excel_To_Table {
             $this->container['frontend'] = new Spreadsheet2Table\Frontend();
         }
 
-        if ( $this->is_request( 'ajax' ) ) {
+        if ( $this->is_request( 'ajax' ) && !isset($_GET['wc-ajax']) ) {
             $this->container['ajax'] =  new Spreadsheet2Table\Ajax\AjaxAction();
         }
 
