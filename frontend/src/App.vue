@@ -51,7 +51,7 @@ export default {
 		},
 	showSearchBar: {
 		get: function () {
-			return this.$store.state.grid.showSearchBar;
+			return this.$store.state.settingsItemProps.showSearchBar;
 		}
 	}
   },
