@@ -102,7 +102,7 @@ export default {
 				const data = XLSX.utils.sheet_to_json(ws, {raw:true, cellDates:false});
 				/* Update state */
 				// this.grid = {data: json};
-				this.$store.state.grid = {data: json};
+				this.$store.commit("updateGrid", json);
 				this.cols = make_cols(ws['!ref']);
 			};
 			reader.readAsBinaryString(file);

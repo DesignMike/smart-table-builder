@@ -30,6 +30,12 @@ const store = new Vuex.Store({
     },
     mutations: {
       updateGrid (state, newData) {
+        var maxColumnLength = 0;
+        if (!newData.length) return;
+        newData.forEach(function(r) { if(maxColumnLength < r.length) maxColumnLength = r.length; });
+        for(var i = newData[0].length; i < maxColumnLength; ++i) {
+          newData[0][i] = "";
+        }
         state.grid.data = newData;
       },
       setSettingsModalStatus (state, status) {
