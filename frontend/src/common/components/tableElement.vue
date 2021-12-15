@@ -24,8 +24,8 @@
             <th v-for="(cell, key1) in headCells[0]" :key="key1" class="px-4 py-2" v-bind:style="{ backgroundColor: settingsItemProps.tableHeaderBg, color: settingsItemProps.tableHeaderTextColor }">{{ cell }}</th>
           </tr>
         </thead>
-        <tbody class="font-normal text-gray-700" v-bind:style="{ backgroundColor: settingsItemProps.tableRowsBg }">
-          <tr v-for="(row, key) in nonHeaderCells" :key="key" class="hover:bg-gray-100 border-b border-gray-200 py-10">
+        <tbody class="font-normal text-gray-700">
+          <tr v-for="(row, key) in nonHeaderCells" :key="key" v-bind:style="styleObject" class="border-b table-row border-gray-200 py-10">
             <td v-for="(cell, key1) in row" :key="key1" class="px-4 py-4">
               <p class="text-gray-900 whitespace-no-wrap">
                       {{ cell }}
@@ -38,7 +38,17 @@
     </div>
 </template>
 
+
+<style scoped>
+.table-row {
+  background-color: var(--bg-color);
+}
+.table-row:hover {
+  background-color: var(--color-hover);
+}
+</style>
 <script>
+// import Color from 'color';
 export default{
   props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}, 'showSearchBar': false, 'fontSettings': {default: ['Montserrat', '20px', '400'], type: Array}, 'settingsItemProps': {
     tableHeaderBg: '#4A5568',
@@ -71,6 +81,13 @@ export default{
     }
   },
   computed: {
+    styleObject: function() {
+      debugger;
+      return {
+        '--bg-color': this.settingsItemProps.tableRowsBg,
+        '--color-hover': '#fff'
+      }
+    }
   }
 }
 </script>

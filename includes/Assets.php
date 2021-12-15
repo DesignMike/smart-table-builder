@@ -45,7 +45,7 @@ class Assets {
         foreach ( $scripts as $handle => $script ) {
             $deps      = isset( $script['deps'] ) ? $script['deps'] : false;
             $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
-            $version   = isset( $script['version'] ) ? $script['version'] : EXCELTOTABLE_VERSION;
+            $version   = isset( $script['version'] ) ? $script['version'] : WPULTIMATETABLE_VERSION;
             $inline_script = isset ( $script['inline'] ) ? $script['inline'] : false;
 
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
@@ -67,7 +67,7 @@ class Assets {
         foreach ( $styles as $handle => $style ) {
             $deps = isset( $style['deps'] ) ? $style['deps'] : false;
 
-            wp_register_style( $handle, $style['src'], $deps, EXCELTOTABLE_VERSION );
+            wp_register_style( $handle, $style['src'], $deps, WPULTIMATETABLE_VERSION );
         }
     }
 
@@ -81,36 +81,36 @@ class Assets {
         $rest_api_routes = rest_url('tablecells/v1');
         $scripts = [
             'exceltotable-runtime' => [
-                'src'       => EXCELTOTABLE_ASSETS . '/js/runtime.js',
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/runtime.js' ),
+                'src'       => WPULTIMATETABLE_ASSETS . '/js/runtime.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/runtime.js' ),
                 'in_footer' => true
             ],
             'exceltotable-vendor' => [
-                'src'       => EXCELTOTABLE_ASSETS . '/js/vendors.js',
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/vendors.js' ),
+                'src'       => WPULTIMATETABLE_ASSETS . '/js/vendors.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/vendors.js' ),
                 'in_footer' => true
             ],
             'exceltotable-frontend-runtime' => [
-                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/runtime.js',
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/runtime.js' ),
+                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/runtime.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
                 'in_footer' => true
             ],
             'exceltotable-frontend-vendor' => [
-                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/vendors.js',
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/vendors.js' ),
+                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/vendors.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/vendors.js' ),
                 'in_footer' => true
             ],
             'exceltotable-frontend' => [
-                'src'       => EXCELTOTABLE_FRONTEND_ASSETS . '/js/frontend.js',
+                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/frontend.js',
                 'deps'      => [ 'jquery', 'exceltotable-frontend-vendor', 'exceltotable-frontend-runtime' ],
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/frontend/assets/js/frontend.js' ),
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/frontend.js' ),
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],
             'exceltotable-admin' => [
-                'src'       => EXCELTOTABLE_ASSETS . '/js/admin.js',
+                'src'       => WPULTIMATETABLE_ASSETS . '/js/admin.js',
                 'deps'      => [ 'jquery', 'exceltotable-vendor', 'wp-util', 'exceltotable-runtime' ],
-                'version'   => filemtime( EXCELTOTABLE_PATH . '/assets/js/admin.js' ),
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/admin.js' ),
                 'in_footer' => true
             ]
         ];
@@ -127,10 +127,10 @@ class Assets {
 
         $styles = [
             'exceltotable-frontend' => [
-                'src' =>  EXCELTOTABLE_FRONTEND_ASSETS . '/css/frontend.css'
+                'src' =>  WPULTIMATETABLE_FRONTEND_ASSETS . '/css/frontend.css'
             ],
             'exceltotable-admin' => [
-                'src' =>  EXCELTOTABLE_ASSETS . '/css/admin.css'
+                'src' =>  WPULTIMATETABLE_ASSETS . '/css/admin.css'
             ],
         ];
 

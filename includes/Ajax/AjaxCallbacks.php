@@ -72,7 +72,7 @@ class AjaxCallbacks
     }
     public static function get_gfonts_meta()
     {
-        $gfonts_metadata_file = EXCELTOTABLE_ASSETS . '/fonts_meta.json';
+        $gfonts_metadata_file = WPULTIMATETABLE_ASSETS . '/fonts_meta.json';
         $fonts_metadata = file_get_contents($gfonts_metadata_file);
         header('Content-type: audio/mpeg');
 

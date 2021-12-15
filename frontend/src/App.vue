@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import tableElement from "../../src/common/components/tableElement.vue"
+import tableElement from "./common/components/tableElement.vue"
 export default {
   name: 'App',
   data() {

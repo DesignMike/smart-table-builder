@@ -37,11 +37,11 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * Excel_To_Table class
+ * WP_Ultimate_Tables class
  *
- * @class Excel_To_Table The class that holds the entire Excel_To_Table plugin
+ * @class WP_Ultimate_Tables The class that holds the entire WP_Ultimate_Tables plugin
  */
-final class Excel_To_Table {
+final class WP_Ultimate_Tables {
 
     /**
      * Plugin version
@@ -58,7 +58,7 @@ final class Excel_To_Table {
     private $container = array();
 
     /**
-     * Constructor for the Excel_To_Table class
+     * Constructor for the WP_Ultimate_Tables class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -74,16 +74,16 @@ final class Excel_To_Table {
     }
 
     /**
-     * Initializes the Excel_To_Table() class
+     * Initializes the WP_Ultimate_Tables() class
      *
-     * Checks for an existing Excel_To_Table() instance
+     * Checks for an existing WP_Ultimate_Tables() instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new Excel_To_Table();
+            $instance = new WP_Ultimate_Tables();
         }
 
         return $instance;
@@ -121,13 +121,13 @@ final class Excel_To_Table {
      * @return void
      */
     public function define_constants() {
-        define( 'EXCELTOTABLE_VERSION', $this->version );
-        define( 'EXCELTOTABLE_FILE', __FILE__ );
-        define( 'EXCELTOTABLE_PATH', dirname( EXCELTOTABLE_FILE ) );
-        define( 'EXCELTOTABLE_INCLUDES', EXCELTOTABLE_PATH . '/includes' );
-        define( 'EXCELTOTABLE_URL', plugins_url( '', EXCELTOTABLE_FILE ) );
-        define( 'EXCELTOTABLE_ASSETS', EXCELTOTABLE_URL . '/assets' );
-        define( 'EXCELTOTABLE_FRONTEND_ASSETS', EXCELTOTABLE_URL . '/frontend/assets' );
+        define( 'WPULTIMATETABLE_VERSION', $this->version );
+        define( 'WPULTIMATETABLE_FILE', __FILE__ );
+        define( 'WPULTIMATETABLE_PATH', dirname( WPULTIMATETABLE_FILE ) );
+        define( 'WPULTIMATETABLE_INCLUDES', WPULTIMATETABLE_PATH . '/includes' );
+        define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
+        define( 'WPULTIMATETABLE_ASSETS', WPULTIMATETABLE_URL . '/assets' );
+        define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
     }
 
     /**
@@ -147,13 +147,13 @@ final class Excel_To_Table {
      */
     public function activate() {
 
-        $installed = get_option( 'EXCELTOTABLE_installed' );
+        $installed = get_option( 'WPULTIMATETABLE_installed' );
 
         if ( ! $installed ) {
-            update_option( 'EXCELTOTABLE_installed', time() );
+            update_option( 'WPULTIMATETABLE_installed', time() );
         }
 
-        update_option( 'EXCELTOTABLE_version', EXCELTOTABLE_VERSION );
+        update_option( 'WPULTIMATETABLE_version', WPULTIMATETABLE_VERSION );
     }
 
     /**
@@ -172,23 +172,23 @@ final class Excel_To_Table {
      */
     public function includes() {
 
-        require_once EXCELTOTABLE_INCLUDES . '/Assets.php';
+        require_once WPULTIMATETABLE_INCLUDES . '/Assets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once EXCELTOTABLE_INCLUDES . '/Admin.php';
+            require_once WPULTIMATETABLE_INCLUDES . '/Admin.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            require_once EXCELTOTABLE_INCLUDES . '/Frontend.php';
+            require_once WPULTIMATETABLE_INCLUDES . '/Frontend.php';
         }
 
         if ( $this->is_request( 'ajax' ) ) {
-            require_once EXCELTOTABLE_INCLUDES . '/Ajax/AjaxAction.php';
-            require_once EXCELTOTABLE_INCLUDES . '/Ajax/AjaxCallbacks.php';
+            require_once WPULTIMATETABLE_INCLUDES . '/Ajax/AjaxAction.php';
+            require_once WPULTIMATETABLE_INCLUDES . '/Ajax/AjaxCallbacks.php';
         }
 
-        require_once EXCELTOTABLE_INCLUDES . '/Api.php';
-        require_once EXCELTOTABLE_INCLUDES . '/GoogleFontsCache.php';
+        require_once WPULTIMATETABLE_INCLUDES . '/Api.php';
+        require_once WPULTIMATETABLE_INCLUDES . '/GoogleFontsCache.php';
     }
 
     /**
@@ -332,6 +332,6 @@ final class Excel_To_Table {
         return wp_parse_args($args, $default_args);
     }
 
-} // Excel_To_Table
+} // WP_Ultimate_Tables
 
-$exceltotable = Excel_To_Table::init();
+$exceltotable = WP_Ultimate_Tables::init();
