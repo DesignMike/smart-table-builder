@@ -150,7 +150,6 @@
 }
 </style>
 <script>
-import tableElement from "../../common/components/tableElement.vue";
 import indexedDBHelper from "../../admin/utils/indexedDBHelper";
 import dropDown from '../components/dropDown.vue';
 import columntoolbarDropdown from '../components/columntoolbarDropdown.vue';
@@ -319,10 +318,9 @@ export default {
     },
   },
   components: {
-    tableElement,
-	dropDown,
-  columntoolbarDropdown,
-  rowtoolbarDropdown
+    dropDown,
+    columntoolbarDropdown,
+    rowtoolbarDropdown
   },
   mounted() {
     this.setGridStyle();
