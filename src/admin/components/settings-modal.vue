@@ -117,6 +117,12 @@ export default {
           title: "Table rows color",
           dependencies: []
         },
+        tableRowsTextBg: {
+          type: 'color',
+          default: 'gray',
+          title: "Table rows text color",
+          dependencies: []
+        },
         tableCellsBorderBg: {
           type: 'color',
           default: 'gray',
