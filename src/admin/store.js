@@ -23,8 +23,9 @@ const store = new Vuex.Store({
       settingsItemProps: {
         tableHeaderBg: '#4A5568',
         tableRowsBg: '#EDF2F7',
-        tableCellsBorderBg: '#FFFFF',
-        tableHeaderTextColor: '#000000',
+        tableCellsBorderBg: '#FFFFFF',
+        tableHeaderTextColor: '#FFFFFF',
+        tableRowsTextColor: '#000000',
         addBorderToTableCells: false
       }
     },

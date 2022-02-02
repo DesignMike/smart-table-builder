@@ -27,7 +27,7 @@
         <tbody class="font-normal text-gray-700">
           <tr v-for="(row, key) in nonHeaderCells" :key="key" v-bind:style="styleObject" class="border-b table-row border-gray-200 py-10">
             <td v-for="(cell, key1) in row" :key="key1" class="px-4 py-4">
-              <p class="text-gray-900 whitespace-no-wrap">
+              <p class="text-gray-900 whitespace-no-wrap" v-bind:style="{ color: settingsItemProps.tableRowsTextColor }">
                       {{ cell }}
                     </p>
             </td>

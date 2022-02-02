@@ -114,10 +114,10 @@ export default {
         tableRowsBg: {
           type: 'color',
           default: 'gray',
-          title: "Table rows color",
+          title: "Table rows background color",
           dependencies: []
         },
-        tableRowsTextBg: {
+        tableRowsTextColor: {
           type: 'color',
           default: 'gray',
           title: "Table rows text color",
