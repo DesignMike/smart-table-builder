@@ -63,9 +63,12 @@ export default {
 			vm: this,
 			url: `${wpUltimateTablesRoute}/get-table-cells/${this.tableId}`,
 			success(data) {
+				debugger
 				let {vm} = this;
 				vm.$store.commit('updateGrid', data.grid );
 				vm.$store.commit('setTitle', data.title);
+				data.settingsItemProps && vm.$store.commit("updateSettings", data.settingsItemProps);
+				data.fontSettings && vm.$store.commit("updatefontSettings", data.fontSettings);
 			}
 		})
 	  }

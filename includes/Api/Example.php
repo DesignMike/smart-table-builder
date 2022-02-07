@@ -70,7 +70,9 @@ class Example extends WP_REST_Controller {
         $response = [
             'id' => $table->ID,
             'grid' => ['data' => get_post_meta($id, 'table_cells')[0]],
-            'title' => $table->post_title
+            'title' => $table->post_title,
+            'settingsItemProps' => get_post_meta($id, 'settingsItemProps')[0],
+            'fontSettings' => get_post_meta($id, 'fontSettings')[0]
         ];
 
         $response = rest_ensure_response( $response );

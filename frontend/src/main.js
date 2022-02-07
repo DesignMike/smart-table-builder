@@ -13,11 +13,23 @@ const store = new Vuex.Store({
     grid: {
       data: [
       ],
-      tableTitle: '',
       showSearchBar: true
     },
     editingTableId: null,
-    tableList: []
+    tableTitle: '',
+    tableList: [],
+    pageTitle: "WP Spreadsheet & Table Builder",
+    currentStyle: 'Style 1',
+    showSettings: false,
+    fontSettings: ['Montserrat', '20px', '400'],
+    settingsItemProps: {
+      tableHeaderBg: '#4A5568',
+      tableRowsBg: '#EDF2F7',
+      tableCellsBorderBg: '#FFFFFF',
+      tableHeaderTextColor: '#FFFFFF',
+      tableRowsTextColor: '#000000',
+      addBorderToTableCells: false
+    }
   },
   mutations: {
     updateGrid (state, newData) {
@@ -31,6 +43,15 @@ const store = new Vuex.Store({
     },
     availableTables (state, data) {
       state.tableList = data;
+    },
+    updateSettingsByKey (state, args) {
+      // let tmpSettings = state.settingsItemProps;
+      let {key, value} = args;
+      // tmpSettings[key] = 
+      state.settingsItemProps[key] = value;
+    },
+    updateSettings (state, data) {
+      state.settingsItemProps = data;
     }
   }
 })

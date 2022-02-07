@@ -4,7 +4,7 @@
         <h3 v-if="tableTitle.length" class="ml-3 text-lg">{{ tableTitle }}</h3>
 
       </div>
-  <div v-if="showSearchBar" class="w-full flex justify-end px-2 mt-2">
+  <div class="w-full flex justify-end px-2 mt-2">
         <div class="w-full sm:w-64 inline-block relative ">
           <input v-model="searchQuery" class="leading-snug border border-gray-300 block w-full appearance-none bg-gray-100 text-gray-600 py-1 px-4 pl-8 rounded-lg" placeholder="Search" />
 
@@ -48,7 +48,7 @@
 }
 </style>
 <script>
-// import Color from 'color';
+import Color from '../../color.cjs.js';
 export default{
   props:{'cellItems': {dafault: [], type: Array}, 'tableTitle': {default: "my tite", type: String}, 'showSearchBar': false, 'fontSettings': {default: ['Montserrat', '20px', '400'], type: Array}, 'settingsItemProps': {
     tableHeaderBg: '#4A5568',
@@ -58,6 +58,8 @@ export default{
     addBorderToTableCells: false
   }, type: Object},
   mounted() {
+    const color = Color(this.settingsItemProps.tableRowsBg).alpha(0.5).lighten(0.5);
+    console.log(color.hsl().string());
   },
   data() {
     return {
@@ -82,10 +84,11 @@ export default{
   },
   computed: {
     styleObject: function() {
-      debugger;
+      let color = Color(this.settingsItemProps.tableRowsBg).alpha(0.5).darken(0.5);
+      color = color.isDark() ? Color(this.settingsItemProps.tableRowsBg).alpha(0.5).darken(0.5) : Color(this.settingsItemProps.tableRowsBg).alpha(0.5).lighten(0.5);
       return {
         '--bg-color': this.settingsItemProps.tableRowsBg,
-        '--color-hover': '#fff'
+        '--color-hover': color
       }
     }
   }
