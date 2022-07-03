@@ -1,13 +1,13 @@
 <template>
     <span class="toolbar-tool">
-    <button v-on:click="show = !show" class="bg-gray-100 py-2 px-4 hover:bg-gray-800 hover:text-white" v-bind:class="[
+    <button v-on:click="show = !show" @mouseenter="columnBtnHover = true" @mouseleave="columnBtnHover = false" class="bg-gray-100 py-2 px-4 hover:bg-gray-800 hover:text-white" v-bind:class="[
               show && 'bg-gray-800 text-white'
             ]">
-        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" v-bind:fill="[show ? '#ffffff' : '#000000']"><rect fill="none" height="24" width="24"/><path d="M3,5v14h18V5H3z M8.33,17H5V7h3.33V17z M13.67,17h-3.33V7h3.33V17z M19,17h-3.33V7H19V17z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" v-bind:fill="[show || columnBtnHover ? '#ffffff' : '#000000']"><rect fill="none" height="24" width="24"/><path d="M3,5v14h18V5H3z M8.33,17H5V7h3.33V17z M13.67,17h-3.33V7h3.33V17z M19,17h-3.33V7H19V17z"/></svg>
         <span>Column</span>
     </button>
     <transition :name="animation">
-      <div class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs" v-if="show">
+      <div class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs" @mouseleave="show = false" v-if="show">
         <div class="list-none overflow-hidden rounded-lg">
           <button @click="addColumnRight" class="bg-white py-2 px-4 hover:bg-gray-800">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABC0lEQVRIid2VPQoCMRCFP7UXtBD0EGIniB5g/cETaSOCp7Gz9OcEtmKrrTYqWq7FJhLGzW52V0F8MEVeZuZNMhMC/4oucAR8ix0Bz/BvAKUkAlHJtR0M/zuwA6quAnHJtUn/PVD7pECYbc1EedcjJYAf7/JDV6Tx9SbXsYxpLkLABbb4F77R5MwCJ2BM8HpTw3bnc6CSJXGUwAIoqP0hsAFuytbAIIvAGSiqvZmlAB+YphWYGJWbfAtoC66fRqCp+I3gw/xXaQTKir8alUvok1xM0nVMH2IdFhf76EzID0fP/Jr4K1q6CHgEP5YOGil+IJK1gY7geklOEoYp7z2S05YZfYJpuSpbYqn8CVxttbGJIJXVAAAAAElFTkSuQmCC"/>
@@ -101,6 +101,8 @@ export default {
     data() {
     return{
       show: false,
+      columnBtnHover: false,
+      hover: false,
     }
   },
   methods: {
