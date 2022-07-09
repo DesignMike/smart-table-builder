@@ -13,5 +13,9 @@
     "vite": "2.8.1"
   },
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-plugin-valtio": "^0.4.4"
+  }
 }
