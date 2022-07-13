@@ -27,6 +27,8 @@ const store = proxy({
     saveImage(21);
   })
   subscribe(store, () => {
+    debugger;
+    console.log(snapshot(store));
     // keep storage synced
     // localforage.setItem('images', snapshot(store).camera.images || [])
     // hide canvas when not used
