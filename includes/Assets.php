@@ -90,20 +90,20 @@ class Assets {
                 'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/vendors.js' ),
                 'in_footer' => true
             ],
-            'exceltotable-frontend-runtime' => [
-                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/runtime.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
-                'in_footer' => true
-            ],
+            // 'exceltotable-frontend-runtime' => [
+            //     'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/runtime.js',
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
+            //     'in_footer' => true
+            // ],
             'exceltotable-frontend-vendor' => [
-                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/vendors.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/vendors.js' ),
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/vendor.219302dd.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/assets/vendor.219302dd.js' ),
                 'in_footer' => true
             ],
             'exceltotable-frontend' => [
-                'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery', 'exceltotable-frontend-vendor', 'exceltotable-frontend-runtime' ],
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/frontend.js' ),
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.c20779c4.js',
+                'deps'      => [ 'jquery', 'exceltotable-frontend-vendor' ],
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/assets/index.c20779c4.js' ),
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],

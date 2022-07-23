@@ -71,6 +71,7 @@ final class WP_Ultimate_Tables {
         register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
         add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
+        add_action( 'wut_load_preview', array( $this, 'edd_invoices_display_invoice' ) );
     }
 
     /**
@@ -128,6 +129,8 @@ final class WP_Ultimate_Tables {
         define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
         define( 'WPULTIMATETABLE_ASSETS', WPULTIMATETABLE_URL . '/assets' );
         define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
+        define( 'WPULTIMATETABLE_NEW_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/new-frontend/dist/assets' );
+        define ( 'WPULTIMATETABLE_NEW_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
     }
 
     /**
@@ -206,13 +209,40 @@ final class WP_Ultimate_Tables {
         add_action('init', array($this, 'spreadsheet_table_type_init'), 0);
     }
 
+    public function output_index() {
+
+    }
+
+    public function edd_invoices_display_invoice() {
+        // $generator = new EDD_Invoice_Generator();
+    
+        // $generator->validate_request();
+    
+        // if ( ! $generator->is_valid_request() ) {
+        //     wp_die( implode( '<br>', $generator->get_error_messages() ) );
+        // }
+    
+        // $order = $generator->order;
+    
+        // // Generate HTML
+        // set_query_var( 'order', $order );
+    
+        // edd_get_template_part( 'invoice' );\
+        load_template( WPULTIMATETABLE_PATH . '/templates/base.php' , true );
+        // echo "fukkk";
+        die();
+    }
+
     /**
      * Instantiate the required classes
      *
      * @return void
      */
     public function init_classes() {
-
+        $key = ! empty( $_GET['wut_action'] ) ? sanitize_key( $_GET['wut_action'] ) : false;
+        if ( ! empty( $key ) ) {
+            do_action( "wut_{$key}" , $_GET );
+        }
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin'] = new Spreadsheet2Table\Admin();
         }
