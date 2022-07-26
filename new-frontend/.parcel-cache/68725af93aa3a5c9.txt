@@ -1,6 +1,6 @@
 6554
 105/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/yarn.lock1658513163297971444 0
-108/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/package.json1658551491557685913 0
+108/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/package.json1658666608331087113 0
 108/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/.eslintrc.js1657373418680443024 0
 130/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/posthtml/lib/index.js499162500000000000 0
 137/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/posthtml/types/posthtml.d.ts499162500000000000 0
@@ -999,7 +999,7 @@
 142/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/caniuse-lite/data/features/ttf.js499162500000000000 0
 143/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/runtime-service-worker/src1658515570731583008 1
 137/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/css-tree/dist/csstree.min.js499162500000000000 0
-118/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.c95e129c.js1658551536141966162 0
+118/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.c95e129c.js1658666627954728584 0
 122/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@lezer/common1658515575831697144 1
 141/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@jridgewell/set-array/dist/types1658515570604913507 1
 126/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/cache/src1658515570964921564 1
@@ -2544,7 +2544,7 @@
 127/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/uri-js/dist/esnext1658513205128885055 1
 136/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@rollup/pluginutils/LICENSE499162500000000000 0
 133/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/text-table/test/table.js1368266787000000000 0
-122/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.d6106e15.js.map1658551536161966585 0
+122/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.d6106e15.js.map1658666627971395511 0
 141/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/valtio/ts3.4/utils/proxyMap.d.ts499162500000000000 0
 131/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/ordered-binary/LICENSE499162500000000000 0
 142/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/doctrine/LICENSE.closure-compiler499162500000000000 0
@@ -2635,7 +2635,7 @@
 140/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/core/test/test-utils.js499162500000000000 0
 140/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/core/src/BundleGraph.js499162500000000000 0
 146/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@swc/helpers/lib/_array_with_holes.js1656333209000000000 0
-119/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.a82938fe.css1658551536141966162 0
+119/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.a82938fe.css1658666627954728584 0
 154/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/json-stable-stringify-without-jsonify/example1658513204765543778 1
 135/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/source-map-js/CHANGELOG.md499162500000000000 0
 136/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/css-select/lib/general.d.ts499162500000000000 0
@@ -2651,7 +2651,7 @@
 139/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/css-what/lib/es/parse.d.ts.map499162500000000000 0
 154/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/resolve/test/resolver/incorrect_main/index.js499162500000000000 0
 158/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@eslint/eslintrc/lib/config-array/config-array.js499162500000000000 0
-106/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/index.html1658512694461245895 0
+106/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/index.html1658666009367628949 0
 149/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/eslint/lib/rules/prefer-destructuring.js499162500000000000 0
 132/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/domhandler/package.json1658513206872256504 0
 141/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/eslint/lib/rules/comma-dangle.js499162500000000000 0
@@ -2778,7 +2778,7 @@
 155/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb.c499162500000000000 0
 149/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/csso/lib/replace/property/font-weight.js499162500000000000 0
 129/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/is-extglob/README.md1472929935000000000 0
-100/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist1658551536171966797 1
+100/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist1658666627974728897 1
 156/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/caniuse-lite/data/features/css-marker-pseudo.js499162500000000000 0
 137/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/transformer-posthtml1658515576178371568 1
 146/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/eslint/lib/rules/no-negated-in-lhs.js499162500000000000 0
@@ -2807,7 +2807,7 @@
 140/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/cosmiconfig/dist/types.d.ts.map499162500000000000 0
 129/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/yaml/browser/pair.js499162500000000000 0
 124/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/deep-is/LICENSE499162500000000000 0
-122/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.c95e129c.js.map1658551536161966585 0
+122/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.c95e129c.js.map1658666627971395511 0
 127/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/msgpackr/pack.d.ts499162500000000000 0
 151/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/eslint/lib/linter/config-comment-parser.js499162500000000000 0
 157/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@eslint/eslintrc/dist/eslintrc-universal.cjs.map499162500000000000 0
@@ -3101,7 +3101,7 @@
 155/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/fast-json-stable-stringify/.github/FUNDING.yml499162500000000000 0
 132/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/source-map-js/README.md499162500000000000 0
 186/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/transformer-posthtml/node_modules/htmlparser2/lib/WritableStream.d.ts499162500000000000 0
-118/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.d6106e15.js1658551536141966162 0
+118/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.d6106e15.js1658666627954728584 0
 136/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/htmlnano/lib/presets/max.js499162500000000000 0
 128/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/lmdb/dist/index.cjs499162500000000000 0
 124/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/csstype/LICENSE499162500000000000 0
@@ -5633,7 +5633,7 @@
 129/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/parse-json/readme.md499162500000000000 0
 157/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@parcel/runtime-js/lib/helpers/get-worker-url.js499162500000000000 0
 170/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/posthtml-parser/node_modules/entities/lib/decode_codepoint.js499162500000000000 0
-123/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.a82938fe.css.map1658551536161966585 0
+123/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.a82938fe.css.map1658666627971395511 0
 120/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/espree/dist1658513205312222396 1
 153/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/caniuse-lite/data/features/array-includes.js499162500000000000 0
 130/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/terser/tools/exit.cjs499162500000000000 0
@@ -6020,7 +6020,7 @@
 132/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/entities/lib/index.d.ts499162500000000000 0
 147/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/ajv/lib/refs/json-schema-draft-04.json499162500000000000 0
 136/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/entities/lib/index.d.ts.map499162500000000000 0
-111/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.html1658551536141966162 0
+111/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/dist/index.html1658666627954728584 0
 140/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/entities/lib/maps/entities.json499162500000000000 0
 140/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/@ungap/import-node/cjs/index.js499162500000000000 0
 125/home/userz/web/myplugindev.test/public_html/wp-content/plugins/wp-utlimate-tables/new-frontend/node_modules/entities/LICENSE499162500000000000 0

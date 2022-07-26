@@ -95,18 +95,18 @@ class Assets {
             //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
             //     'in_footer' => true
             // ],
-            'exceltotable-frontend-vendor' => [
-                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/vendor.219302dd.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/assets/vendor.219302dd.js' ),
-                'in_footer' => true
-            ],
-            'exceltotable-frontend' => [
-                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.c20779c4.js',
-                'deps'      => [ 'jquery', 'exceltotable-frontend-vendor' ],
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/assets/index.c20779c4.js' ),
-                'in_footer' => true,
-                'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
-            ],
+            // 'exceltotable-frontend-vendor' => [
+            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.c95e129c.js',
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.c95e129c.js' ),
+            //     'in_footer' => true
+            // ],
+            // 'exceltotable-frontend' => [
+            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.d6106e15.js',
+            //     'deps'      => [ 'jquery', 'exceltotable-frontend-vendor' ],
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.d6106e15.js' ),
+            //     'in_footer' => true,
+            //     'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
+            // ],
             'exceltotable-admin' => [
                 'src'       => WPULTIMATETABLE_ASSETS . '/js/admin.js',
                 'deps'      => [ 'jquery', 'exceltotable-vendor', 'wp-util', 'exceltotable-runtime' ],

@@ -129,7 +129,7 @@ final class WP_Ultimate_Tables {
         define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
         define( 'WPULTIMATETABLE_ASSETS', WPULTIMATETABLE_URL . '/assets' );
         define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
-        define( 'WPULTIMATETABLE_NEW_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/new-frontend/dist/assets' );
+        define( 'WPULTIMATETABLE_NEW_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/new-frontend/dist' );
         define ( 'WPULTIMATETABLE_NEW_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
     }
 

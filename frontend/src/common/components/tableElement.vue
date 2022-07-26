@@ -26,6 +26,7 @@ export default{
     addBorderToTableCells: false
   }, type: Object},
   mounted() {
+    debugger;
     const color = Color(this.settingsItemProps.tableRowsBg).alpha(0.5).lighten(0.5);
     let iframedPreview = this.$el.querySelector('iframe');
     let stateSnapshot = {...this.$store.state.grid, tableTitle: this.$store.state.tableTitle};

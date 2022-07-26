@@ -92,7 +92,9 @@
       <!-- <table-element v-if="grid.data.length" :cellItems="grid.data" :tableTitle="tableTitle" :showSearchBar="showSearchBar"></table-element> -->
 
       <div :style="{display: tabNavigation == 1 ? 'block': 'none'}" class="table-container">
-        <div :style="{display: tabNavigation == 1 ? 'block': 'none'}" class="excel-to-table-app"></div>
+        <div :style="{display: tabNavigation == 1 ? 'block': 'none'}" class="excel-to-table-app">
+          <iframe style="width: 100%; height: 50rem;" src="http://myplugindev.test/?wut_action=load_preview"></iframe>
+        </div>
       </div>
     </div>
     <div v-if="tabNavigation == 2">
@@ -218,16 +220,10 @@ export default {
       }
       this.tabNavigation = selectedTabIndex;
       if (selectedTabIndex == 1) {
-        // jQuery('#vue-backend-app').parent().trigger('doPreview')
-        jQuery("#vue-backend-app")
-          .parent()
-          .data("table", JSON.stringify(this.$store.state));
-        // await indexedDBHelper.saveCat(this.$store.state.grid)
-        frontVue(jQuery(".excel-to-table-app").get(0));
-        jQuery(".table-container").parent().show();
+        
       }
       if (selectedTabIndex !== 1) {
-        jQuery(".table-container").parent().hide();
+        // jQuery(".table-container").parent().hide();
       }
     },
     showSettings() {

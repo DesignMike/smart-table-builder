@@ -10,8 +10,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Table Preview</title>
-    <script type="module" crossorigin src="<?php echo WPULTIMATETABLE_NEW_ASSETS_URL . '/assets/index.c20779c4.js'; ?>"></script>
-    <link rel="modulepreload" href="<?php echo WPULTIMATETABLE_NEW_ASSETS_URL . '/assets/vendor.219302dd.js'; ?>">
   </head>
 
   <body>
@@ -19,5 +17,6 @@
       <div id="list-container">
       </div>
     </main>
+    <script src="<?php echo WPULTIMATETABLE_NEW_ASSETS_URL . '/index.d6106e15.js'; ?>" defer></script>
   </body>
 </html>
