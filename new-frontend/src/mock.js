@@ -12,6 +12,14 @@ export default {
         ["9", "Bitcoin SV", "BSV", "$1,588,957,085", "$90.65", "17,529,211", "$157,542,307", "-1.73%", "-16.16%", "13.55%"],
         ["10", "TRON", "TRX", "$1,272,495,696", "$0.019098", "66,629,110,381", "$147,732,187", "-1.63%", "-16.24%", "33.59%"]
     ],
-    "showSearchBar": true,
-    "tableTitle":"Table examples - Cryptocurrencies rank table"
+    "tableTitle": "Table examples - Cryptocurrencies rank table",
+    "settingsItemProps": {
+        "tableHeaderBg": "#4E1D1D",
+        "tableRowsBg": "#EDF2F7",
+        "tableCellsBorderBg": "#FFFFFF",
+        "tableHeaderTextColor": "#FFFFFF",
+        "tableRowsTextColor": "#000000",
+        "addBorderToTableCells": false,
+        "showSearchBar": true
+    }
 }

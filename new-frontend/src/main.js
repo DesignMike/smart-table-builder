@@ -3,6 +3,7 @@ import { html, render, svg } from 'lighterhtml'
 import { proxy, snapshot, subscribe } from 'valtio/vanilla'
 import { devtools } from 'valtio/utils'
 import { tw, setup } from 'twind'
+import { css, apply } from 'twind/css'
 import mock from './mock'
 window['tw'] = tw;
 window.manipulateStore = (incomingStore) => {
@@ -13,7 +14,7 @@ window.manipulateStore = (incomingStore) => {
   console.log(store);
 }
 
-const isDev = false;
+const isDev = true;
 
 let tableBody = null;
 
@@ -33,14 +34,6 @@ const getId = () => new Date().getTime()
 const listContainer = document.querySelector('#list-container')
 
 const store = proxy({
-    camera: {
-      images: [],
-      candidateImage: null,
-    },
-    ui: {
-      selectedImageId:
-        decodeURI(window.location.pathname).split('/photo-booth/')[1] || null,
-    },
     mock,
     searchQuery: ''
   })
@@ -54,31 +47,48 @@ const store = proxy({
     return html.node`${outputTableBody(cells)}`;
   }
 
+  const headerColor = css`
+    color: ${mock.settingsItemProps.tableHeaderTextColor};
+    background-color: ${mock.settingsItemProps.tableHeaderBg}};
+  `
+  const inputPlaceHolderStyle = css(
+    {
+      '&::placeholder' : {
+        color: mock.settingsItemProps.tableHeaderTextColor,
+        opacity: 0.5
+      }
+    }
+  )
+
+  const searchBar = () => {
+    return html.node`<div class="${tw`relative mt-1`}">
+    <div class="${tw`absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none`}">
+      ${svg.node`<svg class="${tw`w-5 h-5 ${headerColor}`}" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd"></path>
+      </svg>`}
+    </div>
+    <input type="text" id="table-search" class="${tw`${headerColor} ${inputPlaceHolderStyle} border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}" placeholder="Search for items">
+  </div>`;
+  }
+
   const outputBaseTable = (cells) => {
     return html.node`
     <div class="${tw`px-5`}">
     <div class="${tw`bg-white pb-4 px-4 rounded-md w-full`}">
     <div class="${tw`mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
-      <header class="${tw`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg bg-gray-100`}">
-        <div class="${tw`font-semibold text-gray-600`}">${store.mock.tableTitle}</div>
-        <div class="${tw`relative mt-1`}">
-          <div class="${tw`absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none`}">
-            ${svg.node`<svg class="${tw`w-5 h-5 text-gray-500 dark:text-gray-400`}" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd"></path>
-            </svg>`}
-          </div>
-          <input type="text" id="table-search" class="${tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}" placeholder="Search for items">
-        </div>  
+      <header class="${tw`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
+        <div class="${tw`font-semibold`}">${store.mock.tableTitle}</div>
+        ${store.mock.settingsItemProps.showSearchBar ? searchBar() : ''}
       </header>
       <div class="${tw`inline-block min-w-full shadow rounded-b-lg overflow-hidden`}">
         <table class="${tw`min-w-full leading-normal`}">
           <thead>
             <tr>
               ${cells[0].map(head => html.node`<th
-              class="${tw`px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}">
+              class="${tw`px-5 py-3 border-b-2 border-gray-200 ${headerColor} text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}">
                 ${head}
               </th>`)}
             </tr>
@@ -123,7 +133,9 @@ const store = proxy({
   // })
 
   const emptySearchResultsNotice = () => {
-    return html.node`<p>llllll</p>`;
+    return html.node`<p class="${tw`hover:bg-gray-100 w-full border-b border-gray-200 py-3`}">
+    No items match the search query
+  </p>`;
   }
 
   const filterBySearchQuery = (searchString) => {
@@ -134,7 +146,6 @@ const store = proxy({
   }
   subscribe(store, () => {
     console.log(snapshot(store));
-    store.camera.images.forEach(console.log);
     // if ( store.searchQuery.length == 0 ) {
     //   [...tableBody.children].forEach(node => node.remove());
     // }
