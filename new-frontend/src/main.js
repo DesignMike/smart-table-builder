@@ -8,13 +8,17 @@ import mock from './mock'
 window['tw'] = tw;
 window.manipulateStore = (incomingStore) => {
   store.mock = incomingStore;
+  // listContainer.appendChild(outputBaseTable(store.mock.data));
+  // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
+  // tableBody = listContainer.querySelector('table tbody');
+  // console.log(store);
+  listContainer.innerHTML = '';
   listContainer.appendChild(outputBaseTable(store.mock.data));
-  listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
   tableBody = listContainer.querySelector('table tbody');
-  console.log(store);
+  listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
 }
 
-const isDev = true;
+const isDev = false;
 
 let tableBody = null;
 
@@ -31,7 +35,7 @@ setup({
 
 const getId = () => new Date().getTime()
 
-const listContainer = document.querySelector('#list-container')
+const listContainer = document.querySelector('.excel-to-table-app')
 
 const store = proxy({
     mock,
@@ -81,7 +85,6 @@ const store = proxy({
     <div class="${tw`mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
       <header class="${tw`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
         <div class="${tw`font-semibold`}">${store.mock.tableTitle}</div>
-        ${store.mock.settingsItemProps.showSearchBar ? searchBar() : ''}
       </header>
       <div class="${tw`inline-block min-w-full shadow rounded-b-lg overflow-hidden`}">
         <table class="${tw`min-w-full leading-normal`}">
@@ -118,7 +121,7 @@ const store = proxy({
   if (window.top == window) {
     listContainer.appendChild(outputBaseTable(store.mock.data));
     tableBody = listContainer.querySelector('table tbody');
-    listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
+    // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
   }
   
 
@@ -155,23 +158,5 @@ const store = proxy({
       tableBody.appendChild( filteredCells.length > 0 ? outputFilteredCells(filteredCells) : emptySearchResultsNotice());
       // outputFilteredCells(cells);
     }
-    if ( store.searchQuery.length <= 2 ) {
-      [...tableBody.children].forEach(node => node.remove());
-      tableBody.appendChild(outputFilteredCells(store.mock.data));
-      // outputFilteredCells(cells);
-    }
-    // keep storage synced
-    // localforage.setItem('images', snapshot(store).camera.images || [])
-    // hide canvas when not used
-    if (store.camera.candidateImage) {
-      // canvas.removeAttribute('hidden')
-      // eslint-disable-next-line no-debugger
-      debugger;
-    } else {
-      // canvas.setAttribute('hidden', 'hidden')
-    }
-    // render html
-    // renderCanvasControls(!!store.camera.candidateImage)
-    // renderImages(store.camera.images, store.ui.selectedImageId)
   })
   const unsub = devtools(store, { name: 'ultimatetables' })

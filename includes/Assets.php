@@ -100,13 +100,12 @@ class Assets {
             //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.c95e129c.js' ),
             //     'in_footer' => true
             // ],
-            // 'exceltotable-frontend' => [
-            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.d6106e15.js',
-            //     'deps'      => [ 'jquery', 'exceltotable-frontend-vendor' ],
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.d6106e15.js' ),
-            //     'in_footer' => true,
-            //     'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
-            // ],
+            'exceltotable-frontend' => [
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.4d6bcbeb.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.4d6bcbeb.js' ),
+                'in_footer' => true,
+                'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
+            ],
             'exceltotable-admin' => [
                 'src'       => WPULTIMATETABLE_ASSETS . '/js/admin.js',
                 'deps'      => [ 'jquery', 'exceltotable-vendor', 'wp-util', 'exceltotable-runtime' ],

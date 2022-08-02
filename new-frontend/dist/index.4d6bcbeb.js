@@ -544,12 +544,16 @@ var _mockDefault = parcelHelpers.interopDefault(_mock);
 window["tw"] = (0, _twind.tw);
 window.manipulateStore = (incomingStore)=>{
     store.mock = incomingStore;
+    // listContainer.appendChild(outputBaseTable(store.mock.data));
+    // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
+    // tableBody = listContainer.querySelector('table tbody');
+    // console.log(store);
+    listContainer.innerHTML = "";
     listContainer.appendChild(outputBaseTable(store.mock.data));
-    listContainer.querySelector('[id="table-search"]').addEventListener("keyup", handleSearch);
     tableBody = listContainer.querySelector("table tbody");
-    console.log(store);
+    listContainer.querySelector('[id="table-search"]').addEventListener("keyup", handleSearch);
 };
-const isDev = true;
+const isDev = false;
 let tableBody = null;
 if (isDev) console.log((0, _mockDefault.default));
 (0, _twind.setup)({
@@ -559,7 +563,7 @@ if (isDev) console.log((0, _mockDefault.default));
     hash: !isDev
 });
 const getId = ()=>new Date().getTime();
-const listContainer = document.querySelector("#list-container");
+const listContainer = document.querySelector(".excel-to-table-app");
 const store = (0, _vanilla.proxy)({
     mock: (0, _mockDefault.default),
     searchQuery: ""
@@ -601,7 +605,6 @@ const outputBaseTable = (cells)=>{
     <div class="${(0, _twind.tw)`mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
       <header class="${(0, _twind.tw)`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
         <div class="${(0, _twind.tw)`font-semibold`}">${store.mock.tableTitle}</div>
-        ${store.mock.settingsItemProps.showSearchBar ? searchBar() : ""}
       </header>
       <div class="${(0, _twind.tw)`inline-block min-w-full shadow rounded-b-lg overflow-hidden`}">
         <table class="${(0, _twind.tw)`min-w-full leading-normal`}">
@@ -635,7 +638,7 @@ const outputTableBody = (cells)=>{
 if (window.top == window) {
     listContainer.appendChild(outputBaseTable(store.mock.data));
     tableBody = listContainer.querySelector("table tbody");
-    listContainer.querySelector('[id="table-search"]').addEventListener("keyup", handleSearch);
+// listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
 }
 function saveImage(url) {
     const id = getId();
@@ -671,28 +674,12 @@ const filterBySearchQuery = (searchString)=>{
         tableBody.appendChild(filteredCells.length > 0 ? outputFilteredCells(filteredCells) : emptySearchResultsNotice());
     // outputFilteredCells(cells);
     }
-    if (store.searchQuery.length <= 2) {
-        [
-            ...tableBody.children
-        ].forEach((node)=>node.remove());
-        tableBody.appendChild(outputFilteredCells(store.mock.data));
-    // outputFilteredCells(cells);
-    }
-    // keep storage synced
-    // localforage.setItem('images', snapshot(store).camera.images || [])
-    // hide canvas when not used
-    if (store.camera.candidateImage) // canvas.removeAttribute('hidden')
-    // eslint-disable-next-line no-debugger
-    debugger;
-// render html
-// renderCanvasControls(!!store.camera.candidateImage)
-// renderImages(store.camera.images, store.ui.selectedImageId)
 });
 const unsub = (0, _utils.devtools)(store, {
     name: "ultimatetables"
 });
 
-},{"./index.css":"irmnC","lighterhtml":"lhq8K","valtio/vanilla":"gyoEY","valtio/utils":"7IFXN","twind":"aXRum","./mock":"gXrQx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","twind/css":"2835l"}],"irmnC":[function() {},{}],"lhq8K":[function(require,module,exports) {
+},{"./index.css":"irmnC","lighterhtml":"lhq8K","valtio/vanilla":"gyoEY","valtio/utils":"7IFXN","twind":"aXRum","twind/css":"2835l","./mock":"gXrQx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irmnC":[function() {},{}],"lhq8K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Hole", ()=>Hole);
@@ -4929,7 +4916,133 @@ function t(i2, r3) {
     return a1 ? a1[1] ? /^sti/i.test(r3) ? 1 : 0 : a1[2] ? /^pat/i.test(r3) ? 1 : 0 : a1[3] ? /^image-/i.test(r3) ? 1 : 0 : a1[4] ? "-" === r3[3] ? 2 : 0 : /^(?:inline-)?grid$/i.test(r3) ? 4 : 0 : 0;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gXrQx":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2835l":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "animation", ()=>animation);
+parcelHelpers.export(exports, "css", ()=>css);
+parcelHelpers.export(exports, "keyframes", ()=>keyframes);
+parcelHelpers.export(exports, "screen", ()=>screen);
+// src/css/index.ts
+var _twind = require("twind");
+// src/css/index.ts
+parcelHelpers.exportAll(_twind, exports);
+// src/internal/util.ts
+var includes = (value, search)=>!!~value.indexOf(search);
+var join = (parts, separator = "-")=>parts.join(separator);
+var hyphenate = (value)=>value.replace(/[A-Z]/g, "-$&").toLowerCase();
+var evalThunk = (value, context)=>{
+    while(typeof value == "function")value = value(context);
+    return value;
+};
+var isCSSProperty = (key, value)=>!includes("@:&", key[0]) && (includes("rg", (typeof value)[5]) || Array.isArray(value));
+var merge = (target, source, context)=>source ? Object.keys(source).reduce((target2, key)=>{
+        const value = evalThunk(source[key], context);
+        if (isCSSProperty(key, value)) target2[hyphenate(key)] = value;
+        else target2[key] = key[0] == "@" && includes("figa", key[1]) ? (target2[key] || []).concat(value) : merge(target2[key] || {}, value, context);
+        return target2;
+    }, target) : target;
+var escape = typeof CSS !== "undefined" && CSS.escape || ((className)=>className.replace(/[!"'`*+.,;:\\/<=>?@#$%&^|~()[\]{}]/g, "\\$&").replace(/^\d/, "\\3$& "));
+var buildMediaQuery = (screen2)=>{
+    if (!Array.isArray(screen2)) screen2 = [
+        screen2
+    ];
+    return "@media " + join(screen2.map((screen3)=>{
+        if (typeof screen3 == "string") screen3 = {
+            min: screen3
+        };
+        return screen3.raw || join(Object.keys(screen3).map((feature)=>`(${feature}-width:${screen3[feature]})`), " and ");
+    }), ",");
+};
+var translate = (tokens, context)=>{
+    const collect = (target, token)=>Array.isArray(token) ? token.reduce(collect, target) : merge(target, evalThunk(token, context), context);
+    return tokens.reduce(collect, {});
+};
+var newRule = /\s*(?:([\w-%@]+)\s*:?\s*([^{;]+?)\s*(?:;|$|})|([^;}{]*?)\s*{)|(})/gi;
+var ruleClean = /\/\*[\s\S]*?\*\/|\s+|\n/gm;
+var decorate = (selectors, currentBlock)=>selectors.reduceRight((rules, selector)=>({
+            [selector]: rules
+        }), currentBlock);
+var saveBlock = (rules, selectors, currentBlock)=>{
+    if (currentBlock) rules.push(decorate(selectors, currentBlock));
+};
+var interleave = (strings, interpolations, context)=>{
+    let buffer = strings[0];
+    const result = [];
+    for(let index = 0; index < interpolations.length;){
+        const interpolation = evalThunk(interpolations[index], context);
+        if (interpolation && typeof interpolation == "object") {
+            result.push(buffer, interpolation);
+            buffer = strings[++index];
+        } else buffer += (interpolation || "") + strings[++index];
+    }
+    result.push(buffer);
+    return result;
+};
+var astish = (values, context)=>{
+    const selectors = [];
+    const rules = [];
+    let currentBlock;
+    let match;
+    for(let index = 0; index < values.length; index++){
+        const value = values[index];
+        if (typeof value == "string") while(match = newRule.exec(value.replace(ruleClean, " "))){
+            if (!match[0]) continue;
+            if (match[4]) {
+                currentBlock = saveBlock(rules, selectors, currentBlock);
+                selectors.pop();
+            }
+            if (match[3]) {
+                currentBlock = saveBlock(rules, selectors, currentBlock);
+                selectors.push(match[3]);
+            } else if (!match[4]) {
+                if (!currentBlock) currentBlock = {};
+                const value2 = match[2] && /\S/.test(match[2]) ? match[2] : values[++index];
+                if (value2) {
+                    if (match[1] == "@apply") merge(currentBlock, evalThunk((0, _twind.apply)(value2), context), context);
+                    else currentBlock[match[1]] = value2;
+                }
+            }
+        }
+        else {
+            currentBlock = saveBlock(rules, selectors, currentBlock);
+            rules.push(decorate(selectors, value));
+        }
+    }
+    saveBlock(rules, selectors, currentBlock);
+    return rules;
+};
+var cssFactory = (tokens, context)=>translate(Array.isArray(tokens[0]) && Array.isArray(tokens[0].raw) ? astish(interleave(tokens[0], tokens.slice(1), context), context) : tokens, context);
+var css = (...tokens)=>(0, _twind.directive)(cssFactory, tokens);
+var keyframesFactory = (tokens, context)=>{
+    const waypoints = cssFactory(tokens, context);
+    const id = (0, _twind.hash)(JSON.stringify(waypoints));
+    context.tw(()=>({
+            [`@keyframes ${id}`]: waypoints
+        }));
+    return id;
+};
+var keyframes = (...tokens)=>(0, _twind.directive)(keyframesFactory, tokens);
+var animation = (value, waypoints)=>waypoints === void 0 ? (...args)=>animation(value, keyframes(...args)) : css({
+        ...value && typeof value == "object" ? value : {
+            animation: value
+        },
+        animationName: typeof waypoints == "function" ? waypoints : keyframes(waypoints)
+    });
+var screenFactory = ({ size , rules  }, context)=>{
+    const media = buildMediaQuery(context.theme("screens", size));
+    return rules === void 0 ? media : {
+        [media]: typeof rules == "function" ? evalThunk(rules, context) : cssFactory([
+            rules
+        ], context)
+    };
+};
+var screen = (size, rules)=>(0, _twind.directive)(screenFactory, {
+        size,
+        rules
+    });
+
+},{"twind":"aXRum","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gXrQx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -5079,132 +5192,6 @@ exports.default = {
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2835l":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "animation", ()=>animation);
-parcelHelpers.export(exports, "css", ()=>css);
-parcelHelpers.export(exports, "keyframes", ()=>keyframes);
-parcelHelpers.export(exports, "screen", ()=>screen);
-// src/css/index.ts
-var _twind = require("twind");
-// src/css/index.ts
-parcelHelpers.exportAll(_twind, exports);
-// src/internal/util.ts
-var includes = (value, search)=>!!~value.indexOf(search);
-var join = (parts, separator = "-")=>parts.join(separator);
-var hyphenate = (value)=>value.replace(/[A-Z]/g, "-$&").toLowerCase();
-var evalThunk = (value, context)=>{
-    while(typeof value == "function")value = value(context);
-    return value;
-};
-var isCSSProperty = (key, value)=>!includes("@:&", key[0]) && (includes("rg", (typeof value)[5]) || Array.isArray(value));
-var merge = (target, source, context)=>source ? Object.keys(source).reduce((target2, key)=>{
-        const value = evalThunk(source[key], context);
-        if (isCSSProperty(key, value)) target2[hyphenate(key)] = value;
-        else target2[key] = key[0] == "@" && includes("figa", key[1]) ? (target2[key] || []).concat(value) : merge(target2[key] || {}, value, context);
-        return target2;
-    }, target) : target;
-var escape = typeof CSS !== "undefined" && CSS.escape || ((className)=>className.replace(/[!"'`*+.,;:\\/<=>?@#$%&^|~()[\]{}]/g, "\\$&").replace(/^\d/, "\\3$& "));
-var buildMediaQuery = (screen2)=>{
-    if (!Array.isArray(screen2)) screen2 = [
-        screen2
-    ];
-    return "@media " + join(screen2.map((screen3)=>{
-        if (typeof screen3 == "string") screen3 = {
-            min: screen3
-        };
-        return screen3.raw || join(Object.keys(screen3).map((feature)=>`(${feature}-width:${screen3[feature]})`), " and ");
-    }), ",");
-};
-var translate = (tokens, context)=>{
-    const collect = (target, token)=>Array.isArray(token) ? token.reduce(collect, target) : merge(target, evalThunk(token, context), context);
-    return tokens.reduce(collect, {});
-};
-var newRule = /\s*(?:([\w-%@]+)\s*:?\s*([^{;]+?)\s*(?:;|$|})|([^;}{]*?)\s*{)|(})/gi;
-var ruleClean = /\/\*[\s\S]*?\*\/|\s+|\n/gm;
-var decorate = (selectors, currentBlock)=>selectors.reduceRight((rules, selector)=>({
-            [selector]: rules
-        }), currentBlock);
-var saveBlock = (rules, selectors, currentBlock)=>{
-    if (currentBlock) rules.push(decorate(selectors, currentBlock));
-};
-var interleave = (strings, interpolations, context)=>{
-    let buffer = strings[0];
-    const result = [];
-    for(let index = 0; index < interpolations.length;){
-        const interpolation = evalThunk(interpolations[index], context);
-        if (interpolation && typeof interpolation == "object") {
-            result.push(buffer, interpolation);
-            buffer = strings[++index];
-        } else buffer += (interpolation || "") + strings[++index];
-    }
-    result.push(buffer);
-    return result;
-};
-var astish = (values, context)=>{
-    const selectors = [];
-    const rules = [];
-    let currentBlock;
-    let match;
-    for(let index = 0; index < values.length; index++){
-        const value = values[index];
-        if (typeof value == "string") while(match = newRule.exec(value.replace(ruleClean, " "))){
-            if (!match[0]) continue;
-            if (match[4]) {
-                currentBlock = saveBlock(rules, selectors, currentBlock);
-                selectors.pop();
-            }
-            if (match[3]) {
-                currentBlock = saveBlock(rules, selectors, currentBlock);
-                selectors.push(match[3]);
-            } else if (!match[4]) {
-                if (!currentBlock) currentBlock = {};
-                const value2 = match[2] && /\S/.test(match[2]) ? match[2] : values[++index];
-                if (value2) {
-                    if (match[1] == "@apply") merge(currentBlock, evalThunk((0, _twind.apply)(value2), context), context);
-                    else currentBlock[match[1]] = value2;
-                }
-            }
-        }
-        else {
-            currentBlock = saveBlock(rules, selectors, currentBlock);
-            rules.push(decorate(selectors, value));
-        }
-    }
-    saveBlock(rules, selectors, currentBlock);
-    return rules;
-};
-var cssFactory = (tokens, context)=>translate(Array.isArray(tokens[0]) && Array.isArray(tokens[0].raw) ? astish(interleave(tokens[0], tokens.slice(1), context), context) : tokens, context);
-var css = (...tokens)=>(0, _twind.directive)(cssFactory, tokens);
-var keyframesFactory = (tokens, context)=>{
-    const waypoints = cssFactory(tokens, context);
-    const id = (0, _twind.hash)(JSON.stringify(waypoints));
-    context.tw(()=>({
-            [`@keyframes ${id}`]: waypoints
-        }));
-    return id;
-};
-var keyframes = (...tokens)=>(0, _twind.directive)(keyframesFactory, tokens);
-var animation = (value, waypoints)=>waypoints === void 0 ? (...args)=>animation(value, keyframes(...args)) : css({
-        ...value && typeof value == "object" ? value : {
-            animation: value
-        },
-        animationName: typeof waypoints == "function" ? waypoints : keyframes(waypoints)
-    });
-var screenFactory = ({ size , rules  }, context)=>{
-    const media = buildMediaQuery(context.theme("screens", size));
-    return rules === void 0 ? media : {
-        [media]: typeof rules == "function" ? evalThunk(rules, context) : cssFactory([
-            rules
-        ], context)
-    };
-};
-var screen = (size, rules)=>(0, _twind.directive)(screenFactory, {
-        size,
-        rules
-    });
-
-},{"twind":"aXRum","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire87bb")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire87bb")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map

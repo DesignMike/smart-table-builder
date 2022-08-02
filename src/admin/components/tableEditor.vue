@@ -164,8 +164,8 @@ export default {
         "rounded-lg bg-blue-500 inline-block py-2 px-4 font-semibold text-white",
       tabInactiveClass: "text-blue-500 hover:text-blue-800",
       styles: [
-        "Style 1",
-        "Style 2"
+        "Style 1 (Active)",
+        "Style 2 (Premium)"
       ],
       currentStyle: 'Style 1'
     };
@@ -205,6 +205,7 @@ export default {
       return JSON.stringify(this.$store.state);
     },
     async handleTabSwitch(event) {
+      debugger;
       let selectedTabIndex = parseInt(
         event.target.getAttribute("data-tab-index")
       );
@@ -220,7 +221,9 @@ export default {
       }
       this.tabNavigation = selectedTabIndex;
       if (selectedTabIndex == 1) {
-        
+        let iframedPreview = this.$el.querySelector('iframe');
+        let stateSnapshot = {...this.$store.state.grid, tableTitle: this.$store.state.tableTitle};
+        iframedPreview.contentWindow.manipulateStore(JSON.parse(JSON.stringify(stateSnapshot)));
       }
       if (selectedTabIndex !== 1) {
         // jQuery(".table-container").parent().hide();
