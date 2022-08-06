@@ -544,26 +544,21 @@ var _mockDefault = parcelHelpers.interopDefault(_mock);
 window["tw"] = (0, _twind.tw);
 window.manipulateStore = (incomingStore)=>{
     store.mock = incomingStore;
-    // listContainer.appendChild(outputBaseTable(store.mock.data));
-    // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
-    // tableBody = listContainer.querySelector('table tbody');
-    // console.log(store);
     listContainer.innerHTML = "";
     listContainer.appendChild(outputBaseTable(store.mock.data));
     tableBody = listContainer.querySelector("table tbody");
     listContainer.querySelector('[id="table-search"]').addEventListener("keyup", handleSearch);
 };
-const isDev = false;
+const isDev = true;
 let tableBody = null;
 if (isDev) console.log((0, _mockDefault.default));
 (0, _twind.setup)({
-    nonce: "sdsadas",
     preflight: true,
     prefix: true,
     hash: !isDev
 });
 const getId = ()=>new Date().getTime();
-const listContainer = document.querySelector(".excel-to-table-app");
+let listContainer = document.querySelector(".excel-to-table-app");
 const store = (0, _vanilla.proxy)({
     mock: (0, _mockDefault.default),
     searchQuery: ""
@@ -635,7 +630,21 @@ const outputCell = (cellsData)=>{
 const outputTableBody = (cells)=>{
     return cells.map((one)=>outputCell(one));
 };
-if (window.top == window) {
+if (window.top == window && !isDev) {
+    let tableId = listContainer.getAttribute("data-table-id");
+    (async ()=>{
+        let tableData = await fetch(`${wpUltimateTablesRoute}/get-table-cells/${tableId}`);
+        if (tableData) {
+            let data_rcv = await tableData.json();
+            store.mock.data = data_rcv.grid.data;
+            store.mock.tableTitle = data_rcv.title;
+            listContainer.appendChild(outputBaseTable(store.mock.data));
+        }
+    })();
+    tableBody = listContainer.querySelector("table tbody");
+}
+if (window.top == window && isDev) {
+    listContainer = document.querySelector("#list-container");
     listContainer.appendChild(outputBaseTable(store.mock.data));
     tableBody = listContainer.querySelector("table tbody");
 // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
@@ -647,32 +656,24 @@ function saveImage(url) {
         url
     });
 }
-// document.querySelector('button').addEventListener('click', (evt) => {
-//   saveImage(21);
-// })
 const emptySearchResultsNotice = ()=>{
     return (0, _lighterhtml.html).node`<p class="${(0, _twind.tw)`hover:bg-gray-100 w-full border-b border-gray-200 py-3`}">
     No items match the search query
   </p>`;
 };
 const filterBySearchQuery = (searchString)=>{
-    // let upperCasedData = snapshot(store.mock.data).map(e => e.map(e => e.toUpperCase()));
     return (0, _vanilla.snapshot)(store.mock.data).filter((k, i)=>{
         return k.map((e)=>e.toUpperCase().startsWith(searchString.toUpperCase())).some((q)=>q);
     });
 };
 (0, _vanilla.subscribe)(store, ()=>{
     console.log((0, _vanilla.snapshot)(store));
-    // if ( store.searchQuery.length == 0 ) {
-    //   [...tableBody.children].forEach(node => node.remove());
-    // }
     if (store.searchQuery.length > 2) {
         [
             ...tableBody.children
         ].forEach((node)=>node.remove());
         let filteredCells = filterBySearchQuery(store.searchQuery);
         tableBody.appendChild(filteredCells.length > 0 ? outputFilteredCells(filteredCells) : emptySearchResultsNotice());
-    // outputFilteredCells(cells);
     }
 });
 const unsub = (0, _utils.devtools)(store, {
