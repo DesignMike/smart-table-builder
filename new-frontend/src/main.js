@@ -134,6 +134,9 @@ const store = proxy({
     tableBody = listContainer.querySelector('table tbody');
     // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
   }
+  if (window.top != window) {
+    listContainer = document.querySelector('#list-container');
+  }
   
 
 

@@ -649,6 +649,7 @@ if (window.top == window && isDev) {
     tableBody = listContainer.querySelector("table tbody");
 // listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
 }
+if (window.top != window) listContainer = document.querySelector("#list-container");
 function saveImage(url) {
     const id = getId();
     store.camera.images.push({
