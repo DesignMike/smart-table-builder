@@ -3,9 +3,62 @@ import { html, render, svg } from 'lighterhtml'
 import { proxy, snapshot, subscribe } from 'valtio/vanilla'
 import { devtools } from 'valtio/utils'
 import { tw, setup } from 'twind'
-import { css, apply } from 'twind/css'
+import { css, screen, apply, theme, animation } from 'twind/css'
 import mock from './mock'
 window['tw'] = tw;
+
+const bounce = animation('1s ease infinite', {
+  'from, 20%, 53%, 80%, to': {
+    transform: 'translate3d(0,0,0)',
+  },
+  '40%, 43%': {
+    transform: 'translate3d(0, -30px, 0)',
+  },
+  '70%': {
+    transform: 'translate3d(0, -15px, 0)',
+  },
+  '90%': {
+    transform: 'translate3d(0, -4px, 0)',
+  },
+})
+
+// let mycss = css`
+// color: ${mock.settingsItemProps.tableHeaderTextColor};
+// background-color: ${mock.settingsItemProps.tableHeaderBg}};
+// `
+let mycss = css`@media (max-width: 600px) {
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 3px hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 10%);
+  max-width: 100%;
+  position: relative;
+  display: block;
+  td {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    border: 0;
+    /* text-align: right; */
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0.5em 0.75em;
+    text-align: right!important;
+    vertical-align: top;
+    &::before {
+      ${apply`text-purple-700`}
+      content: attr(data-label);
+      font-weight: 600;
+      padding-right: 0.5em;
+      text-align: left;
+    }
+  }
+}`
+
+let mycss2 = css`@media (max-width: 600px) {
+  th {
+    display: none;
+  }
+}`
+
+
 window.manipulateStore = (incomingStore) => {
   store.mock = incomingStore;
   listContainer.innerHTML = '';
@@ -75,16 +128,16 @@ const store = proxy({
 
   const outputBaseTable = (cells) => {
     return html.node`
-    <div class="${tw`px-5`}">
+    <div>
     <div class="${tw`bg-white pb-4 px-4 rounded-md w-full`}">
-    <div class="${tw`mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
+    <div class="${tw`sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
       <header class="${tw`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
         <div class="${tw`font-semibold`}">${store.mock.tableTitle}</div>
       </header>
       <div class="${tw`inline-block min-w-full shadow rounded-b-lg overflow-hidden`}">
         <table class="${tw`min-w-full leading-normal`}">
           <thead>
-            <tr>
+            <tr class="${tw`${mycss2}`}">
               ${cells[0].map(head => html.node`<th
               class="${tw`px-5 py-3 border-b-2 border-gray-200 ${headerColor} text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}">
                 ${head}
@@ -92,7 +145,7 @@ const store = proxy({
             </tr>
           </thead>
           <tbody>
-            ${outputTableBody(cells.filter((k, i) => i !== 0))}
+            ${outputTableBody(cells.filter((k, i) => i !== 0), cells.filter((k, i) => i == 0)[0])}
           </tbody>
         </table>
       </div>
@@ -101,16 +154,16 @@ const store = proxy({
       </div>`;
   }
 
-  const outputCell = (cellsData) => {
-    return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200 py-10`}">
-      ${cellsData.map(cellVal => html.node`<td class="${tw`px-4 py-4`}">
-        ${cellVal}
+  const outputCell = (cellsData, tableHeadCell) => {
+    return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200`} ${tw`${mycss}`}">
+      ${cellsData.map((cellVal, index) => html.node`<td data-label="${tableHeadCell[index]}" class="${tw`px-4 py-4`}">
+        <span>${cellVal}</span>
       </td>`)}
     </tr>`
   }
 
-  const outputTableBody = cells => {
-    return cells.map(one => outputCell(one));
+  const outputTableBody = (cells, tableHeadCell) => {
+    return cells.map(one => outputCell(one, tableHeadCell));
   }
 
   if (window.top == window && !isDev) {
