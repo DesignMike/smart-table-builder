@@ -20,6 +20,7 @@ const store = new Vuex.Store({
       currentStyle: 'Style 1',
       showSettings: false,
       fontSettings: ['Montserrat', '20px', '400'],
+      tableBodyFontSettings: ['Montserrat', '20px', '400'],
       settingsItemProps: {
         tableHeaderBg: '#4A5568',
         tableRowsBg: '#EDF2F7',
@@ -56,6 +57,9 @@ const store = new Vuex.Store({
       },
       updatefontSettings (state, data) {
         state.fontSettings = data;
+      },
+      updateTableBodyfontSettings (state, data) {
+        state.tableBodyFontSettings = data;
       },
       updateSettingsByKey (state, args) {
         // let tmpSettings = state.settingsItemProps;

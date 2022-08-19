@@ -20,10 +20,21 @@
         </button>
       </div>
       <!--body-->
-      <div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
-        <fonts-select :options="getFontFamilyList(this)" @updateFont="handleFontUpdate" context="fontFamily" />
-        <fonts-select :options="getSizes()" context="fontSize" />
-        <fonts-select :options="findFontFamilyWeights()" :key="componentKey" context="fontWeight" ref="weightDropDown" />
+      <h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+          Header Fonts
+      </h5>
+      <div v-if="!isLoading" class="shadow-lg p-3 shadow-indigo-500 relative grid grid-cols-3 flex pt-0">
+        <fonts-select :options="getFontFamilyList(this)" fontZone="tableHeader" @updateFont="handleFontUpdate" context="fontFamily" />
+        <fonts-select :options="getSizes(this)" fontZone="tableHeader" context="fontSize" />
+        <fonts-select :options="findFontFamilyWeights(this)" fontZone="tableHeader" :key="componentKey" context="fontWeight" ref="weightDropDown" />
+      </div>
+      <h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+        Table Cell Fonts
+      </h5>
+      <div v-if="!isLoading" class="shadow-lg p-3 shadow-indigo-500 relative grid grid-cols-3 flex pt-0">
+        <fonts-select :options="getFontFamilyList(this)" fontZone="tableBodyHeader" @updateFont="handleFontUpdate" context="fontFamily" />
+        <fonts-select :options="getSizes(this)" fontZone="tableBodyHeader" context="fontSize" />
+        <fonts-select :options="findFontFamilyWeights(this)" fontZone="tableBodyHeader" :key="componentKey" context="fontWeight" ref="weightDropDown" />
       </div>
       <label v-for="obj in Object.keys(settingsItems)" :key="obj" v-bind:style="{ display: evaluateDeps(obj) }" class="inline-flex mt-2 items-center">
         <input type="checkbox" class="form-checkbox" v-if="settingsItems[obj].type == 'boolean'" :checked="settingsItemProps[obj]" @change="handleChkbx($event, obj, settingsItemProps, $store)" value="some value" />
@@ -167,7 +178,8 @@ export default {
     getFontFamilyList: (proxy) => {
       return proxy.googleFontsMetadata.familyMetadataList.map(e => ({value: e.family, text: e.family}));
     },
-    findFontFamilyWeights() {
+    findFontFamilyWeights($this) {
+      debugger;
       let family = this.$store.state.fontSettings[0];
       let weights = this.googleFontsMetadata.familyMetadataList.filter(e => e.family == family).map(e => Object.keys(e.fonts))[0];
       return weights.map(e => ({text: e, value: e}));

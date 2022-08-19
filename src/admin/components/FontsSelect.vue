@@ -22,21 +22,22 @@ import { BasicSelect } from 'vue-search-select'
 export default {
   data () {
     return {
-      options1: this.options
+      options1: this.options,
     }
   },
   methods: {
     onSelect (item) {
-      let temp = this.$store.state.fontSettings;
+      let temp = this.$store.state[this.fontZone == 'tableHeader' ? 'fontSettings' : 'tableBodyFontSettings'];
       temp[this.getSettingsIndex()] = item.value;
       if (this.context == 'fontFamily') {
         temp[2] = '400';
       }
-      this.$store.commit("updatefontSettings", temp);
+      this.$store.commit(this.fontZone == 'tableHeader' ? "updatefontSettings" : "updateTableBodyfontSettings", temp);
       if (this.getSettingsIndex() == 0) {
         this.$emit('updateFont', this);
       }
-      this.item = item;
+      debugger;
+      this.selectOption = {...item};
     },
     getSettingsIndex () {
       let settingsIndex = '';
@@ -64,10 +65,10 @@ export default {
   computed: {
     item: {
       get: function() {
-        return {text: this.$store.state.fontSettings[this.getSettingsIndex()], value: this.$store.state.fontSettings[this.getSettingsIndex()]};
+        return {text: this.$store.state[this.fontZone == 'tableHeader' ? 'fontSettings' : 'tableBodyFontSettings'][this.getSettingsIndex()], value: this.$store.state[this.fontZone == 'tableHeader' ? 'fontSettings' : 'tableBodyFontSettings'][this.getSettingsIndex()]};
       },
       set: function(data) {
-        return (this.$store.state.fontSettings[this.getSettingsIndex()] = data.value);
+        return (this.$store.state[this.fontZone == 'tableHeader' ? 'fontSettings' : 'tableBodyFontSettings'][this.getSettingsIndex()] = data.value);
       }
     },
     title() {
@@ -92,6 +93,7 @@ export default {
   props: {
     options: Array,
     context: String,
+    fontZone: String,
   }
 }
 </script>
