@@ -36,6 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction _typeof(e){return(_t
 
 /***/ }),
 
+/***/ "./node_modules/google-fonts-helper/dist/index.mjs":
+/*!*********************************************************!*\
+  !*** ./node_modules/google-fonts-helper/dist/index.mjs ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: Unexpected token (212:50)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|   const subset = (Array.isArray(subsets) ? subsets : [subsets]).filter(Boolean);\\n|   const prefix = subset.length > 0 ? \\\"css\\\" : \\\"css2\\\";\\n>   const family = convertFamiliesToArray(families ?? {}, prefix.endsWith(\\\"2\\\"));\\n|   if (family.length < 1) {\\n|     return false;\");\n\n//# sourceURL=webpack:///./node_modules/google-fonts-helper/dist/index.mjs?");
+
+/***/ }),
+
 /***/ "./node_modules/ieee754/index.js":
 /*!***************************************!*\
   !*** ./node_modules/ieee754/index.js ***!

@@ -189,7 +189,9 @@ export default {
         title: this.$store.state.tableTitle,
         cells: this.$store.state.grid.data,
         fontSettings: this.$store.state.fontSettings,
-        settingsItemProps: this.$store.state.settingsItemProps
+        tableBodyFontSettings: this.$store.state.tableBodyFontSettings,
+        settingsItemProps: this.$store.state.settingsItemProps,
+        fontUrls: this.$store.state.fontUrls,
       };
       let setLoadingStatus = (status) => {
         this.isSaving = !Boolean(status.success)
@@ -277,6 +279,8 @@ export default {
           vm.$store.commit("setEditingTableId", data.id);
           data.settingsItemProps && vm.$store.commit("updateSettings", data.settingsItemProps);
           data.fontSettings && vm.$store.commit("updatefontSettings", data.fontSettings);
+          data.tableBodyFontSettings && vm.$store.commit("updateTableBodyfontSettings", data.tableBodyFontSettings);
+          data.updateFontUrls && vm.$store.commit('updateFontUrls', data.fontUrls);
         },
       });
       this.$store.commit("setPageTitle", "Editing Table");

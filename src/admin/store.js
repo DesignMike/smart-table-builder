@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import gfontsHelper from 'google-fonts-helper'
 // import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 
@@ -28,7 +29,8 @@ const store = new Vuex.Store({
         tableHeaderTextColor: '#FFFFFF',
         tableRowsTextColor: '#000000',
         addBorderToTableCells: false
-      }
+      },
+      fontUrls: []
     },
     mutations: {
       updateGrid (state, newData) {
@@ -57,9 +59,14 @@ const store = new Vuex.Store({
       },
       updatefontSettings (state, data) {
         state.fontSettings = data;
+        console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
       },
       updateTableBodyfontSettings (state, data) {
         state.tableBodyFontSettings = data;
+        console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
+      },
+      updateFontUrls (state, data) {
+        state.fontUrls = data;
       },
       updateSettingsByKey (state, args) {
         // let tmpSettings = state.settingsItemProps;
