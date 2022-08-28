@@ -86,6 +86,12 @@ class Assets {
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],
+            'exceltotable-frontendz' => [
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.975ef6c8.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.975ef6c8.js' ),
+                'in_footer' => true,
+                'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
+            ],
         ];
         $scripts = [
             'exceltotable-runtime' => [

@@ -1,9 +1,7 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
-import gfontsHelper from 'google-fonts-helper/dist'
-// import VuexPersistence from 'vuex-persist'
-Vue.use(Vuex);
 
+import {constructURL} from '../src/google-fonts-helper-main'
+// import VuexPersistence from 'vuex-persist'
 // const vuexLocal = new VuexPersistence({
 //   storage: window.localStorage,
 // });
@@ -59,11 +57,11 @@ const store = new Vuex.Store({
       },
       updatefontSettings (state, data) {
         state.fontSettings = data;
-        console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
+        console.log(constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
       },
       updateTableBodyfontSettings (state, data) {
         state.tableBodyFontSettings = data;
-        console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
+        console.log(constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
       },
       updateFontUrls (state, data) {
         state.fontUrls = data;
