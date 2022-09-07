@@ -94,16 +94,16 @@ class Assets {
             ],
         ];
         $scripts = [
-            'exceltotable-runtime' => [
-                'src'       => WPULTIMATETABLE_ASSETS . '/js/runtime.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/runtime.js' ),
-                'in_footer' => true
-            ],
-            'exceltotable-vendor' => [
-                'src'       => WPULTIMATETABLE_ASSETS . '/js/vendors.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/vendors.js' ),
-                'in_footer' => true
-            ],
+            // 'exceltotable-runtime' => [
+            //     'src'       => WPULTIMATETABLE_ASSETS . '/js/runtime.js',
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/runtime.js' ),
+            //     'in_footer' => true
+            // ],
+            // 'exceltotable-vendor' => [
+            //     'src'       => WPULTIMATETABLE_ASSETS . '/js/vendors.js',
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/vendors.js' ),
+            //     'in_footer' => true
+            // ],
             // 'exceltotable-frontend-runtime' => [
             //     'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/runtime.js',
             //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
@@ -115,9 +115,9 @@ class Assets {
             //     'in_footer' => true
             // ],
             'exceltotable-admin' => [
-                'src'       => WPULTIMATETABLE_ASSETS . '/js/admin.js',
-                'deps'      => [ 'jquery', 'exceltotable-vendor', 'wp-util', 'exceltotable-runtime' ],
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/admin.js' ),
+                'src'       => WPULTIMATETABLE_ASSETS_WEBPACK . '/main.js',
+                'deps'      => [ 'jquery', 'wp-util' ],
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/webpack-backend/dist/main.js' ),
                 'in_footer' => true
             ]
         ];

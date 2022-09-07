@@ -2,12 +2,16 @@ import Vue from 'vue';
 import store from './store';
 import router from './router';
 import App from './app.vue';
+import './styles/index.css';
+
+Vue.config.productionTip = false;
+Vue.config.ignoredElements = ['canvas-datagrid'];
 
 export default new Vue({
 	router,
 	render: (h) => h(App),
 	store: store,
-}).$mount('#app');
+}).$mount('#vue-admin-app');
 
 // import menuFix from './utils/admin-menu-fix'
 // // import Vuex from 'vuex'

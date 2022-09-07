@@ -4,6 +4,8 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as Webpack from 'webpack';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5');
 
@@ -19,29 +21,16 @@ export default {
 	module: {
 		rules: [
 			{
-				test: /\.css|sass|scss$/,
+				test: /\.css$/,
+				exclude: /node_modules/,
 				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-					},
-					{
-						loader: 'css-loader',
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							postcssOptions: {
-								plugins: [['postcss-preset-env', {}]],
-							},
-						},
-					},
-					{
-						loader: 'sass-loader',
-					},
+				  MiniCssExtractPlugin.loader,
+				  { loader: "css-loader", options: { url: false } },
+				  "postcss-loader"
 				],
 			},
 			{
-				test: /\.ts|js$/,
+				test: /\.ts|js|mjs$/,
 				exclude: /node_modules/,
 				use: [
 					{
@@ -58,7 +47,6 @@ export default {
 				],
 			},
 			{
-				// webpack5 内置了 asset 模块, 用来代替 file-loader & url-loader & raw-loader 处理静态资源
 				test: /\.png|jpg|gif|jpeg|svg/,
 				type: 'asset',
 				parser: {
@@ -70,13 +58,13 @@ export default {
 					filename: 'images/[base]',
 				},
 			},
-			{
-				test: /\.txt|xlsx/,
-				type: 'asset',
-				generator: {
-					filename: 'files/[base]',
-				},
-			},
+			// {
+			// 	test: /\.txt|xlsx/,
+			// 	type: 'asset',
+			// 	generator: {
+			// 		filename: 'files/[base]',
+			// 	},
+			// },
 		],
 	},
 	plugins: [
@@ -90,23 +78,22 @@ export default {
 		new Webpack.ProvidePlugin({
 			Vue: ['vue/dist/vue.esm.js', 'default'],
 		}),
-		// new Webpack.DefinePlugin({
-		// 	'process.env.NODE_ENV': process.env.NODE_ENV,
-		// }),
 	],
 	resolve: {
 		extensions: ['.ts', '.js', '.vue'],
 		plugins: [
-			// 将 tsconfig 中配置的路径别名映射到 webpack.resolve.alias 上
+			// tsconf
 			new TsconfigPathsPlugin(),
 		],
 	},
 	devtool:
 		process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
 	devServer: {
-		contentBase: path.resolve(__dirname, 'dist'),
-		open: true,
+		contentBase: path.resolve(__dirname, '../assets/js'),
+		open: false,
 		port: 8888,
+		publicPath: path.resolve(__dirname, 'dist-dev'),
+		writeToDisk: true,
 		compress: true,
 		hot: true,
 		clientLogLevel: 'silent',

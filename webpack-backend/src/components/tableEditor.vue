@@ -68,7 +68,7 @@
 			class="mb-4 bg-white rounded-lg p-6 flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between"
 		>
 			<div class="px-5 py-3 w-full h-full">
-				<div class="mb-2 toolbar flex" style="width: fit-content">
+				<div class="mb-2 toolbar flex" id="toolbar" style="width: fit-content">
 					<columntoolbar-dropdown
 						animation="fade"
 						color="blue"
@@ -80,7 +80,7 @@
 						:styles="styles"
 					></rowtoolbar-dropdown>
 				</div>
-				<canvas-datagrid
+				<!-- <canvas-datagrid
 					v-if="grid.data.length"
 					allowSorting="false"
 					v-bind:style="{ width: canvasWidth, height: canvasHeight }"
@@ -91,7 +91,7 @@
 					:data.prop="grid.data"
 					allow-sorting="0"
 					columnHeaderClickBehavior="0"
-				></canvas-datagrid>
+				></canvas-datagrid> -->
 			</div>
 		</div>
 		<div
@@ -163,7 +163,8 @@
 }
 </style>
 <script>
-import indexedDBHelper from '../../admin/utils/indexedDBHelper';
+// import indexedDBHelper from '../../admin/utils/indexedDBHelper';
+import canvasDatagrid from 'canvas-datagrid';
 import dropDown from '../components/dropDown.vue';
 import columntoolbarDropdown from '../components/columntoolbarDropdown.vue';
 import rowtoolbarDropdown from '../components/rowtoolbarDropdown.vue';
@@ -341,6 +342,28 @@ export default {
 	},
 	mounted() {
 		this.setGridStyle();
+		var grid = canvasDatagrid();
+		var targetNode = document.querySelector('#toolbar');
+		jQuery(targetNode).after(grid);
+		grid.data = [
+			{
+				col1: 'row 1 column 1',
+				col2: 'row 1 column 2',
+				col3: 'row 1 column 3',
+			},
+			{
+				col1: 'row 2 column 1',
+				col2: 'row 2 column 2',
+				col3: 'row 2 column 3',
+			},
+		];
+		grid.style.height = '100%';
+		grid.style.width = '100%';
+		grid.style.gridBackgroundColor = 'white';
+		grid.style.scrollBarBackgroundColor = 'white';
+		grid.style.scrollBarBorderColor = 'white';
+		// grid.style.moveOverlayBorderColor = "blue";
+		grid.style.cellHeight = 35;
 	},
 };
 </script>

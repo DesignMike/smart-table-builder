@@ -65,7 +65,7 @@ canvas-datagrid {
 }
 </style>
 <script>
-import XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
 import tableEditor from '../components/tableEditor.vue';
