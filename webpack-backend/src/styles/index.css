@@ -4,4 +4,8 @@
 
 @import "tailwindcss/utilities";
 
-/* @import 'vue-search-select/dist/VueSearchSelect.css'; */
+@import 'vue-search-select/dist/VueSearchSelect.css';
+
+#wpcontent {
+    background-color: #f1f1f1;
+}

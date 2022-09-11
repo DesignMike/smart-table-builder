@@ -80,7 +80,7 @@
 						:styles="styles"
 					></rowtoolbar-dropdown>
 				</div>
-				<!-- <canvas-datagrid
+				<canvas-datagrid
 					v-if="grid.data.length"
 					allowSorting="false"
 					v-bind:style="{ width: canvasWidth, height: canvasHeight }"
@@ -91,7 +91,7 @@
 					:data.prop="grid.data"
 					allow-sorting="0"
 					columnHeaderClickBehavior="0"
-				></canvas-datagrid> -->
+				></canvas-datagrid>
 			</div>
 		</div>
 		<div
@@ -214,7 +214,6 @@ export default {
 			return JSON.stringify(this.$store.state);
 		},
 		async handleTabSwitch(event) {
-			debugger;
 			let selectedTabIndex = parseInt(
 				event.target.getAttribute('data-tab-index'),
 			);
@@ -341,28 +340,16 @@ export default {
 		rowtoolbarDropdown,
 	},
 	mounted() {
-		this.setGridStyle();
+		// this.setGridStyle();
 		var grid = canvasDatagrid();
 		var targetNode = document.querySelector('#toolbar');
-		jQuery(targetNode).after(grid);
-		grid.data = [
-			{
-				col1: 'row 1 column 1',
-				col2: 'row 1 column 2',
-				col3: 'row 1 column 3',
-			},
-			{
-				col1: 'row 2 column 1',
-				col2: 'row 2 column 2',
-				col3: 'row 2 column 3',
-			},
-		];
+		// jQuery(targetNode).after(grid);
+		grid.data = [];
 		grid.style.height = '100%';
 		grid.style.width = '100%';
 		grid.style.gridBackgroundColor = 'white';
 		grid.style.scrollBarBackgroundColor = 'white';
 		grid.style.scrollBarBorderColor = 'white';
-		// grid.style.moveOverlayBorderColor = "blue";
 		grid.style.cellHeight = 35;
 	},
 };

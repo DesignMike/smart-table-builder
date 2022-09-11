@@ -156,6 +156,7 @@
 <script>
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
+import storeUtils from '../utils/storeUtils';
 export default {
 	name: 'Edit',
 	data() {
@@ -167,12 +168,7 @@ export default {
 	methods: {
 		sampleFunc: () => {},
 		handleSave() {
-			let data = {
-				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data,
-				fontSettings: this.$store.state.fontSettings,
-				settingsItemProps: this.$store.state.settingsItemProps,
-			};
+			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
 				url: ajaxurl + '?action=create_new_table_entry',
@@ -187,14 +183,7 @@ export default {
 			});
 		},
 		handleUpdate() {
-			let data = {
-				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data,
-				fontSettings: this.$store.state.fontSettings,
-				tableBodyFontSettings: this.$store.state.tableBodyFontSettings,
-				settingsItemProps: this.$store.state.settingsItemProps,
-				fontUrls: this.$store.state.fontUrls,
-			};
+			let data = storeUtils.read(this.$store.state);
 			let setLoadingStatus = (status) => {
 				this.isSaving = !Boolean(status.success);
 			};
@@ -219,17 +208,7 @@ export default {
 				vm: this,
 				success(data) {
 					let { vm } = this;
-					vm.$store.commit('updateGrid', data.grid.data);
-					vm.$store.commit('setTitle', data.title);
-					vm.$store.commit('setEditingTableId', data.id);
-					data.settingsItemProps &&
-						vm.$store.commit('updateSettings', data.settingsItemProps);
-					data.fontSettings &&
-						vm.$store.commit('updatefontSettings', data.fontSettings);
-					vm.$router.push({
-						name: 'Edit Existing',
-						query: { table_id: data.id },
-					});
+					storeUtils.write(vm, data, 'btnclick');
 				},
 			});
 		},
@@ -281,20 +260,7 @@ export default {
 				url: ajaxurl + `?action=sprdsh_get_table_cells&id=${this.toEditTable}`,
 				success(data) {
 					let { vm } = this;
-					vm.$store.commit('updateGrid', data.grid.data);
-					vm.$store.commit('setTitle', data.title);
-					vm.$store.commit('setEditingTableId', data.id);
-					data.settingsItemProps &&
-						vm.$store.commit('updateSettings', data.settingsItemProps);
-					data.fontSettings &&
-						vm.$store.commit('updatefontSettings', data.fontSettings);
-					data.tableBodyFontSettings &&
-						vm.$store.commit(
-							'updateTableBodyfontSettings',
-							data.tableBodyFontSettings,
-						);
-					data.updateFontUrls &&
-						vm.$store.commit('updateFontUrls', data.fontUrls);
+					storeUtils.write(vm, data, 'postmount');
 				},
 			});
 			this.$store.commit('setPageTitle', 'Editing Table');

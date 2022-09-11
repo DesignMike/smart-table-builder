@@ -31,7 +31,16 @@
 							href="javascript:void(0)"
 							@click="handleStyleSwitch(style)"
 							class="flex py-2 px-4 transition duration-300"
-							:class="'hover:bg-' + color + '-800' + ' ' + 'theme-' + color"
+							:class="
+								'hover:bg-' +
+								color +
+								'-800' +
+								' ' +
+								'theme-' +
+								color +
+								' ' +
+								'hover:text-white'
+							"
 							>{{ style }}</a
 						>
 					</li>
@@ -140,7 +149,6 @@ export default {
 				var script = document.createElement('script');
 				script.onload = function () {
 					//do stuff with the script
-					debugger;
 				};
 				script.src = xz['exceltotable-style2'];
 

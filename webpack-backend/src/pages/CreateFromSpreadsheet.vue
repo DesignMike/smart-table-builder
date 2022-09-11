@@ -70,6 +70,7 @@ import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
+import storeUtils from '../utils/storeUtils';
 const make_cols = (refstr) =>
 	Array(XLSX.utils.decode_range(refstr).e.c + 1)
 		.fill(0)
@@ -172,12 +173,7 @@ export default {
 			this.fileUploadDone = true;
 		},
 		handleSave() {
-			let data = {
-				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data,
-				fontSettings: this.$store.state.fontSettings,
-				settingsItemProps: this.$store.state.settingsItemProps,
-			};
+			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
 				url: ajaxurl + '?action=create_new_table_entry',

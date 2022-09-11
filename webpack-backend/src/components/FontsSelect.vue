@@ -46,7 +46,6 @@ export default {
 			if (this.getSettingsIndex() == 0) {
 				this.$emit('updateFont', this);
 			}
-			debugger;
 			this.selectOption = { ...item };
 		},
 		getSettingsIndex() {

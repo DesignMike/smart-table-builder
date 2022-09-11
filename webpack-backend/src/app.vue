@@ -46,6 +46,7 @@
 </style>
 <script>
 // import 'tablesaw/dist/tablesaw.css'
+import storeUtils from './utils/storeUtils';
 export default {
 	name: 'App',
 	methods: {
@@ -68,12 +69,7 @@ export default {
 			});
 		},
 		handleUpdate() {
-			let data = {
-				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data,
-				fontSettings: this.$store.state.grid.fontSettings,
-				settingsItemProps: this.$store.state.grid.settingsItemProps,
-			};
+			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
 				url:

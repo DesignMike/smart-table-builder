@@ -35,6 +35,8 @@ class AjaxCallbacks
             'fontSettings' => get_post_meta($id, 'fontSettings')[0],
             'tableBodyFontSettings' => get_post_meta($id, 'tableBodyFontSettings')[0],
             'fontUrls' => [],
+            'fontString' => get_post_meta($id, 'fontString')[0],
+            'tableBodyFontString' => get_post_meta($id, 'tableBodyFontString')[0]
         ];
         wp_send_json($response);
     }
@@ -49,6 +51,8 @@ class AjaxCallbacks
         $settingsItemProps = $updatableData['settingsItemProps'];
         $tableBodyFontSettings = $updatableData['tableBodyFontSettings'];
         $fontUrls = $updatableData['fontUrls'];
+        $fontString = $updatableData['fontString'];
+        $tableBodyFontString = $updatableData['tableBodyFontString'];
         // tableBodyFontSettings: this.$store.state.tableBodyFontSettings,
         // create table post and return ID
         wp_update_post([
@@ -62,6 +66,8 @@ class AjaxCallbacks
         update_post_meta($id, 'settingsItemProps', apply_filters('wpspreadsheet_table_sanitize_array', $settingsItemProps));
         update_post_meta($id, 'tableBodyFontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontSettings));
         update_post_meta($id, 'fontUrls', apply_filters('wpspreadsheet_table_sanitize_array', $fontUrls));
+        update_post_meta($id, 'fontString', apply_filters('wpspreadsheet_table_sanitize_array', $fontString));
+        update_post_meta($id, 'tableBodyFontString', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontString));
         $response = [
             'ok' => $id,
             "success" => true

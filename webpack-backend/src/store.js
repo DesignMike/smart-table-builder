@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import gfontsHelper from 'google-fonts-helper/dist'
+import {constructURL} from './google-fonts-helper/index.ts'
 // import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 
@@ -21,6 +21,8 @@ const store = new Vuex.Store({
 		showSettings: false,
 		fontSettings: ['Montserrat', '20px', '400'],
 		tableBodyFontSettings: ['Montserrat', '20px', '400'],
+		fontString: '',
+		tableBodyFontString: '',
 		settingsItemProps: {
 			tableHeaderBg: '#4A5568',
 			tableRowsBg: '#EDF2F7',
@@ -60,11 +62,32 @@ const store = new Vuex.Store({
 		},
 		updatefontSettings(state, data) {
 			state.fontSettings = data;
-			// console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
+			if (new RegExp(/i/i).test(data[2])) {
+				let fontWeight = data[2].replace('i', '');
+				console.log(constructURL({ families: { [data[0]]: {ital: [fontWeight]} } }));
+				state.fontString = constructURL({ families: { [data[0]]: {ital: [fontWeight]} } });
+			}
+			if (! new RegExp(/i/i).test(data[2])) {
+				console.log(constructURL({ families: { [data[0]]: {wght: [data[2]]} } }));
+				state.fontString = constructURL({ families: { [data[0]]: {wght: [data[2]]} } });
+			}
+			// console.log(constructURL({ families: { [data[0]]: {ital: [100, 400]} } }));
 		},
 		updateTableBodyfontSettings(state, data) {
 			state.tableBodyFontSettings = data;
-			// console.log(gfontsHelper.constructURL({ families: { [data[0]]: {wght: [400], ital: [100, 400]} } }));
+			if (new RegExp(/i/i).test(data[2])) {
+				let fontWeight = data[2].replace('i', '');
+				state.tableBodyFontString = constructURL({ families: { [data[0]]: {ital: [fontWeight]} } });
+			}
+			if (! new RegExp(/i/i).test(data[2])) {
+				state.tableBodyFontString = constructURL({ families: { [data[0]]: {wght: [data[2]]} } });
+			}
+		},
+		updateTableBodyFontString(state, data) {
+			state.tableBodyFontString = data;
+		},
+		updateFontString(state, data) {
+			state.fontString = data;
 		},
 		updateFontUrls(state, data) {
 			state.fontUrls = data;

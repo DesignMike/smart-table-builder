@@ -22,7 +22,7 @@ class Frontend {
         $id = wp_parse_args($atts, ["id" => 0])['id'];
         wp_enqueue_style( 'exceltotable-frontend' );
         wp_enqueue_script( 'exceltotable-frontend' );
-        wp_enqueue_script( 'exceltotable-frontendz' );
+        // wp_enqueue_script( 'exceltotable-frontendz' );
         // echo rest_url('tablecells/v1');
 
         $content .= "<div class=\"excel-to-table-app\" data-table-id=$id></div>";

@@ -157,6 +157,7 @@
 <script>
 import tableEditor from "../components/tableEditor.vue";
 import settingsModal from "../components/settings-modal.vue";
+import dbOps from "../utils/dbOps";
 export default {
   name: "Edit",
   data() {
@@ -168,12 +169,7 @@ export default {
   methods: {
     sampleFunc: () => {},
     handleSave() {
-      let data =  {
-        title: this.$store.state.tableTitle,
-        cells: this.$store.state.grid.data,
-        fontSettings: this.$store.state.fontSettings,
-        settingsItemProps: this.$store.state.settingsItemProps
-      };
+      let data =  dbOps(this.$store);
       jQuery.ajax({
         type: 'POST',
         url: ajaxurl+ '?action=create_new_table_entry',
@@ -185,14 +181,7 @@ export default {
       });
     },
     handleUpdate() {
-      let data =  {
-        title: this.$store.state.tableTitle,
-        cells: this.$store.state.grid.data,
-        fontSettings: this.$store.state.fontSettings,
-        tableBodyFontSettings: this.$store.state.tableBodyFontSettings,
-        settingsItemProps: this.$store.state.settingsItemProps,
-        fontUrls: this.$store.state.fontUrls,
-      };
+      let data =  dbOps(this.$store);
       let setLoadingStatus = (status) => {
         this.isSaving = !Boolean(status.success)
       };

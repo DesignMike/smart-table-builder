@@ -64,10 +64,10 @@ window.manipulateStore = (incomingStore) => {
   listContainer.innerHTML = '';
   listContainer.appendChild(outputBaseTable(store.mock.data));
   tableBody = listContainer.querySelector('table tbody');
-  listContainer.querySelector('[id="table-search"]').addEventListener('keyup', handleSearch);
+  listContainer.querySelector('[id="table-search"]')?.addEventListener('keyup', handleSearch);
 }
 
-const isDev = true;
+const isDev = false;
 
 let tableBody = null;
 

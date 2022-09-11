@@ -32,7 +32,7 @@
 					</h5>
 					<div
 						v-if="!isLoading"
-						class="shadow-lg p-3 shadow-indigo-500 relative grid grid-cols-3 flex pt-0"
+						class="shadow-lg p-3 rounded-lg shadow-gray-500 relative grid grid-cols-3 flex pt-0"
 					>
 						<fonts-select
 							:options="getFontFamilyList(this)"
@@ -58,7 +58,7 @@
 					</h5>
 					<div
 						v-if="!isLoading"
-						class="shadow-lg p-3 shadow-indigo-500 relative grid grid-cols-3 flex pt-0"
+						class="shadow-lg p-3 shadow-gray-500 rounded-lg relative grid grid-cols-3 flex pt-0"
 					>
 						<fonts-select
 							:options="getFontFamilyList(this)"
@@ -271,7 +271,6 @@ export default {
 			}));
 		},
 		findFontFamilyWeights($this) {
-			debugger;
 			let family = this.$store.state.fontSettings[0];
 			let weights = this.googleFontsMetadata.familyMetadataList
 				.filter((e) => e.family == family)

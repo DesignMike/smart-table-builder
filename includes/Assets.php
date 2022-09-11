@@ -81,17 +81,17 @@ class Assets {
         $rest_api_routes = rest_url('tablecells/v1');
         $frontend_only = [
             'exceltotable-frontend' => [
-                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.4d6bcbeb.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.4d6bcbeb.js' ),
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.5625b97e.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.5625b97e.js' ),
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],
-            'exceltotable-frontendz' => [
-                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.975ef6c8.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.975ef6c8.js' ),
-                'in_footer' => true,
-                'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
-            ],
+            // 'exceltotable-frontendz' => [
+            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.975ef6c8.js',
+            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.975ef6c8.js' ),
+            //     'in_footer' => true,
+            //     'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
+            // ],
         ];
         $scripts = [
             // 'exceltotable-runtime' => [
@@ -141,7 +141,7 @@ class Assets {
                 'src' =>  WPULTIMATETABLE_FRONTEND_ASSETS . '/css/frontend.css'
             ],
             'exceltotable-admin' => [
-                'src' =>  WPULTIMATETABLE_ASSETS . '/css/admin.css'
+                'src' =>  WPULTIMATETABLE_ASSETS_WEBPACK . '/main.css'
             ],
         ];
 

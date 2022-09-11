@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="mb-4 bg-white rounded-lg p-6">
+		<div class="mb-4 bg-gray-100 rounded-lg p-6">
 			<label class="block uppercase tracking-wide text-xs font-bold"
 				>Name</label
 			>
@@ -46,6 +46,7 @@
 <script>
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
+import storeUtils from '../utils/storeUtils';
 const defautlSheetData = ({ title, col, row }) => {
 	let colsArray = new Array();
 	let rowsArray = new Array();
@@ -77,12 +78,7 @@ export default {
 	},
 	methods: {
 		handleSave() {
-			let data = {
-				title: this.$store.state.tableTitle,
-				cells: this.$store.state.grid.data,
-				fontSettings: this.$store.state.fontSettings,
-				settingsItemProps: this.$store.state.settingsItemProps,
-			};
+			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
 				url: ajaxurl + '?action=create_new_table_entry',
