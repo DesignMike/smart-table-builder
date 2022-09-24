@@ -52,17 +52,35 @@ let mycss = css`@media (max-width: 600px) {
   }
 }`
 
+let fontCss = css`
+    font-family: ${mock.fontConfig[1][0]};
+    font-weight: ${mock.fontConfig[1][2]};
+    font-size: ${mock.fontConfig[1][1]};
+`
+
 let mycss2 = css`@media (max-width: 600px) {
   th {
     display: none;
   }
 }`
 
+const loadCSS = (url) => {
+  var link = document.createElement( "link" );
+  link.href = url;
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  link.media = "screen,print";
+
+  document.getElementsByTagName( "head" )[0].appendChild( link );
+}
 
 window.manipulateStore = (incomingStore) => {
   store.mock = incomingStore;
   listContainer.innerHTML = '';
-  listContainer.appendChild(outputBaseTable(store.mock.data));
+  store.mock.fonts.forEach(url => {
+    loadCSS(url);
+  });
+  listContainer.appendChild(outputBaseTable(store.mock.data, store.mock.fontConfig));
   tableBody = listContainer.querySelector('table tbody');
   listContainer.querySelector('[id="table-search"]')?.addEventListener('keyup', handleSearch);
 }
@@ -102,6 +120,9 @@ const store = proxy({
   const headerColor = css`
     color: ${mock.settingsItemProps.tableHeaderTextColor};
     background-color: ${mock.settingsItemProps.tableHeaderBg}};
+    font-family: ${mock.fontConfig[0][0]};
+    font-weight: ${mock.fontConfig[0][2]};
+    font-size: ${mock.fontConfig[0][1]};
   `
   const inputPlaceHolderStyle = css(
     {
@@ -126,7 +147,8 @@ const store = proxy({
   </div>`;
   }
 
-  const outputBaseTable = (cells) => {
+  const outputBaseTable = (cells, fontConfig = {}) => {
+
     return html.node`
     <div>
     <div class="${tw`bg-white pb-4 px-4 rounded-md w-full`}">
@@ -155,7 +177,7 @@ const store = proxy({
   }
 
   const outputCell = (cellsData, tableHeadCell) => {
-    return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200`} ${tw`${mycss}`}">
+    return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200`} ${tw`${fontCss}`} ${tw`${mycss}`}">
       ${cellsData.map((cellVal, index) => html.node`<td data-label="${tableHeadCell[index]}" class="${tw`px-4 py-4`}">
         <span>${cellVal}</span>
       </td>`)}

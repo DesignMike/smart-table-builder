@@ -233,6 +233,14 @@ export default {
 				let stateSnapshot = {
 					...this.$store.state.grid,
 					tableTitle: this.$store.state.tableTitle,
+					fonts: [
+						this.$store.state.fontString,
+						this.$store.state.tableBodyFontString,
+					],
+					fontConfig: [
+						this.$store.state.fontSettings,
+						this.$store.state.tableBodyFontSettings,
+					],
 				};
 				iframedPreview.contentWindow.manipulateStore(
 					JSON.parse(JSON.stringify(stateSnapshot)),
