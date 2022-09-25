@@ -25,7 +25,10 @@
 				class="dropdown-menu text-white mt-1 rounded-lg absolute z-10 shadow-lg w-40 max-w-xs"
 				v-if="show"
 			>
-				<ul class="list-none overflow-hidden rounded-lg">
+				<ul
+					v-click-outside="handleOutsideClick"
+					class="list-none overflow-hidden rounded-lg"
+				>
 					<li class="mb-0" v-for="(style, index) in styles" :key="index">
 						<a
 							href="javascript:void(0)"
@@ -154,6 +157,9 @@ export default {
 
 				document.head.appendChild(script);
 			}
+		},
+		handleOutsideClick(e) {
+			this.show = false;
 		},
 	},
 	props: {

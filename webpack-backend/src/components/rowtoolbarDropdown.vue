@@ -2,6 +2,8 @@
 	<span class="toolbar-tool">
 		<button
 			v-on:click="show = !show"
+			@mouseenter="columnBtnHover = true"
+			@mouseleave="columnBtnHover = false"
 			class="bg-gray-100 py-2 px-4 hover:bg-gray-800 hover:text-white"
 			v-bind:class="[show && 'bg-gray-800 text-white']"
 		>
@@ -11,7 +13,7 @@
 				height="24px"
 				viewBox="0 0 24 24"
 				width="24px"
-				fill="#000000"
+				v-bind:fill="[show || columnBtnHover ? '#ffffff' : '#000000']"
 			>
 				<rect fill="none" height="24" width="24" />
 				<path
@@ -23,9 +25,13 @@
 		<transition :name="animation">
 			<div
 				class="dropdown-menu text-white bg-gray-100 absolute z-10 shadow-lg max-w-xs"
+				@mouseleave="show = false"
 				v-if="show"
 			>
-				<div class="list-none overflow-hidden rounded-lg">
+				<div
+					v-click-outside="handleOutsideClick"
+					class="list-none overflow-hidden rounded-lg"
+				>
 					<button @click="addRow" class="bg-white py-2 px-4 hover:bg-gray-800">
 						<img
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABA0lEQVRIie3TMUoDURAG4C9qLdiInsBSbSUeIJrghewk4Ak8hpWWMbmAtinsTClYGIllLPIWHi9vs4bdLvlhYPnf/PPPDLNssVG4wgTzmjFBJ2fQRPEiPoqirchgXmP6HFqw03DRJezV1H/hAU94xy9O0Mslr7vnZ+yv0806xR+xG3Q3GOEnxLDuBJ84DJr7FXn91OC/Z3obdR7zF2gnXDc26Fjcb5XBWcgfJXxuEy+5VcVJqzCNOk9RTPLdxH+Qq9HKcM4xs7ySGU4z+UPVKxrEggOMMwbj8Jail+S1cZlw16noODEZB64M/UxDRdyViY7whtfwXYWuxbVMQwxynW9Rij+5ga2gTkQyZAAAAABJRU5ErkJggg=="
@@ -138,6 +144,8 @@ export default {
 	data() {
 		return {
 			show: false,
+			columnBtnHover: false,
+			hover: false,
 		};
 	},
 	methods: {
@@ -157,6 +165,9 @@ export default {
 
 				document.head.appendChild(script);
 			}
+		},
+		handleOutsideClick(e) {
+			this.show = false;
 		},
 		addColumnLeft(a) {
 			let { activeCell } = this.$parent.$refs.grid;

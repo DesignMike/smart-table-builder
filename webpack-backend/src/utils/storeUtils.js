@@ -22,6 +22,7 @@ const storeUtils = {
 		vm.$store.commit('updateTableBodyfontSettings', data.tableBodyFontSettings);
 		vm.$store.commit('updateTableBodyFontString', data.tableBodyFontString);
 		vm.$store.commit('updateFontString', data.fontString);
+		// vm.$store.commit('updateFontUrls', )
 		// if (type == 'postmount') {
 		//     // data.updateFontUrls &&
 		//     //     vm.$store.commit('updateFontUrls', data.fontUrls);

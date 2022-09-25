@@ -81,6 +81,16 @@
 			v-if="!toEditTable"
 			class="container container m-auto flex flex-wrap flex-col md:flex-row items-center justify-start"
 		>
+			<v-tailwind-modal
+				v-model="showDeleteConfirmation"
+				@confirm="delConfirm"
+				@cancel="delCancel"
+			>
+				<template v-slot:title
+					>Are you sure? Do you want to delete this table?</template
+				>
+				<p>You cannot restore the table after deletion.</p>
+			</v-tailwind-modal>
 			<div
 				v-for="(tableName, key) in avaiableTables"
 				class="w-full md:w-1/3 p-3"
@@ -106,6 +116,7 @@
 							</li>
 							<li class="mr-1">
 								<button
+									@click="handleDeleteBtn(tableName.ID)"
 									class="tab-item bg-white inline-block py-2 px-4 font-semibold border-l border-t border-r rounded-t text-red-700 active"
 								>
 									Delete
@@ -157,12 +168,14 @@
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
 import storeUtils from '../utils/storeUtils';
+import VTailwindModal from '../hoc-components/VTailwindModal.vue';
 export default {
 	name: 'Edit',
 	data() {
 		return {
 			isEmptyTableList: false,
 			isSaving: false,
+			showDeleteConfirmation: false,
 		};
 	},
 	methods: {
@@ -181,6 +194,21 @@ export default {
 					});
 				},
 			});
+		},
+		delConfirm() {
+			jQuery.ajax({
+				type: 'POST',
+				url: ajaxurl + '?action=sprdsh_delete_table',
+				data: {
+					id: 3,
+				},
+				success: (responseData) => {
+					this.showDeleteConfirmation = false;
+				},
+			});
+		},
+		delCancel() {
+			this.showDeleteConfirmation = false;
 		},
 		handleUpdate() {
 			let data = storeUtils.read(this.$store.state);
@@ -228,6 +256,10 @@ export default {
 			link.media = 'all';
 			head.appendChild(link);
 		},
+		handleDeleteBtn() {
+			// this.$modal.show('example');
+			this.showDeleteConfirmation = true;
+		},
 	},
 	computed: {
 		toEditTable: (vm) => {
@@ -251,6 +283,7 @@ export default {
 	components: {
 		tableEditor,
 		settingsModal,
+		VTailwindModal,
 	},
 	mounted() {
 		if (this.toEditTable) {

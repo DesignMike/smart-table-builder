@@ -117,6 +117,29 @@ export default {
 			defautlSheetData(this.$route.query).grid.data,
 		);
 		this.$store.commit('setTitle', defautlSheetData(this.$route.query).title);
+		this.$store.commit('updateSettings', {
+			tableHeaderBg: '#2960BF',
+			tableRowsBg: '#EDF2F7',
+			tableCellsBorderBg: '#FFFFFF',
+			tableHeaderTextColor: '#FFFFFF',
+			tableRowsTextColor: '#000000',
+			addBorderToTableCells: false,
+		});
+		this.$store.commit('updatefontSettings', ['Armata', '20px', '400']);
+		this.$store.commit('updateTableBodyfontSettings', [
+			'Montserrat',
+			'12 px',
+			'400',
+		]);
+		this.$store.commit(
+			'updateTableBodyFontString',
+			'https://fonts.googleapis.com/css2?family=Montserrat:wght@400',
+		);
+		this.$store.commit(
+			'updateFontString',
+			'https://fonts.googleapis.com/css2?family=Armata:wght@400',
+		);
+		// this.$store.commit('updateFontUrls', [] );
 	},
 };
 </script>

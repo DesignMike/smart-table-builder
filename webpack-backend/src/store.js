@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {constructURL} from './google-fonts-helper/index.ts'
+import vClickOutside from 'v-click-outside';
+import {constructURL} from './google-fonts-helper/index.ts';
 // import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
+Vue.use(vClickOutside);
 
 // const vuexLocal = new VuexPersistence({
 //   storage: window.localStorage,

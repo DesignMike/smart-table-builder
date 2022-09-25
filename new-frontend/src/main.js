@@ -23,46 +23,9 @@ const bounce = animation('1s ease infinite', {
 })
 
 // let mycss = css`
-// color: ${mock.settingsItemProps.tableHeaderTextColor};
-// background-color: ${mock.settingsItemProps.tableHeaderBg}};
+// color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+// background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
 // `
-let mycss = css`@media (max-width: 600px) {
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 3px hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 10%);
-  max-width: 100%;
-  position: relative;
-  display: block;
-  td {
-    display: flex;
-    width: auto;
-    justify-content: space-between;
-    border: 0;
-    /* text-align: right; */
-    border-bottom: 1px solid #f5f5f5;
-    padding: 0.5em 0.75em;
-    text-align: right!important;
-    vertical-align: top;
-    &::before {
-      ${apply`text-purple-700`}
-      content: attr(data-label);
-      font-weight: 600;
-      padding-right: 0.5em;
-      text-align: left;
-    }
-  }
-}`
-
-let fontCss = css`
-    font-family: ${mock.fontConfig[1][0]};
-    font-weight: ${mock.fontConfig[1][2]};
-    font-size: ${mock.fontConfig[1][1]};
-`
-
-let mycss2 = css`@media (max-width: 600px) {
-  th {
-    display: none;
-  }
-}`
 
 const loadCSS = (url) => {
   var link = document.createElement( "link" );
@@ -85,7 +48,7 @@ window.manipulateStore = (incomingStore) => {
   listContainer.querySelector('[id="table-search"]')?.addEventListener('keyup', handleSearch);
 }
 
-const isDev = false;
+const isDev = true;
 
 let tableBody = null;
 
@@ -117,23 +80,23 @@ const store = proxy({
     return html.node`${outputTableBody(cells)}`;
   }
 
-  const headerColor = css`
-    color: ${mock.settingsItemProps.tableHeaderTextColor};
-    background-color: ${mock.settingsItemProps.tableHeaderBg}};
-    font-family: ${mock.fontConfig[0][0]};
-    font-weight: ${mock.fontConfig[0][2]};
-    font-size: ${mock.fontConfig[0][1]};
-  `
-  const inputPlaceHolderStyle = css(
-    {
-      '&::placeholder' : {
-        color: mock.settingsItemProps.tableHeaderTextColor,
-        opacity: 0.5
-      }
-    }
-  )
-
   const searchBar = () => {
+    const headerColor = css`
+      color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+      background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
+      font-family: ${store.mock.fontConfig[0][0]};
+      font-weight: ${store.mock.fontConfig[0][2]};
+      font-size: ${store.mock.fontConfig[0][1]};
+    `
+    const inputPlaceHolderStyle = css(
+      {
+        '&::placeholder' : {
+          color: mock.settingsItemProps.tableHeaderTextColor,
+          opacity: 0.5
+        }
+      }
+    )
+
     return html.node`<div class="${tw`relative mt-1`}">
     <div class="${tw`absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none`}">
       ${svg.node`<svg class="${tw`w-5 h-5 ${headerColor}`}" fill="currentColor" viewBox="0 0 20 20"
@@ -148,7 +111,19 @@ const store = proxy({
   }
 
   const outputBaseTable = (cells, fontConfig = {}) => {
-
+    let mycss2 = css`@media (max-width: 600px) {
+      th {
+        display: none;
+      }
+    }`
+    const headerColor = css`
+      color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+      background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
+      font-family: ${store.mock.fontConfig[0][0]};
+      font-weight: ${store.mock.fontConfig[0][2]};
+      font-size: ${store.mock.fontConfig[0][1]};
+    `
+    debugger;
     return html.node`
     <div>
     <div class="${tw`bg-white pb-4 px-4 rounded-md w-full`}">
@@ -177,6 +152,39 @@ const store = proxy({
   }
 
   const outputCell = (cellsData, tableHeadCell) => {
+
+  let mycss = css`@media (max-width: 600px) {
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 3px hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 10%);
+    max-width: 100%;
+    position: relative;
+    display: block;
+    td {
+      display: flex;
+      width: auto;
+      justify-content: space-between;
+      border: 0;
+      /* text-align: right; */
+      border-bottom: 1px solid #f5f5f5;
+      padding: 0.5em 0.75em;
+      text-align: right!important;
+      vertical-align: top;
+      &::before {
+        ${apply`text-purple-700`}
+        content: attr(data-label);
+        font-weight: 600;
+        padding-right: 0.5em;
+        text-align: left;
+      }
+    }
+  }`
+  
+  let fontCss = css`
+  font-family: ${store.mock.fontConfig[1][0]};
+  font-weight: ${store.mock.fontConfig[1][2]};
+  font-size: ${store.mock.fontConfig[1][1]};
+  `
+
     return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200`} ${tw`${fontCss}`} ${tw`${mycss}`}">
       ${cellsData.map((cellVal, index) => html.node`<td data-label="${tableHeadCell[index]}" class="${tw`px-4 py-4`}">
         <span>${cellVal}</span>

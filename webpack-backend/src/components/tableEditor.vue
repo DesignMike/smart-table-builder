@@ -237,6 +237,7 @@ export default {
 						this.$store.state.fontString,
 						this.$store.state.tableBodyFontString,
 					],
+					settingsItemProps: this.$store.state.settingsItemProps,
 					fontConfig: [
 						this.$store.state.fontSettings,
 						this.$store.state.tableBodyFontSettings,

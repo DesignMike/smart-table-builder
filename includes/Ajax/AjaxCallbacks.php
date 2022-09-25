@@ -16,7 +16,21 @@ class AjaxCallbacks
             'post_status' => 'publish',
             "post_title" => $tableTitle
         ]);
+
+        $fontSettings = $newData['fontSettings'];
+        $settingsItemProps = $newData['settingsItemProps'];
+        $tableBodyFontSettings = $newData['tableBodyFontSettings'];
+        $fontUrls = $newData['fontUrls'];
+        $fontString = $newData['fontString'];
+        $tableBodyFontString = $newData['tableBodyFontString'];
+
         update_post_meta($id, 'table_cells', apply_filters('wpspreadsheet_table_sanitize_array', $cells));
+        update_post_meta($id, 'fontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $fontSettings));
+        update_post_meta($id, 'settingsItemProps', apply_filters('wpspreadsheet_table_sanitize_array', $settingsItemProps));
+        update_post_meta($id, 'tableBodyFontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontSettings));
+        update_post_meta($id, 'fontUrls', apply_filters('wpspreadsheet_table_sanitize_array', $fontUrls));
+        update_post_meta($id, 'fontString', apply_filters('wpspreadsheet_table_sanitize_array', $fontString));
+        update_post_meta($id, 'tableBodyFontString', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontString));
         $response = [
             'ok' => $id,
             "success" => true
@@ -93,5 +107,8 @@ class AjaxCallbacks
         
         echo ($fonts_metadata);
         wp_die();
+    }
+    public static function delete_table() {
+        wp_delete_post(3, true);
     }
 }

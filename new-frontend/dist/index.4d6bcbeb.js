@@ -281,7 +281,7 @@ function removeErrorOverlay() {
     var overlay = document.getElementById(OVERLAY_ID);
     if (overlay) {
         overlay.remove();
-        console.log("[parcel] \u2728 Error resolved");
+        console.log("[parcel] ✨ Error resolved");
     }
 }
 function createErrorOverlay(diagnostics) {
@@ -452,23 +452,23 @@ function hmrApply(bundle, asset) {
         } else if (bundle.parent) hmrApply(bundle.parent, asset);
     }
 }
-function hmrDelete(bundle, id1) {
+function hmrDelete(bundle, id) {
     let modules = bundle.modules;
     if (!modules) return;
-    if (modules[id1]) {
+    if (modules[id]) {
         // Collect dependencies that will become orphaned when this module is deleted.
-        let deps = modules[id1][1];
+        let deps = modules[id][1];
         let orphans = [];
         for(let dep in deps){
             let parents = getParents(module.bundle.root, deps[dep]);
             if (parents.length === 1) orphans.push(deps[dep]);
         } // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
-        delete modules[id1];
-        delete bundle.cache[id1]; // Now delete the orphans.
+        delete modules[id];
+        delete bundle.cache[id]; // Now delete the orphans.
         orphans.forEach((id)=>{
             hmrDelete(module.bundle.root, id);
         });
-    } else if (bundle.parent) hmrDelete(bundle.parent, id1);
+    } else if (bundle.parent) hmrDelete(bundle.parent, id);
 }
 function hmrAcceptCheck(bundle, id, depsByBundle) {
     if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
@@ -557,44 +557,9 @@ const bounce = (0, _css.animation)("1s ease infinite", {
     }
 });
 // let mycss = css`
-// color: ${mock.settingsItemProps.tableHeaderTextColor};
-// background-color: ${mock.settingsItemProps.tableHeaderBg}};
+// color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+// background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
 // `
-let mycss = (0, _css.css)`@media (max-width: 600px) {
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 3px hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 10%);
-  max-width: 100%;
-  position: relative;
-  display: block;
-  td {
-    display: flex;
-    width: auto;
-    justify-content: space-between;
-    border: 0;
-    /* text-align: right; */
-    border-bottom: 1px solid #f5f5f5;
-    padding: 0.5em 0.75em;
-    text-align: right!important;
-    vertical-align: top;
-    &::before {
-      ${(0, _css.apply)`text-purple-700`}
-      content: attr(data-label);
-      font-weight: 600;
-      padding-right: 0.5em;
-      text-align: left;
-    }
-  }
-}`;
-let fontCss = (0, _css.css)`
-    font-family: ${(0, _mockDefault.default).fontConfig[1][0]};
-    font-weight: ${(0, _mockDefault.default).fontConfig[1][2]};
-    font-size: ${(0, _mockDefault.default).fontConfig[1][1]};
-`;
-let mycss2 = (0, _css.css)`@media (max-width: 600px) {
-  th {
-    display: none;
-  }
-}`;
 const loadCSS = (url)=>{
     var link = document.createElement("link");
     link.href = url;
@@ -613,7 +578,7 @@ window.manipulateStore = (incomingStore)=>{
     tableBody = listContainer.querySelector("table tbody");
     listContainer.querySelector('[id="table-search"]')?.addEventListener("keyup", handleSearch);
 };
-const isDev = false;
+const isDev = true;
 let tableBody = null;
 if (isDev) console.log((0, _mockDefault.default));
 (0, _twind.setup)({
@@ -634,20 +599,20 @@ function handleSearch(evt) {
 const outputFilteredCells = (cells)=>{
     return (0, _lighterhtml.html).node`${outputTableBody(cells)}`;
 };
-const headerColor = (0, _css.css)`
-    color: ${(0, _mockDefault.default).settingsItemProps.tableHeaderTextColor};
-    background-color: ${(0, _mockDefault.default).settingsItemProps.tableHeaderBg}};
-    font-family: ${(0, _mockDefault.default).fontConfig[0][0]};
-    font-weight: ${(0, _mockDefault.default).fontConfig[0][2]};
-    font-size: ${(0, _mockDefault.default).fontConfig[0][1]};
-  `;
-const inputPlaceHolderStyle = (0, _css.css)({
-    "&::placeholder": {
-        color: (0, _mockDefault.default).settingsItemProps.tableHeaderTextColor,
-        opacity: 0.5
-    }
-});
 const searchBar = ()=>{
+    const headerColor = (0, _css.css)`
+      color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+      background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
+      font-family: ${store.mock.fontConfig[0][0]};
+      font-weight: ${store.mock.fontConfig[0][2]};
+      font-size: ${store.mock.fontConfig[0][1]};
+    `;
+    const inputPlaceHolderStyle = (0, _css.css)({
+        "&::placeholder": {
+            color: (0, _mockDefault.default).settingsItemProps.tableHeaderTextColor,
+            opacity: 0.5
+        }
+    });
     return (0, _lighterhtml.html).node`<div class="${(0, _twind.tw)`relative mt-1`}">
     <div class="${(0, _twind.tw)`absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none`}">
       ${(0, _lighterhtml.svg).node`<svg class="${(0, _twind.tw)`w-5 h-5 ${headerColor}`}" fill="currentColor" viewBox="0 0 20 20"
@@ -661,6 +626,19 @@ const searchBar = ()=>{
   </div>`;
 };
 const outputBaseTable = (cells, fontConfig = {})=>{
+    let mycss2 = (0, _css.css)`@media (max-width: 600px) {
+      th {
+        display: none;
+      }
+    }`;
+    const headerColor = (0, _css.css)`
+      color: ${store.mock.settingsItemProps.tableHeaderTextColor};
+      background-color: ${store.mock.settingsItemProps.tableHeaderBg}};
+      font-family: ${store.mock.fontConfig[0][0]};
+      font-weight: ${store.mock.fontConfig[0][2]};
+      font-size: ${store.mock.fontConfig[0][1]};
+    `;
+    debugger;
     return (0, _lighterhtml.html).node`
     <div>
     <div class="${(0, _twind.tw)`bg-white pb-4 px-4 rounded-md w-full`}">
@@ -688,6 +666,36 @@ const outputBaseTable = (cells, fontConfig = {})=>{
       </div>`;
 };
 const outputCell = (cellsData, tableHeadCell)=>{
+    let mycss = (0, _css.css)`@media (max-width: 600px) {
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 3px hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 10%);
+    max-width: 100%;
+    position: relative;
+    display: block;
+    td {
+      display: flex;
+      width: auto;
+      justify-content: space-between;
+      border: 0;
+      /* text-align: right; */
+      border-bottom: 1px solid #f5f5f5;
+      padding: 0.5em 0.75em;
+      text-align: right!important;
+      vertical-align: top;
+      &::before {
+        ${(0, _css.apply)`text-purple-700`}
+        content: attr(data-label);
+        font-weight: 600;
+        padding-right: 0.5em;
+        text-align: left;
+      }
+    }
+  }`;
+    let fontCss = (0, _css.css)`
+  font-family: ${store.mock.fontConfig[1][0]};
+  font-weight: ${store.mock.fontConfig[1][2]};
+  font-size: ${store.mock.fontConfig[1][1]};
+  `;
     return (0, _lighterhtml.html).node`<tr class="${(0, _twind.tw)`hover:bg-gray-100 border-b border-gray-200`} ${(0, _twind.tw)`${fontCss}`} ${(0, _twind.tw)`${mycss}`}">
       ${cellsData.map((cellVal, index)=>(0, _lighterhtml.html).node`<td data-label="${tableHeadCell[index]}" class="${(0, _twind.tw)`px-4 py-4`}">
         <span>${cellVal}</span>
@@ -789,12 +797,12 @@ const createCache = ()=>({
         wire: null
     });
 const outer = (type, Tagger)=>{
-    const cache1 = (0, _umapDefault.default)(new (0, _weakmapDefault.default));
+    const cache = (0, _umapDefault.default)(new (0, _weakmapDefault.default));
     const fixed = (info)=>function() {
             return unroll(Tagger, info, hole.apply(null, arguments));
         };
     hole.for = (ref, id)=>{
-        const memo = cache1.get(ref) || cache1.set(ref, create(null));
+        const memo = cache.get(ref) || cache.set(ref, create(null));
         return memo[id] || (memo[id] = fixed(createCache()));
     };
     hole.node = function() {
@@ -860,13 +868,13 @@ parcelHelpers.defineInteropFlag(exports);
 /*! (c) Andrea Giammarchi - ISC */ var self = {};
 try {
     self.WeakMap = WeakMap;
-} catch (WeakMap) {
+} catch (WeakMap1) {
     // this could be better but 90% of the time
     // it's everything developers need as fallback
-    self.WeakMap = function(id, Object) {
+    self.WeakMap = function(id, Object1) {
         "use strict";
-        var dP = Object.defineProperty;
-        var hOP = Object.hasOwnProperty;
+        var dP = Object1.defineProperty;
+        var hOP = Object1.hasOwnProperty;
         var proto = WeakMap1.prototype;
         proto.delete = function(key) {
             return this.has(key) && delete key[this._];
@@ -1080,7 +1088,7 @@ const hyperProperty = (node, name)=>{
 // list of attributes that should not be directly assigned
 const readOnly = /^(?:form|list)$/i;
 // simplifies text node creation
-const text = (node, text1)=>node.ownerDocument.createTextNode(text1);
+const text = (node, text)=>node.ownerDocument.createTextNode(text);
 function Tagger(type) {
     this.type = type;
     return (0, _domtaggerDefault.default)(this);
@@ -1219,7 +1227,7 @@ function invoke(callback) {
 },{"@ungap/create-content":"4xeIY","udomdiff":"9UVlK","domtagger":"jHm5z","hyperhtml-style":"h4eqh","uhandlers":"ceEOD","uwire":"eGHCa","uarray":"7ftea","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4xeIY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-/*! (c) Andrea Giammarchi - ISC */ var createContent = function(document) {
+/*! (c) Andrea Giammarchi - ISC */ var createContent = function(document1) {
     "use strict";
     var FRAGMENT = "fragment";
     var TEMPLATE = "template";
@@ -1251,7 +1259,7 @@ parcelHelpers.defineInteropFlag(exports);
         while(length--)root.appendChild(childNodes[0]);
     }
     function create(element) {
-        return element === FRAGMENT ? document.createDocumentFragment() : document.createElementNS("http://www.w3.org/1999/xhtml", element);
+        return element === FRAGMENT ? document1.createDocumentFragment() : document1.createElementNS("http://www.w3.org/1999/xhtml", element);
     }
     // it could use createElementNS when hasNode is there
     // but this fallback is equally fast and easier to maintain
@@ -1327,9 +1335,9 @@ parcelHelpers.defineInteropFlag(exports);
             // or asymmetric too
             // [1, 2, 3, 4, 5]
             // [1, 2, 3, 5, 6, 4]
-            const node = get(a[--aEnd], -1).nextSibling;
+            const node1 = get(a[--aEnd], -1).nextSibling;
             parentNode.insertBefore(get(b[bStart++], 1), get(a[aStart++], -1).nextSibling);
-            parentNode.insertBefore(get(b[--bEnd], 1), node);
+            parentNode.insertBefore(get(b[--bEnd], 1), node1);
             // mark the future index as identical (yeah, it's dirty, but cheap 👍)
             // The main reason to do this, is that when a[aEnd] will be reached,
             // the loop will likely be on the fast path, as identical to b[bEnd].
@@ -1354,10 +1362,10 @@ parcelHelpers.defineInteropFlag(exports);
                 const index = map.get(a[aStart]);
                 // if it's not already processed, look on demand for the next LCS
                 if (bStart < index && index < bEnd) {
-                    let i = aStart;
+                    let i1 = aStart;
                     // counts the amount of nodes that are the same in the future
                     let sequence = 1;
-                    while(++i < aEnd && i < bEnd && map.get(a[i]) === index + sequence)sequence++;
+                    while(++i1 < aEnd && i1 < bEnd && map.get(a[i1]) === index + sequence)sequence++;
                     // effort decision here: if the sequence is longer than replaces
                     // needed to reach such sequence, which would brings again this loop
                     // to the fast path, prepend the difference before a sequence,
@@ -1369,8 +1377,8 @@ parcelHelpers.defineInteropFlag(exports);
                     // this would place 7 before 1 and, from that time on, 1, 2, and 3
                     // will be processed at zero cost
                     if (sequence > index - bStart) {
-                        const node = get(a[aStart], 0);
-                        while(bStart < index)parentNode.insertBefore(get(b[bStart++], 1), node);
+                        const node2 = get(a[aStart], 0);
+                        while(bStart < index)parentNode.insertBefore(get(b[bStart++], 1), node2);
                     } else parentNode.replaceChild(get(b[bStart++], 1), get(a[aStart++], -1));
                 } else aStart++;
             } else parentNode.removeChild(get(a[aStart++], -1));
@@ -1405,19 +1413,19 @@ function createInfo(options, template) {
     var markup = (options.convert || (0, _domsanitizerDefault.default))(template);
     var transform = options.transform;
     if (transform) markup = transform(markup);
-    var content1 = (0, _createContentDefault.default)(markup, options.type);
-    cleanContent(content1);
+    var content = (0, _createContentDefault.default)(markup, options.type);
+    cleanContent(content);
     var holes = [];
-    (0, _walkerJs.parse)(content1, holes, template.slice(0), []);
+    (0, _walkerJs.parse)(content, holes, template.slice(0), []);
     return {
-        content: content1,
+        content: content,
         updates: function(content) {
             var updates = [];
             var len = holes.length;
-            var i1 = 0;
-            var off1 = 0;
-            while(i1 < len){
-                var info = holes[i1++];
+            var i = 0;
+            var off = 0;
+            while(i < len){
+                var info = holes[i++];
                 var node = (0, _walkerJs.find)(content, info.path);
                 switch(info.type){
                     case "any":
@@ -1434,7 +1442,7 @@ function createInfo(options, template) {
                             sparse: false
                         });
                         else {
-                            off1 += sparse.length - 2;
+                            off += sparse.length - 2;
                             updates.push({
                                 fn: fn,
                                 sparse: true,
@@ -1451,7 +1459,7 @@ function createInfo(options, template) {
                         break;
                 }
             }
-            len += off1;
+            len += off;
             return function() {
                 var length = arguments.length;
                 if (len !== length - 1) throw new Error(length - 1 + " values instead of " + len + "\n" + template.join("${value}"));
@@ -1499,19 +1507,19 @@ function cleanContent(fragment) {
 },{"@ungap/weakmap":"9kXPw","@ungap/create-content":"4xeIY","@ungap/import-node":"euncT","@ungap/trim":"71CiS","domsanitizer":"8JqGh","umap":"b3ep2","./walker.js":"4CbMf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"euncT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-/*! (c) Andrea Giammarchi - ISC */ var importNode = function(document, appendChild, cloneNode, createTextNode, importNode1) {
-    var native = importNode1 in document;
+/*! (c) Andrea Giammarchi - ISC */ var importNode = function(document1, appendChild, cloneNode, createTextNode, importNode) {
+    var native = importNode in document1;
     // IE 11 has problems with cloning templates:
     // it "forgets" empty childNodes. This feature-detects that.
-    var fragment = document.createDocumentFragment();
-    fragment[appendChild](document[createTextNode]("g"));
-    fragment[appendChild](document[createTextNode](""));
-    /* istanbul ignore next */ var content = native ? document[importNode1](fragment, true) : fragment[cloneNode](true);
-    return content.childNodes.length < 2 ? function importNode2(node, deep) {
+    var fragment = document1.createDocumentFragment();
+    fragment[appendChild](document1[createTextNode]("g"));
+    fragment[appendChild](document1[createTextNode](""));
+    /* istanbul ignore next */ var content = native ? document1[importNode](fragment, true) : fragment[cloneNode](true);
+    return content.childNodes.length < 2 ? function importNode(node, deep) {
         var clone = node[cloneNode]();
-        for(var /* istanbul ignore next */ childNodes = node.childNodes || [], length = childNodes.length, i = 0; deep && i < length; i++)clone[appendChild](importNode2(childNodes[i], deep));
+        for(var /* istanbul ignore next */ childNodes = node.childNodes || [], length = childNodes.length, i = 0; deep && i < length; i++)clone[appendChild](importNode(childNodes[i], deep));
         return clone;
-    } : native ? document[importNode1] : function(node, deep) {
+    } : native ? document1[importNode] : function(node, deep) {
         return node[cloneNode](!!deep);
     };
 }(document, "appendChild", "cloneNode", "createTextNode", "importNode");
@@ -1906,33 +1914,33 @@ function proxy(initialObject) {
     var createSnapshot = function createSnapshot(target, receiver) {
         var cache = snapshotCache.get(receiver);
         if ((cache == null ? void 0 : cache[0]) === version) return cache[1];
-        var snapshot1 = Array.isArray(target) ? [] : Object.create(Object.getPrototypeOf(target));
-        proxyCompare.markToTrack(snapshot1, true);
+        var snapshot = Array.isArray(target) ? [] : Object.create(Object.getPrototypeOf(target));
+        proxyCompare.markToTrack(snapshot, true);
         snapshotCache.set(receiver, [
             version,
-            snapshot1
+            snapshot
         ]);
         Reflect.ownKeys(target).forEach(function(key) {
             var value = Reflect.get(target, key, receiver);
             if (refSet.has(value)) {
                 proxyCompare.markToTrack(value, false);
-                snapshot1[key] = value;
+                snapshot[key] = value;
             } else if (value instanceof Promise) {
-                if (PROMISE_RESULT in value) snapshot1[key] = value[PROMISE_RESULT];
+                if (PROMISE_RESULT in value) snapshot[key] = value[PROMISE_RESULT];
                 else {
                     var errorOrPromise = value[PROMISE_ERROR] || value;
-                    Object.defineProperty(snapshot1, key, {
+                    Object.defineProperty(snapshot, key, {
                         get: function get() {
                             if (PROMISE_RESULT in value) return value[PROMISE_RESULT];
                             throw errorOrPromise;
                         }
                     });
                 }
-            } else if (value != null && value[LISTENERS]) snapshot1[key] = value[SNAPSHOT];
-            else snapshot1[key] = value;
+            } else if (value != null && value[LISTENERS]) snapshot[key] = value[SNAPSHOT];
+            else snapshot[key] = value;
         });
-        Object.freeze(snapshot1);
-        return snapshot1;
+        Object.freeze(snapshot);
+        return snapshot;
     };
     var baseObject = Array.isArray(initialObject) ? [] : Object.create(Object.getPrototypeOf(initialObject));
     var handler = {
@@ -2063,77 +2071,77 @@ parcelHelpers.export(exports, "getUntracked", ()=>y);
 parcelHelpers.export(exports, "isChanged", ()=>a);
 parcelHelpers.export(exports, "markToTrack", ()=>b);
 parcelHelpers.export(exports, "trackMemo", ()=>f);
-const e = Symbol(), t = Symbol(), r = Symbol(), n = Object.getPrototypeOf, o = new WeakMap, s = (e1)=>e1 && (o.has(e1) ? o.get(e1) : n(e1) === Object.prototype || n(e1) === Array.prototype), c = (e2)=>"object" == typeof e2 && null !== e2, l = (n1, o1)=>{
-    let s1 = !1;
-    const c1 = (e3, t1)=>{
-        if (!s1) {
-            let r1 = e3.a.get(n1);
-            r1 || (r1 = new Set, e3.a.set(n1, r1)), r1.add(t1);
+const e = Symbol(), t = Symbol(), r = Symbol(), n = Object.getPrototypeOf, o = new WeakMap, s = (e)=>e && (o.has(e) ? o.get(e) : n(e) === Object.prototype || n(e) === Array.prototype), c = (e)=>"object" == typeof e && null !== e, l = (n, o)=>{
+    let s = !1;
+    const c = (e, t)=>{
+        if (!s) {
+            let r = e.a.get(n);
+            r || (r = new Set, e.a.set(n, r)), r.add(t);
         }
-    }, l1 = {
-        f: o1,
-        get (e4, t2) {
-            return t2 === r ? n1 : (c1(this, t2), i(e4[t2], this.a, this.c));
+    }, l = {
+        f: o,
+        get (e, t) {
+            return t === r ? n : (c(this, t), i(e[t], this.a, this.c));
         },
-        has (e5, r2) {
-            return r2 === t ? (s1 = !0, this.a.delete(n1), !0) : (c1(this, r2), r2 in e5);
+        has (e, r) {
+            return r === t ? (s = !0, this.a.delete(n), !0) : (c(this, r), r in e);
         },
-        ownKeys (t3) {
-            return c1(this, e), Reflect.ownKeys(t3);
+        ownKeys (t) {
+            return c(this, e), Reflect.ownKeys(t);
         }
     };
-    return o1 && (l1.set = l1.deleteProperty = ()=>!1), l1;
-}, i = (e6, t4, o2)=>{
-    if (!s(e6)) return e6;
-    const c2 = e6[r] || e6, i1 = ((e7)=>Object.isFrozen(e7) || Object.values(Object.getOwnPropertyDescriptors(e7)).some((e8)=>!e8.writable))(c2);
-    let u1 = o2 && o2.get(c2);
-    return u1 && u1.f === i1 || (u1 = l(c2, i1), u1.p = new Proxy(i1 ? ((e9)=>{
-        if (Array.isArray(e9)) return Array.from(e9);
-        const t5 = Object.getOwnPropertyDescriptors(e9);
-        return Object.values(t5).forEach((e10)=>{
-            e10.configurable = !0;
-        }), Object.create(n(e9), t5);
-    })(c2) : c2, u1), o2 && o2.set(c2, u1)), u1.a = t4, u1.c = o2, u1.p;
-}, u = (e11, t6)=>{
-    const r3 = Reflect.ownKeys(e11), n2 = Reflect.ownKeys(t6);
-    return r3.length !== n2.length || r3.some((e12, t7)=>e12 !== n2[t7]);
-}, a = (t8, r4, n3, o3)=>{
-    if (Object.is(t8, r4)) return !1;
-    if (!c(t8) || !c(r4)) return !0;
-    const s2 = n3.get(t8);
-    if (!s2) return !0;
-    if (o3) {
-        const e13 = o3.get(t8);
-        if (e13 && e13.n === r4) return e13.g;
-        o3.set(t8, {
-            n: r4,
+    return o && (l.set = l.deleteProperty = ()=>!1), l;
+}, i = (e, t, o)=>{
+    if (!s(e)) return e;
+    const c = e[r] || e, i = ((e)=>Object.isFrozen(e) || Object.values(Object.getOwnPropertyDescriptors(e)).some((e)=>!e.writable))(c);
+    let u = o && o.get(c);
+    return u && u.f === i || (u = l(c, i), u.p = new Proxy(i ? ((e)=>{
+        if (Array.isArray(e)) return Array.from(e);
+        const t = Object.getOwnPropertyDescriptors(e);
+        return Object.values(t).forEach((e)=>{
+            e.configurable = !0;
+        }), Object.create(n(e), t);
+    })(c) : c, u), o && o.set(c, u)), u.a = t, u.c = o, u.p;
+}, u = (e, t)=>{
+    const r = Reflect.ownKeys(e), n = Reflect.ownKeys(t);
+    return r.length !== n.length || r.some((e, t)=>e !== n[t]);
+}, a = (t, r, n, o)=>{
+    if (Object.is(t, r)) return !1;
+    if (!c(t) || !c(r)) return !0;
+    const s = n.get(t);
+    if (!s) return !0;
+    if (o) {
+        const e1 = o.get(t);
+        if (e1 && e1.n === r) return e1.g;
+        o.set(t, {
+            n: r,
             g: !1
         });
     }
-    let l2 = null;
-    for (const c3 of s2){
-        const s3 = c3 === e ? u(t8, r4) : a(t8[c3], r4[c3], n3, o3);
-        if (!0 !== s3 && !1 !== s3 || (l2 = s3), l2) break;
+    let l = null;
+    for (const c1 of s){
+        const s1 = c1 === e ? u(t, r) : a(t[c1], r[c1], n, o);
+        if (!0 !== s1 && !1 !== s1 || (l = s1), l) break;
     }
-    return null === l2 && (l2 = !0), o3 && o3.set(t8, {
-        n: r4,
-        g: l2
-    }), l2;
-}, f = (e14)=>!!s(e14) && t in e14, y = (e15)=>s(e15) && e15[r] || null, b = (e16, t9 = !0)=>{
-    o.set(e16, t9);
-}, g = (e17, t10)=>{
-    const r5 = [], n4 = (e18, o4)=>{
-        const s4 = t10.get(e18);
-        s4 ? s4.forEach((t11)=>{
-            n4(e18[t11], o4 ? [
-                ...o4,
-                t11
+    return null === l && (l = !0), o && o.set(t, {
+        n: r,
+        g: l
+    }), l;
+}, f = (e)=>!!s(e) && t in e, y = (e)=>s(e) && e[r] || null, b = (e, t = !0)=>{
+    o.set(e, t);
+}, g = (e, t)=>{
+    const r = [], n = (e, o)=>{
+        const s = t.get(e);
+        s ? s.forEach((t)=>{
+            n(e[t], o ? [
+                ...o,
+                t
             ] : [
-                t11
+                t
             ]);
-        }) : o4 && r5.push(o4);
+        }) : o && r.push(o);
     };
-    return n4(e17), r5;
+    return n(e), r;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7IFXN":[function(require,module,exports) {
@@ -2162,7 +2170,7 @@ function watch(callback, options) {
         cleanups.clear();
         subscriptions.clear();
     };
-    var revalidate1 = function revalidate() {
+    var revalidate = function revalidate() {
         if (!alive) return;
         cleanup();
         var parent = currentCleanups;
@@ -2188,7 +2196,7 @@ function watch(callback, options) {
         }
     };
     if (currentCleanups) currentCleanups.add(wrappedCleanup);
-    revalidate1();
+    revalidate();
     return wrappedCleanup;
 }
 var DEVTOOLS = Symbol();
@@ -2202,7 +2210,7 @@ function devtools(proxyObject, name) {
         return;
     }
     var isTimeTraveling = false;
-    var devtools1 = extension.connect({
+    var devtools = extension.connect({
         name: name
     });
     var unsub1 = vanilla.subscribe(proxyObject, function(ops) {
@@ -2219,13 +2227,13 @@ function devtools(proxyObject, name) {
         else {
             var snapWithoutDevtools = Object.assign({}, vanilla.snapshot(proxyObject));
             delete snapWithoutDevtools[DEVTOOLS];
-            devtools1.send({
+            devtools.send({
                 type: action,
                 updatedAt: new Date().toLocaleString()
             }, snapWithoutDevtools);
         }
     });
-    var unsub2 = devtools1.subscribe(function(message) {
+    var unsub2 = devtools.subscribe(function(message) {
         var _message$payload3, _message$payload4;
         if (message.type === "ACTION" && message.payload) try {
             Object.assign(proxyObject, JSON.parse(message.payload));
@@ -2240,7 +2248,7 @@ function devtools(proxyObject, name) {
                 Object.assign(proxyObject, state);
             }
             proxyObject[DEVTOOLS] = message;
-        } else if (message.type === "DISPATCH" && ((_message$payload3 = message.payload) == null ? void 0 : _message$payload3.type) === "COMMIT") devtools1.init(vanilla.snapshot(proxyObject));
+        } else if (message.type === "DISPATCH" && ((_message$payload3 = message.payload) == null ? void 0 : _message$payload3.type) === "COMMIT") devtools.init(vanilla.snapshot(proxyObject));
         else if (message.type === "DISPATCH" && ((_message$payload4 = message.payload) == null ? void 0 : _message$payload4.type) === "IMPORT_STATE") {
             var _message$payload$next, _message$payload$next2;
             var actions = (_message$payload$next = message.payload.nextLiftedState) == null ? void 0 : _message$payload$next.actionsById;
@@ -2250,12 +2258,12 @@ function devtools(proxyObject, name) {
                 var state = _ref3.state;
                 var action = actions[index] || "No action found";
                 Object.assign(proxyObject, state);
-                if (index === 0) devtools1.init(vanilla.snapshot(proxyObject));
-                else devtools1.send(action, vanilla.snapshot(proxyObject));
+                if (index === 0) devtools.init(vanilla.snapshot(proxyObject));
+                else devtools.send(action, vanilla.snapshot(proxyObject));
             });
         }
     });
-    devtools1.init(vanilla.snapshot(proxyObject));
+    devtools.init(vanilla.snapshot(proxyObject));
     return function() {
         unsub1();
         unsub2();
@@ -2263,12 +2271,12 @@ function devtools(proxyObject, name) {
 }
 var sourceObjectMap = new WeakMap();
 var derivedObjectMap = new WeakMap();
-var markPending = function markPending1(sourceObject) {
+var markPending = function markPending(sourceObject) {
     var sourceObjectEntry = sourceObjectMap.get(sourceObject);
     if (sourceObjectEntry) {
         sourceObjectEntry[0].forEach(function(subscription) {
             var derivedObject = subscription.d;
-            if (sourceObject !== derivedObject) markPending1(derivedObject);
+            if (sourceObject !== derivedObject) markPending(derivedObject);
         });
         ++sourceObjectEntry[2];
     }
@@ -2281,7 +2289,7 @@ var checkPending = function checkPending(sourceObject, callback) {
     }
     return false;
 };
-var unmarkPending = function unmarkPending1(sourceObject) {
+var unmarkPending = function unmarkPending(sourceObject) {
     var sourceObjectEntry = sourceObjectMap.get(sourceObject);
     if (sourceObjectEntry) {
         --sourceObjectEntry[2];
@@ -2294,20 +2302,20 @@ var unmarkPending = function unmarkPending1(sourceObject) {
         }
         sourceObjectEntry[0].forEach(function(subscription) {
             var derivedObject = subscription.d;
-            if (sourceObject !== derivedObject) unmarkPending1(derivedObject);
+            if (sourceObject !== derivedObject) unmarkPending(derivedObject);
         });
     }
 };
-var addSubscription = function addSubscription(subscription1) {
-    var sourceObject = subscription1.s, derivedObject1 = subscription1.d;
-    var derivedObjectEntry = derivedObjectMap.get(derivedObject1);
+var addSubscription = function addSubscription(subscription) {
+    var sourceObject = subscription.s, derivedObject = subscription.d;
+    var derivedObjectEntry = derivedObjectMap.get(derivedObject);
     if (!derivedObjectEntry) {
         derivedObjectEntry = [
             new Set()
         ];
-        derivedObjectMap.set(subscription1.d, derivedObjectEntry);
+        derivedObjectMap.set(subscription.d, derivedObjectEntry);
     }
-    derivedObjectEntry[0].add(subscription1);
+    derivedObjectEntry[0].add(subscription);
     var sourceObjectEntry = sourceObjectMap.get(sourceObject);
     if (!sourceObjectEntry) {
         var _subscriptions = new Set();
@@ -2337,7 +2345,7 @@ var addSubscription = function addSubscription(subscription1) {
         ];
         sourceObjectMap.set(sourceObject, sourceObjectEntry);
     }
-    sourceObjectEntry[0].add(subscription1);
+    sourceObjectEntry[0].add(subscription);
 };
 var removeSubscription = function removeSubscription(subscription) {
     var sourceObject = subscription.s, derivedObject = subscription.d;
@@ -2372,7 +2380,7 @@ function derive(derivedFns, options) {
         if (Object.getOwnPropertyDescriptor(proxyObject, key)) throw new Error("object property already defined");
         var fn = derivedFns[key];
         var lastDependencies = null;
-        var evaluate1 = function evaluate() {
+        var evaluate = function evaluate() {
             if (lastDependencies) {
                 if (Array.from(lastDependencies).map(function(_ref) {
                     var p = _ref[0];
@@ -2421,7 +2429,7 @@ function derive(derivedFns, options) {
             else subscribeToDependencies();
             proxyObject[key] = value;
         };
-        evaluate1();
+        evaluate();
     });
     return proxyObject;
 }
@@ -4973,16 +4981,16 @@ var i = new Map([
         "-ms-text-combine-horizontal"
     ]
 ]);
-function r(r1) {
-    return i.get(r1);
+function r(r) {
+    return i.get(r);
 }
-function a(i1) {
-    var r2 = /^(?:(text-(?:decoration$|e|or|si)|back(?:ground-cl|d|f)|box-d|mask(?:$|-[ispro]|-cl)|pr|hyphena|flex-d)|(tab-|column(?!-s)|text-align-l)|(ap)|u|hy)/i.exec(i1);
-    return r2 ? r2[1] ? 1 : r2[2] ? 2 : r2[3] ? 3 : 5 : 0;
+function a(i) {
+    var r = /^(?:(text-(?:decoration$|e|or|si)|back(?:ground-cl|d|f)|box-d|mask(?:$|-[ispro]|-cl)|pr|hyphena|flex-d)|(tab-|column(?!-s)|text-align-l)|(ap)|u|hy)/i.exec(i);
+    return r ? r[1] ? 1 : r[2] ? 2 : r[3] ? 3 : 5 : 0;
 }
-function t(i2, r3) {
-    var a1 = /^(?:(pos)|(cli)|(background-i)|(flex(?:$|-b)|(?:max-|min-)?(?:block-s|inl|he|widt))|dis)/i.exec(i2);
-    return a1 ? a1[1] ? /^sti/i.test(r3) ? 1 : 0 : a1[2] ? /^pat/i.test(r3) ? 1 : 0 : a1[3] ? /^image-/i.test(r3) ? 1 : 0 : a1[4] ? "-" === r3[3] ? 2 : 0 : /^(?:inline-)?grid$/i.test(r3) ? 4 : 0 : 0;
+function t(i, r) {
+    var a = /^(?:(pos)|(cli)|(background-i)|(flex(?:$|-b)|(?:max-|min-)?(?:block-s|inl|he|widt))|dis)/i.exec(i);
+    return a ? a[1] ? /^sti/i.test(r) ? 1 : 0 : a[2] ? /^pat/i.test(r) ? 1 : 0 : a[3] ? /^image-/i.test(r) ? 1 : 0 : a[4] ? "-" === r[3] ? 2 : 0 : /^(?:inline-)?grid$/i.test(r) ? 4 : 0 : 0;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2835l":[function(require,module,exports) {

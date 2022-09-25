@@ -85,6 +85,9 @@ export default {
 			// tsconf
 			new TsconfigPathsPlugin(),
 		],
+		alias : {
+			"icons": path.resolve(__dirname, "node_modules/vue-material-design-icons")
+		},
 	},
 	devtool:
 		process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',

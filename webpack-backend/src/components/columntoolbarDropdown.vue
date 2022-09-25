@@ -28,7 +28,10 @@
 				@mouseleave="show = false"
 				v-if="show"
 			>
-				<div class="list-none overflow-hidden rounded-lg">
+				<div
+					v-click-outside="handleOutsideClick"
+					class="list-none overflow-hidden rounded-lg"
+				>
 					<button
 						@click="addColumnRight"
 						class="bg-white py-2 px-4 hover:bg-gray-800"
@@ -165,6 +168,9 @@ export default {
 
 				document.head.appendChild(script);
 			}
+		},
+		handleOutsideClick(e) {
+			this.show = false;
 		},
 		addColumnLeft(a) {
 			let { activeCell } = this.$parent.$refs.grid;
