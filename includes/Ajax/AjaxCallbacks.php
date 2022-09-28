@@ -109,6 +109,7 @@ class AjaxCallbacks
         wp_die();
     }
     public static function delete_table() {
-        wp_delete_post(3, true);
+        wp_delete_post(intval($_REQUEST['id']), true);
+        wp_send_json_success(['status' => 'done']);
     }
 }

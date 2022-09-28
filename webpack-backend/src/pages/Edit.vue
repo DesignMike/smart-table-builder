@@ -176,6 +176,7 @@ export default {
 			isEmptyTableList: false,
 			isSaving: false,
 			showDeleteConfirmation: false,
+			deletionTarget: 0,
 		};
 	},
 	methods: {
@@ -200,10 +201,21 @@ export default {
 				type: 'POST',
 				url: ajaxurl + '?action=sprdsh_delete_table',
 				data: {
-					id: 3,
+					id: this.deletionTarget,
 				},
 				success: (responseData) => {
 					this.showDeleteConfirmation = false;
+					let clonedTables = [...this.avaiableTables];
+					clonedTables.forEach((e, i) => {
+						if (e.ID == this.deletionTarget) {
+							delete clonedTables[i];
+							this.$store.state.tableList = clonedTables.filter(Boolean);
+							if (this.$store.state.tableList.length == 0) {
+								this.isEmptyTableList = true;
+							}
+						}
+					});
+					this.deletionTarget = 0;
 				},
 			});
 		},
@@ -256,9 +268,10 @@ export default {
 			link.media = 'all';
 			head.appendChild(link);
 		},
-		handleDeleteBtn() {
+		handleDeleteBtn(id) {
 			// this.$modal.show('example');
 			this.showDeleteConfirmation = true;
+			this.deletionTarget = id;
 		},
 	},
 	computed: {
