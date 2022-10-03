@@ -62,7 +62,7 @@ class Admin {
      */
     public function plugin_page() {
         // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
-        // echo '<script id="js-links" type="text/json">'.json_encode($dd).'</script>';
+        echo '<script id="homeurl" type="text/json">'. json_encode(array('url' => esc_url(get_home_url()))) .'</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
     }
 

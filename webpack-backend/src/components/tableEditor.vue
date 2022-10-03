@@ -110,7 +110,7 @@
 				>
 					<iframe
 						style="width: 100%; height: 50rem"
-						src="http://myplugindev.test/?wut_action=load_preview"
+						:src="previewframe"
 					></iframe>
 				</div>
 			</div>
@@ -177,6 +177,7 @@ export default {
 			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
 			styles: ['Style 1 (Active)', 'Style 2 (Premium)'],
 			currentStyle: 'Style 1',
+			previewframe: '',
 		};
 	},
 	computed: {
@@ -351,6 +352,10 @@ export default {
 	mounted() {
 		// this.setGridStyle();
 		var grid = canvasDatagrid();
+		let previewframeLink = JSON.parse(
+			document.querySelector('#homeurl').textContent,
+		).url;
+		this.previewframe = previewframeLink + '/?wut_action=load_preview';
 		var targetNode = document.querySelector('#toolbar');
 		// jQuery(targetNode).after(grid);
 		grid.data = [];
