@@ -5,7 +5,11 @@ import * as Webpack from 'webpack';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
+// import autoprefixer from 'autoprefixer';
+
+function resolve (dir) {
+	return path.join(__dirname, dir)
+  }
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5');
 
@@ -24,9 +28,25 @@ export default {
 				test: /\.css$/,
 				exclude: /node_modules/,
 				use: [
-				  MiniCssExtractPlugin.loader,
-				  { loader: "css-loader", options: { url: false } },
-				  "postcss-loader"
+					MiniCssExtractPlugin.loader,
+					{ loader: "css-loader", options: { url: false } },
+					{
+						loader: "postcss-loader", options: {
+							postcssOptions: {
+								ident: 'postcss',
+								plugins: [
+									require('postcss-import'),
+									//TailWindCSS(tailwindConfig),
+									require('tailwindcss')(resolve('_config/tailwind.config.js')),
+									require('postcss-preset-env')({ stage: 1 }),
+									require('postcss-prefix-selector')({
+										prefix: '.wptable',
+										exclude: ['.wrap.wptable', '.ui']
+									})
+								],
+							}
+						},
+					}
 				],
 			},
 			{

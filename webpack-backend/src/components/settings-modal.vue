@@ -199,6 +199,12 @@ export default {
 					title: 'Show SearchBar',
 					dependencies: [],
 				},
+				showTitle: {
+					type: 'boolean',
+					default: true,
+					title: 'Show Table Title',
+					dependencies: [],
+				},
 				tableHeaderBg: {
 					type: 'color',
 					default: 'gray',

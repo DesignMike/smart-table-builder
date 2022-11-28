@@ -123,6 +123,7 @@ export default {
 			tableCellsBorderBg: '#FFFFFF',
 			tableHeaderTextColor: '#FFFFFF',
 			tableRowsTextColor: '#000000',
+			showTitle: true,
 			addBorderToTableCells: false,
 		});
 		this.$store.commit('updatefontSettings', ['Armata', '20px', '400']);

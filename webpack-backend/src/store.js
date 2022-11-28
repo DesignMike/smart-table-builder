@@ -31,6 +31,7 @@ const store = new Vuex.Store({
 			tableCellsBorderBg: '#FFFFFF',
 			tableHeaderTextColor: '#FFFFFF',
 			tableRowsTextColor: '#000000',
+			showTitle: true,
 			addBorderToTableCells: false,
 		},
 		fontUrls: [],
