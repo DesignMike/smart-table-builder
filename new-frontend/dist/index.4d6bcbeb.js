@@ -638,15 +638,15 @@ const outputBaseTable = (cells, fontConfig = {})=>{
       font-weight: ${store.mock.fontConfig[0][2]};
       font-size: ${store.mock.fontConfig[0][1]};
     `;
-    debugger;
+    let { showTitle  } = store.mock.settingsItemProps;
     return (0, _lighterhtml.html).node`
     <div>
     <div class="${(0, _twind.tw)`bg-white pb-4 px-4 rounded-md w-full`}">
     <div class="${(0, _twind.tw)`sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto`}">
-      <header class="${(0, _twind.tw)`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
+      ${showTitle ? (0, _lighterhtml.html).node`<header class="${(0, _twind.tw)`flex items-center justify-between px-5 py-4 border-gray-200 rounded-t-lg ${headerColor}`}">
         <div class="${(0, _twind.tw)`font-semibold`}">${store.mock.tableTitle}</div>
-      </header>
-      <div class="${(0, _twind.tw)`inline-block min-w-full shadow rounded-b-lg overflow-hidden`}">
+      </header>` : ""}
+      <div class="${(0, _twind.tw)`inline-block min-w-full shadow ${showTitle ? `rounded-b-lg` : `rounded-lg`} overflow-hidden`}">
         <table class="${(0, _twind.tw)`min-w-full leading-normal`}">
           <thead>
             <tr class="${(0, _twind.tw)`${mycss2}`}">
@@ -5265,7 +5265,8 @@ exports.default = {
         "tableHeaderTextColor": "#FFFFFF",
         "tableRowsTextColor": "#000000",
         "addBorderToTableCells": false,
-        "showSearchBar": true
+        "showSearchBar": true,
+        "showTitle": true
     },
     "fonts": [
         "https://fonts.googleapis.com/css2?family=Montserrat:wght@400",

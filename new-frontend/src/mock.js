@@ -20,7 +20,8 @@ export default {
         "tableHeaderTextColor": "#FFFFFF",
         "tableRowsTextColor": "#000000",
         "addBorderToTableCells": false,
-        "showSearchBar": true
+        "showSearchBar": true,
+        "showTitle": true
     },
     "fonts": ["https://fonts.googleapis.com/css2?family=Montserrat:wght@400","https://fonts.googleapis.com/css2?family=Montserrat:wght@800"],
     "fontConfig" : [["Montserrat","20px","400"], ["Montserrat","20px","800"]]
