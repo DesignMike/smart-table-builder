@@ -539,8 +539,8 @@ var _vanilla = require("valtio/vanilla");
 var _utils = require("valtio/utils");
 var _twind = require("twind");
 var _css = require("twind/css");
-var _mock = require("./mock");
-var _mockDefault = parcelHelpers.interopDefault(_mock);
+var _defaultState = require("../../default_state");
+var _defaultStateDefault = parcelHelpers.interopDefault(_defaultState);
 window["tw"] = (0, _twind.tw);
 const bounce = (0, _css.animation)("1s ease infinite", {
     "from, 20%, 53%, 80%, to": {
@@ -578,9 +578,9 @@ window.manipulateStore = (incomingStore)=>{
     tableBody = listContainer.querySelector("table tbody");
     listContainer.querySelector('[id="table-search"]')?.addEventListener("keyup", handleSearch);
 };
-const isDev = true;
+const isDev = false;
 let tableBody = null;
-if (isDev) console.log((0, _mockDefault.default));
+if (isDev) console.log((0, _defaultStateDefault.default));
 (0, _twind.setup)({
     preflight: true,
     prefix: true,
@@ -589,7 +589,7 @@ if (isDev) console.log((0, _mockDefault.default));
 const getId = ()=>new Date().getTime();
 let listContainer = document.querySelector(".excel-to-table-app");
 const store = (0, _vanilla.proxy)({
-    mock: (0, _mockDefault.default),
+    mock: (0, _defaultStateDefault.default),
     searchQuery: ""
 });
 function handleSearch(evt) {
@@ -609,7 +609,7 @@ const searchBar = ()=>{
     `;
     const inputPlaceHolderStyle = (0, _css.css)({
         "&::placeholder": {
-            color: (0, _mockDefault.default).settingsItemProps.tableHeaderTextColor,
+            color: (0, _defaultStateDefault.default).settingsItemProps.tableHeaderTextColor,
             opacity: 0.5
         }
     });
@@ -697,7 +697,7 @@ const outputCell = (cellsData, tableHeadCell)=>{
   font-size: ${store.mock.fontConfig[1][1]};
   `;
     return (0, _lighterhtml.html).node`<tr class="${(0, _twind.tw)`hover:bg-gray-100 border-b border-gray-200`} ${(0, _twind.tw)`${fontCss}`} ${(0, _twind.tw)`${mycss}`}">
-      ${cellsData.map((cellVal, index)=>(0, _lighterhtml.html).node`<td data-label="${tableHeadCell[index]}" class="${(0, _twind.tw)`px-4 py-4`}">
+      ${cellsData.map((cellVal, index)=>(0, _lighterhtml.html).node`<td data-label="${tableHeadCell[index]}" class="${(0, _twind.tw)`p-2`}">
         <span>${cellVal}</span>
       </td>`)}
     </tr>`;
@@ -756,7 +756,7 @@ const unsub = (0, _utils.devtools)(store, {
     name: "ultimatetables"
 });
 
-},{"./index.css":"irmnC","lighterhtml":"lhq8K","valtio/vanilla":"gyoEY","valtio/utils":"7IFXN","twind":"aXRum","twind/css":"2835l","./mock":"gXrQx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irmnC":[function() {},{}],"lhq8K":[function(require,module,exports) {
+},{"./index.css":"irmnC","lighterhtml":"lhq8K","valtio/vanilla":"gyoEY","valtio/utils":"7IFXN","twind":"aXRum","twind/css":"2835l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../default_state":"dhkST"}],"irmnC":[function() {},{}],"lhq8K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Hole", ()=>Hole);
@@ -5119,7 +5119,7 @@ var screen = (size, rules)=>(0, _twind.directive)(screenFactory, {
         rules
     });
 
-},{"twind":"aXRum","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gXrQx":[function(require,module,exports) {
+},{"twind":"aXRum","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dhkST":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {

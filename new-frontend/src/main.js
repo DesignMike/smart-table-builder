@@ -4,7 +4,7 @@ import { proxy, snapshot, subscribe } from 'valtio/vanilla'
 import { devtools } from 'valtio/utils'
 import { tw, setup } from 'twind'
 import { css, screen, apply, theme, animation } from 'twind/css'
-import mock from './mock'
+import mock from '../../default_state'
 window['tw'] = tw;
 
 const bounce = animation('1s ease infinite', {
@@ -48,7 +48,7 @@ window.manipulateStore = (incomingStore) => {
   listContainer.querySelector('[id="table-search"]')?.addEventListener('keyup', handleSearch);
 }
 
-const isDev = true;
+const isDev = false;
 
 let tableBody = null;
 
@@ -186,7 +186,7 @@ const store = proxy({
   `
 
     return html.node`<tr class="${tw`hover:bg-gray-100 border-b border-gray-200`} ${tw`${fontCss}`} ${tw`${mycss}`}">
-      ${cellsData.map((cellVal, index) => html.node`<td data-label="${tableHeadCell[index]}" class="${tw`px-4 py-4`}">
+      ${cellsData.map((cellVal, index) => html.node`<td data-label="${tableHeadCell[index]}" class="${tw`p-2`}">
         <span>${cellVal}</span>
       </td>`)}
     </tr>`

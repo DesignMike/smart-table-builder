@@ -81,8 +81,8 @@ class Assets {
         $rest_api_routes = rest_url('tablecells/v1');
         $frontend_only = [
             'exceltotable-frontend' => [
-                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.5625b97e.js',
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.5625b97e.js' ),
+                'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.42fc55c0.js',
+                'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.42fc55c0.js' ),
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],

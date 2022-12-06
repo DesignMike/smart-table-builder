@@ -47,6 +47,7 @@
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
 import storeUtils from '../utils/storeUtils';
+import defaultState from '../../../default_state';
 const defautlSheetData = ({ title, col, row }) => {
 	let colsArray = new Array();
 	let rowsArray = new Array();
@@ -117,15 +118,7 @@ export default {
 			defautlSheetData(this.$route.query).grid.data,
 		);
 		this.$store.commit('setTitle', defautlSheetData(this.$route.query).title);
-		this.$store.commit('updateSettings', {
-			tableHeaderBg: '#2960BF',
-			tableRowsBg: '#EDF2F7',
-			tableCellsBorderBg: '#FFFFFF',
-			tableHeaderTextColor: '#FFFFFF',
-			tableRowsTextColor: '#000000',
-			showTitle: true,
-			addBorderToTableCells: false,
-		});
+		this.$store.commit('updateSettings', defaultState.settingsItemProps);
 		this.$store.commit('updatefontSettings', ['Armata', '20px', '400']);
 		this.$store.commit('updateTableBodyfontSettings', [
 			'Montserrat',

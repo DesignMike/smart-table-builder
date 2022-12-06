@@ -229,6 +229,12 @@ export default {
 					title: 'Table rows text color',
 					dependencies: [],
 				},
+				tableCellPadding: {
+					type: 'range',
+					default: '2',
+					title: 'Table Cell Padding',
+					dependencies: [],
+				},
 				tableCellsBorderBg: {
 					type: 'color',
 					default: 'gray',

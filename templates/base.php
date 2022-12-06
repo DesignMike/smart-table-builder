@@ -17,6 +17,6 @@
       <div id="list-container">
       </div>
     </main>
-    <script src="<?php echo WPULTIMATETABLE_NEW_ASSETS_URL . '/index.4d6bcbeb.js'; ?>" defer></script>
+    <script src="<?php echo WPULTIMATETABLE_NEW_ASSETS_URL . '/index.9e001d47.js'; ?>" defer></script>
   </body>
 </html>

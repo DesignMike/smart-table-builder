@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import vClickOutside from 'v-click-outside';
 import {constructURL} from './google-fonts-helper/index.ts';
+import mock from '../../default_state';
 // import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 Vue.use(vClickOutside);
@@ -25,15 +26,7 @@ const store = new Vuex.Store({
 		tableBodyFontSettings: ['Montserrat', '20px', '400'],
 		fontString: '',
 		tableBodyFontString: '',
-		settingsItemProps: {
-			tableHeaderBg: '#4A5568',
-			tableRowsBg: '#EDF2F7',
-			tableCellsBorderBg: '#FFFFFF',
-			tableHeaderTextColor: '#FFFFFF',
-			tableRowsTextColor: '#000000',
-			showTitle: true,
-			addBorderToTableCells: false,
-		},
+		settingsItemProps: mock.settingsItemProps,
 		fontUrls: [],
 	},
 	mutations: {
