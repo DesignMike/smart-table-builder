@@ -7,9 +7,9 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import tailwindcss from 'tailwindcss';
 // import autoprefixer from 'autoprefixer';
 
-function resolve (dir) {
-	return path.join(__dirname, dir)
-  }
+function resolve(dir) {
+	return path.join(__dirname, dir);
+}
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5');
 
@@ -29,9 +29,10 @@ export default {
 				exclude: /node_modules/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					{ loader: "css-loader", options: { url: false } },
+					{ loader: 'css-loader', options: { url: false } },
 					{
-						loader: "postcss-loader", options: {
+						loader: 'postcss-loader',
+						options: {
 							postcssOptions: {
 								ident: 'postcss',
 								plugins: [
@@ -41,12 +42,12 @@ export default {
 									require('postcss-preset-env')({ stage: 1 }),
 									require('postcss-prefix-selector')({
 										prefix: '.wptable',
-										exclude: ['.wrap.wptable', '.ui']
-									})
+										exclude: ['.wrap.wptable', '.ui'],
+									}),
 								],
-							}
+							},
 						},
-					}
+					},
 				],
 			},
 			{
@@ -105,12 +106,11 @@ export default {
 			// tsconf
 			new TsconfigPathsPlugin(),
 		],
-		alias : {
-			"icons": path.resolve(__dirname, "node_modules/vue-material-design-icons")
+		alias: {
+			icons: path.resolve(__dirname, 'node_modules/vue-material-design-icons'),
 		},
 	},
-	devtool:
-		process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
+	devtool: process.env.NODE_ENV === 'development' ? 'source-map' : 'source-map',
 	devServer: {
 		contentBase: path.resolve(__dirname, '../assets/js'),
 		open: false,

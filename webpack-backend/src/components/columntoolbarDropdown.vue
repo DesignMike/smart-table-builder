@@ -144,6 +144,11 @@ button {
 
 <script>
 export default {
+	props: {
+		color: String,
+		animation: String,
+		styles: Array,
+	},
 	data() {
 		return {
 			show: false,
@@ -162,7 +167,6 @@ export default {
 				var script = document.createElement('script');
 				script.onload = function () {
 					//do stuff with the script
-					debugger;
 				};
 				script.src = xz['exceltotable-style2'];
 
@@ -175,11 +179,14 @@ export default {
 		addColumnLeft(a) {
 			let { activeCell } = this.$parent.$refs.grid;
 			if (typeof activeCell.columnIndex == 'undefined') return;
-			let newCells = this.$store.state.grid.data.map((ee) => [
-				...ee.slice(0, activeCell.columnIndex),
-				'',
-				...ee.slice(activeCell.columnIndex),
-			]);
+			let newCells = this.$store.state.grid.data.map((ee) => {
+				debugger;
+				return [
+					...Object.values(ee).slice(0, activeCell.columnIndex),
+					'',
+					...Object.values(ee).slice(activeCell.columnIndex),
+				];
+			});
 			this.$store.commit('updateGrid', newCells);
 			this.$parent.$refs.grid.setActiveCell(
 				activeCell.columnIndex + 1,
@@ -192,11 +199,14 @@ export default {
 		addColumnRight(a) {
 			let { activeCell } = this.$parent.$refs.grid;
 			if (typeof activeCell.columnIndex == 'undefined') return;
-			let newCells = this.$store.state.grid.data.map((ee) => [
-				...ee.slice(0, activeCell.columnIndex + 1),
-				'',
-				...ee.slice(activeCell.columnIndex + 1),
-			]);
+			let newCells = this.$store.state.grid.data.map((ee) => {
+				debugger;
+				return [
+					...Object.values(ee).slice(0, activeCell.columnIndex + 1),
+					'',
+					...Object.values(ee).slice(activeCell.columnIndex + 1),
+				];
+			});
 			this.$store.commit('updateGrid', newCells);
 
 			this.$parent.$refs.grid.setActiveCell(
@@ -206,11 +216,6 @@ export default {
 			this.$parent.$refs.grid.refresh();
 			this.$parent.$refs.grid.selectNone();
 		},
-	},
-	props: {
-		color: String,
-		animation: String,
-		styles: Array,
 	},
 };
 </script>
