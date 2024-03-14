@@ -309,7 +309,7 @@ export default {
 					storeUtils.write(vm, data, 'postmount');
 				},
 			});
-			this.$store.commit('setPageTitle', 'Editing Table');
+			this.$store.commit('setPageTitle', 'Table Editor');
 			this.mountFonts();
 		}
 		if (!this.toEditTable) {

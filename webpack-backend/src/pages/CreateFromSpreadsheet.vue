@@ -210,7 +210,7 @@ export default {
 	},
 	mounted() {
 		// Tablesaw.init();
-		this.$store.commit('setPageTitle', 'Editing Table');
+		this.$store.commit('setPageTitle', 'Table Editor');
 	},
 };
 </script>

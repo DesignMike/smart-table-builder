@@ -207,6 +207,20 @@ export default {
 			let { activeCell } = this.$parent.$refs.grid;
 			if (typeof activeCell.columnIndex == 'undefined') return;
 			debugger;
+			// add extra row below the current row index
+			const { rowIndex } = activeCell;
+			let newCells = [];
+			for (let i = 0; i < this.$store.state.grid.data.length; i++) {
+				newCells.push(this.$store.state.grid.data[i]);
+				if (i === rowIndex) {
+					newCells.push(Array(this.$store.state.grid.data[i].length).fill(''));
+				}
+			}
+			this.$store.commit('updateGrid', newCells);
+			this.$parent.$refs.grid.setActiveCell(
+				activeCell.columnIndex,
+				activeCell.rowIndex + 1,
+			);
 		},
 		addRowAbove() {
 			let { activeCell } = this.$parent.$refs.grid;
