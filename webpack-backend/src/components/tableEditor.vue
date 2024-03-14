@@ -87,6 +87,7 @@
 					@contextmenu="handleRightClick"
 					@sortcolumn="handleGridEvent"
 					@afterrendercell="handleRender"
+					@afterpaste="convertRowsToArray"
 					ref="grid"
 					:data.prop="grid.data"
 					allow-sorting="0"
@@ -271,9 +272,17 @@ export default {
 		handleGridEvent(e, v, i, c) {
 			this.$refs.grid.setActiveCell(null);
 		},
+		convertRowsToArray(e) {
+			let { $store: store } = this;
+			let newCells = store.state.grid.data.map((ee) => {
+				return Object.values(ee);
+			});
+			store.commit('updateGrid', newCells);
+		},
 		setGridStyle() {
 			[1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
 				setTimeout(() => {
+					console.log('table resize adjustment kicked in!');
 					if (!this.$refs.hasOwnProperty('grid')) return;
 					this.$refs.grid.style.height = '100%';
 					this.$refs.grid.style.width = '100%';
@@ -286,7 +295,6 @@ export default {
 			});
 		},
 		handleRightClick(e, i, v, c) {
-			// e.items.map((e,i) => e.title == 'Add/Remove columns' ? i : '').filter(ee => ee).forEach(eee => delete e.items[eee])
 			let { $store: store } = this;
 			for (let index = 0; index < e.items.length; index++) {
 				// const element = array[index];
@@ -350,7 +358,7 @@ export default {
 		rowtoolbarDropdown,
 	},
 	mounted() {
-		// this.setGridStyle();
+		this.setGridStyle();
 		var grid = canvasDatagrid();
 		let previewframeLink = JSON.parse(
 			document.querySelector('#homeurl').textContent,

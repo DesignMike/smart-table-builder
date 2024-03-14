@@ -180,7 +180,6 @@ export default {
 			let { activeCell } = this.$parent.$refs.grid;
 			if (typeof activeCell.columnIndex == 'undefined') return;
 			let newCells = this.$store.state.grid.data.map((ee) => {
-				debugger;
 				return [
 					...Object.values(ee).slice(0, activeCell.columnIndex),
 					'',

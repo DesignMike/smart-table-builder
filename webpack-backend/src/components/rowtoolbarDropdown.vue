@@ -204,10 +204,29 @@ export default {
 			this.$parent.$refs.grid.selectNone();
 		},
 		addRow() {
+			let { activeCell } = this.$parent.$refs.grid;
+			if (typeof activeCell.columnIndex == 'undefined') return;
 			debugger;
 		},
 		addRowAbove() {
+			let { activeCell } = this.$parent.$refs.grid;
+			if (typeof activeCell.columnIndex == 'undefined') return;
 			debugger;
+			// add extra row above the current row index
+			const { rowIndex } = activeCell;
+			let newCells = [];
+
+			for (let i = 0; i < this.$store.state.grid.data.length; i++) {
+				if (i === rowIndex) {
+					newCells.push(Array(this.$store.state.grid.data[i].length).fill(''));
+				}
+				newCells.push(this.$store.state.grid.data[i]);
+			}
+			this.$store.commit('updateGrid', newCells);
+			this.$parent.$refs.grid.setActiveCell(
+				activeCell.columnIndex,
+				activeCell.rowIndex + 1,
+			);
 		},
 	},
 	props: {

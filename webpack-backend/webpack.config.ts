@@ -110,7 +110,7 @@ export default {
 			icons: path.resolve(__dirname, 'node_modules/vue-material-design-icons'),
 		},
 	},
-	devtool: process.env.NODE_ENV === 'development' ? 'source-map' : 'source-map',
+	devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
 	devServer: {
 		contentBase: path.resolve(__dirname, '../assets/js'),
 		open: false,
