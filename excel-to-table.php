@@ -127,11 +127,12 @@ final class WP_Ultimate_Tables {
         define( 'WPULTIMATETABLE_PATH', dirname( WPULTIMATETABLE_FILE ) );
         define( 'WPULTIMATETABLE_INCLUDES', WPULTIMATETABLE_PATH . '/includes' );
         define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
-        define( 'WPULTIMATETABLE_ASSETS', WPULTIMATETABLE_URL . '/assets' );
+        define( 'WPULTIMATETABLE_ASSETS_URL', WPULTIMATETABLE_URL . '/assets' );
+        define( 'WPULTIMATETABLE_ASSETS_PATH', WPULTIMATETABLE_PATH . '/assets' );
         define( 'WPULTIMATETABLE_ASSETS_WEBPACK', WPULTIMATETABLE_URL . '/webpack-backend/dist' );
-        define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
-        define( 'WPULTIMATETABLE_NEW_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/new-frontend/dist' );
-        define ( 'WPULTIMATETABLE_NEW_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
+        // define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
+        define( 'WPULTIMATETABLE_FRONTEND_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
+        // define ( 'WPULTIMATETABLE_NEW_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
     }
 
     /**
