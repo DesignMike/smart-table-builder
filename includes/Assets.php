@@ -86,38 +86,12 @@ class Assets {
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],
-            // 'exceltotable-frontendz' => [
-            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.975ef6c8.js',
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.975ef6c8.js' ),
-            //     'in_footer' => true,
-            //     'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
-            // ],
         ];
         $scripts = [
-            // 'exceltotable-runtime' => [
-            //     'src'       => WPULTIMATETABLE_ASSETS . '/js/runtime.js',
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/runtime.js' ),
-            //     'in_footer' => true
-            // ],
-            // 'exceltotable-vendor' => [
-            //     'src'       => WPULTIMATETABLE_ASSETS . '/js/vendors.js',
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/assets/js/vendors.js' ),
-            //     'in_footer' => true
-            // ],
-            // 'exceltotable-frontend-runtime' => [
-            //     'src'       => WPULTIMATETABLE_FRONTEND_ASSETS . '/js/runtime.js',
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/frontend/assets/js/runtime.js' ),
-            //     'in_footer' => true
-            // ],
-            // 'exceltotable-frontend-vendor' => [
-            //     'src'       => WPULTIMATETABLE_NEW_FRONTEND_ASSETS . '/index.c95e129c.js',
-            //     'version'   => filemtime( WPULTIMATETABLE_PATH . '/new-frontend/dist/index.c95e129c.js' ),
-            //     'in_footer' => true
-            // ],
             'exceltotable-admin' => [
-                'src'       => WPULTIMATETABLE_ASSETS_WEBPACK . '/main.js',
+                'src'       => WPULTIMATETABLE_ASSETS_URL . '/js/admin.js',
                 'deps'      => [ 'jquery', 'wp-util' ],
-                'version'   => filemtime( WPULTIMATETABLE_PATH . '/webpack-backend/dist/main.js' ),
+                'version'   => filemtime( WPULTIMATETABLE_ASSETS_PATH . '/js/admin.js' ),
                 'in_footer' => true
             ]
         ];
@@ -137,11 +111,8 @@ class Assets {
     public function get_styles() {
 
         $styles = [
-            'exceltotable-frontend' => [
-                'src' =>  WPULTIMATETABLE_FRONTEND_ASSETS_URL . '/css/frontend.css'
-            ],
             'exceltotable-admin' => [
-                'src' =>  WPULTIMATETABLE_ASSETS_WEBPACK . '/main.css'
+                'src' =>  WPULTIMATETABLE_ASSETS_URL . '/css/admin.css'
             ],
         ];
 
