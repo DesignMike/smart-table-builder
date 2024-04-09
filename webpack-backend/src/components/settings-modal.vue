@@ -15,43 +15,32 @@
 						class="flex items-start justify-between border-b border-solid border-gray-200 rounded-t"
 					>
 						<h3 class="text-3xl font-semibold">Table Settings</h3>
-						<button
-							class="p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-							onclick="toggleModal('modal-example-small')"
-						>
-							<span
-								class="bg-transparent h-6 w-6 text-2xl block outline-none focus:outline-none"
-							>
-								<i class="fas fa-times"></i>
-							</span>
-						</button>
 					</div>
 					<!--body-->
-					<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
-						Header Fonts
-					</h5>
-					<div
-						v-if="!isLoading"
-						class="shadow-lg p-3 rounded-lg shadow-gray-500 relative grid grid-cols-3 flex pt-0"
-					>
-						<fonts-select
-							:options="getFontFamilyList(this)"
-							fontZone="tableHeader"
-							@updateFont="handleFontUpdate"
-							context="fontFamily"
-						/>
-						<fonts-select
-							:options="getSizes(this)"
-							fontZone="tableHeader"
-							context="fontSize"
-						/>
-						<fonts-select
-							:options="findFontFamilyWeights(this)"
-							fontZone="tableHeader"
-							:key="componentKey"
-							context="fontWeight"
-							ref="weightDropDown"
-						/>
+					<div class="shadow-lg p-3 rounded-lg shadow-gray-500">
+						<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+							Header Fonts
+						</h5>
+						<div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
+							<fonts-select
+								:options="getFontFamilyList(this)"
+								fontZone="tableHeader"
+								context="fontFamily"
+								@updateFont="handleFontUpdate"
+							/>
+							<fonts-select
+								:options="getSizes(this)"
+								font-zone="tableHeader"
+								context="fontSize"
+							/>
+							<fonts-select
+								:options="findFontFamilyWeights(this)"
+								font-zone="tableHeader"
+								:key="componentKey"
+								ref="weightDropDown"
+								context="fontWeight"
+							/>
+						</div>
 					</div>
 					<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
 						Table Cell Fonts
@@ -91,42 +80,17 @@
 							v-if="settingsItems[obj].type == 'boolean'"
 							:checked="settingsItemProps[obj]"
 							@change="handleChkbx($event, obj, settingsItemProps, $store)"
-							value="some value"
 						/>
-						<ZipifyColorPicker
+						<toolcool-color-picker
+							@change="handleColorChange($event, obj)"
 							v-model="settingsItemProps[obj]"
-							@input="handleColorChange($event, obj)"
 							v-if="settingsItems[obj].type == 'color'"
-							:palette-key="paletteKey"
-							type="rgba"
-							:preset-colors="presetColors"
-							:max-palette-colors="14"
-							:duration-enter="150"
-							:duration-leave="100"
-							placement="bottom-end"
-							:is-over-top="true"
+							:color="settingsItemProps[obj]"
 						>
-							<template #activator="{ toggle }">
-								<span
-									v-if="settingsItems[obj].type == 'color'"
-									v-bind:style="{
-										backgroundColor: settingsItemProps[obj] + ' !important',
-									}"
-									@click="toggle($event.target)"
-									>&nbsp;&nbsp;&nbsp;</span
-								>
-								<span
-									v-if="settingsItems[obj].type == 'color'"
-									class="ml-2 font-semibold"
-									>{{ settingsItems[obj].title }}</span
-								>
-							</template>
-						</ZipifyColorPicker>
-						<span
-							v-if="settingsItems[obj].type !== 'color'"
-							class="ml-2 font-semibold"
-							>{{ settingsItems[obj].title }}</span
-						>
+						</toolcool-color-picker>
+						<span class="ml-2 font-semibold">{{
+							settingsItems[obj].title
+						}}</span>
 					</label>
 					<p v-if="isLoading" class="font-semibold text-center text-gray">
 						Please Wait
@@ -155,7 +119,7 @@
 
 <script>
 import FontsSelect from './FontsSelect.vue';
-import { ZipifyColorPicker } from 'zipify-colorpicker';
+import 'toolcool-color-picker';
 
 const presetColors = [
 	'#3bb44a',
@@ -177,6 +141,9 @@ const paletteKey = 'colorpicker.palate';
 const maxPaletteColors = 14;
 
 export default {
+	components: {
+		FontsSelect,
+	},
 	data() {
 		return {
 			paletteKey,
@@ -245,16 +212,6 @@ export default {
 			colors: [],
 		};
 	},
-	mounted() {
-		const updateGoogleFontsMetaData = (data) => {
-			this.googleFontsMetadata = JSON.parse(data);
-			this.isLoading = false;
-		};
-		jQuery.ajax({
-			url: wp.ajax.settings.url + '?action=sprdsh_get_gfonts_meta',
-			success: updateGoogleFontsMetaData,
-		});
-	},
 	computed: {
 		settingsItemProps: {
 			get: function () {
@@ -269,6 +226,16 @@ export default {
 				return false;
 			},
 		},
+	},
+	mounted() {
+		const updateGoogleFontsMetaData = (data) => {
+			this.googleFontsMetadata = JSON.parse(data);
+			this.isLoading = false;
+		};
+		jQuery.ajax({
+			url: wp.ajax.settings.url + '?action=sprdsh_get_gfonts_meta',
+			success: updateGoogleFontsMetaData,
+		});
 	},
 	methods: {
 		handleChkbx: (evt, obj, settingsItemProps, store) => {
@@ -306,17 +273,15 @@ export default {
 			let depResults = this.settingsItems[obj].dependencies.map((dep) =>
 				Boolean(this.settingsItemProps[dep]),
 			);
+			let displayMode =
+				this.settingsItems[obj].type == 'color' ? 'flex' : 'inline';
 			return (depResults.length ? depResults.some((e) => e == true) : true)
-				? 'inline'
+				? displayMode
 				: 'none';
 		},
 		handleColorChange(newColor, key) {
 			this.$store.commit('updateSettingsByKey', { key, value: newColor });
 		},
-	},
-	components: {
-		FontsSelect,
-		ZipifyColorPicker,
 	},
 };
 </script>

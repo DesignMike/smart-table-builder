@@ -4,6 +4,8 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as Webpack from 'webpack';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+const WebpackShellPlugin = require('webpack-shell-plugin-next');
+
 import tailwindcss from 'tailwindcss';
 // import autoprefixer from 'autoprefixer';
 
@@ -99,6 +101,13 @@ export default {
 		new Webpack.ProvidePlugin({
 			Vue: ['vue/dist/vue.esm.js', 'default'],
 		}),
+		new WebpackShellPlugin({
+			onDoneWatch: {
+				scripts: ['../.github/build-utils.mjs --skip-build'],
+				blocking: true,
+				parallel: false,
+			},
+		}),
 	],
 	resolve: {
 		extensions: ['.ts', '.js', '.vue'],
@@ -110,7 +119,8 @@ export default {
 			icons: path.resolve(__dirname, 'node_modules/vue-material-design-icons'),
 		},
 	},
-	devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
+	devtool:
+		process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
 	devServer: {
 		contentBase: path.resolve(__dirname, '../assets/js'),
 		open: false,
