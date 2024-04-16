@@ -89,9 +89,9 @@ class Assets {
         ];
         $scripts = [
             'exceltotable-admin' => [
-                'src'       => WPULTIMATETABLE_ASSETS_URL . '/js/admin.js',
+                'src'       => WPULTIMATETABLE_ASSETS_URL . '/js/backend/admin.js',
                 'deps'      => [ 'jquery', 'wp-util' ],
-                'version'   => filemtime( WPULTIMATETABLE_ASSETS_PATH . '/js/admin.js' ),
+                'version'   => filemtime( WPULTIMATETABLE_ASSETS_PATH . '/js/backend/admin.js' ),
                 'in_footer' => true
             ]
         ];

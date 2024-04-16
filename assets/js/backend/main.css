@@ -1,0 +1,2621 @@
+
+.wptable button[data-v-e017f87e] {
+	cursor: pointer
+}
+.wptable button[data-v-e017f87e]:focus {
+		outline: none;
+}
+
+/* Animations */
+.wptable .fade-enter-active[data-v-e017f87e],
+.wptable .fade-leave-active[data-v-e017f87e] {
+	-webkit-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.wptable .dropdown-wrapper svg[data-v-e017f87e] {
+	display: inline;
+}
+.wptable .fade-enter[data-v-e017f87e],
+.wptable .fade-leave-to[data-v-e017f87e] {
+	opacity: 0;
+}
+
+/* Slide-in-up animation*/
+.wptable .slide-in-up-enter-active[data-v-e017f87e],
+.wptable .slide-in-up-leave-active[data-v-e017f87e] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+.wptable .slide-in-up-enter[data-v-e017f87e],
+.wptable .slide-in-up-leave-to[data-v-e017f87e] {
+	opacity: 0;
+	-webkit-transform: translateY(20px);
+	    -ms-transform: translateY(20px);
+	        transform: translateY(20px);
+}
+
+/* Slide-in-right animation*/
+.wptable .slide-in-right-enter-active[data-v-e017f87e],
+.wptable .slide-in-right-leave-active[data-v-e017f87e] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-right-enter[data-v-e017f87e],
+.wptable .slide-in-right-leave-to[data-v-e017f87e] {
+	opacity: 0;
+	-webkit-transform: translateX(20px);
+	    -ms-transform: translateX(20px);
+	        transform: translateX(20px);
+}
+
+/* Slide-in-left animation*/
+.wptable .slide-in-left-enter-active[data-v-e017f87e],
+.wptable .slide-in-left-leave-active[data-v-e017f87e] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-left-enter[data-v-e017f87e],
+.wptable .slide-in-left-leave-to[data-v-e017f87e] {
+	opacity: 0;
+	-webkit-transform: translateX(-20px);
+	    -ms-transform: translateX(-20px);
+	        transform: translateX(-20px);
+}
+
+/* Scale animation*/
+.wptable .scale-enter-active[data-v-e017f87e],
+.wptable .scale-leave-active[data-v-e017f87e] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
+}
+.wptable .scale-enter[data-v-e017f87e],
+.wptable .scale-leave-to[data-v-e017f87e] {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
+}
+
+/* Rotate animation*/
+.wptable .rotate-enter-active[data-v-e017f87e],
+.wptable .rotate-leave-active[data-v-e017f87e] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1) rotate(-360deg);
+	    -ms-transform: scale(1) rotate(-360deg);
+	        transform: scale(1) rotate(-360deg);
+}
+.wptable .rotate-enter[data-v-e017f87e],
+.wptable .rotate-leave-to[data-v-e017f87e] {
+	opacity: 0;
+	-webkit-transform: scale(0) rotate(360deg);
+	    -ms-transform: scale(0) rotate(360deg);
+	        transform: scale(0) rotate(360deg);
+}
+
+
+.wptable button[data-v-71914094] {
+	cursor: pointer
+}
+.wptable button[data-v-71914094]:focus {
+		outline: none;
+}
+
+/* Animations */
+.wptable .fade-enter-active[data-v-71914094],
+.wptable .fade-leave-active[data-v-71914094] {
+	-webkit-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.wptable .dropdown-wrapper svg[data-v-71914094] {
+	display: inline;
+}
+.wptable .toolbar-tool svg[data-v-71914094],
+.wptable .toolbar-tool svg[data-v-71914094]:hover {
+	display: inline;
+}
+.wptable .fade-enter[data-v-71914094],
+.wptable .fade-leave-to[data-v-71914094] {
+	opacity: 0;
+}
+
+/* Slide-in-up animation*/
+.wptable .slide-in-up-enter-active[data-v-71914094],
+.wptable .slide-in-up-leave-active[data-v-71914094] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+.wptable .slide-in-up-enter[data-v-71914094],
+.wptable .slide-in-up-leave-to[data-v-71914094] {
+	opacity: 0;
+	-webkit-transform: translateY(20px);
+	    -ms-transform: translateY(20px);
+	        transform: translateY(20px);
+}
+
+/* Slide-in-right animation*/
+.wptable .slide-in-right-enter-active[data-v-71914094],
+.wptable .slide-in-right-leave-active[data-v-71914094] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-right-enter[data-v-71914094],
+.wptable .slide-in-right-leave-to[data-v-71914094] {
+	opacity: 0;
+	-webkit-transform: translateX(20px);
+	    -ms-transform: translateX(20px);
+	        transform: translateX(20px);
+}
+
+/* Slide-in-left animation*/
+.wptable .slide-in-left-enter-active[data-v-71914094],
+.wptable .slide-in-left-leave-active[data-v-71914094] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-left-enter[data-v-71914094],
+.wptable .slide-in-left-leave-to[data-v-71914094] {
+	opacity: 0;
+	-webkit-transform: translateX(-20px);
+	    -ms-transform: translateX(-20px);
+	        transform: translateX(-20px);
+}
+
+/* Scale animation*/
+.wptable .scale-enter-active[data-v-71914094],
+.wptable .scale-leave-active[data-v-71914094] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
+}
+.wptable .scale-enter[data-v-71914094],
+.wptable .scale-leave-to[data-v-71914094] {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
+}
+
+/* Rotate animation*/
+.wptable .rotate-enter-active[data-v-71914094],
+.wptable .rotate-leave-active[data-v-71914094] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1) rotate(-360deg);
+	    -ms-transform: scale(1) rotate(-360deg);
+	        transform: scale(1) rotate(-360deg);
+}
+.wptable .rotate-enter[data-v-71914094],
+.wptable .rotate-leave-to[data-v-71914094] {
+	opacity: 0;
+	-webkit-transform: scale(0) rotate(360deg);
+	    -ms-transform: scale(0) rotate(360deg);
+	        transform: scale(0) rotate(360deg);
+}
+
+
+.wptable button[data-v-5e2edca2] {
+	cursor: pointer
+}
+.wptable button[data-v-5e2edca2]:focus {
+		outline: none;
+}
+
+/* Animations */
+.wptable .fade-enter-active[data-v-5e2edca2],
+.wptable .fade-leave-active[data-v-5e2edca2] {
+	-webkit-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.wptable .dropdown-wrapper svg[data-v-5e2edca2] {
+	display: inline;
+}
+.wptable .toolbar-tool svg[data-v-5e2edca2],
+.wptable .toolbar-tool svg[data-v-5e2edca2]:hover {
+	display: inline;
+}
+.wptable .fade-enter[data-v-5e2edca2],
+.wptable .fade-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+}
+
+/* Slide-in-up animation*/
+.wptable .slide-in-up-enter-active[data-v-5e2edca2],
+.wptable .slide-in-up-leave-active[data-v-5e2edca2] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+.wptable .slide-in-up-enter[data-v-5e2edca2],
+.wptable .slide-in-up-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+	-webkit-transform: translateY(20px);
+	    -ms-transform: translateY(20px);
+	        transform: translateY(20px);
+}
+
+/* Slide-in-right animation*/
+.wptable .slide-in-right-enter-active[data-v-5e2edca2],
+.wptable .slide-in-right-leave-active[data-v-5e2edca2] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-right-enter[data-v-5e2edca2],
+.wptable .slide-in-right-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+	-webkit-transform: translateX(20px);
+	    -ms-transform: translateX(20px);
+	        transform: translateX(20px);
+}
+
+/* Slide-in-left animation*/
+.wptable .slide-in-left-enter-active[data-v-5e2edca2],
+.wptable .slide-in-left-leave-active[data-v-5e2edca2] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.wptable .slide-in-left-enter[data-v-5e2edca2],
+.wptable .slide-in-left-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+	-webkit-transform: translateX(-20px);
+	    -ms-transform: translateX(-20px);
+	        transform: translateX(-20px);
+}
+
+/* Scale animation*/
+.wptable .scale-enter-active[data-v-5e2edca2],
+.wptable .scale-leave-active[data-v-5e2edca2] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
+}
+.wptable .scale-enter[data-v-5e2edca2],
+.wptable .scale-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
+}
+
+/* Rotate animation*/
+.wptable .rotate-enter-active[data-v-5e2edca2],
+.wptable .rotate-leave-active[data-v-5e2edca2] {
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-transform: scale(1) rotate(-360deg);
+	    -ms-transform: scale(1) rotate(-360deg);
+	        transform: scale(1) rotate(-360deg);
+}
+.wptable .rotate-enter[data-v-5e2edca2],
+.wptable .rotate-leave-to[data-v-5e2edca2] {
+	opacity: 0;
+	-webkit-transform: scale(0) rotate(360deg);
+	    -ms-transform: scale(0) rotate(360deg);
+	        transform: scale(0) rotate(360deg);
+}
+
+
+.wptable .copy-icon svg[data-v-40f7510a] {
+	display: inline;
+}
+.wptable .copy-icon[data-v-40f7510a] {
+	cursor: pointer;
+}
+.wptable .toolbar button svg[data-v-40f7510a] {
+	display: inline;
+}
+
+
+.wptable .main-nav li {
+	margin-bottom: 0;
+}
+.wptable canvas-datagrid {
+	overflow: scroll;
+}
+
+
+.wrap.wptable[data-v-51ee50a4] {
+	background-color: aqua;
+}
+@-webkit-keyframes spinneralt-51ee50a4 {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+to {
+		-webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+}
+}
+@keyframes spinneralt-51ee50a4 {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+to {
+		-webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+}
+}
+.wptable .gg-spinner-alt[data-v-51ee50a4] {
+	-webkit-transform: scale(1);
+	-webkit-transform: scale(var(--ggs, 1));
+	    -ms-transform: scale(1);
+	    -ms-transform: scale(var(--ggs, 1));
+	        transform: scale(1);
+	        transform: scale(var(--ggs, 1));
+}
+.wptable .gg-spinner-alt[data-v-51ee50a4],
+.wptable .gg-spinner-alt[data-v-51ee50a4]::before {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	position: relative;
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+.wptable .gg-spinner-alt[data-v-51ee50a4]::before {
+	content: '';
+	position: absolute;
+	border-radius: 100px;
+	-webkit-animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+	        animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+	border: 3px solid transparent;
+	border-top-color: currentColor;
+}
+
+
+.wptable #wpcontent,
+.wptable #wpfooter {
+	background-color: white;
+}
+.wrap.wptable {
+	margin-top: 0 !important;
+}
+
+/*
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+.wptable *,
+.wptable ::before,
+.wptable ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: currentColor; /* 2 */
+}
+
+.wptable ::before,
+.wptable ::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+.wptable html {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+.wptable body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+.wptable hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+.wptable abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+.wptable h1,
+.wptable h2,
+.wptable h3,
+.wptable h4,
+.wptable h5,
+.wptable h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+.wptable a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+.wptable b,
+.wptable strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+.wptable code,
+.wptable kbd,
+.wptable samp,
+.wptable pre {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+.wptable small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+.wptable sub,
+.wptable sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.wptable sub {
+  bottom: -0.25em;
+}
+
+.wptable sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+.wptable table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+.wptable button,
+.wptable input,
+.wptable optgroup,
+.wptable select,
+.wptable textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+.wptable button,
+.wptable select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+.wptable button,
+.wptable [type='button'],
+.wptable [type='reset'],
+.wptable [type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+.wptable :-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+.wptable :-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+.wptable progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+.wptable ::-webkit-inner-spin-button,
+.wptable ::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+.wptable [type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+.wptable ::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+.wptable ::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+.wptable summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+.wptable blockquote,
+.wptable dl,
+.wptable dd,
+.wptable h1,
+.wptable h2,
+.wptable h3,
+.wptable h4,
+.wptable h5,
+.wptable h6,
+.wptable hr,
+.wptable figure,
+.wptable p,
+.wptable pre {
+  margin: 0;
+}
+
+.wptable fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+.wptable legend {
+  padding: 0;
+}
+
+.wptable ol,
+.wptable ul,
+.wptable menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+.wptable textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+.wptable input::-webkit-input-placeholder, .wptable textarea::-webkit-input-placeholder {
+  opacity: 1; /* 1 */
+  color: #cbd5e0; /* 2 */
+}
+
+.wptable input::-moz-placeholder, .wptable textarea::-moz-placeholder {
+  opacity: 1; /* 1 */
+  color: #cbd5e0; /* 2 */
+}
+
+.wptable input:-ms-input-placeholder, .wptable textarea:-ms-input-placeholder {
+  opacity: 1; /* 1 */
+  color: #cbd5e0; /* 2 */
+}
+
+.wptable input::-ms-input-placeholder, .wptable textarea::-ms-input-placeholder {
+  opacity: 1; /* 1 */
+  color: #cbd5e0; /* 2 */
+}
+
+.wptable input::placeholder,
+.wptable textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #cbd5e0; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+.wptable button,
+.wptable [role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+.wptable :disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+.wptable img,
+.wptable svg,
+.wptable video,
+.wptable canvas,
+.wptable audio,
+.wptable iframe,
+.wptable embed,
+.wptable object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+.wptable img,
+.wptable video {
+  max-width: 100%;
+  height: auto;
+}
+
+.wptable *, .wptable ::before, .wptable ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(66, 153, 225, 0.5);
+  --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+  --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow-colored: 0 0 rgba(0,0,0,0);
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.wptable ::-webkit-backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(66, 153, 225, 0.5);
+  --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+  --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow-colored: 0 0 rgba(0,0,0,0);
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.wptable ::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(66, 153, 225, 0.5);
+  --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+  --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow-colored: 0 0 rgba(0,0,0,0);
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.wptable .container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+
+  .wptable .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .wptable .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .wptable .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .wptable .container {
+    max-width: 1280px;
+  }
+}
+
+.wptable .fixed {
+  position: fixed;
+}
+
+.wptable .absolute {
+  position: absolute;
+}
+
+.wptable .relative {
+  position: relative;
+}
+
+.wptable .inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.wptable .top-0 {
+  top: 0;
+}
+
+.wptable .right-0 {
+  right: 0;
+}
+
+.wptable .z-10 {
+  z-index: 10;
+}
+
+.wptable .z-50 {
+  z-index: 50;
+}
+
+.wptable .z-40 {
+  z-index: 40;
+}
+
+.wptable .m-auto {
+  margin: auto;
+}
+
+.wptable .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wptable .my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wptable .my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wptable .mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.wptable .mt-2 {
+  margin-top: 0.5rem;
+}
+
+.wptable .mt-8 {
+  margin-top: 2rem;
+}
+
+.wptable .mt-1 {
+  margin-top: 0.25rem;
+}
+
+.wptable .mb-0 {
+  margin-bottom: 0;
+}
+
+.wptable .ml-2 {
+  margin-left: 0.5rem;
+}
+
+.wptable .mr-1 {
+  margin-right: 0.25rem;
+}
+
+.wptable .mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.wptable .mb-4 {
+  margin-bottom: 1rem;
+}
+
+.wptable .mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.wptable .mt-3 {
+  margin-top: 0.75rem;
+}
+
+.wptable .mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.wptable .mr-8 {
+  margin-right: 2rem;
+}
+
+.wptable .mr-2 {
+  margin-right: 0.5rem;
+}
+
+.wptable .mr-3 {
+  margin-right: 0.75rem;
+}
+
+.wptable .block {
+  display: block;
+}
+
+.wptable .inline-block {
+  display: inline-block;
+}
+
+.wptable .inline {
+  display: inline;
+}
+
+.wptable .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wptable .inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.wptable .table {
+  display: table;
+}
+
+.wptable .grid {
+  display: grid;
+}
+
+.wptable .contents {
+  display: contents;
+}
+
+.wptable .hidden {
+  display: none;
+}
+
+.wptable .h-full {
+  height: 100%;
+}
+
+.wptable .h-32 {
+  height: 8rem;
+}
+
+.wptable .h-5 {
+  height: 1.25rem;
+}
+
+.wptable .h-auto {
+  height: auto;
+}
+
+.wptable .max-h-full {
+  max-height: 100%;
+}
+
+.wptable .w-40 {
+  width: 10rem;
+}
+
+.wptable .w-auto {
+  width: auto;
+}
+
+.wptable .w-full {
+  width: 100%;
+}
+
+.wptable .w-32 {
+  width: 8rem;
+}
+
+.wptable .w-5 {
+  width: 1.25rem;
+}
+
+.wptable .max-w-xs {
+  max-width: 20rem;
+}
+
+.wptable .max-w-6xl {
+  max-width: 72rem;
+}
+
+.wptable .flex-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+.wptable .flex-auto {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.wptable .flex-shrink-0 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.wptable .flex-grow-default {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.wptable .transform {
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@-webkit-keyframes spin {
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.wptable .animate-spin {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+.wptable .resize {
+  resize: both;
+}
+
+.wptable .list-none {
+  list-style-type: none;
+}
+
+.wptable .grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wptable .flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.wptable .flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wptable .flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wptable .items-start {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.wptable .items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wptable .justify-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.wptable .justify-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.wptable .justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wptable .justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wptable .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.wptable .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.wptable .overflow-hidden {
+  overflow: hidden;
+}
+
+.wptable .overflow-y-auto {
+  overflow-y: auto;
+}
+
+.wptable .overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.wptable .rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.wptable .rounded-full {
+  border-radius: 9999px;
+}
+
+.wptable .border-0 {
+  border-width: 0;
+}
+
+.wptable .border-2 {
+  border-width: 2px;
+}
+
+.wptable .border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.wptable .border-solid {
+  border-style: solid;
+}
+
+.wptable .border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(237 242 247 / var(--tw-border-opacity));
+}
+
+.wptable .border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(26 32 44 / var(--tw-border-opacity));
+}
+
+.wptable .border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(159 122 234 / var(--tw-border-opacity));
+}
+
+.wptable .border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 224 / var(--tw-border-opacity));
+}
+
+.wptable .bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 242 247 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-transparent {
+  background-color: transparent;
+}
+
+.wptable .bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 250 252 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(66 153 225 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 248 255 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-opacity-75 {
+  --tw-bg-opacity: 0.75;
+}
+
+.wptable .p-4 {
+  padding: 1rem;
+}
+
+.wptable .p-12 {
+  padding: 3rem;
+}
+
+.wptable .p-3 {
+  padding: 0.75rem;
+}
+
+.wptable .p-6 {
+  padding: 1.5rem;
+}
+
+.wptable .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wptable .py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.wptable .px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.wptable .px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.wptable .py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.wptable .px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.wptable .pb-4 {
+  padding-bottom: 1rem;
+}
+
+.wptable .pb-0 {
+  padding-bottom: 0;
+}
+
+.wptable .pt-0 {
+  padding-top: 0;
+}
+
+.wptable .pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.wptable .pt-4 {
+  padding-top: 1rem;
+}
+
+.wptable .pr-1 {
+  padding-right: 0.25rem;
+}
+
+.wptable .text-center {
+  text-align: center;
+}
+
+.wptable .font-sans {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.wptable .text-lg {
+  font-size: 1.125rem;
+}
+
+.wptable .text-sm {
+  font-size: 0.875rem;
+}
+
+.wptable .text-3xl {
+  font-size: 1.875rem;
+}
+
+.wptable .text-base {
+  font-size: 1rem;
+}
+
+.wptable .text-xl {
+  font-size: 1.25rem;
+}
+
+.wptable .text-2xl {
+  font-size: 1.5rem;
+}
+
+.wptable .text-xs {
+  font-size: 0.75rem;
+}
+
+.wptable .font-semibold {
+  font-weight: 600;
+}
+
+.wptable .font-medium {
+  font-weight: 500;
+}
+
+.wptable .font-bold {
+  font-weight: 700;
+}
+
+.wptable .uppercase {
+  text-transform: uppercase;
+}
+
+.wptable .capitalize {
+  text-transform: capitalize;
+}
+
+.wptable .leading-normal {
+  line-height: 1.5;
+}
+
+.wptable .leading-tight {
+  line-height: 1.25;
+}
+
+.wptable .tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.wptable .tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.wptable .text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(74 85 104 / var(--tw-text-opacity));
+}
+
+.wptable .text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(26 32 44 / var(--tw-text-opacity));
+}
+
+.wptable .text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.wptable .text-purple-500 {
+  --tw-text-opacity: 1;
+  color: rgb(159 122 234 / var(--tw-text-opacity));
+}
+
+.wptable .text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(66 153 225 / var(--tw-text-opacity));
+}
+
+.wptable .text-blue-700 {
+  --tw-text-opacity: 1;
+  color: rgb(43 108 176 / var(--tw-text-opacity));
+}
+
+.wptable .text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(197 48 48 / var(--tw-text-opacity));
+}
+
+.wptable .text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(113 128 150 / var(--tw-text-opacity));
+}
+
+.wptable .placeholder-gray-400::-webkit-input-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(203 213 224 / var(--tw-placeholder-opacity));
+}
+
+.wptable .placeholder-gray-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(203 213 224 / var(--tw-placeholder-opacity));
+}
+
+.wptable .placeholder-gray-400:-ms-input-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(203 213 224 / var(--tw-placeholder-opacity));
+}
+
+.wptable .placeholder-gray-400::-ms-input-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(203 213 224 / var(--tw-placeholder-opacity));
+}
+
+.wptable .placeholder-gray-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(203 213 224 / var(--tw-placeholder-opacity));
+}
+
+.wptable .opacity-25 {
+  opacity: 0.25;
+}
+
+.wptable .shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -2px var(--tw-shadow-color);
+  -webkit-box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+          box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
+
+.wptable .shadow-inner {
+  --tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  -webkit-box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+          box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
+
+.wptable .shadow-gray-500 {
+  --tw-shadow-color: #a0aec0;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.wptable .outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.wptable .outline {
+  outline-style: solid;
+}
+
+.wptable .filter {
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.wptable .transition {
+  -webkit-transition-property: color, background-color, border-color, fill, stroke, opacity, -webkit-text-decoration-color, -webkit-box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, -webkit-text-decoration-color, -webkit-box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  -o-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+       -o-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.wptable .transition-all {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+       -o-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.wptable .duration-300 {
+  -webkit-transition-duration: 300ms;
+       -o-transition-duration: 300ms;
+          transition-duration: 300ms;
+}
+
+.wptable .duration-150 {
+  -webkit-transition-duration: 150ms;
+       -o-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.wptable .ease-linear {
+  -webkit-transition-timing-function: linear;
+       -o-transition-timing-function: linear;
+          transition-timing-function: linear;
+}
+
+/*!
+ * # Semantic UI 2.4.0 - Dropdown
+ */
+
+.wptable .ui.dropdown{cursor:pointer;position:relative;display:inline-block;outline:none;text-align:left;transition:width .1s ease,-webkit-box-shadow .1s ease;transition:box-shadow .1s ease,width .1s ease,-webkit-box-shadow .1s ease;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+
+.wptable .ui.dropdown .menu{cursor:auto;position:absolute;display:none;outline:none;top:100%;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;margin:0;padding:0 0;background:#fff;font-size:1em;text-shadow:none;text-align:left;-webkit-box-shadow:0 2px 3px 0 rgba(34,36,38,.15);box-shadow:0 2px 3px 0 rgba(34,36,38,.15);border:1px solid rgba(34,36,38,.15);border-radius:.28571429rem;-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease;z-index:11;will-change:transform,opacity}
+
+.wptable .ui.dropdown .menu>*{white-space:nowrap}
+
+.wptable .ui.dropdown>input:not(.search):first-child,.wptable .ui.dropdown>select{display:none!important}
+
+.wptable .ui.dropdown>.dropdown.icon{position:relative;font-size:.85714286em;margin:0 0 0 1em}
+
+.wptable .ui.dropdown .menu>.item .dropdown.icon{width:auto;float:right;margin:0 0 0 1em}
+
+.wptable .ui.dropdown .menu>.item .dropdown.icon+.text{margin-right:1em}
+
+.wptable .ui.dropdown>.text{display:inline-block;-webkit-transition:none;-o-transition:none;transition:none}
+
+.wptable .ui.dropdown .menu>.item{position:relative;cursor:pointer;display:block;border:none;height:auto;text-align:left;border-top:none;line-height:1em;color:rgba(0,0,0,.87);padding:.78571429rem 1.14285714rem!important;font-size:1rem;text-transform:none;font-weight:400;-webkit-box-shadow:none;box-shadow:none;-webkit-touch-callout:none}
+
+.wptable .ui.dropdown .menu>.item:first-child{border-top-width:0}
+
+.wptable .ui.dropdown .menu .item>[class*="right floated"],.wptable .ui.dropdown>.text>[class*="right floated"]{float:right!important;margin-right:0!important;margin-left:1em!important}
+
+.wptable .ui.dropdown .menu .item>[class*="left floated"],.wptable .ui.dropdown>.text>[class*="left floated"]{float:left!important;margin-left:0!important;margin-right:1em!important}
+
+.wptable .ui.dropdown .menu .item>.flag.floated,.wptable .ui.dropdown .menu .item>.icon.floated,.wptable .ui.dropdown .menu .item>.image.floated,.wptable .ui.dropdown .menu .item>img.floated{margin-top:0}
+
+.wptable .ui.dropdown .menu>.header{margin:1rem 0 .75rem;padding:0 1.14285714rem;color:rgba(0,0,0,.85);font-size:.78571429em;font-weight:700;text-transform:uppercase}
+
+.wptable .ui.dropdown .menu>.divider{border-top:1px solid rgba(34,36,38,.1);height:0;margin:.5em 0}
+
+.wptable .ui.dropdown.dropdown .menu>.input{width:auto;display:-webkit-box;display:-ms-flexbox;display:flex;margin:1.14285714rem .78571429rem;min-width:10rem}
+
+.wptable .ui.dropdown .menu>.header+.input{margin-top:0}
+
+.wptable .ui.dropdown .menu>.input:not(.transparent) input{padding:.5em 1em}
+
+.wptable .ui.dropdown .menu>.input:not(.transparent) .button,.wptable .ui.dropdown .menu>.input:not(.transparent) .icon,.wptable .ui.dropdown .menu>.input:not(.transparent) .label{padding-top:.5em;padding-bottom:.5em}
+
+.wptable .ui.dropdown .menu>.item>.description,.wptable .ui.dropdown>.text>.description{float:right;margin:0 0 0 1em;color:rgba(0,0,0,.4)}
+
+.wptable .ui.dropdown .menu>.message{padding:.78571429rem 1.14285714rem;font-weight:400}
+
+.wptable .ui.dropdown .menu>.message:not(.ui){color:rgba(0,0,0,.4)}
+
+.wptable .ui.dropdown .menu .menu{top:0!important;left:100%;right:auto;margin:0 0 0 -.5em!important;border-radius:.28571429rem!important;z-index:21!important}
+
+.wptable .ui.dropdown .menu .menu:after{display:none}
+
+.wptable .ui.dropdown .menu>.item>.flag,.wptable .ui.dropdown .menu>.item>.icon,.wptable .ui.dropdown .menu>.item>.image,.wptable .ui.dropdown .menu>.item>.label,.wptable .ui.dropdown .menu>.item>img,.wptable .ui.dropdown>.text>.flag,.wptable .ui.dropdown>.text>.icon,.wptable .ui.dropdown>.text>.image,.wptable .ui.dropdown>.text>.label,.wptable .ui.dropdown>.text>img{margin-top:0;margin-left:0;float:none;margin-right:.78571429rem}
+
+.wptable .ui.dropdown .menu>.item>.image,.wptable .ui.dropdown .menu>.item>img,.wptable .ui.dropdown>.text>.image,.wptable .ui.dropdown>.text>img{display:inline-block;vertical-align:top;width:auto;margin-top:-.5em;margin-bottom:-.5em;max-height:2em}
+
+.wptable .ui.dropdown .ui.menu>.item:before,.wptable .ui.menu .ui.dropdown .menu>.item:before{display:none}
+
+.wptable .ui.menu .ui.dropdown .menu .active.item{border-left:none}
+
+.wptable .ui.buttons>.ui.dropdown:last-child .menu,.wptable .ui.menu .right.dropdown.item .menu,.wptable .ui.menu .right.menu .dropdown:last-child .menu{left:auto;right:0}
+
+.wptable .ui.label.dropdown .menu{min-width:100%}
+
+.wptable .ui.dropdown.icon.button>.dropdown.icon{margin:0}
+
+.wptable .ui.button.dropdown .menu{min-width:100%}
+
+.wptable .ui.selection.dropdown{cursor:pointer;word-wrap:break-word;line-height:1em;white-space:normal;outline:0;-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);min-width:14em;min-height:2.71428571em;background:#fff;display:inline-block;padding:.78571429em 2.1em .78571429em 1em;color:rgba(0,0,0,.87);-webkit-box-shadow:none;box-shadow:none;border:1px solid rgba(34,36,38,.15);border-radius:.28571429rem;-webkit-transition:width .1s ease,-webkit-box-shadow .1s ease;transition:width .1s ease,-webkit-box-shadow .1s ease;-o-transition:box-shadow .1s ease,width .1s ease;transition:box-shadow .1s ease,width .1s ease;transition:box-shadow .1s ease,width .1s ease,-webkit-box-shadow .1s ease}
+
+.wptable .ui.selection.dropdown.active,.wptable .ui.selection.dropdown.visible{z-index:10}
+
+.wptable select.ui.dropdown{height:38px;padding:.5em;border:1px solid rgba(34,36,38,.15);visibility:visible}
+
+.wptable .ui.selection.dropdown>.delete.icon,.wptable .ui.selection.dropdown>.dropdown.icon,.wptable .ui.selection.dropdown>.search.icon{cursor:pointer;position:absolute;width:auto;height:auto;line-height:1.21428571em;top:.78571429em;right:1em;z-index:3;margin:-.78571429em;padding:.91666667em;opacity:.8;-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease}
+
+.wptable .ui.compact.selection.dropdown{min-width:0}
+
+.wptable .ui.selection.dropdown .menu{overflow-x:hidden;overflow-y:auto;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-overflow-scrolling:touch;border-top-width:0!important;width:auto;outline:none;margin:0 -1px;min-width:calc(100% + 2px);width:calc(100% + 2px);border-radius:0 0 .28571429rem .28571429rem;-webkit-box-shadow:0 2px 3px 0 rgba(34,36,38,.15);box-shadow:0 2px 3px 0 rgba(34,36,38,.15);-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease}
+
+.wptable .ui.selection.dropdown .menu:after,.wptable .ui.selection.dropdown .menu:before{display:none}
+
+.wptable .ui.selection.dropdown .menu>.message{padding:.78571429rem 1.14285714rem}
+
+@media only screen and (max-width:767px){.wptable .ui.selection.dropdown .menu{max-height:8.01428571rem}}
+
+@media only screen and (min-width:768px){.wptable .ui.selection.dropdown .menu{max-height:10.68571429rem}}
+
+@media only screen and (min-width:992px){.wptable .ui.selection.dropdown .menu{max-height:16.02857143rem}}
+
+@media only screen and (min-width:1920px){.wptable .ui.selection.dropdown .menu{max-height:21.37142857rem}}
+
+.wptable .ui.selection.dropdown .menu>.item{border-top:1px solid #fafafa;padding:.78571429rem 1.14285714rem!important;white-space:normal;word-wrap:normal}
+
+.wptable .ui.selection.dropdown .menu>.hidden.addition.item{display:none}
+
+.wptable .ui.selection.dropdown:hover{border-color:rgba(34,36,38,.35);-webkit-box-shadow:none;box-shadow:none}
+
+.wptable .ui.selection.active.dropdown,.wptable .ui.selection.active.dropdown .menu{border-color:#96c8da;-webkit-box-shadow:0 2px 3px 0 rgba(34,36,38,.15);box-shadow:0 2px 3px 0 rgba(34,36,38,.15)}
+
+.wptable .ui.selection.dropdown:focus{border-color:#96c8da;-webkit-box-shadow:none;box-shadow:none}
+
+.wptable .ui.selection.dropdown:focus .menu{border-color:#96c8da;-webkit-box-shadow:0 2px 3px 0 rgba(34,36,38,.15);box-shadow:0 2px 3px 0 rgba(34,36,38,.15)}
+
+.wptable .ui.selection.visible.dropdown>.text:not(.default){font-weight:400;color:rgba(0,0,0,.8)}
+
+.wptable .ui.selection.active.dropdown:hover,.wptable .ui.selection.active.dropdown:hover .menu{border-color:#96c8da;-webkit-box-shadow:0 2px 3px 0 rgba(34,36,38,.15);box-shadow:0 2px 3px 0 rgba(34,36,38,.15)}
+
+.wptable .ui.active.selection.dropdown>.dropdown.icon,.wptable .ui.visible.selection.dropdown>.dropdown.icon{opacity:"";z-index:3}
+
+.wptable .ui.active.selection.dropdown{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
+
+.wptable .ui.active.empty.selection.dropdown{border-radius:.28571429rem!important;-webkit-box-shadow:none!important;box-shadow:none!important}
+
+.wptable .ui.active.empty.selection.dropdown .menu{border:none!important;-webkit-box-shadow:none!important;box-shadow:none!important}
+
+.wptable .ui.search.dropdown{min-width:""}
+
+.wptable .ui.search.dropdown>input.search{background:none transparent!important;border:none!important;-webkit-box-shadow:none!important;box-shadow:none!important;cursor:text;top:0;left:1px;width:100%;outline:none;-webkit-tap-highlight-color:rgba(255,255,255,0);padding:inherit;position:absolute;z-index:2}
+
+.wptable .ui.search.dropdown>.text{cursor:text;position:relative;left:1px;z-index:3}
+
+.wptable .ui.search.selection.dropdown>input.search,.wptable .ui.search.selection.dropdown>span.sizer{line-height:1.21428571em;padding:.67857143em 2.1em .67857143em 1em}
+
+.wptable .ui.search.selection.dropdown>span.sizer{display:none;white-space:pre}
+
+.wptable .ui.search.dropdown.active>input.search,.wptable .ui.search.dropdown.visible>input.search{cursor:auto}
+
+.wptable .ui.search.dropdown.active>.text,.wptable .ui.search.dropdown.visible>.text{pointer-events:none}
+
+.wptable .ui.active.search.dropdown input.search:focus+.text .flag,.wptable .ui.active.search.dropdown input.search:focus+.text .icon{opacity:.45}
+
+.wptable .ui.active.search.dropdown input.search:focus+.text{color:hsla(0,0%,45.1%,.87)!important}
+
+.wptable .ui.search.dropdown .menu{overflow-x:hidden;overflow-y:auto;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-overflow-scrolling:touch}
+
+@media only screen and (max-width:767px){.wptable .ui.search.dropdown .menu{max-height:8.01428571rem}}
+
+@media only screen and (min-width:768px){.wptable .ui.search.dropdown .menu{max-height:10.68571429rem}}
+
+@media only screen and (min-width:992px){.wptable .ui.search.dropdown .menu{max-height:16.02857143rem}}
+
+@media only screen and (min-width:1920px){.wptable .ui.search.dropdown .menu{max-height:21.37142857rem}}
+
+.wptable .ui.multiple.dropdown{padding:.22619048em 2.1em .22619048em .35714286em}
+
+.wptable .ui.multiple.dropdown .menu{cursor:auto}
+
+.wptable .ui.multiple.search.dropdown,.wptable .ui.multiple.search.dropdown>input.search{cursor:text}
+
+.wptable .ui.multiple.dropdown>.label{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;vertical-align:top;white-space:normal;font-size:1em;padding:.35714286em .78571429em;margin:.14285714rem .28571429rem .14285714rem 0;-webkit-box-shadow:0 0 0 1px rgba(34,36,38,.15) inset;box-shadow:inset 0 0 0 1px rgba(34,36,38,.15)}
+
+.wptable .ui.multiple.dropdown .dropdown.icon{margin:"";padding:""}
+
+.wptable .ui.multiple.dropdown>.text{position:static;padding:0;max-width:100%;margin:.45238095em 0 .45238095em .64285714em;line-height:1.21428571em}
+
+.wptable .ui.multiple.dropdown>.label~input.search{margin-left:.14285714em!important}
+
+.wptable .ui.multiple.dropdown>.label~.text{display:none}
+
+.wptable .ui.multiple.search.dropdown>.text{display:inline-block;position:absolute;top:0;left:0;padding:inherit;margin:.45238095em 0 .45238095em .64285714em;line-height:1.21428571em}
+
+.wptable .ui.multiple.search.dropdown>.label~.text{display:none}
+
+.wptable .ui.multiple.search.dropdown>input.search{position:static;padding:0;max-width:100%;margin:.45238095em 0 .45238095em .64285714em;width:2.2em;line-height:1.21428571em}
+
+.wptable .ui.inline.dropdown{cursor:pointer;display:inline-block;color:inherit}
+
+.wptable .ui.inline.dropdown .dropdown.icon{margin:0 .21428571em 0 .21428571em;vertical-align:baseline}
+
+.wptable .ui.inline.dropdown>.text{font-weight:700}
+
+.wptable .ui.inline.dropdown .menu{cursor:auto;margin-top:.21428571em;border-radius:.28571429rem}
+
+.wptable .ui.dropdown .menu .active.item{background:transparent;font-weight:700;color:rgba(0,0,0,.95);-webkit-box-shadow:none;box-shadow:none;z-index:12}
+
+.wptable .ui.dropdown .menu>.item:hover{background:rgba(0,0,0,.05);color:rgba(0,0,0,.95);z-index:13}
+
+.wptable .ui.loading.dropdown>i.icon{height:1em!important}
+
+.wptable .ui.loading.selection.dropdown>i.icon{padding:1.5em 1.28571429em!important}
+
+.wptable .ui.loading.dropdown>i.icon:before{border-radius:500rem;border:.2em solid rgba(0,0,0,.1)}
+
+.wptable .ui.loading.dropdown>i.icon:after,.wptable .ui.loading.dropdown>i.icon:before{position:absolute;content:"";top:50%;left:50%;margin:-.64285714em 0 0 -.64285714em;width:1.28571429em;height:1.28571429em}
+
+.wptable .ui.loading.dropdown>i.icon:after{-webkit-box-shadow:0 0 0 1px transparent;box-shadow:0 0 0 1px transparent;-webkit-animation:dropdown-spin .6s linear;animation:dropdown-spin .6s linear;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;border-radius:500rem;border-color:#767676 transparent transparent;border-style:solid;border-width:.2em}
+
+.wptable .ui.loading.dropdown.button>i.icon:after,.wptable .ui.loading.dropdown.button>i.icon:before{display:none}
+
+@-webkit-keyframes dropdown-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}
+
+@keyframes dropdown-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}
+
+.wptable .ui.default.dropdown:not(.button)>.text,.wptable .ui.dropdown:not(.button)>.default.text{color:hsla(0,0%,74.9%,.87)}
+
+.wptable .ui.default.dropdown:not(.button)>input:focus~.text,.wptable .ui.dropdown:not(.button)>input:focus~.default.text{color:hsla(0,0%,45.1%,.87)}
+
+.wptable .ui.loading.dropdown>.text{-webkit-transition:none;-o-transition:none;transition:none}
+
+.wptable .ui.dropdown .loading.menu{display:block;visibility:hidden;z-index:-1}
+
+.wptable .ui.dropdown>.loading.menu{left:0!important;right:auto!important}
+
+.wptable .ui.dropdown>.menu .loading.menu{left:100%!important;right:auto!important}
+
+.wptable .ui.dropdown .menu .selected.item,.wptable .ui.dropdown.selected{background:rgba(0,0,0,.03);color:rgba(0,0,0,.95)}
+
+.wptable .ui.dropdown>.filtered.text{visibility:hidden}
+
+.wptable .ui.dropdown .filtered.item{display:none!important}
+
+.wptable .ui.dropdown.error,.wptable .ui.dropdown.error>.default.text,.wptable .ui.dropdown.error>.text{color:#9f3a38}
+
+.wptable .ui.selection.dropdown.error{background:#fff6f6;border-color:#e0b4b4}
+
+.wptable .ui.dropdown.error>.menu,.wptable .ui.dropdown.error>.menu .menu,.wptable .ui.selection.dropdown.error:hover{border-color:#e0b4b4}
+
+.wptable .ui.dropdown.error>.menu>.item{color:#9f3a38}
+
+.wptable .ui.multiple.selection.error.dropdown>.label{border-color:#e0b4b4}
+
+.wptable .ui.dropdown.error>.menu>.item:hover{background-color:#fff2f2}
+
+.wptable .ui.dropdown.error>.menu .active.item{background-color:#fdcfcf}
+
+.wptable .ui.dropdown>.clear.dropdown.icon{opacity:.8;-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease}
+
+.wptable .ui.dropdown>.clear.dropdown.icon:hover{opacity:1}
+
+.wptable .ui.disabled.dropdown,.wptable .ui.dropdown .menu>.disabled.item{cursor:default;pointer-events:none;opacity:.45}
+
+.wptable .ui.dropdown .menu{left:0}
+
+.wptable .ui.dropdown .menu .right.menu,.wptable .ui.dropdown .right.menu>.menu{left:100%!important;right:auto!important;border-radius:.28571429rem!important}
+
+.wptable .ui.dropdown>.left.menu{left:auto!important;right:0!important}
+
+.wptable .ui.dropdown .menu .left.menu,.wptable .ui.dropdown>.left.menu .menu{left:auto;right:100%;margin:0 -.5em 0 0!important;border-radius:.28571429rem!important}
+
+.wptable .ui.dropdown .item .left.dropdown.icon,.wptable .ui.dropdown .left.menu .item .dropdown.icon{width:auto;float:left;margin:0 0 0 0}
+
+.wptable .ui.dropdown .item .left.dropdown.icon+.text,.wptable .ui.dropdown .left.menu .item .dropdown.icon+.text{margin-left:1em;margin-right:0}
+
+.wptable .ui.upward.dropdown>.menu{top:auto;bottom:100%;-webkit-box-shadow:0 0 3px 0 rgba(0,0,0,.08);box-shadow:0 0 3px 0 rgba(0,0,0,.08);border-radius:.28571429rem .28571429rem 0 0}
+
+.wptable .ui.dropdown .upward.menu{top:auto!important;bottom:0!important}
+
+.wptable .ui.simple.upward.active.dropdown,.wptable .ui.simple.upward.dropdown:hover{border-radius:.28571429rem .28571429rem 0 0!important}
+
+.wptable .ui.upward.dropdown.button:not(.pointing):not(.floating).active{border-radius:.28571429rem .28571429rem 0 0}
+
+.wptable .ui.upward.selection.dropdown .menu{border-top-width:1px!important;border-bottom-width:0!important;-webkit-box-shadow:0 -2px 3px 0 rgba(0,0,0,.08);box-shadow:0 -2px 3px 0 rgba(0,0,0,.08)}
+
+.wptable .ui.upward.selection.dropdown:hover{-webkit-box-shadow:0 0 2px 0 rgba(0,0,0,.05);box-shadow:0 0 2px 0 rgba(0,0,0,.05)}
+
+.wptable .ui.active.upward.selection.dropdown,.wptable .ui.upward.selection.dropdown.visible{border-radius:0 0 .28571429rem .28571429rem!important}
+
+.wptable .ui.upward.selection.dropdown.visible{-webkit-box-shadow:0 0 3px 0 rgba(0,0,0,.08);box-shadow:0 0 3px 0 rgba(0,0,0,.08)}
+
+.wptable .ui.upward.active.selection.dropdown:hover{-webkit-box-shadow:0 0 3px 0 rgba(0,0,0,.05);box-shadow:0 0 3px 0 rgba(0,0,0,.05)}
+
+.wptable .ui.upward.active.selection.dropdown:hover .menu{-webkit-box-shadow:0 -2px 3px 0 rgba(0,0,0,.08);box-shadow:0 -2px 3px 0 rgba(0,0,0,.08)}
+
+.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{overflow-x:hidden;overflow-y:auto}
+
+.wptable .ui.scrolling.dropdown .menu{overflow-x:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-overflow-scrolling:touch}
+
+.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{overflow-y:auto;min-width:100%!important;width:auto!important}
+
+.wptable .ui.dropdown .scrolling.menu{position:static;border:none;-webkit-box-shadow:none!important;box-shadow:none!important;border-radius:0!important;margin:0!important;border-top:1px solid rgba(34,36,38,.15)}
+
+.wptable .ui.dropdown .scrolling.menu .item:first-child,.wptable .ui.dropdown .scrolling.menu>.item.item.item,.wptable .ui.scrolling.dropdown .menu .item.item.item,.wptable .ui.scrolling.dropdown .menu .item:first-child{border-top:none}
+
+.wptable .ui.dropdown>.animating.menu .scrolling.menu,.wptable .ui.dropdown>.visible.menu .scrolling.menu{display:block}
+
+@media (-ms-high-contrast:none){.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{min-width:calc(100% - 17px)}}
+
+@media only screen and (max-width:767px){.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{max-height:10.28571429rem}}
+
+@media only screen and (min-width:768px){.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{max-height:15.42857143rem}}
+
+@media only screen and (min-width:992px){.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{max-height:20.57142857rem}}
+
+@media only screen and (min-width:1920px){.wptable .ui.dropdown .scrolling.menu,.wptable .ui.scrolling.dropdown .menu{max-height:20.57142857rem}}
+
+.wptable .ui.simple.dropdown .menu:after,.wptable .ui.simple.dropdown .menu:before{display:none}
+
+.wptable .ui.simple.dropdown .menu{position:absolute;display:block;overflow:hidden;top:-9999px!important;opacity:0;width:0;height:0;-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease}
+
+.wptable .ui.simple.active.dropdown,.wptable .ui.simple.dropdown:hover{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
+
+.wptable .ui.simple.active.dropdown>.menu,.wptable .ui.simple.dropdown:hover>.menu{overflow:visible;width:auto;height:auto;top:100%!important;opacity:1}
+
+.wptable .ui.simple.dropdown:hover>.menu>.item:hover>.menu,.wptable .ui.simple.dropdown>.menu>.item:active>.menu{overflow:visible;width:auto;height:auto;top:0!important;left:100%!important;opacity:1}
+
+.wptable .ui.simple.disabled.dropdown:hover .menu{display:none;height:0;width:0;overflow:hidden}
+
+.wptable .ui.simple.visible.dropdown>.menu{display:block}
+
+.wptable .ui.fluid.dropdown{display:block;width:100%;min-width:0}
+
+.wptable .ui.fluid.dropdown>.dropdown.icon{float:right}
+
+.wptable .ui.floating.dropdown .menu{left:0;right:auto;-webkit-box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15)!important;box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15)!important;border-radius:.28571429rem!important}
+
+.wptable .ui.floating.dropdown>.menu{margin-top:.5em!important;border-radius:.28571429rem!important}
+
+.wptable .ui.pointing.dropdown>.menu{top:100%;margin-top:.78571429rem;border-radius:.28571429rem}
+
+.wptable .ui.pointing.dropdown>.menu:after{display:block;position:absolute;pointer-events:none;content:"";visibility:visible;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);width:.5em;height:.5em;-webkit-box-shadow:-1px -1px 0 0 rgba(34,36,38,.15);box-shadow:-1px -1px 0 0 rgba(34,36,38,.15);background:#fff;z-index:2;top:-.25em;left:50%;margin:0 0 0 -.25em}
+
+.wptable .ui.top.left.pointing.dropdown>.menu{top:100%;bottom:auto;left:0;right:auto;margin:1em 0 0}
+
+.wptable .ui.top.left.pointing.dropdown>.menu:after{top:-.25em;left:1em;right:auto;margin:0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+
+.wptable .ui.top.right.pointing.dropdown>.menu{top:100%;bottom:auto;right:0;left:auto;margin:1em 0 0}
+
+.wptable .ui.top.pointing.dropdown>.left.menu:after,.wptable .ui.top.right.pointing.dropdown>.menu:after{top:-.25em;left:auto!important;right:1em!important;margin:0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+
+.wptable .ui.left.pointing.dropdown>.menu{top:0;left:100%;right:auto;margin:0 0 0 1em}
+
+.wptable .ui.left.pointing.dropdown>.menu:after{top:1em;left:-.25em;margin:0 0 0 0;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+
+.wptable .ui.left:not(.top):not(.bottom).pointing.dropdown>.left.menu{left:auto!important;right:100%!important;margin:0 1em 0 0}
+
+.wptable .ui.left:not(.top):not(.bottom).pointing.dropdown>.left.menu:after{top:1em;left:auto;right:-.25em;margin:0 0 0 0;-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);transform:rotate(135deg)}
+
+.wptable .ui.right.pointing.dropdown>.menu{top:0;left:auto;right:100%;margin:0 1em 0 0}
+
+.wptable .ui.right.pointing.dropdown>.menu:after{top:1em;left:auto;right:-.25em;margin:0 0 0 0;-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);transform:rotate(135deg)}
+
+.wptable .ui.bottom.pointing.dropdown>.menu{top:auto;bottom:100%;left:0;right:auto;margin:0 0 1em}
+
+.wptable .ui.bottom.pointing.dropdown>.menu:after{top:auto;bottom:-.25em;right:auto;margin:0;-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}
+
+.wptable .ui.bottom.pointing.dropdown>.menu .menu{top:auto!important;bottom:0!important}
+
+.wptable .ui.bottom.left.pointing.dropdown>.menu{left:0;right:auto}
+
+.wptable .ui.bottom.left.pointing.dropdown>.menu:after{left:1em;right:auto}
+
+.wptable .ui.bottom.right.pointing.dropdown>.menu{right:0;left:auto}
+
+.wptable .ui.bottom.right.pointing.dropdown>.menu:after{left:auto;right:1em}
+
+.wptable .ui.pointing.upward.dropdown .menu,.wptable .ui.top.pointing.upward.dropdown .menu{top:auto!important;bottom:100%!important;margin:0 0 .78571429rem;border-radius:.28571429rem}
+
+.wptable .ui.pointing.upward.dropdown .menu:after,.wptable .ui.top.pointing.upward.dropdown .menu:after{top:100%!important;bottom:auto!important;-webkit-box-shadow:1px 1px 0 0 rgba(34,36,38,.15);box-shadow:1px 1px 0 0 rgba(34,36,38,.15);margin:-.25em 0 0}
+
+.wptable .ui.right.pointing.upward.dropdown:not(.top):not(.bottom) .menu{top:auto!important;bottom:0!important;margin:0 1em 0 0}
+
+.wptable .ui.right.pointing.upward.dropdown:not(.top):not(.bottom) .menu:after{top:auto!important;bottom:0!important;margin:0 0 1em 0;-webkit-box-shadow:-1px -1px 0 0 rgba(34,36,38,.15);box-shadow:-1px -1px 0 0 rgba(34,36,38,.15)}
+
+.wptable .ui.left.pointing.upward.dropdown:not(.top):not(.bottom) .menu{top:auto!important;bottom:0!important;margin:0 0 0 1em}
+
+.wptable .ui.left.pointing.upward.dropdown:not(.top):not(.bottom) .menu:after{top:auto!important;bottom:0!important;margin:0 0 1em 0;-webkit-box-shadow:-1px -1px 0 0 rgba(34,36,38,.15);box-shadow:-1px -1px 0 0 rgba(34,36,38,.15)}
+
+@font-face{font-family:Dropdown;src:url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAVgAA8AAAAACFAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAchGgaq0dERUYAAAF0AAAAHAAAAB4AJwAPT1MvMgAAAZAAAABDAAAAVnW4TJdjbWFwAAAB1AAAAEsAAAFS8CcaqmN2dCAAAAIgAAAABAAAAAQAEQFEZ2FzcAAAAiQAAAAIAAAACP//AANnbHlmAAACLAAAAQoAAAGkrRHP9WhlYWQAAAM4AAAAMAAAADYPK8YyaGhlYQAAA2gAAAAdAAAAJANCAb1obXR4AAADiAAAACIAAAAiCBkAOGxvY2EAAAOsAAAAFAAAABQBnAIybWF4cAAAA8AAAAAfAAAAIAEVAF5uYW1lAAAD4AAAATAAAAKMFGlj5HBvc3QAAAUQAAAARgAAAHJoedjqd2ViZgAABVgAAAAGAAAABrO7W5UAAAABAAAAANXulPUAAAAA1r4hgAAAAADXu2Q1eNpjYGRgYOABYjEgZmJgBEIOIGYB8xgAA/YAN3jaY2BktGOcwMDKwMI4jTGNgYHBHUp/ZZBkaGFgYGJgZWbACgLSXFMYHFT/fLjFeOD/AQY9xjMMbkBhRpAcAN48DQYAeNpjYGBgZoBgGQZGBhDwAfIYwXwWBgMgzQGETAwMqn8+8H649f8/lHX9//9b7Pzf+fWgusCAkY0BzmUE6gHpQwGMDMMeAACbxg7SAAARAUQAAAAB//8AAnjadZBPSsNAGMXfS+yMqYgOhpSuSlKadmUhiVEhEMQzFF22m17BbbvzCh5BXCUn6EG8gjeQ4DepwYo4i+/ffL95j4EDA+CFC7jQuKyIeVHrI3wkleq9F7XrSInKteOeHdda8bOoaeepSc00NWPz/LRec9G8GabyGtEdF7h19z033GAMTK7zbM42xNEZpzYof0RtQ5CUHAQJ73OtVyutc+3b7Ou//b8XNlsPx3jgjUifABdhEohKJJL5iM5p39uqc7X1+sRQSqmGrUVhlsJ4lpmEUVwyT8SUYtg0P9DyNzPADDs+tjrGV6KRCRfsui3eHcL4/p8ZXvfMlcnEU+CLv7hDykOP+AKTPTxbAAB42mNgZGBgAGKuf5KP4vltvjLIMzGAwLV9ig0g+vruFFMQzdjACOJzMIClARh0CTJ42mNgZGBgPPD/AJD8wgAEjA0MjAyogAMAbOQEAQAAAAC7ABEAAAAAAKoAAAH0AAABgAAAAUAACAFAAAgAwAAXAAAAAAAAACoAKgAqADIAbACGAKAAugDSeNpjYGRgYOBkUGFgYgABEMkFhAwM/xn0QAIADdUBdAB42qWQvUoDQRSFv3GjaISUQaymSmGxJoGAsRC0iPYLsU50Y6IxrvlRtPCJJKUPIBb+PIHv4EN4djKuKAqCDHfmu+feOdwZoMCUAJNbAlYUMzaUlM14jjxbngOq7HnOia89z1Pk1vMCa9x7ztPkzfMyJbPj+ZGi6Xp+omxuPD+zaD7meaFg7mb8GrBqHmhwxoAxlm0uiRkpP9X5m26pKRoMxTGR1D49Dv/Yb/91o6l8qL6eu5n2hZQzn68utR9m3FU2cB4t9cdSLG2utI+44Eh/P9bqKO+oJ/WxmXssj77YkrjasZQD6SFddythk3Wtzrf+UF2p076Udla1VNzsERP3kkjVRKel7mp1udXYcHtZSlV7RfmJe1GiFWveluaeKD5/MuJcSk8Tpm/vvwPIbmJleNpjYGKAAFYG7ICTgYGRiZGZkYWRlZGNkZ2Rg5GTLT2nsiDDEEIZsZfmZRqZujmDaDcDAxcI7WIOpS2gtCWUdgQAZkcSmQAAAAFblbO6AAA=) format("woff");font-weight:400;font-style:normal}
+
+.wptable .ui.dropdown>.dropdown.icon{font-family:Dropdown;line-height:1;height:1em;width:1.23em;-webkit-backface-visibility:hidden;backface-visibility:hidden;font-weight:400;font-style:normal;text-align:center;width:auto}
+
+.wptable .ui.dropdown>.dropdown.icon:before{content:"\F0D7"}
+
+.wptable .ui.dropdown .menu .item .dropdown.icon:before{content:"\F0DA"}
+
+.wptable .ui.dropdown .item .left.dropdown.icon:before,.wptable .ui.dropdown .left.menu .item .dropdown.icon:before{content:"\F0D9"}
+
+.wptable .ui.vertical.menu .dropdown.item>.dropdown.icon:before{content:"\F0DA"}
+
+.wptable .ui.dropdown>.clear.icon:before{content:"\F00D"}
+
+/*!
+ * # Semantic UI 2.4.1 - Label
+ */
+
+.wptable .ui.label{display:inline-block;line-height:1;vertical-align:baseline;margin:0 .14285714em;background-color:#e8e8e8;background-image:none;padding:.5833em .833em;color:rgba(0,0,0,.6);text-transform:none;font-weight:700;border:0 solid transparent;border-radius:.28571429rem;-webkit-transition:background .1s ease;-o-transition:background .1s ease;transition:background .1s ease}
+
+.wptable .ui.label:first-child{margin-left:0}
+
+.wptable .ui.label:last-child{margin-right:0}
+
+.wptable .ui.label>a,.wptable a.ui.label{cursor:pointer}
+
+.wptable .ui.label>a{color:inherit;opacity:.5;-webkit-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease}
+
+.wptable .ui.label>a:hover{opacity:1}
+
+.wptable .ui.label>img{width:auto!important;vertical-align:middle;height:2.1666em!important}
+
+.wptable .ui.label>.icon{width:auto;margin:0 .75em 0 0}
+
+.wptable .ui.label>.detail{display:inline-block;vertical-align:top;font-weight:700;margin-left:1em;opacity:.8}
+
+.wptable .ui.label>.detail .icon{margin:0 .25em 0 0}
+
+.wptable .ui.label>.close.icon,.wptable .ui.label>.delete.icon{cursor:pointer;margin-right:0;margin-left:.5em;font-size:.92857143em;opacity:.5;-webkit-transition:background .1s ease;-o-transition:background .1s ease;transition:background .1s ease}
+
+.wptable .ui.label>.delete.icon:hover{opacity:1}
+
+.wptable .ui.dropdown{-webkit-box-sizing:border-box;box-sizing:border-box}
+
+.wptable .ui.dropdown,.wptable .ui.dropdown input{font-size:14px}
+
+.wptable .ui.dropdown .menu{-webkit-box-sizing:content-box;box-sizing:content-box}
+
+.wptable .ui.dropdown .menu>.item{font-size:14px}
+
+.wptable .ui.selection.dropdown{min-height:14px}
+
+.wptable .ui.selection.dropdown .menu{min-width:100%;width:100%}
+
+.wptable .ui.multiple.dropdown>.label{position:relative;padding-right:calc(.78571em + 15px)}
+
+.wptable .ui.multiple.dropdown>.label i.icon.delete:before{content:"\D7";font-family:Arial,sans-serif}
+
+.wptable .ui.multiple.dropdown>.label i.icon.delete{-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;right:10px;display:inline-block;width:18px;height:24px;margin:-5px -10px}
+
+.wptable .ui.multiple.dropdown>.label i.icon.delete:after,.wptable .ui.multiple.dropdown>.label i.icon.delete:before{position:absolute;content:" ";height:12px;width:3px;top:25%;left:25%;-webkit-transform:translate(-25%,-25%);-ms-transform:translate(-25%,-25%);transform:translate(-25%,-25%);background-color:#333}
+
+.wptable .ui.multiple.dropdown>.label i.icon.delete:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+
+.wptable .ui.multiple.dropdown>.label i.icon.delete:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+
+.wptable #wpcontent {
+    background-color: #f1f1f1;
+}
+
+.wptable .vue-modal-top,
+.wptable .vue-modal-bottom,
+.wptable .vue-modal-left,
+.wptable .vue-modal-right,
+.wptable .vue-modal-topRight,
+.wptable .vue-modal-topLeft,
+.wptable .vue-modal-bottomLeft,
+.wptable .vue-modal-bottomRight {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  background: transparent;
+  z-index: 9999999;
+}
+
+.wptable .vue-modal-topRight,
+.wptable .vue-modal-topLeft,
+.wptable .vue-modal-bottomLeft,
+.wptable .vue-modal-bottomRight {
+  width: 12px;
+  height: 12px;
+}
+
+.wptable .vue-modal-top {
+  right: 12;
+  top: 0;
+  width: 100%;
+  height: 12px;
+  cursor: n-resize;
+}
+
+.wptable .vue-modal-bottom {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 12px;
+  cursor: s-resize;
+}
+
+.wptable .vue-modal-left {
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  cursor: w-resize;
+}
+
+.wptable .vue-modal-right {
+  right: 0;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  cursor: e-resize;
+}
+
+.wptable .vue-modal-topRight {
+  right: 0;
+  top: 0;
+  background: transparent;
+  cursor: ne-resize;
+}
+
+.wptable .vue-modal-topLeft {
+  left: 0;
+  top: 0;
+  cursor: nw-resize;
+}
+
+.wptable .vue-modal-bottomLeft {
+  left: 0;
+  bottom: 0;
+  cursor: sw-resize;
+}
+
+.wptable .vue-modal-bottomRight {
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+}
+
+.wptable #vue-modal-triangle::after {
+  display: block;
+  position: absolute;
+  content: '';
+  background: transparent;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ddd;
+  border-left: 10px solid transparent;
+}
+
+.wptable #vue-modal-triangle.clicked::after {
+  border-bottom: 10px solid #369be9;
+}
+
+.wptable .vm--block-scroll {
+  overflow: hidden;
+  width: 100vw;
+}
+
+.wptable .vm--container {
+  position: fixed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+
+.wptable .vm--overlay {
+  position: fixed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  /* z-index: 999; */
+  opacity: 1;
+}
+
+.wptable .vm--container.scrollable {
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wptable .vm--modal {
+  position: relative;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+
+  background-color: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+          box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+}
+
+.wptable .vm--container.scrollable .vm--modal {
+  margin-bottom: 2px;
+}
+
+.wptable .vm--top-right-slot {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.wptable .vm-transition--overlay-enter-active,
+.wptable .vm-transition--overlay-leave-active {
+  -webkit-transition: all 50ms;
+  -o-transition: all 50ms;
+  transition: all 50ms;
+}
+
+.wptable .vm-transition--overlay-enter,
+.wptable .vm-transition--overlay-leave-active {
+  opacity: 0;
+}
+
+.wptable .vm-transition--modal-enter-active,
+.wptable .vm-transition--modal-leave-active {
+  -webkit-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.wptable .vm-transition--modal-enter,
+.wptable .vm-transition--modal-leave-active {
+  opacity: 0;
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.wptable .vm-transition--default-enter-active,
+.wptable .vm-transition--default-leave-active {
+  -webkit-transition: all 2ms;
+  -o-transition: all 2ms;
+  transition: all 2ms;
+}
+
+.wptable .vm-transition--default-enter,
+.wptable .vm-transition--default-leave-active {
+  opacity: 0;
+}
+
+.wptable .vue-dialog {
+  font-size: 14px;
+}
+
+.wptable .vue-dialog div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wptable .vue-dialog-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  width: 100%;
+  padding: 14px;
+}
+
+.wptable .vue-dialog-content-title {
+  font-weight: 600;
+  padding-bottom: 14px;
+}
+
+.wptable .vue-dialog-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  width: 100%;
+  border-top: 1px solid #eee;
+}
+
+.wptable .vue-dialog-buttons-none {
+  width: 100%;
+  padding-bottom: 14px;
+}
+
+.wptable .vue-dialog-button {
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 40px;
+  height: 40px;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.wptable .vue-dialog-button:hover {
+  background: #f9f9f9;
+}
+
+.wptable .vue-dialog-button:active {
+  background: #f3f3f3;
+}
+
+.wptable .vue-dialog-button:not(:first-of-type) {
+  border-left: 1px solid #eee;
+}
+
+.wptable .hover\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 242 247 / var(--tw-bg-opacity));
+}
+
+.wptable .hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+}
+
+.wptable .hover\:bg-blue-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(44 82 130 / var(--tw-bg-opacity));
+}
+
+.wptable .hover\:bg-purple-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(159 122 234 / var(--tw-bg-opacity));
+}
+
+.wptable .hover\:text-gray-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(26 32 44 / var(--tw-text-opacity));
+}
+
+.wptable .hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.wptable .hover\:text-blue-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(44 82 130 / var(--tw-text-opacity));
+}
+
+.wptable .focus\:bg-gray-200:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 242 247 / var(--tw-bg-opacity));
+}
+
+.wptable .focus\:text-gray-900:focus {
+  --tw-text-opacity: 1;
+  color: rgb(26 32 44 / var(--tw-text-opacity));
+}
+
+.wptable .focus\:shadow-outline:focus {
+  --tw-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  --tw-shadow-colored: 0 0 0 3px var(--tw-shadow-color);
+  -webkit-box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+          box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
+
+.wptable .focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.wptable .focus\:outline-0:focus {
+  outline-width: 0px;
+}
+
+.wptable .focus\:ring:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 rgba(0,0,0,0);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 rgba(0,0,0,0));
+          box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 rgba(0,0,0,0);
+          box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 rgba(0,0,0,0));
+}
+
+.wptable .active\:bg-purple-600:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(128 90 213 / var(--tw-bg-opacity));
+}
+
+@media (color-index: 48) {
+
+  .wptable .dark\:border-gray-800 {
+    --tw-border-opacity: 1;
+    border-color: rgb(45 55 72 / var(--tw-border-opacity));
+  }
+
+  .wptable .dark\:bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(26 32 44 / var(--tw-bg-opacity));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .wptable .dark\:border-gray-800 {
+    --tw-border-opacity: 1;
+    border-color: rgb(45 55 72 / var(--tw-border-opacity));
+  }
+
+  .wptable .dark\:bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(26 32 44 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 640px) {
+
+  .wptable .sm\:mb-0 {
+    margin-bottom: 0;
+  }
+
+  .wptable .sm\:items-stretch {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+
+  .wptable .sm\:justify-start {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .wptable .md\:mt-0 {
+    margin-top: 0;
+  }
+
+  .wptable .md\:ml-4 {
+    margin-left: 1rem;
+  }
+
+  .wptable .md\:flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .wptable .md\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .wptable .md\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .wptable .md\:items-center {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .wptable .md\:justify-end {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .wptable .md\:justify-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .wptable .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .wptable .md\:pb-0 {
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .wptable .lg\:h-32 {
+    height: 8rem;
+  }
+
+  .wptable .lg\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .wptable .lg\:items-center {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .wptable .lg\:justify-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .wptable .lg\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
+
+  .wptable .lg\:rounded-b-none {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .wptable .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+

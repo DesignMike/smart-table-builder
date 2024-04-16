@@ -20,8 +20,8 @@ console.log('process.env.NODE_ENV :>> ', process.env.NODE_ENV);
 export default {
 	entry: ['@babel/polyfill', './src/main.ts'],
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].js',
+		path: path.resolve(__dirname, '../assets/js/backend/'),
+		filename: 'admin.js',
 		publicPath: '/',
 	},
 	module: {
@@ -66,6 +66,11 @@ export default {
 				use: [
 					{
 						loader: 'vue-loader',
+						options: {
+							compilerOptions: {
+								isCustomElement: (tag) => tag.includes('toolcool-color-picker'),
+							},
+						},
 					},
 				],
 			},
@@ -102,11 +107,11 @@ export default {
 			Vue: ['vue/dist/vue.esm.js', 'default'],
 		}),
 		new WebpackShellPlugin({
-			onDoneWatch: {
-				scripts: ['../.github/build-utils.mjs --skip-build'],
-				blocking: true,
-				parallel: false,
-			},
+			// onDoneWatch: {
+			// 	scripts: ['../.github/build-utils.mjs --skip-build'],
+			// 	blocking: true,
+			// 	parallel: false,
+			// },
 		}),
 	],
 	resolve: {

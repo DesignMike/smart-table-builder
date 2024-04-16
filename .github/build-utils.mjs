@@ -47,18 +47,4 @@ cd(rootDir);
             console.error('Command failed with status:', error.exitCode);
         }
     }
-    const dir = initialDir + '/wp-ultimate-tables/webpack-backend/dist';
-    // const files = await fs.readdir(dir);
-    const jsFile = 'main.js';
-
-    if (jsFile) {
-        await $`cp ${dir}/${jsFile} ${initialDir}/wp-ultimate-tables/assets/js/admin.js`;
-        console.log('File copied successfully');
-    } else {
-        console.log('BACKEND : No .js file found in the directory');
-    }
-    if ( !skipBuild ) {
-        // remove all the files in the directory
-        await $`rm -rf wp-ultimate-tables/webpack-backend/dist/*`;
-    }
 })();

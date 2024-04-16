@@ -82,12 +82,13 @@
 							@change="handleChkbx($event, obj, settingsItemProps, $store)"
 						/>
 						<toolcool-color-picker
-							@change="handleColorChange($event, obj)"
-							v-model="settingsItemProps[obj]"
+							:key="obj"
+							@change="
+								handleColorChange($event, obj, settingsItemProps, $store)
+							"
 							v-if="settingsItems[obj].type == 'color'"
 							:color="settingsItemProps[obj]"
-						>
-						</toolcool-color-picker>
+						/>
 						<span class="ml-2 font-semibold">{{
 							settingsItems[obj].title
 						}}</span>
@@ -279,8 +280,8 @@ export default {
 				? displayMode
 				: 'none';
 		},
-		handleColorChange(newColor, key) {
-			this.$store.commit('updateSettingsByKey', { key, value: newColor });
+		handleColorChange: ({ detail }, obj, settingsItemProps, store) => {
+			store.commit('updateSettingsByKey', { key: obj, value: detail.hex8 });
 		},
 	},
 };
