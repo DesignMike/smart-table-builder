@@ -112,7 +112,7 @@ class Assets {
 
         $styles = [
             'exceltotable-admin' => [
-                'src' =>  WPULTIMATETABLE_ASSETS_URL . '/css/admin.css'
+                'src' =>  WPULTIMATETABLE_ASSETS_URL . '/js/backend/main.css'
             ],
         ];
 
