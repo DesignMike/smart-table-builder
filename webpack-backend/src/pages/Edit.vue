@@ -8,11 +8,13 @@
 				<input
 					v-model="tableTitle"
 					type="text"
-					class="block w-full focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
+					class="block w-6/12 focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
 					name="name"
 					placeholder="Enter the Table Name"
 					required=""
 				/>
+				<drop-down animation="fade" color="blue" :styles="styles"></drop-down>
+				<span class="mr-2"></span>
 				<div v-if="!isSaving" style="display: contents">
 					<button
 						v-if="!['/settings', '/edit', '/'].some((e) => e == $route.path)"
@@ -33,7 +35,7 @@
 					<button
 						class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"
 					>
-						<i class="gg-spinner-alt"></i>
+						<i class="gg-spinner-alt" />
 					</button>
 				</div>
 			</div>
@@ -86,9 +88,9 @@
 				@confirm="delConfirm"
 				@cancel="delCancel"
 			>
-				<template v-slot:title
-					>Are you sure? Do you want to delete this table?</template
-				>
+				<template v-slot:title>
+					Are you sure? Do you want to delete this table?
+				</template>
 				<p>You cannot restore the table after deletion.</p>
 			</v-tailwind-modal>
 			<div
@@ -168,16 +170,71 @@
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal.vue';
 import storeUtils from '../utils/storeUtils';
+import dropDown from '../components/dropDown.vue';
 import VTailwindModal from '../hoc-components/VTailwindModal.vue';
 export default {
 	name: 'Edit',
+	components: {
+		tableEditor,
+		settingsModal,
+		VTailwindModal,
+		dropDown,
+	},
 	data() {
 		return {
 			isEmptyTableList: false,
 			isSaving: false,
 			showDeleteConfirmation: false,
 			deletionTarget: 0,
+			styles: ['Style 1 (Active)', 'Style 2 (Premium)'],
 		};
+	},
+	computed: {
+		toEditTable: (vm) => {
+			return vm.$route.query.table_id ? vm.$route.query.table_id : null;
+		},
+		avaiableTables: (vm) => {
+			return vm.$store.state.tableList;
+		},
+		showSettings: (vm) => {
+			return vm.$store.state.showSettings;
+		},
+		tableTitle: {
+			get: function () {
+				return this.$store.state.tableTitle;
+			},
+			set: function (newString) {
+				return (this.$store.state.tableTitle = newString);
+			},
+		},
+	},
+	mounted() {
+		if (this.toEditTable) {
+			jQuery.ajax({
+				type: 'GET',
+				vm: this,
+				url: ajaxurl + `?action=sprdsh_get_table_cells&id=${this.toEditTable}`,
+				success(data) {
+					let { vm } = this;
+					storeUtils.write(vm, data, 'postmount');
+				},
+			});
+			this.$store.commit('setPageTitle', 'Table Editor');
+			this.mountFonts();
+		}
+		if (!this.toEditTable) {
+			let updateListTables = (data) => {
+				if (data.length == 0) {
+					this.isEmptyTableList = true;
+				}
+				this.$store.commit('availableTables', data);
+			};
+			jQuery.ajax({
+				type: 'GET',
+				url: ajaxurl + '?action=sprdsh_list_tables',
+				success: updateListTables,
+			});
+		}
 	},
 	methods: {
 		sampleFunc: () => {},
@@ -273,58 +330,6 @@ export default {
 			this.showDeleteConfirmation = true;
 			this.deletionTarget = id;
 		},
-	},
-	computed: {
-		toEditTable: (vm) => {
-			return vm.$route.query.table_id ? vm.$route.query.table_id : null;
-		},
-		avaiableTables: (vm) => {
-			return vm.$store.state.tableList;
-		},
-		showSettings: (vm) => {
-			return vm.$store.state.showSettings;
-		},
-		tableTitle: {
-			get: function () {
-				return this.$store.state.tableTitle;
-			},
-			set: function (newString) {
-				return (this.$store.state.tableTitle = newString);
-			},
-		},
-	},
-	components: {
-		tableEditor,
-		settingsModal,
-		VTailwindModal,
-	},
-	mounted() {
-		if (this.toEditTable) {
-			jQuery.ajax({
-				type: 'GET',
-				vm: this,
-				url: ajaxurl + `?action=sprdsh_get_table_cells&id=${this.toEditTable}`,
-				success(data) {
-					let { vm } = this;
-					storeUtils.write(vm, data, 'postmount');
-				},
-			});
-			this.$store.commit('setPageTitle', 'Table Editor');
-			this.mountFonts();
-		}
-		if (!this.toEditTable) {
-			let updateListTables = (data) => {
-				if (data.length == 0) {
-					this.isEmptyTableList = true;
-				}
-				this.$store.commit('availableTables', data);
-			};
-			jQuery.ajax({
-				type: 'GET',
-				url: ajaxurl + '?action=sprdsh_list_tables',
-				success: updateListTables,
-			});
-		}
 	},
 };
 </script>

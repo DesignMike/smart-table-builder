@@ -12,8 +12,6 @@ module.exports = {
 				return {
 					...theme('colors'),
 					default: theme('colors.red.300', 'currentColor'),
-					brand: { [100]: '#6d28d9' },
-					// Add more colors as needed
 				};
 			},
 		},
@@ -28,6 +26,7 @@ module.exports = {
 
 			black: '#000',
 			white: '#fff',
+			brand: '#6d28d9',
 
 			gray: {
 				100: '#f7fafc',

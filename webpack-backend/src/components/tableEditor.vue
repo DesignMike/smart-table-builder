@@ -60,7 +60,6 @@
 						/>
 					</svg>
 				</button>
-				<drop-down animation="fade" color="blue" :styles="styles"></drop-down>
 			</div>
 		</div>
 		<div
@@ -174,9 +173,8 @@ export default {
 		return {
 			tabNavigation: 0,
 			tabActiveClass:
-				'rounded-lg bg-blue-500 inline-block py-2 px-4 font-semibold text-white',
-			tabInactiveClass: 'text-blue-500 hover:text-blue-800',
-			styles: ['Style 1 (Active)', 'Style 2 (Premium)'],
+				'rounded-lg bg-brand inline-block py-2 px-4 font-semibold text-white',
+			tabInactiveClass: 'text-brand hover:text-blue-800',
 			currentStyle: 'Style 1',
 			previewframe: '',
 		};
