@@ -37,7 +37,6 @@
 							</button>
 						</div>
 						<nav
-							:class="{ flex: open, hidden: !open }"
 							class="flex flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0"
 						>
 							<a
@@ -49,11 +48,6 @@
 								<span v-html="item.icon" />
 								<span>{{ item.title }}</span></a
 							>
-							<div
-								class="relative"
-								@click.away="open = false"
-								x-data="{ open: true }"
-							></div>
 						</nav>
 					</div>
 				</div>

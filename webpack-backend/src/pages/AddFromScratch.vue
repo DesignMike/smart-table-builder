@@ -4,7 +4,7 @@
 			<label class="block uppercase tracking-wide text-xs font-bold"
 				>Name</label
 			>
-			<div class="flex">
+			<div class="flex justify-between">
 				<input
 					v-model="tableTitle"
 					type="text"
@@ -28,13 +28,13 @@
 					>
 						Update
 					</button>
-				</div>
-				<div v-if="isSaving">
-					<button
-						class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"
-					>
-						<i class="gg-spinner-alt"></i>
-					</button>
+					<div v-if="isSaving">
+						<button
+							class="rounded-lg bg-blue-500 hover:bg-blue-800 text-white py-2 px-4"
+						>
+							<i class="gg-spinner-alt"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

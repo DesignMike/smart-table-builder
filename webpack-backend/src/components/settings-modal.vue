@@ -42,31 +42,30 @@
 							/>
 						</div>
 					</div>
-					<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
-						Table Cell Fonts
-					</h5>
-					<div
-						v-if="!isLoading"
-						class="shadow-lg p-3 shadow-gray-500 rounded-lg relative grid grid-cols-3 flex pt-0"
-					>
-						<fonts-select
-							:options="getFontFamilyList(this)"
-							fontZone="tableBodyHeader"
-							@updateFont="handleFontUpdate"
-							context="fontFamily"
-						/>
-						<fonts-select
-							:options="getSizes(this)"
-							fontZone="tableBodyHeader"
-							context="fontSize"
-						/>
-						<fonts-select
-							:options="findFontFamilyWeights(this)"
-							fontZone="tableBodyHeader"
-							:key="componentKey"
-							context="fontWeight"
-							ref="weightDropDown"
-						/>
+					<div class="shadow-lg mt-2 p-3 rounded-lg shadow-gray-500">
+						<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+							Table Cell Fonts
+						</h5>
+						<div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
+							<fonts-select
+								:options="getFontFamilyList(this)"
+								fontZone="tableBodyHeader"
+								@updateFont="handleFontUpdate"
+								context="fontFamily"
+							/>
+							<fonts-select
+								:options="getSizes(this)"
+								fontZone="tableBodyHeader"
+								context="fontSize"
+							/>
+							<fonts-select
+								:options="findFontFamilyWeights(this)"
+								fontZone="tableBodyHeader"
+								:key="componentKey"
+								context="fontWeight"
+								ref="weightDropDown"
+							/>
+						</div>
 					</div>
 					<label
 						v-for="obj in Object.keys(settingsItems)"

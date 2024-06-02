@@ -11,7 +11,7 @@
 						v-bind:class="[
 							tabNavigation == 0 ? tabActiveClass : tabInactiveClass,
 						]"
-						class="tab-item bg-white inline-block py-2 px-4 font-semibold"
+						class="tab-item inline-block py-2 px-4 font-semibold"
 					>
 						Table Editor
 					</button>
@@ -23,7 +23,7 @@
 						v-bind:class="[
 							tabNavigation == 1 ? tabActiveClass : tabInactiveClass,
 						]"
-						class="tab-item bg-white inline-block py-2 px-4 font-semibold"
+						class="tab-item inline-block py-2 px-4 font-semibold"
 					>
 						Preview
 					</button>
@@ -35,7 +35,7 @@
 						v-bind:class="[
 							tabNavigation == 2 ? tabActiveClass : tabInactiveClass,
 						]"
-						class="tab-item bg-white inline-block py-2 px-4 font-semibold"
+						class="tab-item inline-block py-2 px-4 font-semibold"
 					>
 						Embed
 					</button>
@@ -177,6 +177,7 @@ export default {
 			tabInactiveClass: 'text-brand hover:text-blue-800',
 			currentStyle: 'Style 1',
 			previewframe: '',
+			styles: ['Style 1 (Active)', 'Style 2 (Premium)'],
 		};
 	},
 	computed: {

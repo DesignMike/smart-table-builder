@@ -4,7 +4,7 @@
 			<label class="block uppercase tracking-wide text-xs font-bold"
 				>Name</label
 			>
-			<div class="flex">
+			<div class="flex justify-between">
 				<input
 					v-model="tableTitle"
 					type="text"

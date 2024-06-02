@@ -1166,14 +1166,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-top: 2rem;
 }
 
-.wptable [dir="ltr"] .me-2 {
-  margin-right: 0.5rem;
-}
-
-.wptable [dir="rtl"] .me-2 {
-  margin-left: 0.5rem;
-}
-
 .wptable .block {
   display: block;
 }
@@ -1274,6 +1266,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 1.5rem;
 }
 
+.wptable .w-6\/12 {
+  width: 50%;
+}
+
 .wptable .w-auto {
   width: auto;
 }
@@ -1282,8 +1278,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 100%;
 }
 
-.wptable .w-6\/12 {
-  width: 50%;
+.wptable .w-4\/12 {
+  width: 33.333333%;
+}
+
+.wptable .w-8\/12 {
+  width: 66.666667%;
 }
 
 .wptable .max-w-6xl {
@@ -1505,11 +1505,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-color: rgb(26 32 44 / var(--tw-border-opacity));
 }
 
-.wptable .border-purple-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(159 122 234 / var(--tw-border-opacity));
-}
-
 .wptable .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1523,6 +1518,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(66 153 225 / var(--tw-bg-opacity));
+}
+
+.wptable .bg-brand {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
 }
 
 .wptable .bg-gray-100 {
@@ -1547,11 +1547,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.wptable .bg-brand {
-  --tw-bg-opacity: 1;
-  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
 }
 
 .wptable .bg-opacity-75 {
@@ -1714,14 +1709,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   letter-spacing: 0.1em;
 }
 
-.wptable .text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(66 153 225 / var(--tw-text-opacity));
-}
-
 .wptable .text-blue-700 {
   --tw-text-opacity: 1;
   color: rgb(43 108 176 / var(--tw-text-opacity));
+}
+
+.wptable .text-brand {
+  --tw-text-opacity: 1;
+  color: rgb(109 40 217 / var(--tw-text-opacity));
 }
 
 .wptable .text-gray-600 {
@@ -1757,11 +1752,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.wptable .text-brand {
-  --tw-text-opacity: 1;
-  color: rgb(109 40 217 / var(--tw-text-opacity));
 }
 
 .wptable .antialiased {
@@ -2608,11 +2598,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
 }
 
-.wptable .hover\:bg-purple-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(159 122 234 / var(--tw-bg-opacity));
-}
-
 .wptable .hover\:text-blue-800:hover {
   --tw-text-opacity: 1;
   color: rgb(44 82 130 / var(--tw-text-opacity));
@@ -2672,11 +2657,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .focus\:ring-gray-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(226 232 240 / var(--tw-ring-opacity));
-}
-
-.wptable .active\:bg-purple-600:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(128 90 213 / var(--tw-bg-opacity));
 }
 
 .wptable .active\:opacity-\[0\.85\]:active {
