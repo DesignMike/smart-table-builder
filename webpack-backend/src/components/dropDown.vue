@@ -1,27 +1,28 @@
 <template>
 	<div class="dropdown-wrapper relative">
 		<button
+			class="border-2 rounded-lg text-gray-900 font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300"
 			v-on:click="show = !show"
-			:class="'bg-' + color + '-500'"
-			class="rounded-lg text-white font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300"
+			:class="'border-' + color"
 		>
-			Choose a style
-			<svg
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z"
-					fill="currentColor"
-				/>
-			</svg>
+			<span>{{ styles[0] }}</span>
+			<div class="inline-block h-5 w-5 rounded-full bg-brand">
+				<svg
+					class="text-sm text-white"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z"
+						fill="currentColor"
+					/>
+				</svg>
+			</div>
 		</button>
 		<transition :name="animation">
 			<div
-				:class="'bg-' + color + '-500'"
+				:class="'bg-' + color"
 				class="dropdown-menu text-white mt-1 rounded-lg absolute z-10 shadow-lg w-40 max-w-xs"
 				v-if="show"
 			>

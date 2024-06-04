@@ -1202,10 +1202,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   display: contents;
 }
 
-.wptable .hidden {
-  display: none;
-}
-
 .wptable .h-12 {
   height: 3rem;
 }
@@ -1230,6 +1226,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   height: 100%;
 }
 
+.wptable .h-16 {
+  height: 4rem;
+}
+
 .wptable .max-h-full {
   max-height: 100%;
 }
@@ -1250,6 +1250,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 8rem;
 }
 
+.wptable .w-4\/12 {
+  width: 33.333333%;
+}
+
 .wptable .w-40 {
   width: 10rem;
 }
@@ -1266,8 +1270,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 1.5rem;
 }
 
-.wptable .w-6\/12 {
-  width: 50%;
+.wptable .w-8\/12 {
+  width: 66.666667%;
 }
 
 .wptable .w-auto {
@@ -1278,12 +1282,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 100%;
 }
 
-.wptable .w-4\/12 {
-  width: 33.333333%;
-}
-
-.wptable .w-8\/12 {
-  width: 66.666667%;
+.wptable .w-16 {
+  width: 4rem;
 }
 
 .wptable .max-w-6xl {
@@ -1434,12 +1434,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           column-gap: 0.75rem;
 }
 
-.wptable .space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .wptable .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1503,6 +1497,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .border-gray-900 {
   --tw-border-opacity: 1;
   border-color: rgb(26 32 44 / var(--tw-border-opacity));
+}
+
+.wptable .border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(245 101 101 / var(--tw-border-opacity));
+}
+
+.wptable .border-brand {
+  --tw-border-opacity: 1;
+  border-color: rgb(109 40 217 / var(--tw-border-opacity));
 }
 
 .wptable .bg-black {
@@ -1752,6 +1756,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.wptable .text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .wptable .antialiased {

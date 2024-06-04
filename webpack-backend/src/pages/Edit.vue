@@ -14,7 +14,11 @@
 					required=""
 				/>
 				<div class="flex w-4/12 justify-end">
-					<drop-down animation="fade" color="blue" :styles="styles"></drop-down>
+					<drop-down
+						animation="fade"
+						color="brand"
+						:styles="styles"
+					></drop-down>
 					<span class="mr-2"></span>
 					<button
 						class="rounded-lg text-white font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300 bg-blue-500"

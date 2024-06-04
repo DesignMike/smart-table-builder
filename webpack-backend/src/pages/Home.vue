@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="w-3/6 mx-auto px-4 py-8 justify-center rounded-sm bg-white border-t-4 border-brand-100"
+		class="w-3/6 mx-auto px-4 py-8 justify-center rounded-sm bg-white border-t-4 border-brand"
 	>
 		<div v-if="defineCells" class="mx-16">
 			<div class="py-3">
