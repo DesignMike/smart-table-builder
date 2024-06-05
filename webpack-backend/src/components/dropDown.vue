@@ -1,7 +1,7 @@
 <template>
 	<div class="dropdown-wrapper relative">
 		<button
-			class="border-2 rounded-lg text-gray-900 font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300"
+			class="h-full border-2 rounded-lg text-gray-900 font-bold py-2 px-4 whitespace-no-wrap rounded transition duration-300"
 			v-on:click="show = !show"
 			:class="'border-' + color"
 		>

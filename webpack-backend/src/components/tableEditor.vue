@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="mb-4 bg-white rounded-lg p-6 flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-center justify-center"
+			class="mb-4 bg-purple-200 rounded-lg p-6 flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-center justify-center"
 		>
 			<ul class="flex main-nav border-b tab-buttons">
 				<li class="mr-1">

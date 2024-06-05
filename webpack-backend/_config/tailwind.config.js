@@ -27,6 +27,7 @@ module.exports = {
 			black: '#000',
 			white: '#fff',
 			brand: '#6d28d9',
+			['brand-alt']: '#f3f4f6',
 
 			gray: {
 				100: '#f7fafc',
@@ -54,7 +55,7 @@ module.exports = {
 				100: '#fffaf0',
 				200: '#feebc8',
 				300: '#fbd38d',
-				400: '#f6ad55',
+				400: '#f9896b',
 				500: '#ed8936',
 				600: '#dd6b20',
 				700: '#c05621',
