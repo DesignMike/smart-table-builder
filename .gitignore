@@ -69,3 +69,6 @@ Thumbs.db
 *.sql
 *.sqlite
 dist/
+
+*.hot-update.json
+*.hot-update.js
