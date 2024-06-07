@@ -1146,6 +1146,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-right: 0.75rem;
 }
 
+.wptable .mr-4 {
+  margin-right: 1rem;
+}
+
 .wptable .mr-8 {
   margin-right: 2rem;
 }
@@ -1164,10 +1168,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .mt-8 {
   margin-top: 2rem;
-}
-
-.wptable .mr-4 {
-  margin-right: 1rem;
 }
 
 .wptable .block {
@@ -2606,6 +2606,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .hover\:bg-orange-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(156 66 33 / var(--tw-bg-opacity));
+}
+
+.wptable .hover\:bg-gray-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .wptable .hover\:text-blue-800:hover {

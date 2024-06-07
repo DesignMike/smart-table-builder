@@ -1,5 +1,5 @@
 <template>
-	<span class="toolbar-tool">
+	<span class="toolbar-tool mr-2">
 		<button
 			v-on:click="show = !show"
 			@mouseenter="columnBtnHover = true"
@@ -17,10 +17,24 @@
 			>
 				<rect fill="none" height="24" width="24" />
 				<path
+					fill="currentColor"
 					d="M3,5v14h18V5H3z M8.33,17H5V7h3.33V17z M13.67,17h-3.33V7h3.33V17z M19,17h-3.33V7H19V17z"
 				/>
+				*
 			</svg>
 			<span>Column</span>
+			<svg
+				class="ml-2"
+				width="24"
+				height="25"
+				viewBox="0 0 24 25"
+				xmlns="http://www.w3.org/2000/svg"
+				:fill="[show || columnBtnHover ? '#ffffff' : '#4B5563']"
+			>
+				<path
+					d="M16.4097 10.5C16.9346 10.5 17.1974 11.0678 16.8263 11.3999L12.4166 15.3456C12.1865 15.5515 11.8135 15.5515 11.5834 15.3456L7.17373 11.3999C6.80261 11.0678 7.06545 10.5 7.5903 10.5L16.4097 10.5Z"
+				/>
+			</svg>
 		</button>
 		<transition :name="animation">
 			<div
@@ -30,23 +44,45 @@
 			>
 				<div
 					v-click-outside="handleOutsideClick"
-					class="list-none overflow-hidden rounded-lg"
+					class="flex flex-col list-none overflow-hidden rounded-lg"
 				>
 					<button
+						class="flex text-gray-900 bg-white py-2 px-4 hover:bg-gray-300"
 						@click="addColumnRight"
-						class="bg-white py-2 px-4 hover:bg-gray-800"
 					>
-						<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABC0lEQVRIid2VPQoCMRCFP7UXtBD0EGIniB5g/cETaSOCp7Gz9OcEtmKrrTYqWq7FJhLGzW52V0F8MEVeZuZNMhMC/4oucAR8ix0Bz/BvAKUkAlHJtR0M/zuwA6quAnHJtUn/PVD7pECYbc1EedcjJYAf7/JDV6Tx9SbXsYxpLkLABbb4F77R5MwCJ2BM8HpTw3bnc6CSJXGUwAIoqP0hsAFuytbAIIvAGSiqvZmlAB+YphWYGJWbfAtoC66fRqCp+I3gw/xXaQTKir8alUvok1xM0nVMH2IdFhf76EzID0fP/Jr4K1q6CHgEP5YOGil+IJK1gY7geklOEoYp7z2S05YZfYJpuSpbYqn8CVxttbGJIJXVAAAAAElFTkSuQmCC"
-						/>
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 20 20"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M7.91683 2.08333C8.35886 2.08333 8.78278 2.25893 9.09534 2.57149C9.4079 2.88405 9.5835 3.30797 9.5835 3.75L9.5835 17.0833C9.5835 17.5254 9.4079 17.9493 9.09534 18.2618C8.78278 18.5744 8.35886 18.75 7.91683 18.75H2.0835L2.0835 17.0833H3.75016L3.75016 13.75H2.0835L2.0835 12.0833H3.75016L3.75016 8.75H2.0835L2.0835 7.08333H3.75016L3.75016 3.75H2.0835L2.0835 2.08333H7.91683ZM7.91683 17.0833L7.91683 13.75H5.41683L5.41683 17.0833H7.91683ZM7.91683 12.0833L7.91683 8.75L5.41683 8.75V12.0833H7.91683ZM7.91683 3.75L5.41683 3.75L5.41683 7.08333L7.91683 7.08333L7.91683 3.75ZM11.2502 11.25V9.58333H13.7502V7.08333H15.4168V9.58333L17.9168 9.58333V11.25H15.4168V13.75L13.7502 13.75V11.25H11.2502Z"
+								fill="#4B5563"
+							/>
+						</svg>
+						<span class="mr-2" />
+						<span>Add Column Right</span>
 					</button>
 					<button
+						class="flex bg-white text-gray-900 py-2 px-4 hover:bg-gray-300"
 						@click="addColumnLeft"
-						class="bg-white py-2 px-4 hover:bg-gray-800"
 					>
-						<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIid2VPW4CMRCFP6BHCgWIS6B0SBEcgD/lRKSJVuI06VJu2BvQgOihhQZQKKFYWzITO2vvT8OTpvCz/d54PJbh2fACvBrjMbAHbo7YAyNf8S6wBX4N7j9xHTsf8Q6wMTZpZInL9U6sAsSCDOo+7mWgDaypsERgv+RSDSBt016ZBrUMQ9/snDqVX3IRgwPwwePLD4ar5l+knVcYNvFvoKHm34EEuKhYArMiBkegqeYWjgRuQJTX4NPI3OTfgIHgpnkM+opPBG9b/5PHoKX4s5G5hD7JCcLb9CrGtv1Zj/cB8sPRPb8ku0Sxj8GI9MfSm+aKnwmxATAU3CTkJDZE/L0j2W2FMSXtlrOKGJH5HeqytKMUvYpHAAAAAElFTkSuQmCC"
-						/>
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 20 20"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M12.0835 1.25033C11.6414 1.25033 11.2175 1.42592 10.905 1.73848C10.5924 2.05104 10.4168 2.47497 10.4168 2.91699L10.4168 16.2503C10.4168 16.6924 10.5924 17.1163 10.905 17.4288C11.2175 17.7414 11.6414 17.917 12.0835 17.917H17.9168V16.2503H16.2501V12.917H17.9168V11.2503H16.2501V7.91699H17.9168V6.25033H16.2501V2.91699H17.9168V1.25033H12.0835ZM12.0835 16.2503V12.917H14.5835V16.2503H12.0835ZM12.0835 11.2503L12.0835 7.91699L14.5835 7.91699V11.2503H12.0835ZM12.0835 2.91699L14.5835 2.91699L14.5835 6.25033L12.0835 6.25033L12.0835 2.91699ZM8.75014 10.417V8.75033H6.25014V6.25033H4.58348V8.75033L2.08348 8.75033V10.417H4.58348V12.917L6.25014 12.917V10.417H8.75014Z"
+								fill="#4B5563"
+							/>
+						</svg>
+						<span class="mr-2" />
+						<span>Add Column Left</span>
 					</button>
 				</div>
 			</div>

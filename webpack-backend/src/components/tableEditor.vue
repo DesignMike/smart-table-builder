@@ -44,21 +44,17 @@
 		</div>
 		<div
 			v-if="tabNavigation == 0"
+			id="toolbar"
+			class="mb-2 toolbar flex flex-row items-center justify-center"
+		>
+			<columntoolbar-dropdown animation="fade" color="blue" :styles="styles" />
+			<rowtoolbar-dropdown animation="fade" color="blue" :styles="styles" />
+		</div>
+		<div
+			v-if="tabNavigation == 0"
 			class="mb-4 bg-white rounded-lg p-6 flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-center justify-center"
 		>
 			<div class="px-5 py-3 w-full h-full">
-				<div class="mb-2 toolbar flex" id="toolbar" style="width: fit-content">
-					<columntoolbar-dropdown
-						animation="fade"
-						color="blue"
-						:styles="styles"
-					></columntoolbar-dropdown>
-					<rowtoolbar-dropdown
-						animation="fade"
-						color="blue"
-						:styles="styles"
-					></rowtoolbar-dropdown>
-				</div>
 				<canvas-datagrid
 					v-if="grid.data.length"
 					allowSorting="false"
