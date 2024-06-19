@@ -45,7 +45,7 @@
 
 <script>
 import tableEditor from '../components/tableEditor.vue';
-import settingsModal from '../components/settings-modal.vue';
+import settingsModal from '../components/settings-modal/index.vue';
 import storeUtils from '../utils/storeUtils';
 import defaultState from '../../../default_state';
 const defautlSheetData = ({ title, col, row }) => {

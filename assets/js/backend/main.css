@@ -1096,6 +1096,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-right: auto;
 }
 
+.wptable .my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .wptable .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1157,10 +1162,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-top: 0.75rem;
 }
 
-.wptable .mt-4 {
-  margin-top: 1rem;
-}
-
 .wptable .mt-8 {
   margin-top: 2rem;
 }
@@ -1181,6 +1182,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.wptable .inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .wptable .table {
@@ -1342,6 +1349,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   list-style-type: none;
 }
 
+.wptable .grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .wptable .flex-row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -1389,11 +1400,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.wptable .justify-around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 .wptable .gap-8 {
@@ -1454,11 +1460,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-top-width: 4px;
 }
 
-.wptable .border-blue-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(190 227 248 / var(--tw-border-opacity));
-}
-
 .wptable .border-blue-500 {
   --tw-border-opacity: 1;
   border-color: rgb(66 153 225 / var(--tw-border-opacity));
@@ -1482,16 +1483,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .border-gray-900 {
   --tw-border-opacity: 1;
   border-color: rgb(26 32 44 / var(--tw-border-opacity));
-}
-
-.wptable .border-green-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(198 246 213 / var(--tw-border-opacity));
-}
-
-.wptable .border-pink-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(254 215 226 / var(--tw-border-opacity));
 }
 
 .wptable .bg-black {
@@ -1534,11 +1525,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
 }
 
-.wptable .bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(102 126 234 / var(--tw-bg-opacity));
-}
-
 .wptable .bg-orange-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 137 107 / var(--tw-bg-opacity));
@@ -1560,26 +1546,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
-}
-
-.wptable .fill-\[\#1877f2\] {
-  fill: #1877f2;
-}
-
-.wptable .fill-\[\#1d9bf0\] {
-  fill: #1d9bf0;
-}
-
-.wptable .fill-\[\#229ED9\] {
-  fill: #229ED9;
-}
-
-.wptable .fill-\[\#25D366\] {
-  fill: #25D366;
-}
-
-.wptable .fill-\[\#bc2a8d\] {
-  fill: #bc2a8d;
 }
 
 .wptable .object-cover {
@@ -1655,6 +1621,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   padding-top: 1rem;
 }
 
+.wptable .pt-0 {
+  padding-top: 0;
+}
+
 .wptable .text-center {
   text-align: center;
 }
@@ -1689,6 +1659,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .text-xs {
   font-size: 0.75rem;
+}
+
+.wptable .text-base {
+  font-size: 1rem;
 }
 
 .wptable .font-bold {
@@ -1829,13 +1803,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
 
-.wptable .shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 10px 10px -5px var(--tw-shadow-color);
-  -webkit-box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
-          box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
-  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
-          box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+.wptable .shadow-gray-500 {
+  --tw-shadow-color: #a0aec0;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .wptable .outline-none {
@@ -2593,31 +2563,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-left: 1px solid #eee;
 }
 
-.wptable .hover\:bg-\[\#1877f2\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(24 119 242 / var(--tw-bg-opacity));
-}
-
-.wptable .hover\:bg-\[\#1d9bf0\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 155 240 / var(--tw-bg-opacity));
-}
-
-.wptable .hover\:bg-\[\#229ED9\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 158 217 / var(--tw-bg-opacity));
-}
-
-.wptable .hover\:bg-\[\#25D366\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 211 102 / var(--tw-bg-opacity));
-}
-
-.wptable .hover\:bg-\[\#bc2a8d\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(188 42 141 / var(--tw-bg-opacity));
-}
-
 .wptable .hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(44 82 130 / var(--tw-bg-opacity));
@@ -2646,11 +2591,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .hover\:bg-gray-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
-}
-
-.wptable .hover\:bg-indigo-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(90 103 216 / var(--tw-bg-opacity));
 }
 
 .wptable .hover\:bg-orange-800:hover {
@@ -2685,21 +2625,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .hover\:opacity-75:hover {
   opacity: 0.75;
-}
-
-.wptable .hover\:shadow-blue-500\/50:hover {
-  --tw-shadow-color: rgba(66, 153, 225, 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.wptable .hover\:shadow-green-500\/50:hover {
-  --tw-shadow-color: rgba(72, 187, 120, 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.wptable .hover\:shadow-pink-500\/50:hover {
-  --tw-shadow-color: rgba(237, 100, 166, 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .wptable .focus\:bg-gray-200:focus {

@@ -197,7 +197,7 @@
 </style>
 <script>
 import tableEditor from '../components/tableEditor.vue';
-import settingsModal from '../components/settings-modal.vue';
+import settingsModal from '../components/settings-modal/index.vue';
 import storeUtils from '../utils/storeUtils';
 import dropDown from '../components/dropDown.vue';
 import VTailwindModal from '../hoc-components/VTailwindModal.vue';

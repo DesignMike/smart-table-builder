@@ -69,7 +69,7 @@ import * as XLSX from 'xlsx';
 import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
 import tableEditor from '../components/tableEditor.vue';
-import settingsModal from '../components/settings-modal.vue';
+import settingsModal from '../components/settings-modal/index.vue';
 import storeUtils from '../utils/storeUtils';
 const make_cols = (refstr) =>
 	Array(XLSX.utils.decode_range(refstr).e.c + 1)
