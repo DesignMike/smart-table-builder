@@ -1,19 +1,93 @@
 <template>
 	<div>
-		<label
-			v-for="obj in Object.keys(settingsItems)"
-			:key="obj"
-			v-bind:style="{ display: evaluateDeps(obj) }"
-			class="block mt-2 items-center"
-		>
-			<toolcool-color-picker
+		<div class="shadow-lg p-3 rounded-lg shadow-gray-500">
+			<h5 v-if="isLoading" class="text-base my-2 font-semibold">
+				Header Fonts is Loading
+			</h5>
+			<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+				Header Fonts
+			</h5>
+			<div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
+				<fonts-select
+					:options="getFontFamilyList(this)"
+					font-zone="tableHeader"
+					context="fontFamily"
+					@updateFont="handleFontUpdate"
+				/>
+				<fonts-select
+					:options="getSizes(this)"
+					font-zone="tableHeader"
+					context="fontSize"
+				/>
+				<fonts-select
+					:options="findFontFamilyWeights(this, 'tableHeader')"
+					font-zone="tableHeader"
+					:key="componentKey"
+					ref="weightDropDown"
+					context="fontWeight"
+				/>
+			</div>
+
+			<label
+				v-for="obj in Object.keys(settingsItems)"
+				v-if="settingsItems[obj].group == 'Table Header'"
 				:key="obj"
-				@change="handleColorChange($event, obj, settingsItemProps, $store)"
-				v-if="settingsItems[obj].type == 'color'"
-				:color="settingsItemProps[obj]"
-			/>
-			<span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
-		</label>
+				v-bind:style="{ display: evaluateDeps(obj) }"
+				class="block mt-2 items-center"
+			>
+				<toolcool-color-picker
+					:key="obj"
+					v-if="settingsItems[obj].type == 'color'"
+					@change="handleColorChange($event, obj, settingsItemProps, $store)"
+					:color="settingsItemProps[obj]"
+				/>
+				<span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
+			</label>
+		</div>
+		<div class="shadow-lg p-3 mt-4 rounded-lg shadow-gray-500">
+			<h5 v-if="isLoading" class="text-base my-2 font-semibold">
+				Table Cell Fonts is Loading
+			</h5>
+			<h5 v-if="!isLoading" class="text-base my-2 font-semibold">
+				Table Cell Fonts
+			</h5>
+			<div v-if="!isLoading" class="relative grid grid-cols-3 flex pt-0">
+				<fonts-select
+					:options="getFontFamilyList(this)"
+					font-zone="tableBodyHeader"
+					@updateFont="handleFontUpdate"
+					context="fontFamily"
+				/>
+				<fonts-select
+					:options="getSizes(this)"
+					font-zone="tableBodyHeader"
+					context="fontSize"
+				/>
+				<fonts-select
+					:options="findFontFamilyWeights(this, 'tableBodyHeader')"
+					font-zone="tableBodyHeader"
+					:key="componentKey"
+					context="fontWeight"
+					ref="weightDropDown"
+				/>
+			</div>
+
+			<label
+				v-for="obj in Object.keys(settingsItems)"
+				v-if="settingsItems[obj].group == 'Table Rows'"
+				:key="obj"
+				v-bind:style="{ display: evaluateDeps(obj) }"
+				class="block mt-2 items-center"
+			>
+				<toolcool-color-picker
+					:key="obj"
+					v-if="settingsItems[obj].type == 'color'"
+					@change="handleColorChange($event, obj, settingsItemProps, $store)"
+					:color="settingsItemProps[obj]"
+				/>
+				<span class="ml-2 font-semibold">{{ settingsItems[obj].title }}</span>
+			</label>
+		</div>
 	</div>
 </template>
 <script>
@@ -58,36 +132,35 @@ export default {
 					default: 'gray',
 					title: 'Table Header background color',
 					dependencies: [],
+					group: 'Table Header',
 				},
 				tableHeaderTextColor: {
 					type: 'color',
 					default: '#000',
 					title: 'Table Header text color',
 					dependencies: [],
+					group: 'Table Header',
 				},
 				tableRowsBg: {
 					type: 'color',
 					default: 'gray',
 					title: 'Table rows background color',
 					dependencies: [],
+					group: 'Table Rows',
 				},
 				tableRowsTextColor: {
 					type: 'color',
 					default: 'gray',
 					title: 'Table rows text color',
 					dependencies: [],
-				},
-				tableCellPadding: {
-					type: 'range',
-					default: '2',
-					title: 'Table Cell Padding',
-					dependencies: [],
+					group: 'Table Rows',
 				},
 				tableCellsBorderBg: {
 					type: 'color',
 					default: 'gray',
 					title: 'Table cell border colors',
 					dependencies: ['addBorderToTableCells'],
+					group: 'Table Rows',
 				},
 			},
 			colors: [],
@@ -97,6 +170,13 @@ export default {
 		settingsItemProps: {
 			get: function () {
 				return this.$store.state.settingsItemProps;
+			},
+		},
+		filteredSettingsItems: {
+			get: function () {
+				return Object.keys(this.settingsItems).map(
+					(z) => this.settingsItems[z],
+				);
 			},
 		},
 		getBool: {
@@ -130,8 +210,11 @@ export default {
 				text: e.family,
 			}));
 		},
-		findFontFamilyWeights($this) {
-			let family = this.$store.state.fontSettings[0];
+		findFontFamilyWeights($this, fontZone) {
+			let family =
+				this.$store.state[
+					fontZone === 'tableHeader' ? 'fontSettings' : 'tableBodyFontSettings'
+				][0];
 			let weights = this.googleFontsMetadata.familyMetadataList
 				.filter((e) => e.family == family)
 				.map((e) => Object.keys(e.fonts))[0];

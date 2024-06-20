@@ -94,62 +94,6 @@ export default {
 			isLoading: true,
 			googleFontsMetadata: [],
 			componentKey: 0,
-			settingsItems: {
-				addBorderToTableCells: {
-					type: 'boolean',
-					default: false,
-					title: 'Add border to table cells',
-					dependencies: [],
-				},
-				showSearchBar: {
-					type: 'boolean',
-					default: false,
-					title: 'Show SearchBar',
-					dependencies: [],
-				},
-				showTitle: {
-					type: 'boolean',
-					default: true,
-					title: 'Show Table Title',
-					dependencies: [],
-				},
-				tableHeaderBg: {
-					type: 'color',
-					default: 'gray',
-					title: 'Table Header background color',
-					dependencies: [],
-				},
-				tableHeaderTextColor: {
-					type: 'color',
-					default: '#000',
-					title: 'Table Header text color',
-					dependencies: [],
-				},
-				tableRowsBg: {
-					type: 'color',
-					default: 'gray',
-					title: 'Table rows background color',
-					dependencies: [],
-				},
-				tableRowsTextColor: {
-					type: 'color',
-					default: 'gray',
-					title: 'Table rows text color',
-					dependencies: [],
-				},
-				tableCellPadding: {
-					type: 'range',
-					default: '2',
-					title: 'Table Cell Padding',
-					dependencies: [],
-				},
-				tableCellsBorderBg: {
-					type: 'color',
-					default: 'gray',
-					title: 'Table cell border colors',
-					dependencies: ['addBorderToTableCells'],
-				},
-			},
 			colors: [],
 		};
 	},
@@ -179,49 +123,9 @@ export default {
 		});
 	},
 	methods: {
-		handleChkbx: (evt, obj, settingsItemProps, store) => {
-			// let currentSettings = this.settingsItemProps;
-			let isChecked = evt.target.checked;
-			store.commit('updateSettingsByKey', { key: obj, value: isChecked });
-		},
-		getFontFamilyList: (proxy) => {
-			return proxy.googleFontsMetadata.familyMetadataList.map((e) => ({
-				value: e.family,
-				text: e.family,
-			}));
-		},
-		findFontFamilyWeights($this) {
-			let family = this.$store.state.fontSettings[0];
-			let weights = this.googleFontsMetadata.familyMetadataList
-				.filter((e) => e.family == family)
-				.map((e) => Object.keys(e.fonts))[0];
-			return weights.map((e) => ({ text: e, value: e }));
-		},
-		getSizes() {
-			return [...Array(80).keys()].map((e) => ({
-				text: e + ' px',
-				value: e + ' px',
-			}));
-		},
-		handleFontUpdate(family) {
-			this.componentKey = !this.componentKey;
-		},
 		handleModalClose() {
 			this.$store.commit('setSettingsModalStatus', false);
 			this.$parent.mountFonts();
-		},
-		evaluateDeps(obj) {
-			let depResults = this.settingsItems[obj].dependencies.map((dep) =>
-				Boolean(this.settingsItemProps[dep]),
-			);
-			let displayMode =
-				this.settingsItems[obj].type == 'color' ? 'flex' : 'inline';
-			return (depResults.length ? depResults.some((e) => e == true) : true)
-				? displayMode
-				: 'none';
-		},
-		handleColorChange: ({ detail }, obj, settingsItemProps, store) => {
-			store.commit('updateSettingsByKey', { key: obj, value: detail.hex8 });
 		},
 	},
 };

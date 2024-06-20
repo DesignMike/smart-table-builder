@@ -99,28 +99,29 @@
 					<p class="text-xl font-bold mt-3 mb-5">
 						Insert the table to any of your posts or pages
 					</p>
-				</div>
-				<div class="text-xl mb-2">
-					<span>[wp-table id="{{ editingTableId }}"]</span>
-					<span @click="handleShortcodeCopy" class="copy-icon">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path d="M13 7H7V5H13V7Z" fill="currentColor" />
-							<path d="M13 11H7V9H13V11Z" fill="currentColor" />
-							<path d="M7 15H13V13H7V15Z" fill="currentColor" />
-							<path
-								fill-rule="evenodd"
-								clip-rule="evenodd"
-								d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z"
-								fill="currentColor"
-							/>
-						</svg>
-					</span>
+					<div class="text-xl mb-2">
+						<span>[wp-table id="{{ editingTableId }}"]</span>
+						<span @click="handleShortcodeCopy" class="copy-icon">
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path d="M13 7H7V5H13V7Z" fill="currentColor" />
+								<path d="M13 11H7V9H13V11Z" fill="currentColor" />
+								<path d="M7 15H13V13H7V15Z" fill="currentColor" />
+								<path
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</span>
+						<span v-if="showCopyMessage">Copied!</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -147,6 +148,7 @@ import rowtoolbarDropdown from '../components/rowtoolbarDropdown.vue';
 export default {
 	data() {
 		return {
+			showCopyMessage: false,
 			tabNavigation: 0,
 			tabActiveClass:
 				'rounded-lg bg-brand inline-block py-2 px-4 font-semibold text-white',
@@ -232,9 +234,44 @@ export default {
 			return this.$store.commit('setSettingsModalStatus', true);
 		},
 		handleShortcodeCopy() {
-			window.navigator.clipboard.writeText(
-				`[wp-table id=\"${this.editingTableId}\"]`,
-			);
+			const shortcode = `[wp-table id="${this.editingTableId}"]`;
+			if (navigator.clipboard) {
+				navigator.clipboard
+					.writeText(shortcode)
+					.then(() => {
+						this.showCopyMessage = true;
+						setTimeout(() => {
+							this.showCopyMessage = false;
+						}, 3000);
+					})
+					.catch((err) => {
+						console.error('Failed to copy shortcode to clipboard', err);
+						// Optionally, show an error message to the user
+					});
+			} else {
+				// Use the 'out of viewport hidden text area' trick
+				const textArea = document.createElement('textarea');
+				textArea.value = shortcode;
+
+				// Move textarea out of the viewport so it's not visible
+				textArea.style.position = 'absolute';
+				textArea.style.left = '-999999px';
+
+				document.body.prepend(textArea);
+				textArea.select();
+
+				try {
+					document.execCommand('copy');
+					this.showCopyMessage = true;
+					setTimeout(() => {
+						this.showCopyMessage = false;
+					}, 3000);
+				} catch (error) {
+					console.error(error);
+				} finally {
+					textArea.remove();
+				}
+			}
 		},
 		handleRender(e) {
 			// if (e.cell.columnIndex === 1 && e.cell.rowIndex > -1 && e.cell.value) {

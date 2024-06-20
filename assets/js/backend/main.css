@@ -1033,6 +1033,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   }
 }
 
+.wptable .visible {
+  visibility: visible;
+}
+
 .wptable .fixed {
   position: fixed;
 }
@@ -1106,6 +1110,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-bottom: 1rem;
 }
 
+.wptable .my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .wptable .mb-0 {
   margin-bottom: 0;
 }
@@ -1166,6 +1175,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-top: 2rem;
 }
 
+.wptable .mt-4 {
+  margin-top: 1rem;
+}
+
 .wptable .block {
   display: block;
 }
@@ -1184,12 +1197,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   display: flex;
 }
 
-.wptable .inline-flex {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
 .wptable .table {
   display: table;
 }
@@ -1200,6 +1207,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .contents {
   display: contents;
+}
+
+.wptable .hidden {
+  display: none;
 }
 
 .wptable .h-12 {
@@ -1282,14 +1293,28 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 100%;
 }
 
+.wptable .w-auto {
+  width: auto;
+}
+
 .wptable .max-w-xs {
   max-width: 20rem;
+}
+
+.wptable .max-w-6xl {
+  max-width: 72rem;
 }
 
 .wptable .flex-1 {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0%;
           flex: 1 1 0%;
+}
+
+.wptable .flex-auto {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .wptable .flex-shrink-0 {
@@ -1370,6 +1395,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 .wptable .flex-wrap {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.wptable .items-start {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .wptable .items-center {
@@ -1460,9 +1491,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-top-width: 4px;
 }
 
-.wptable .border-blue-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(66 153 225 / var(--tw-border-opacity));
+.wptable .border-solid {
+  border-style: solid;
 }
 
 .wptable .border-brand {
@@ -1565,6 +1595,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   padding: 1.5rem;
 }
 
+.wptable .p-12 {
+  padding: 3rem;
+}
+
 .wptable .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1623,6 +1657,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .pt-0 {
   padding-top: 0;
+}
+
+.wptable .pb-0 {
+  padding-bottom: 0;
 }
 
 .wptable .text-center {
@@ -1699,11 +1737,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 .wptable .tracking-widest {
   letter-spacing: 0.1em;
-}
-
-.wptable .text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(66 153 225 / var(--tw-text-opacity));
 }
 
 .wptable .text-blue-700 {
