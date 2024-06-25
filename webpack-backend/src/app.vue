@@ -42,6 +42,7 @@
 							<a
 								v-for="(item, index) in navItems"
 								:key="index"
+								@click="navigateTo(item)"
 								class="cursor-pointer dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 flex flex-col items-center rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:ml-4 md:mt-0"
 								target="_blank"
 							>
@@ -87,7 +88,7 @@ export default {
 <path d="M12.5 5.5V19.5" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.5 12.5H19.5" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`,
-					link: '',
+					link: '/',
 				},
 				{
 					title: 'Upload Spreadsheet',
@@ -96,7 +97,7 @@ export default {
 <path d="M17.5 8.5L12.5 3.5L7.5 8.5" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M12.5 3.5V15.5" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`,
-					link: '',
+					link: '/create-from-excel',
 				},
 				{
 					title: 'Feedback',
@@ -151,6 +152,11 @@ export default {
 					});
 				},
 			});
+		},
+		navigateTo(item) {
+			if (item.link) {
+				this.$router.push(item.link);
+			}
 		},
 		handleUpdate() {
 			let data = storeUtils.read(this.$store.state);

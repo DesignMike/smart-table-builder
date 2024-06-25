@@ -38,20 +38,25 @@
 				</div>
 			</div>
 		</div>
-		<form v-if="!fileUploadDone">
-			<div class="mb-4 bg-white rounded-lg p-6">
-				<label class="block uppercase tracking-wide text-xs font-bold"
-					>Upload a Spreadsheet</label
-				>
-				<input
-					type="file"
-					class="w-full shadow-inner p-4 border-0"
-					id="file"
-					:accept="SheetJSFT"
-					@change="_change"
-				/>
-			</div>
-		</form>
+		<div
+			class="w-3/6 mx-auto px-4 py-8 justify-center rounded-sm bg-white border-t-4 border-brand"
+			v-if="!fileUploadDone"
+		>
+			<form>
+				<div class="mb-4 bg-white rounded-lg p-6">
+					<label class="block uppercase tracking-wide text-xs font-bold"
+						>Upload a Spreadsheet</label
+					>
+					<input
+						type="file"
+						class="w-full shadow-inner p-4 border-0"
+						id="file"
+						:accept="SheetJSFT"
+						@change="_change"
+					/>
+				</div>
+			</form>
+		</div>
 		<table-editor v-if="$store.state.grid.data.length" />
 		<settings-modal v-if="showSettings" />
 	</div>

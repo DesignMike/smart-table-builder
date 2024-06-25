@@ -66,7 +66,7 @@
 				</button>
 			</div>
 		</div>
-		<div v-if="!defineCells">
+		<div v-if="showWelcomeBanner">
 			<div class="text-3xl font-bold text-center mb-8">Welcome!</div>
 			<div class="text-xl text-center mb-4">Let's create a new table</div>
 			<div class="flex justify-center">
@@ -117,6 +117,7 @@
 						</div>
 					</div>
 					<div
+						@click="navigateToUpload"
 						class="cursor-pointer p-4 transition-colors duration-200 bg-white border-2 border-gray-200 rounded-lg dark:hover:bg-gray-800 dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100"
 					>
 						<div class="flex items-center gap-x-3">
@@ -182,6 +183,7 @@ export default {
 			rows: 3,
 			columns: 3,
 			title: '',
+			showUploadField: false,
 		};
 	},
 	computed: {
@@ -189,7 +191,7 @@ export default {
 			return this.rows && this.columns && this.title.length ? true : false;
 		},
 		showWelcomeBanner() {
-			return !this.defineCells;
+			return !this.defineCells && !this.showUploadField;
 		},
 	},
 	methods: {
