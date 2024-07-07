@@ -7,7 +7,7 @@
  * Author URI: https://github.com/nahinakbar
  * Version: 1.0.0
  * License: GPL2
- * Text Domain: exceltotable
+ * Text Domain: wp-ultimate-tables
  * Domain Path: /languages/
  *
  * Released under the GPL license
@@ -268,7 +268,7 @@ final class WP_Ultimate_Tables {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'exceltotable', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'wp-ultimate-tables', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**

@@ -39,7 +39,8 @@ class AjaxCallbacks
     }
     public static function get_table_cells()
     {
-        $id = esc_html($_GET['id']);
+        // phpcs:ignore
+        $id = sanitize_text_field($_GET['id']);
         $table = get_post($id);
         $response = [
             'id' => $table->ID,
@@ -100,6 +101,7 @@ class AjaxCallbacks
     public static function get_gfonts_meta()
     {
         $gfonts_metadata_file = WPULTIMATETABLE_ASSETS_PATH . '/fonts_meta.json';
+        // phpcs:ignore
         $fonts_metadata = file_get_contents($gfonts_metadata_file);
         header('Content-type: audio/mpeg');
 

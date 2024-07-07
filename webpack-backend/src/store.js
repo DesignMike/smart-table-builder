@@ -28,6 +28,9 @@ const store = new Vuex.Store({
 		tableBodyFontString: '',
 		settingsItemProps: mock.settingsItemProps,
 		fontUrls: [],
+		backendConfig: {
+			nonce: '',
+		},
 	},
 	mutations: {
 		updateGrid(state, newData) {
@@ -40,6 +43,9 @@ const store = new Vuex.Store({
 				newData[0][i] = '';
 			}
 			state.grid.data = newData;
+		},
+		setConfig(state, config) {
+			state.backendConfig = config;
 		},
 		setSettingsModalStatus(state, status) {
 			state.showSettings = status;

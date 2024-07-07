@@ -19,7 +19,7 @@ class Admin {
         global $submenu;
 
         $capability = 'manage_options';
-        $slug       = 'vue-app';
+        $slug       = 'ultimate-tables';
 
         $hook = add_menu_page( __( ' WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), __( 'WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
 
@@ -62,15 +62,18 @@ class Admin {
      */
     public function plugin_page() {
         // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
-        echo '<script id="homeurl" type="text/json">'. json_encode(array('url' => esc_url(get_home_url()))) .'</script>';
+        $config = [ 'nonce' => wp_create_nonce( 'calculator-front-page' ) ];
+        echo '<script id="homeurl" type="text/json">'. wp_json_encode(array('url' => esc_url(get_home_url()))) .'</script>';
+        echo '<script id="ultimate_tables_config" type="text/json">' . wp_json_encode( $config ) . '</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
     }
 
     function admin_hide_notices()
     {
-        $exclusionPages = ['vue-app'];
-        if (empty($_REQUEST['page']) || !in_array($_REQUEST['page'], $exclusionPages)) {
-        return;
+        $exclusionPages = ['toplevel_page_ultimate-tables'];
+        $current_screen = get_current_screen();
+        if (!in_array($current_screen->base, $exclusionPages)) {
+            return;
         }
         global $wp_filter;
         foreach (array('user_admin_notices', 'admin_notices', 'all_admin_notices') as $notices_type) {

@@ -6,26 +6,12 @@ import './styles/index.css';
 
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = ['canvas-datagrid'];
-
+const appConfig = document.querySelector(
+	'#ultimate_tables_config',
+)?.textContent;
+store.commit('setConfig', JSON.parse(appConfig));
 export default new Vue({
 	router,
 	render: (h) => h(App),
 	store: store,
 }).$mount('#vue-admin-app');
-
-// import menuFix from './utils/admin-menu-fix'
-// // import Vuex from 'vuex'
-// // Vue.use(Vuex);
-// // import XLSX from 'xlsx';
-// Vue.config.productionTip = false
-// Vue.config.ignoredElements = ['canvas-datagrid'];
-// import '../../assets/css/tail.css';
-
-// /* eslint-disable no-new */
-// new Vue({
-//   router,
-//   render: h => h(App),
-//   store: store
-// }).$mount('#vue-admin-app');
-// // fix the admin menu for the slug "vue-app"
-// menuFix('vue-app');

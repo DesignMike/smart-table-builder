@@ -242,7 +242,9 @@ export default {
 			jQuery.ajax({
 				type: 'GET',
 				vm: this,
-				url: ajaxurl + `?action=sprdsh_get_table_cells&id=${this.toEditTable}`,
+				url:
+					ajaxurl +
+					`?action=sprdsh_get_table_cells&id=${this.toEditTable}&nonce=${this.$store.state.backendConfig.nonce}`,
 				success(data) {
 					let { vm } = this;
 					storeUtils.write(vm, data, 'postmount');
@@ -270,7 +272,11 @@ export default {
 			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
-				url: ajaxurl + '?action=create_new_table_entry',
+				url:
+					ajaxurl +
+					'?action=create_new_table_entry' +
+					'&nonce=' +
+					this.$store.state.backendConfig.nonce,
 				dataType: 'json',
 				data: JSON.stringify(data),
 				success: (responseData) => {
@@ -287,7 +293,11 @@ export default {
 		delConfirm() {
 			jQuery.ajax({
 				type: 'POST',
-				url: ajaxurl + '?action=sprdsh_delete_table',
+				url:
+					ajaxurl +
+					'?action=sprdsh_delete_table' +
+					'&nonce=' +
+					this.$store.state.backendConfig.nonce,
 				data: {
 					id: this.deletionTarget,
 				},
@@ -319,7 +329,7 @@ export default {
 				type: 'POST',
 				url:
 					ajaxurl +
-					`?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}`,
+					`?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}&nonce=${this.$store.state.backendConfig.nonce}`,
 				dataType: 'json',
 				data: JSON.stringify(data),
 				beforeSend: setLoadingStatus,
@@ -332,7 +342,9 @@ export default {
 		handleEditBtn(tableId) {
 			jQuery.ajax({
 				type: 'GET',
-				url: ajaxurl + `?action=sprdsh_get_table_cells&id=${tableId}`,
+				url:
+					ajaxurl +
+					`?action=sprdsh_get_table_cells&id=${tableId}&nonce=${this.$store.state.backendConfig.nonce}`,
 				vm: this,
 				success(data) {
 					let { vm } = this;

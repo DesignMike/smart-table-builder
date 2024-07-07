@@ -181,7 +181,11 @@ export default {
 			let data = storeUtils.read(this.$store.state);
 			jQuery.ajax({
 				type: 'POST',
-				url: ajaxurl + '?action=create_new_table_entry',
+				url:
+					ajaxurl +
+					'?action=create_new_table_entry' +
+					'&nonce=' +
+					this.$store.state.backendConfig.nonce,
 				dataType: 'json',
 				data: JSON.stringify(data),
 				success: (responseData) => {

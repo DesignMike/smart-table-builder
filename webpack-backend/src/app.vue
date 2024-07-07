@@ -142,7 +142,11 @@ export default {
 			};
 			jQuery.ajax({
 				type: 'POST',
-				url: ajaxurl + '?action=create_new_table_entry',
+				url:
+					ajaxurl +
+					'?action=create_new_table_entry' +
+					'&nonce=' +
+					this.$store.state.backendConfig.nonce,
 				dataType: 'json',
 				data: JSON.stringify(data),
 				success: (responseData) => {
@@ -164,7 +168,7 @@ export default {
 				type: 'POST',
 				url:
 					ajaxurl +
-					`?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}`,
+					`?action=sprdsh_update_table_cells&id=${this.$store.state.editingTableId}&nonce=${this.$store.state.backendConfig.nonce}`,
 				dataType: 'json',
 				data: JSON.stringify(data),
 				success: () => {},

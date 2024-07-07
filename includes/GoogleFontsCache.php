@@ -1,5 +1,7 @@
 <?php
 namespace Spreadsheet2Table;
+require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
 /**
  * Appsero Insights
@@ -55,7 +57,8 @@ class GoogleFontsCache {
         if ( is_wp_error( $tmp_gfonts_metadata_path ) ) {
             return;
         }
-        rename($tmp_gfonts_metadata_path, wp_upload_dir()['basedir'].'/fonts_meta.json');
+        $wp_fs_direct = new \WP_Filesystem_Direct( new \StdClass() );
+        $wp_fs_direct->move($tmp_gfonts_metadata_path, wp_upload_dir()['basedir'].'/fonts_meta.json');
     }
 
     public function get_tracking_data () {
