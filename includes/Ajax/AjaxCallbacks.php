@@ -57,6 +57,7 @@ class AjaxCallbacks
     }
     public static function update_table_cells()
     {
+        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
         $id = esc_html($_REQUEST['id']);
         $updatableData = file_get_contents('php://input');
         $updatableData = json_decode($updatableData, true);
@@ -106,11 +107,12 @@ class AjaxCallbacks
         header('Content-type: audio/mpeg');
 
         header('Content-Disposition: attachment; filename="fonts.txt"');
-        
+        // phpcs:ignore
         echo ($fonts_metadata);
         wp_die();
     }
     public static function delete_table() {
+        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
         wp_delete_post(intval($_REQUEST['id']), true);
         wp_send_json_success(['status' => 'done']);
     }

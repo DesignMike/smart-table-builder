@@ -62,7 +62,7 @@ class Admin {
      */
     public function plugin_page() {
         // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
-        $config = [ 'nonce' => wp_create_nonce( 'calculator-front-page' ) ];
+        $config = [ 'nonce' => wp_create_nonce( 'ultimate-tables-nonce' ) ];
         echo '<script id="homeurl" type="text/json">'. wp_json_encode(array('url' => esc_url(get_home_url()))) .'</script>';
         echo '<script id="ultimate_tables_config" type="text/json">' . wp_json_encode( $config ) . '</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';

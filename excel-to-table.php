@@ -241,6 +241,7 @@ final class WP_Ultimate_Tables {
      * @return void
      */
     public function init_classes() {
+        // phpcs:ignore
         $key = ! empty( $_GET['wut_action'] ) ? sanitize_key( $_GET['wut_action'] ) : false;
         if ( ! empty( $key ) ) {
             do_action( "wut_{$key}" , $_GET );
@@ -252,7 +253,7 @@ final class WP_Ultimate_Tables {
         if ( $this->is_request( 'frontend' ) ) {
             $this->container['frontend'] = new Spreadsheet2Table\Frontend();
         }
-
+        // phpcs:ignore
         if ( $this->is_request( 'ajax' ) && !isset($_GET['wc-ajax']) ) {
             $this->container['ajax'] =  new Spreadsheet2Table\Ajax\AjaxAction();
         }

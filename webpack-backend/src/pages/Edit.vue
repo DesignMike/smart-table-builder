@@ -1,18 +1,54 @@
 <template>
 	<div>
 		<div v-if="toEditTable" class="mb-4 bg-white rounded-lg p-6">
-			<label class="block uppercase tracking-wide text-xs font-bold"
-				>Name</label
-			>
 			<div class="flex justify-between">
-				<input
-					v-model="tableTitle"
-					type="text"
-					class="block w-8/12 focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
-					name="name"
-					placeholder="Enter the Table Name"
-					required=""
-				/>
+				<div class="flex items-center">
+					<input
+						v-if="showTableNameEditingInputBox"
+						v-model="tableTitle"
+						type="text"
+						class="block w-8/12 focus:outline-0 bg-white py-3 px-6 mr-2 mb-2 sm:mb-0"
+						name="name"
+						placeholder="Enter the Table Name"
+						required=""
+					/>
+					<p v-if="!showTableNameEditingInputBox" class="font-semibold">
+						{{ $store.state.tableTitle }}
+					</p>
+					<svg
+						v-if="!showTableNameEditingInputBox"
+						@click="showTableNameEditingInputBox = true"
+						class="ml-2 cursor-pointer"
+						width="16"
+						height="16"
+						viewBox="0 0 22 22"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M16 2.0003C16.2626 1.73766 16.5744 1.52932 16.9176 1.38718C17.2608 1.24503 17.6286 1.17188 18 1.17188C18.3714 1.17187 18.7392 1.24503 19.0824 1.38718C19.4256 1.52932 19.7374 1.73766 20 2.0003C20.2626 2.26295 20.471 2.57475 20.6131 2.91791C20.7553 3.26107 20.8284 3.62887 20.8284 4.0003C20.8284 4.37174 20.7553 4.73953 20.6131 5.08269C20.471 5.42585 20.2626 5.73766 20 6.0003L6.5 19.5003L1 21.0003L2.5 15.5003L16 2.0003Z"
+							stroke="#4B5563"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+					<svg
+						v-if="showTableNameEditingInputBox"
+						@click="showTableNameEditingInputBox = false"
+						class="ml-2 cursor-pointer"
+						width="16"
+						height="16"
+						xmlns="http://www.w3.org/2000/svg"
+						x="0px"
+						y="0px"
+						viewBox="0 0 50 50"
+					>
+						<path
+							d="M 41.9375 8.625 C 41.273438 8.648438 40.664063 9 40.3125 9.5625 L 21.5 38.34375 L 9.3125 27.8125 C 8.789063 27.269531 8.003906 27.066406 7.28125 27.292969 C 6.5625 27.515625 6.027344 28.125 5.902344 28.867188 C 5.777344 29.613281 6.078125 30.363281 6.6875 30.8125 L 20.625 42.875 C 21.0625 43.246094 21.640625 43.410156 22.207031 43.328125 C 22.777344 43.242188 23.28125 42.917969 23.59375 42.4375 L 43.6875 11.75 C 44.117188 11.121094 44.152344 10.308594 43.78125 9.644531 C 43.410156 8.984375 42.695313 8.589844 41.9375 8.625 Z"
+						></path>
+					</svg>
+				</div>
 				<div class="flex w-4/12 justify-end">
 					<drop-down
 						animation="fade"
@@ -211,6 +247,7 @@ export default {
 	},
 	data() {
 		return {
+			showTableNameEditingInputBox: false,
 			isEmptyTableList: false,
 			isSaving: false,
 			showDeleteConfirmation: false,
