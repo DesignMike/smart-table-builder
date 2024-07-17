@@ -44,6 +44,9 @@ const store = new Vuex.Store({
 			}
 			state.grid.data = newData;
 		},
+		emptyGrid(state) {
+			state.grid.data = [];
+		},
 		setConfig(state, config) {
 			state.backendConfig = config;
 		},

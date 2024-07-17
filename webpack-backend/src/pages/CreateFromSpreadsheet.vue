@@ -196,9 +196,6 @@ export default {
 				},
 			});
 		},
-		showSettings: (vm) => {
-			return vm.$store.state.showSettings;
-		},
 	},
 	computed: {
 		tableTitle: {

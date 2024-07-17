@@ -83,22 +83,20 @@
 						<button
 							v-if="!['/settings', '/edit', '/'].some((e) => e == $route.path)"
 							@click="handleSave"
-							class="h-full rounded-lg bg-orange-400 hover:bg-orange-800 text-white py-2 px-4"
+							class="h-full rounded-lg bg-brand text-white py-2 px-4"
 						>
 							Save
 						</button>
 						<button
 							v-if="$route.path == '/edit' && $route.query.table_id"
 							@click="handleUpdate"
-							class="h-full rounded-lg bg-orange-400 hover:bg-orange-800 font-bold text-white py-2 px-4"
+							class="h-full rounded-lg bg-brand font-bold text-white py-2 px-4"
 						>
 							Update
 						</button>
 					</div>
 					<div v-if="isSaving">
-						<button
-							class="h-full rounded-lg bg-orange-400 hover:bg-orange-800 text-white py-2 px-4"
-						>
+						<button class="h-full rounded-lg bg-brand text-white py-2 px-4">
 							<i class="gg-spinner-alt" />
 						</button>
 					</div>

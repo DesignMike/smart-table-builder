@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
 		to.path == '/create-from-excel'
 	) {
 		router.app.$store.commit('setEditingTableId', null);
-		router.app.$store.commit('updateGrid', []);
+		router.app.$store.commit('emptyGrid');
 		router.app.$store.commit('setTitle', null);
 		router.app.$store.commit('setSettingsModalStatus', false);
 	}
