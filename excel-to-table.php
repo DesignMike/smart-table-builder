@@ -2,9 +2,9 @@
 /**
  * Plugin Name: WP Ultimate Tables (Spreadsheet & Table Builder)
  * Description: Convert excel sheets to an embeddable table 
- * Plugin URI: https://github.com/nahinakbar
- * Author: Nahin Akbar
- * Author URI: https://github.com/nahinakbar
+ * Plugin URI: https://designful.ca
+ * Author: Designful Inc.
+ * Author URI: https://designful.ca
  * Version: 1.0.0
  * License: GPL2
  * Text Domain: wp-ultimate-tables
@@ -129,10 +129,6 @@ final class WP_Ultimate_Tables {
         define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
         define( 'WPULTIMATETABLE_ASSETS_URL', WPULTIMATETABLE_URL . '/assets' );
         define( 'WPULTIMATETABLE_ASSETS_PATH', WPULTIMATETABLE_PATH . '/assets' );
-        // define( 'WPULTIMATETABLE_ASSETS_WEBPACK', WPULTIMATETABLE_URL . '/webpack-backend/dist' );
-        // define( 'WPULTIMATETABLE_FRONTEND_ASSETS', WPULTIMATETABLE_URL . '/frontend/assets' );
-        // define( 'WPULTIMATETABLE_FRONTEND_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
-        // define ( 'WPULTIMATETABLE_NEW_ASSETS_URL', WPULTIMATETABLE_URL . '/new-frontend/dist' );
     }
 
     /**
