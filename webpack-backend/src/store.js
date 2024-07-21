@@ -31,6 +31,7 @@ const store = new Vuex.Store({
 		backendConfig: {
 			nonce: '',
 		},
+		enableFullScreenEditing: false,
 	},
 	mutations: {
 		updateGrid(state, newData) {
@@ -46,6 +47,9 @@ const store = new Vuex.Store({
 		},
 		emptyGrid(state) {
 			state.grid.data = [];
+		},
+		setFullScreenEditing(state, status) {
+			state.enableFullScreenEditing = status;
 		},
 		setConfig(state, config) {
 			state.backendConfig = config;

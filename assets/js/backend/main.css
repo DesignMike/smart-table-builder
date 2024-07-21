@@ -347,13 +347,16 @@
 
 
 .wptable .copy-icon svg[data-v-40f7510a] {
-	display: inline;
+  display: inline;
 }
 .wptable .copy-icon[data-v-40f7510a] {
-	cursor: pointer;
+  cursor: pointer;
 }
 .wptable .toolbar button svg[data-v-40f7510a] {
-	display: inline;
+  display: inline;
+}
+.wptable .maxxed[data-v-40f7510a] {
+  height: 90vh;
 }
 
 
@@ -366,53 +369,53 @@
 
 
 .wrap.wptable[data-v-51ee50a4] {
-	background-color: aqua;
+  background-color: aqua;
 }
 @-webkit-keyframes spinneralt-51ee50a4 {
 0% {
-		-webkit-transform: rotate(0deg);
-		        transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
 }
 to {
-		-webkit-transform: rotate(359deg);
-		        transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
 }
 }
 @keyframes spinneralt-51ee50a4 {
 0% {
-		-webkit-transform: rotate(0deg);
-		        transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
 }
 to {
-		-webkit-transform: rotate(359deg);
-		        transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
 }
 }
 .wptable .gg-spinner-alt[data-v-51ee50a4] {
-	-webkit-transform: scale(1);
-	    -ms-transform: scale(1);
-	        transform: scale(1);
-	-webkit-transform: scale(var(--ggs, 1));
-	    -ms-transform: scale(var(--ggs, 1));
-	        transform: scale(var(--ggs, 1));
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transform: scale(var(--ggs, 1));
+      -ms-transform: scale(var(--ggs, 1));
+          transform: scale(var(--ggs, 1));
 }
 .wptable .gg-spinner-alt[data-v-51ee50a4],
 .wptable .gg-spinner-alt[data-v-51ee50a4]::before {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	position: relative;
-	display: block;
-	width: 20px;
-	height: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 .wptable .gg-spinner-alt[data-v-51ee50a4]::before {
-	content: '';
-	position: absolute;
-	border-radius: 100px;
-	-webkit-animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
-	        animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
-	border: 3px solid transparent;
-	border-top-color: currentColor;
+  content: '';
+  position: absolute;
+  border-radius: 100px;
+  -webkit-animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+          animation: spinneralt-51ee50a4 1s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  border: 3px solid transparent;
+  border-top-color: currentColor;
 }
 
 
@@ -1526,11 +1529,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
 }
 
-.wptable .bg-orange-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 137 107 / var(--tw-bg-opacity));
-}
-
 .wptable .bg-purple-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(233 216 253 / var(--tw-bg-opacity));
@@ -2589,11 +2587,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
 }
 
-.wptable .hover\:bg-orange-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 66 33 / var(--tw-bg-opacity));
-}
-
 .wptable .hover\:text-blue-500:hover {
   --tw-text-opacity: 1;
   color: rgb(66 153 225 / var(--tw-text-opacity));
@@ -2794,6 +2787,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+
+  .wptable .lg\:flex-col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .wptable .lg\:items-center {
