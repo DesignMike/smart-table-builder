@@ -50,34 +50,56 @@
       :class="[fullscreenStatus ? 'maxxed' : 'minimal']"
       class="mb-4 bg-white rounded-lg p-6 flex flex-col space-y-4 lg:space-y-0 lg:flex-col"
     >
-      <div
-        v-if="tabNavigation == 0 && fullscreenStatus"
-        id="toolbar"
-        class="mb-2 toolbar flex flex-row items-center justify-center"
-      >
-        <columntoolbar-dropdown
-          animation="fade"
-          color="blue"
-          :styles="styles"
-        />
-        <rowtoolbar-dropdown animation="fade" color="blue" :styles="styles" />
+      <div class="flex">
+        <div
+          v-if="tabNavigation == 0 && fullscreenStatus"
+          id="toolbar"
+          class="mb-2 toolbar flex flex-row items-center justify-center"
+        >
+          <columntoolbar-dropdown
+            animation="fade"
+            color="blue"
+            :styles="styles"
+          />
+          <rowtoolbar-dropdown animation="fade" color="blue" :styles="styles" />
+        </div>
+        <button
+          v-if="!fullscreenStatus"
+          class="tab-item inline-block py-2 px-4 font-semibold"
+          style="margin-left: auto"
+          @click="toggleFullScreenStatus(true)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000"
+          >
+            <path
+              d="M120-120v-200h80v120h120v80H120Zm520 0v-80h120v-120h80v200H640ZM120-640v-200h200v80H200v120h-80Zm640 0v-120H640v-80h200v200h-80Z"
+            />
+          </svg>
+        </button>
+        <button
+          v-if="fullscreenStatus"
+          class="tab-item inline-block py-2 px-4 font-semibold"
+          style="margin-left: auto"
+          @click="toggleFullScreenStatus(false)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000"
+          >
+            <path
+              d="m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z"
+            />
+          </svg>
+        </button>
       </div>
-      <button
-        v-if="!fullscreenStatus"
-        class="tab-item inline-block py-2 px-4 font-semibold"
-        style="margin-left: auto"
-        @click="toggleFullScreenStatus(true)"
-      >
-        Fullscreen
-      </button>
-      <button
-        v-if="fullscreenStatus"
-        class="tab-item inline-block py-2 px-4 font-semibold"
-        style="margin-left: auto"
-        @click="toggleFullScreenStatus(false)"
-      >
-        Exit Fullscreen
-      </button>
       <div class="px-5 py-3 w-full h-full">
         <canvas-datagrid
           v-if="grid.data.length"

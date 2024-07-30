@@ -421,10 +421,10 @@ to {
 
 .wptable #wpcontent,
 .wptable #wpfooter {
-	background-color: white;
+  background-color: white;
 }
 .wrap.wptable {
-	margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /*
