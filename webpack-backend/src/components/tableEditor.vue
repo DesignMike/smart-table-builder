@@ -145,7 +145,7 @@
           <p class="text-xl font-bold mt-3 mb-5">
             Insert the table to any of your posts or pages
           </p>
-          <div class="text-xl mb-2">
+          <div v-if="editingTableId" class="text-xl mb-2">
             <span>[wp-table id="{{ editingTableId }}"]</span>
             <span @click="handleShortcodeCopy" class="copy-icon">
               <svg
@@ -167,6 +167,9 @@
               </svg>
             </span>
             <span v-if="showCopyMessage">Copied!</span>
+          </div>
+          <div v-if="!editingTableId" class="text-xl mb-2">
+            <span>Please save the table to get the shortcode</span>
           </div>
         </div>
       </div>
