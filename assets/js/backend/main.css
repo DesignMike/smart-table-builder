@@ -361,10 +361,10 @@
 
 
 .wptable .main-nav li {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 .wptable canvas-datagrid {
-	overflow: scroll;
+  overflow: scroll;
 }
 
 

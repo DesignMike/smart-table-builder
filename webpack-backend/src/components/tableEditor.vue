@@ -238,7 +238,7 @@ export default {
         event.target.getAttribute('data-tab-index'),
       );
       if (selectedTabIndex == 0) {
-        this.setGridStyle();
+        this.setGridStyle(this);
       }
       if (typeof this.$refs.grid !== 'undefined') {
         try {
@@ -263,9 +263,13 @@ export default {
             this.$store.state.tableBodyFontSettings,
           ],
         };
-        iframedPreview.contentWindow.manipulateStore(
-          JSON.parse(JSON.stringify(stateSnapshot)),
-        );
+        if (iframedPreview.contentWindow.hasOwnProperty('manipulateStore')) {
+          iframedPreview.contentWindow.manipulateStore(
+            JSON.parse(JSON.stringify(stateSnapshot)),
+          );
+        } else {
+          console.log('empty preview iframe detected');
+        }
       }
       if (selectedTabIndex !== 1) {
         // jQuery(".table-container").parent().hide();
@@ -348,18 +352,18 @@ export default {
       });
       store.commit('updateGrid', newCells);
     },
-    setGridStyle() {
+    setGridStyle($this) {
       [1, 10, 50, 100, 200, 400, 700, 1000].forEach((n) => {
         setTimeout(() => {
           console.log('table resize adjustment kicked in!');
-          if (!this.$refs.hasOwnProperty('grid')) return;
-          this.$refs.grid.style.height = '100%';
-          this.$refs.grid.style.width = '100%';
-          this.$refs.grid.style.gridBackgroundColor = 'white';
-          this.$refs.grid.style.scrollBarBackgroundColor = 'white';
-          this.$refs.grid.style.scrollBarBorderColor = 'white';
-          // this.$refs.grid.style.moveOverlayBorderColor = "blue";
-          this.$refs.grid.style.cellHeight = 35;
+          if (!$this?.$refs?.grid?.style) return;
+          $this.$refs.grid.style.height = '100%';
+          $this.$refs.grid.style.width = '100%';
+          $this.$refs.grid.style.gridBackgroundColor = 'white';
+          $this.$refs.grid.style.scrollBarBackgroundColor = 'white';
+          $this.$refs.grid.style.scrollBarBorderColor = 'white';
+          // $this.$refs.grid.style.moveOverlayBorderColor = "blue";
+          $this.$refs.grid.style.cellHeight = 35;
         }, n);
       });
     },
@@ -427,7 +431,7 @@ export default {
     rowtoolbarDropdown,
   },
   mounted() {
-    this.setGridStyle();
+    this.setGridStyle(this);
     var grid = canvasDatagrid();
     let previewframeLink = JSON.parse(
       document.querySelector('#homeurl').textContent,
