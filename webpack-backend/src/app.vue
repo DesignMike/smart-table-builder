@@ -105,7 +105,9 @@ export default {
           icon: `<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M21.5 15.5C21.5 16.0304 21.2893 16.5391 20.9142 16.9142C20.5391 17.2893 20.0304 17.5 19.5 17.5H7.5L3.5 21.5V5.5C3.5 4.96957 3.71071 4.46086 4.08579 4.08579C4.46086 3.71071 4.96957 3.5 5.5 3.5H19.5C20.0304 3.5 20.5391 3.71071 20.9142 4.08579C21.2893 4.46086 21.5 4.96957 21.5 5.5V15.5Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`,
-          link: '',
+          action: () => {
+            this.$store.commit('setFeedbackModalStatus', true);
+          },
         },
         {
           title: 'Support',
@@ -118,7 +120,9 @@ export default {
 <path d="M14.83 9.67001L18.36 6.14001" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4.92999 19.57L9.16999 15.33" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`,
-          link: '',
+          action: () => {
+            this.$store.commit('setFeedbackModalStatus', true);
+          },
         },
       ],
     };
@@ -148,7 +152,7 @@ export default {
         type: 'POST',
         url:
           ajaxurl +
-          '?action=create_new_table_entry' +
+          '?action=sprdsh_create_new_table_entry' +
           '&nonce=' +
           this.$store.state.backendConfig.nonce,
         dataType: 'json',
@@ -164,6 +168,9 @@ export default {
     navigateTo(item) {
       if (item.link) {
         this.$router.push(item.link);
+      }
+      if (item.action) {
+        item.action();
       }
     },
     handleUpdate() {

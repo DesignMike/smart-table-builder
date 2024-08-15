@@ -59,6 +59,7 @@
     </div>
     <table-editor v-if="$store.state.grid.data.length" />
     <settings-modal v-if="showSettings" />
+    <feedback-modal v-if="showFeedback" />
   </div>
 </template>
 <style>
@@ -75,6 +76,7 @@ import CanvasDatagrid from 'canvas-datagrid';
 import tablesaw from 'tablesaw';
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal/index.vue';
+import feedbackModal from '../components/FeedbackModal.vue';
 import storeUtils from '../utils/storeUtils';
 const make_cols = (refstr) =>
   Array(XLSX.utils.decode_range(refstr).e.c + 1)
@@ -183,7 +185,7 @@ export default {
         type: 'POST',
         url:
           ajaxurl +
-          '?action=create_new_table_entry' +
+          '?action=sprdsh_create_new_table_entry' +
           '&nonce=' +
           this.$store.state.backendConfig.nonce,
         dataType: 'json',
@@ -209,10 +211,14 @@ export default {
     showSettings: (vm) => {
       return vm.$store.state.showSettings;
     },
+    showFeedback: (vm) => {
+      return vm.$store.state.showFeedbackModal;
+    },
   },
   components: {
     tableEditor,
     settingsModal,
+    feedbackModal,
   },
   mounted() {
     // Tablesaw.init();

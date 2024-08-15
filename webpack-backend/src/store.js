@@ -22,6 +22,7 @@ const store = new Vuex.Store({
 		pageTitle: 'WP Spreadsheet & Table Builder',
 		currentStyle: 'Style 1',
 		showSettings: false,
+		showFeedbackModal: false,
 		fontSettings: ['Montserrat', '20px', '400'],
 		tableBodyFontSettings: ['Montserrat', '20px', '400'],
 		fontString: '',
@@ -56,6 +57,9 @@ const store = new Vuex.Store({
 		},
 		setSettingsModalStatus(state, status) {
 			state.showSettings = status;
+		},
+		setFeedbackModalStatus(state, status) {
+			state.showFeedbackModal = status;
 		},
 		setTitle(state, title) {
 			state.tableTitle = title;

@@ -145,6 +145,7 @@
     </div>
     <table-editor v-if="toEditTable" />
     <settings-modal v-if="showSettings" />
+    <feedback-modal v-if="showFeedback" />
     <div
       v-if="!toEditTable"
       class="container container m-auto flex flex-wrap flex-col md:flex-row items-center justify-start"
@@ -235,6 +236,7 @@
 <script>
 import tableEditor from '../components/tableEditor.vue';
 import settingsModal from '../components/settings-modal/index.vue';
+import feedbackModal from '../components/FeedbackModal.vue';
 import storeUtils from '../utils/storeUtils';
 import dropDown from '../components/dropDown.vue';
 import VTailwindModal from '../hoc-components/VTailwindModal.vue';
@@ -243,6 +245,7 @@ export default {
   components: {
     tableEditor,
     settingsModal,
+    feedbackModal,
     VTailwindModal,
     dropDown,
   },
@@ -265,6 +268,9 @@ export default {
     },
     showSettings: (vm) => {
       return vm.$store.state.showSettings;
+    },
+    showFeedback: (vm) => {
+      return vm.$store.state.showFeedbackModal;
     },
     tableTitle: {
       get: function () {
@@ -315,7 +321,7 @@ export default {
         type: 'POST',
         url:
           ajaxurl +
-          '?action=create_new_table_entry' +
+          '?action=sprdsh_create_new_table_entry' +
           '&nonce=' +
           this.$store.state.backendConfig.nonce,
         dataType: 'json',

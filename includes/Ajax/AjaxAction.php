@@ -14,11 +14,12 @@ class AjaxAction {
     }
 
     public static function init() {
-        AjaxAction::addAction('create_new_table_entry', [AjaxCallbacks::class , 'create_new_table_entry']);
+        AjaxAction::addAction('sprdsh_create_new_table_entry', [AjaxCallbacks::class , 'create_new_table_entry']);
         AjaxAction::addAction('sprdsh_get_table_cells', [AjaxCallbacks::class, 'get_table_cells']);
         AjaxAction::addAction('sprdsh_list_tables', [AjaxCallbacks::class, 'list_tables']);
         AjaxAction::addAction('sprdsh_update_table_cells', [AjaxCallbacks::class, 'update_table_cells']);
         AjaxAction::addAction('sprdsh_get_gfonts_meta', [AjaxCallbacks::class, 'get_gfonts_meta']);
         AjaxAction::addAction('sprdsh_delete_table', [AjaxCallbacks::class, 'delete_table']);
+        AjaxAction::addAction('sprdsh_send_feedback_or_support_query', [AjaxCallbacks::class, 'send_feedback_or_support_query']);
     }
 }

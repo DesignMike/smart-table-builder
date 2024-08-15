@@ -6,6 +6,7 @@ class AjaxCallbacks
 {
     public static function create_new_table_entry()
     {
+        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
         $newData = file_get_contents('php://input');
         $newData = json_decode($newData, true);
         $cells = $newData['cells'];
@@ -97,6 +98,30 @@ class AjaxCallbacks
             'posts_per_page' => 10
         ]);
         $response = $table;
+        wp_send_json($response);
+    }
+    public static function send_feedback_or_support_query() {
+        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
+        $data = file_get_contents('php://input');
+        $data = json_decode($data, true);
+        $name = sanitize_text_field( $data['name'] );
+        $email = sanitize_text_field( $data['email'] );
+        $message = sanitize_textarea_field( $data['message'] );
+        $subject = sanitize_text_field( $data['subject'] );
+        // wp remote post
+        $response = wp_remote_post('https://eoibsv336g5s1ic.m.pipedream.net', [
+            'timeout' => 30,
+            'body' => wp_json_encode( [
+                'name' => $name,
+                'email' => $email,
+                'message' => $message,
+                'subject' => $subject
+            ] ),
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ]
+        ]);
+        $response = json_decode(wp_remote_retrieve_body($response), true);
         wp_send_json($response);
     }
     public static function get_gfonts_meta()
