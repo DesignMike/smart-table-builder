@@ -45,7 +45,7 @@ class Assets {
         foreach ( $scripts as $handle => $script ) {
             $deps      = isset( $script['deps'] ) ? $script['deps'] : false;
             $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
-            $version   = isset( $script['version'] ) ? $script['version'] : WPULTIMATETABLE_VERSION;
+            $version   = isset( $script['version'] ) ? $script['version'] : SMART_TABLE_BUILDER_VERSION;
             $inline_script = isset ( $script['inline'] ) ? $script['inline'] : false;
 
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
@@ -67,7 +67,7 @@ class Assets {
         foreach ( $styles as $handle => $style ) {
             $deps = isset( $style['deps'] ) ? $style['deps'] : false;
 
-            wp_register_style( $handle, $style['src'], $deps, WPULTIMATETABLE_VERSION );
+            wp_register_style( $handle, $style['src'], $deps, SMART_TABLE_BUILDER_VERSION );
         }
     }
 
@@ -81,17 +81,17 @@ class Assets {
         $rest_api_routes = rest_url('tablecells/v1');
         $frontend_only = [
             'exceltotable-frontend' => [
-                'src'       => WPULTIMATETABLE_ASSETS_URL . '/js/frontend.js',
-                'version'   => filemtime(WPULTIMATETABLE_ASSETS_PATH . '/js/frontend.js' ),
+                'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js',
+                'version'   => filemtime(SMART_TABLE_BUILDER_ASSETS_PATH . '/js/frontend.js' ),
                 'in_footer' => true,
                 'inline'     => "const wpUltimateTablesRoute = '$rest_api_routes'"
             ],
         ];
         $scripts = [
             'exceltotable-admin' => [
-                'src'       => WPULTIMATETABLE_ASSETS_URL . '/js/backend/admin.js',
+                'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/backend/admin.js',
                 'deps'      => [ 'jquery', 'wp-util' ],
-                'version'   => filemtime( WPULTIMATETABLE_ASSETS_PATH . '/js/backend/admin.js' ),
+                'version'   => filemtime( SMART_TABLE_BUILDER_ASSETS_PATH . '/js/backend/admin.js' ),
                 'in_footer' => true
             ]
         ];
@@ -112,7 +112,7 @@ class Assets {
 
         $styles = [
             'exceltotable-admin' => [
-                'src' =>  WPULTIMATETABLE_ASSETS_URL . '/js/backend/main.css'
+                'src' =>  SMART_TABLE_BUILDER_ASSETS_URL . '/js/backend/main.css'
             ],
         ];
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WP Ultimate Tables (Spreadsheet & Table Builder)
+ * Plugin Name: Smart Table Builder
  * Description: Convert excel sheets to an embeddable table 
  * Plugin URI: https://designful.ca
  * Author: Designful Inc.
  * Author URI: https://designful.ca
  * Version: 1.0.0
  * License: GPL2
- * Text Domain: wp-ultimate-tables
+ * Text Domain: smart-table-builder
  * Domain Path: /languages/
  *
  * Released under the GPL license
@@ -122,13 +122,13 @@ final class WP_Ultimate_Tables {
      * @return void
      */
     public function define_constants() {
-        define( 'WPULTIMATETABLE_VERSION', $this->version );
-        define( 'WPULTIMATETABLE_FILE', __FILE__ );
-        define( 'WPULTIMATETABLE_PATH', dirname( WPULTIMATETABLE_FILE ) );
-        define( 'WPULTIMATETABLE_INCLUDES', WPULTIMATETABLE_PATH . '/includes' );
-        define( 'WPULTIMATETABLE_URL', plugins_url( '', WPULTIMATETABLE_FILE ) );
-        define( 'WPULTIMATETABLE_ASSETS_URL', WPULTIMATETABLE_URL . '/assets' );
-        define( 'WPULTIMATETABLE_ASSETS_PATH', WPULTIMATETABLE_PATH . '/assets' );
+        define( 'SMART_TABLE_BUILDER_VERSION', $this->version );
+        define( 'SMART_TABLE_BUILDER_FILE', __FILE__ );
+        define( 'SMART_TABLE_BUILDER_PATH', dirname( SMART_TABLE_BUILDER_FILE ) );
+        define( 'SMART_TABLE_BUILDER_INCLUDES', SMART_TABLE_BUILDER_PATH . '/includes' );
+        define( 'SMART_TABLE_BUILDER_URL', plugins_url( '', SMART_TABLE_BUILDER_FILE ) );
+        define( 'SMART_TABLE_BUILDER_ASSETS_URL', SMART_TABLE_BUILDER_URL . '/assets' );
+        define( 'SMART_TABLE_BUILDER_ASSETS_PATH', SMART_TABLE_BUILDER_PATH . '/assets' );
     }
 
     /**
@@ -148,13 +148,13 @@ final class WP_Ultimate_Tables {
      */
     public function activate() {
 
-        $installed = get_option( 'WPULTIMATETABLE_installed' );
+        $installed = get_option( 'SMART_TABLE_BUILDER_installed' );
 
         if ( ! $installed ) {
-            update_option( 'WPULTIMATETABLE_installed', time() );
+            update_option( 'SMART_TABLE_BUILDER_installed', time() );
         }
 
-        update_option( 'WPULTIMATETABLE_version', WPULTIMATETABLE_VERSION );
+        update_option( 'SMART_TABLE_BUILDER_version', SMART_TABLE_BUILDER_VERSION );
     }
 
     /**
@@ -173,23 +173,23 @@ final class WP_Ultimate_Tables {
      */
     public function includes() {
 
-        require_once WPULTIMATETABLE_INCLUDES . '/Assets.php';
+        require_once SMART_TABLE_BUILDER_INCLUDES . '/Assets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once WPULTIMATETABLE_INCLUDES . '/Admin.php';
+            require_once SMART_TABLE_BUILDER_INCLUDES . '/Admin.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            require_once WPULTIMATETABLE_INCLUDES . '/Frontend.php';
+            require_once SMART_TABLE_BUILDER_INCLUDES . '/Frontend.php';
         }
 
         if ( $this->is_request( 'ajax' ) ) {
-            require_once WPULTIMATETABLE_INCLUDES . '/Ajax/AjaxAction.php';
-            require_once WPULTIMATETABLE_INCLUDES . '/Ajax/AjaxCallbacks.php';
+            require_once SMART_TABLE_BUILDER_INCLUDES . '/Ajax/AjaxAction.php';
+            require_once SMART_TABLE_BUILDER_INCLUDES . '/Ajax/AjaxCallbacks.php';
         }
 
-        require_once WPULTIMATETABLE_INCLUDES . '/Api.php';
-        require_once WPULTIMATETABLE_INCLUDES . '/GoogleFontsCache.php';
+        require_once SMART_TABLE_BUILDER_INCLUDES . '/Api.php';
+        require_once SMART_TABLE_BUILDER_INCLUDES . '/GoogleFontsCache.php';
     }
 
     /**
@@ -226,7 +226,7 @@ final class WP_Ultimate_Tables {
         // set_query_var( 'order', $order );
     
         // edd_get_template_part( 'invoice' );\
-        load_template( WPULTIMATETABLE_PATH . '/templates/base.php' , true );
+        load_template( SMART_TABLE_BUILDER_PATH . '/templates/base.php' , true );
         // echo "fukkk";
         die();
     }
@@ -265,7 +265,7 @@ final class WP_Ultimate_Tables {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'wp-ultimate-tables', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'smart-table-builder', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**

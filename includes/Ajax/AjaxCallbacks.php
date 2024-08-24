@@ -6,7 +6,7 @@ class AjaxCallbacks
 {
     public static function create_new_table_entry()
     {
-        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
+        check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
         $newData = file_get_contents('php://input');
         $newData = json_decode($newData, true);
         $cells = $newData['cells'];
@@ -58,7 +58,7 @@ class AjaxCallbacks
     }
     public static function update_table_cells()
     {
-        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
+        check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
         $id = esc_html($_REQUEST['id']);
         $updatableData = file_get_contents('php://input');
         $updatableData = json_decode($updatableData, true);
@@ -101,7 +101,7 @@ class AjaxCallbacks
         wp_send_json($response);
     }
     public static function send_feedback_or_support_query() {
-        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
+        check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
         $data = file_get_contents('php://input');
         $data = json_decode($data, true);
         $name = sanitize_text_field( $data['name'] );
@@ -126,7 +126,7 @@ class AjaxCallbacks
     }
     public static function get_gfonts_meta()
     {
-        $gfonts_metadata_file = WPULTIMATETABLE_ASSETS_PATH . '/fonts_meta.json';
+        $gfonts_metadata_file = SMART_TABLE_BUILDER_ASSETS_PATH . '/fonts_meta.json';
         // phpcs:ignore
         $fonts_metadata = file_get_contents($gfonts_metadata_file);
         header('Content-type: audio/mpeg');
@@ -137,7 +137,7 @@ class AjaxCallbacks
         wp_die();
     }
     public static function delete_table() {
-        check_ajax_referer( 'ultimate-tables-nonce', 'nonce' );
+        check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
         wp_delete_post(intval($_REQUEST['id']), true);
         wp_send_json_success(['status' => 'done']);
     }

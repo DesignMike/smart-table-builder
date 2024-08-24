@@ -19,9 +19,9 @@ class Admin {
         global $submenu;
 
         $capability = 'manage_options';
-        $slug       = 'ultimate-tables';
+        $slug       = 'smart-table-builder';
 
-        $hook = add_menu_page( __( ' WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), __( 'WP Ultimate Tables (Spreadsheet & Table Builder)', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
+        $hook = add_menu_page( __( ' Smart Table Builder', 'textdomain' ), __( 'Smart Table Builder', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
 
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = array( __( 'Create New Table', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/' );
@@ -62,7 +62,7 @@ class Admin {
      */
     public function plugin_page() {
         // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
-        $config = [ 'nonce' => wp_create_nonce( 'ultimate-tables-nonce' ) ];
+        $config = [ 'nonce' => wp_create_nonce( 'smart-table-builder-nonce' ) ];
         echo '<script id="homeurl" type="text/json">'. wp_json_encode(array('url' => esc_url(get_home_url()))) .'</script>';
         echo '<script id="ultimate_tables_config" type="text/json">' . wp_json_encode( $config ) . '</script>';
         echo '<div class="wrap wptable"><div id="vue-admin-app"></div></div>';
@@ -70,7 +70,7 @@ class Admin {
 
     function admin_hide_notices()
     {
-        $exclusionPages = ['toplevel_page_ultimate-tables'];
+        $exclusionPages = ['toplevel_page_smart-table-builder'];
         $current_screen = get_current_screen();
         if (!in_array($current_screen->base, $exclusionPages)) {
             return;

@@ -2,7 +2,7 @@
 /**
  * Template for backend preview
  */
-  // $base_asset_path = WPULTIMATETABLE_PATH . '/new-frontend/dist';
+  // $base_asset_path = SMART_TABLE_BUILDER_PATH . '/new-frontend/dist';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +17,6 @@
       <div id="list-container">
       </div>
     </main>
-    <script src="<?php echo esc_url( WPULTIMATETABLE_ASSETS_URL . '/js/frontend.js' ); ?>" defer></script>
+    <script src="<?php echo esc_url( SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js' ); ?>" defer></script>
   </body>
 </html>
