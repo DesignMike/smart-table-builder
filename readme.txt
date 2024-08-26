@@ -1,7 +1,7 @@
 === Smart Table Builder ===
 Contributors: Designful
 Donate link: https://designful.ca
-Tags: table, table builder, excel to table, spreadsheet, responsive tables, HTML table, CSV to table
+Tags: table, table builder, excel to table, spreadsheet, responsive tables
 Requires at least: 4.6
 Requires PHP: 7.2
 Tested up to: 6.6.1
