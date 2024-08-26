@@ -80,13 +80,3 @@ No, there's no limit to the number of tables you can create with Smart Table Bui
 Adding images to table cells is a feature available in the premium version of Smart Table Builder.
 = How do I get support if I have issues or questions? =
 For support, please visit our Support Forum. We're here to help!
-
-
-== Changelog ==
-= 1.0.0 =
-
-Initial release of Smart Table Builder
-
-== Upgrade Notice ==
-= 1.0.0 =
-This is the first release of Smart Table Builder. Enjoy creating beautiful, responsive tables!
