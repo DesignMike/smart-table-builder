@@ -11,11 +11,15 @@
             class="mx-auto py-3 flex max-w-screen-xl flex-col px-4 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
           >
             <div class="flex flex-row items-center justify-between p-4">
-              <a
-                class="dark-mode:text-white focus:shadow-outline rounded-lg text-lg font-semibold uppercase tracking-widest text-gray-900 focus:outline-none"
-                target="_blank"
-                >{{ pageTitle }}</a
-              >
+              <div class="mb-2 sm:mb-0 flex flex-row items-center">
+                <div class="h-10 w-40 mr-5">
+                  <img class="h-10 w-40" :src="logoUrl" />
+                </div>
+                <a
+                  class="dark-mode:text-white focus:shadow-outline rounded-lg text-lg font-semibold uppercase tracking-widest text-gray-900 focus:outline-none"
+                  >{{ pageTitle }}</a
+                >
+              </div>
               <button
                 class="focus:shadow-outline rounded-lg focus:outline-none md:hidden"
                 @click="open = !open"
@@ -130,6 +134,9 @@ export default {
   computed: {
     pageTitle: function () {
       return this.$store.state.pageTitle;
+    },
+    logoUrl: function () {
+      return this.$store.state.backendConfig?.logo;
     },
     fullscreenStatus: function () {
       return this.$store.state.enableFullScreenEditing;

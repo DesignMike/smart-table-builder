@@ -19,7 +19,7 @@ const store = new Vuex.Store({
 		editingTableId: null,
 		tableTitle: '',
 		tableList: [],
-		pageTitle: 'WP Smart Table Builder',
+		pageTitle: 'Smart Table Builder',
 		currentStyle: 'Style 1',
 		showSettings: false,
 		showFeedbackModal: false,
