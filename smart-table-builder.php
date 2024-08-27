@@ -71,7 +71,7 @@ final class WP_Ultimate_Tables {
         register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
         add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
-        add_action( 'wut_load_preview', array( $this, 'edd_invoices_display_invoice' ) );
+        add_action( 'df_stb_load_preview', array( $this, 'display_table_preview' ) );
     }
 
     /**
@@ -211,23 +211,14 @@ final class WP_Ultimate_Tables {
 
     }
 
-    public function edd_invoices_display_invoice() {
-        // $generator = new EDD_Invoice_Generator();
-    
-        // $generator->validate_request();
-    
-        // if ( ! $generator->is_valid_request() ) {
-        //     wp_die( implode( '<br>', $generator->get_error_messages() ) );
-        // }
-    
-        // $order = $generator->order;
-    
-        // // Generate HTML
-        // set_query_var( 'order', $order );
-    
-        // edd_get_template_part( 'invoice' );\
+    public function display_table_preview() {
+        // enqueue script
+        wp_enqueue_script( 'smart-table-builder-preview', SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js' , array(  ), SMART_TABLE_BUILDER_VERSION, array(
+            'in_footer' => true,
+            'strategy'  => 'defer',
+        ) );
+        wp_script_add_data( 'smart-table-builder-preview', 'defer', true );
         load_template( SMART_TABLE_BUILDER_PATH . '/templates/base.php' , true );
-        // echo "fukkk";
         die();
     }
 
@@ -238,9 +229,9 @@ final class WP_Ultimate_Tables {
      */
     public function init_classes() {
         // phpcs:ignore
-        $key = ! empty( $_GET['wut_action'] ) ? sanitize_key( $_GET['wut_action'] ) : false;
+        $key = ! empty( $_GET['df_stb_action'] ) ? sanitize_key( $_GET['df_stb_action'] ) : false;
         if ( ! empty( $key ) ) {
-            do_action( "wut_{$key}" , $_GET );
+            do_action( "df_stb_{$key}" , $_GET );
         }
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin'] = new Spreadsheet2Table\Admin();

@@ -17,6 +17,6 @@
       <div id="list-container">
       </div>
     </main>
-    <script src="<?php echo esc_url( SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js' ); ?>" defer></script>
+    <?php wp_footer(); ?>
   </body>
 </html>
