@@ -37,11 +37,11 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * WP_Ultimate_Tables class
+ * DF_Smart_Table_Builder class
  *
- * @class WP_Ultimate_Tables The class that holds the entire WP_Ultimate_Tables plugin
+ * @class DF_Smart_Table_Builder The class that holds the entire DF_Smart_Table_Builder plugin
  */
-final class WP_Ultimate_Tables {
+final class DF_Smart_Table_Builder {
 
     /**
      * Plugin version
@@ -58,7 +58,7 @@ final class WP_Ultimate_Tables {
     private $container = array();
 
     /**
-     * Constructor for the WP_Ultimate_Tables class
+     * Constructor for the DF_Smart_Table_Builder class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -75,16 +75,16 @@ final class WP_Ultimate_Tables {
     }
 
     /**
-     * Initializes the WP_Ultimate_Tables() class
+     * Initializes the DF_Smart_Table_Builder() class
      *
-     * Checks for an existing WP_Ultimate_Tables() instance
+     * Checks for an existing DF_Smart_Table_Builder() instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new WP_Ultimate_Tables();
+            $instance = new DF_Smart_Table_Builder();
         }
 
         return $instance;
@@ -307,27 +307,27 @@ final class WP_Ultimate_Tables {
     {
         $admin_bar_name = (!empty($admin_bar_name)) ? $admin_bar_name : $plural;
         return array(
-            'name'               => _x(sprintf('%s', $plural), 'post type general name', 'wp-streadsheet-to-table'),
-            'singular_name'      => sprintf(_x('Calc', 'post type singular name', 'wp-streadsheet-to-table'), $singular),
-            'menu_name'          => _x(sprintf('%s', $plural), 'admin menu', 'wp-streadsheet-to-table'),
-            'name_admin_bar'     => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'wp-streadsheet-to-table'), $admin_bar_name),
-            'add_new_item'       => sprintf(__('Add New %s', 'wp-streadsheet-to-table'), $singular),
-            'new_item'           => sprintf(__('New %s', 'wp-streadsheet-to-table'), $singular),
-            'edit_item'          => sprintf(__('Edit %s', 'wp-streadsheet-to-table'), $singular),
-            'view_item'          => sprintf(__('View %s', 'wp-streadsheet-to-table'), $singular),
-            'all_items'          => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'wp-streadsheet-to-table'), $admin_bar_name),
-            'search_items'       => sprintf(__('Search %s', 'wp-streadsheet-to-table'), $plural),
-            'parent_item_colon'  => sprintf(__('Parent %s:', 'wp-streadsheet-to-table'), $plural),
-            'not_found'          => sprintf(__('No %s found.', 'wp-streadsheet-to-table'), $plural),
-            'not_found_in_trash' => sprintf(__('No %s found in Trash.', 'wp-streadsheet-to-table'), $plural),
+            'name'               => _x(sprintf('%s', $plural), 'post type general name', 'df-smart-table-builder'),
+            'singular_name'      => sprintf(_x('Calc', 'post type singular name', 'df-smart-table-builder'), $singular),
+            'menu_name'          => _x(sprintf('%s', $plural), 'admin menu', 'df-smart-table-builder'),
+            'name_admin_bar'     => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'), $admin_bar_name),
+            'add_new_item'       => sprintf(__('Add New %s', 'df-smart-table-builder'), $singular),
+            'new_item'           => sprintf(__('New %s', 'df-smart-table-builder'), $singular),
+            'edit_item'          => sprintf(__('Edit %s', 'df-smart-table-builder'), $singular),
+            'view_item'          => sprintf(__('View %s', 'df-smart-table-builder'), $singular),
+            'all_items'          => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'), $admin_bar_name),
+            'search_items'       => sprintf(__('Search %s', 'df-smart-table-builder'), $plural),
+            'parent_item_colon'  => sprintf(__('Parent %s:', 'df-smart-table-builder'), $plural),
+            'not_found'          => sprintf(__('No %s found.', 'df-smart-table-builder'), $plural),
+            'not_found_in_trash' => sprintf(__('No %s found in Trash.', 'df-smart-table-builder'), $plural),
         );
     }
 
     private function spreadsheet_table_post_types() {
         return array(
             'sprdsh_table' => array(
-                'single'         => 'Spreadsheet & Table',
-                'plural'         => 'Spreadsheet & Table',
+                'single'         => 'Smart Table Builder',
+                'plural'         => 'Smart Table Builder',
             ),
         );
     }
@@ -352,6 +352,6 @@ final class WP_Ultimate_Tables {
         return wp_parse_args($args, $default_args);
     }
 
-} // WP_Ultimate_Tables
+} // DF_Smart_Table_Builder
 
-$exceltotable = WP_Ultimate_Tables::init();
+$exceltotable = DF_Smart_Table_Builder::init();
