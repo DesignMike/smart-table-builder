@@ -189,6 +189,7 @@ final class DF_Smart_Table_Builder {
         }
 
         require_once SMART_TABLE_BUILDER_INCLUDES . '/Api.php';
+        require_once SMART_TABLE_BUILDER_INCLUDES . '/Utils.php';
         require_once SMART_TABLE_BUILDER_INCLUDES . '/GoogleFontsCache.php';
     }
 

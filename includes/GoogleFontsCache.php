@@ -48,6 +48,7 @@ class GoogleFontsCache {
     }
 
     public function update_gfonts_metadata() {
+        // Download the fonts metadata from google fonts, to keep the list of fonts updated
         $download_uri = 'https://fonts.google.com/metadata/fonts';
 
         require_once ABSPATH . 'wp-admin/includes/file.php';

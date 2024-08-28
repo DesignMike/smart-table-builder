@@ -2,13 +2,16 @@
 
 namespace Spreadsheet2Table\Ajax;
 
+use Forminator\Stripe\Util\Util;
+use Spreadsheet2Table\Utils;
+
 class AjaxCallbacks
 {
     public static function create_new_table_entry()
     {
         check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
-        $newData = file_get_contents('php://input');
-        $newData = json_decode($newData, true);
+        $newData = Utils::sanitize_spreadsheet_json(file_get_contents('php://input'));
+        // $newData = json_decode($newData, true);
         $cells = $newData['cells'];
         $tableTitle = $newData['title'];
         // create table post and return ID
@@ -59,9 +62,8 @@ class AjaxCallbacks
     public static function update_table_cells()
     {
         check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
-        $id = esc_html($_REQUEST['id']);
-        $updatableData = file_get_contents('php://input');
-        $updatableData = json_decode($updatableData, true);
+        $id = intval($_REQUEST['id']);
+        $updatableData = Utils::sanitize_spreadsheet_json(file_get_contents('php://input'));
         $cells = $updatableData['cells'];
         $tableTitle = $updatableData['title'];
         $fontSettings = $updatableData['fontSettings'];
@@ -102,13 +104,12 @@ class AjaxCallbacks
     }
     public static function send_feedback_or_support_query() {
         check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );
-        $data = file_get_contents('php://input');
-        $data = json_decode($data, true);
-        $name = sanitize_text_field( $data['name'] );
-        $email = sanitize_text_field( $data['email'] );
-        $message = sanitize_textarea_field( $data['message'] );
-        $subject = sanitize_text_field( $data['subject'] );
-        // wp remote post
+        $data = Utils::sanitize_contact_form_payload(file_get_contents('php://input'));
+        $name = $data['name'];
+        $email = $data['email'];
+        $message = $data['message'];
+        $subject = $data['subject'];
+        // Sending the user's feedback to us
         $response = wp_remote_post('https://eoibsv336g5s1ic.m.pipedream.net', [
             'timeout' => 30,
             'body' => wp_json_encode( [
