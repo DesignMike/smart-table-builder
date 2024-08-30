@@ -1,0 +1,19 @@
+{
+    "name": "nahinakbar/excel-to-table",
+    "description": "Convert excel sheets to an embeddable table",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Designful Inc.",
+            "email": "nahin@designful.ca"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Spreadsheet2Table\\": "includes/"
+        }
+    }
+}
