@@ -61,6 +61,9 @@ If you need support, please use our Support Forum by going to https://stylishcos
 = Premium Version =
 Unlock additional features and take your tables to the next level with our Premium Version.
 
+= Contribute =
+This may have bugs and lack many features. If you want to contribute to this project, you are more than welcome. Please fork the repository from [Github](https://github.com/DesignMike/smart-table-builder).
+
 == Installation ==
 
 1. Upload the plugin files to the /wp-content/plugins/smart-table-builder directory, or install the plugin through the WordPress plugins screen directly.
