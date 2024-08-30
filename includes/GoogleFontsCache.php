@@ -3,13 +3,6 @@ namespace DesignfulSmartTableBuilder;
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
-/**
- * Appsero Insights
- *
- * This is a tracker class to track plugin usage based on if the customer has opted in.
- * No personal information is being tracked by this class, only general settings, active plugins, environment details
- * and admin email.
- */
 class GoogleFontsCache {
     /**
      * Initialize the class
@@ -19,32 +12,6 @@ class GoogleFontsCache {
     public function __construct( $client, $name = null, $file = null ) {
         add_action( 'gfonts_metadata', array( $this, 'update_gfonts_metadata' ) );
         $this->schedule_event();
-    }
-    /**
-     * Send tracking data to AppSero server
-     *
-     * @param  boolean  $override
-     *
-     * @return void
-     */
-    public function send_tracking_data( $override = false ) {
-
-        // Send a maximum of once per week
-        $last_send = $this->get_last_send();
-
-        if ( $last_send && $last_send > strtotime( '-1 week' ) ) {
-            return;
-        }
-
-        $tracking_data = $this->get_tracking_data();
-
-        $response = $this->client->send_request( $tracking_data, 'track' );
-
-        update_option( $this->client->slug . '_tracking_last_send', time() );
-    }
-
-    public function get_last_send(  ) {
-
     }
 
     public function update_gfonts_metadata() {
