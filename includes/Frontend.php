@@ -1,5 +1,5 @@
 <?php
-namespace Spreadsheet2Table;
+namespace DesignfulSmartTableBuilder;
 
 /**
  * Frontend Pages Handler
@@ -7,7 +7,7 @@ namespace Spreadsheet2Table;
 class Frontend {
 
     public function __construct() {
-        add_shortcode( 'wp-table', [ $this, 'render_frontend' ] );
+        add_shortcode( 'smart-table-builder', [ $this, 'render_frontend' ] );
     }
 
     /**
@@ -23,7 +23,7 @@ class Frontend {
         wp_enqueue_style( 'exceltotable-frontend' );
         wp_enqueue_script( 'exceltotable-frontend' );
         // wp_enqueue_script( 'exceltotable-frontendz' );
-        // echo rest_url('tablecells/v1');
+        // echo rest_url('smart-table-builder-tablecells/v1');
 
         $content .= "<div class=\"excel-to-table-app\" data-table-id=$id></div>";
 

@@ -123,6 +123,8 @@ const store = proxy({
       font-weight: ${store.mock.fontConfig[0][2]};
       font-size: ${store.mock.fontConfig[0][1]};
     `
+    const noBorder = css`
+      border: 0;`
     let { showTitle } = store.mock.settingsItemProps;
     return html.node`
     <div>
@@ -132,11 +134,11 @@ const store = proxy({
         <div class="${tw`font-semibold`}">${store.mock.tableTitle}</div>
       </header>` : ''}
       <div class="${tw`inline-block min-w-full shadow ${showTitle ? `rounded-b-lg` : `rounded-lg`} overflow-hidden`}">
-        <table class="${tw`min-w-full leading-normal`}">
+        <table class="${tw`min-w-full leading-normal ${noBorder}`}">
           <thead>
             <tr class="${tw`${mycss2}`}">
               ${cells[0].map(head => html.node`<th
-              class="${tw`px-5 py-3 border-b-2 border-gray-200 ${headerColor} text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}">
+              class="${tw`px-5 py-3 border-b-2 border-gray-200 ${noBorder} ${headerColor} text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}">
                 ${head}
               </th>`)}
             </tr>
@@ -178,7 +180,6 @@ const store = proxy({
       }
     }
   }`
-  
   let fontCss = css`
   font-family: ${store.mock.fontConfig[1][0]};
   font-weight: ${store.mock.fontConfig[1][2]};
@@ -202,8 +203,22 @@ const store = proxy({
       let tableData = await fetch(`${wpUltimateTablesRoute}/get-table-cells/${tableId}`);
       if (tableData) {
         let data_rcv = await tableData.json();
-        store.mock.data = data_rcv.grid.data;
-        store.mock.tableTitle = data_rcv.title;
+        store.mock = x = {
+          ...data_rcv.grid,
+          tableTitle: data_rcv.title,
+          fonts: [
+            data_rcv.fontString,
+            data_rcv.tableBodyFontString,
+          ],
+          settingsItemProps: data_rcv.settingsItemProps,
+          fontConfig: [
+            data_rcv.fontSettings,
+            data_rcv.tableBodyFontSettings,
+          ],
+        }
+        store.mock.fonts.forEach(url => {
+          loadCSS(url);
+        });
         listContainer.appendChild(outputBaseTable(store.mock.data));
       }
     })();
@@ -240,7 +255,6 @@ const store = proxy({
     });
   }
   subscribe(store, () => {
-    console.log(snapshot(store));
     if ( store.searchQuery.length > 2 ) {
       [...tableBody.children].forEach(node => node.remove());
       let filteredCells = filterBySearchQuery(store.searchQuery);

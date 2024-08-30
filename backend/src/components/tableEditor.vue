@@ -146,7 +146,7 @@
             Insert the table to any of your posts or pages
           </p>
           <div v-if="editingTableId" class="text-xl mb-2">
-            <span>[wp-table id="{{ editingTableId }}"]</span>
+            <span>[smart-table-builder id="{{ editingTableId }}"]</span>
             <span @click="handleShortcodeCopy" class="copy-icon">
               <svg
                 width="24"
@@ -295,7 +295,7 @@ export default {
       return this.$store.commit('setFullScreenEditing', status);
     },
     handleShortcodeCopy() {
-      const shortcode = `[wp-table id="${this.editingTableId}"]`;
+      const shortcode = `[smart-table-builder id="${this.editingTableId}"]`;
       if (navigator.clipboard) {
         navigator.clipboard
           .writeText(shortcode)

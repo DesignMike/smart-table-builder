@@ -1,9 +1,9 @@
 <?php
 
-namespace Spreadsheet2Table\Ajax;
+namespace DesignfulSmartTableBuilder\Ajax;
 
 use Forminator\Stripe\Util\Util;
-use Spreadsheet2Table\Utils;
+use DesignfulSmartTableBuilder\Utils;
 
 class AjaxCallbacks
 {
@@ -28,13 +28,13 @@ class AjaxCallbacks
         $fontString = $newData['fontString'];
         $tableBodyFontString = $newData['tableBodyFontString'];
 
-        update_post_meta($id, 'table_cells', apply_filters('wpspreadsheet_table_sanitize_array', $cells));
-        update_post_meta($id, 'fontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $fontSettings));
-        update_post_meta($id, 'settingsItemProps', apply_filters('wpspreadsheet_table_sanitize_array', $settingsItemProps));
-        update_post_meta($id, 'tableBodyFontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontSettings));
-        update_post_meta($id, 'fontUrls', apply_filters('wpspreadsheet_table_sanitize_array', $fontUrls));
-        update_post_meta($id, 'fontString', apply_filters('wpspreadsheet_table_sanitize_array', $fontString));
-        update_post_meta($id, 'tableBodyFontString', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontString));
+        update_post_meta($id, 'table_cells', apply_filters('smart_table_builder_sanitize_array', $cells));
+        update_post_meta($id, 'fontSettings', apply_filters('smart_table_builder_sanitize_array', $fontSettings));
+        update_post_meta($id, 'settingsItemProps', apply_filters('smart_table_builder_sanitize_array', $settingsItemProps));
+        update_post_meta($id, 'tableBodyFontSettings', apply_filters('smart_table_builder_sanitize_array', $tableBodyFontSettings));
+        update_post_meta($id, 'fontUrls', apply_filters('smart_table_builder_sanitize_array', $fontUrls));
+        update_post_meta($id, 'fontString', apply_filters('smart_table_builder_sanitize_array', $fontString));
+        update_post_meta($id, 'tableBodyFontString', apply_filters('smart_table_builder_sanitize_array', $tableBodyFontString));
         $response = [
             'ok' => $id,
             "success" => true
@@ -80,13 +80,13 @@ class AjaxCallbacks
             'post_status' => 'publish',
             "post_title" => $tableTitle
         ]);
-        update_post_meta($id, 'table_cells', apply_filters('wpspreadsheet_table_sanitize_array', $cells));
-        update_post_meta($id, 'fontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $fontSettings));
-        update_post_meta($id, 'settingsItemProps', apply_filters('wpspreadsheet_table_sanitize_array', $settingsItemProps));
-        update_post_meta($id, 'tableBodyFontSettings', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontSettings));
-        update_post_meta($id, 'fontUrls', apply_filters('wpspreadsheet_table_sanitize_array', $fontUrls));
-        update_post_meta($id, 'fontString', apply_filters('wpspreadsheet_table_sanitize_array', $fontString));
-        update_post_meta($id, 'tableBodyFontString', apply_filters('wpspreadsheet_table_sanitize_array', $tableBodyFontString));
+        update_post_meta($id, 'table_cells', apply_filters('smart_table_builder_sanitize_array', $cells));
+        update_post_meta($id, 'fontSettings', apply_filters('smart_table_builder_sanitize_array', $fontSettings));
+        update_post_meta($id, 'settingsItemProps', apply_filters('smart_table_builder_sanitize_array', $settingsItemProps));
+        update_post_meta($id, 'tableBodyFontSettings', apply_filters('smart_table_builder_sanitize_array', $tableBodyFontSettings));
+        update_post_meta($id, 'fontUrls', apply_filters('smart_table_builder_sanitize_array', $fontUrls));
+        update_post_meta($id, 'fontString', apply_filters('smart_table_builder_sanitize_array', $fontString));
+        update_post_meta($id, 'tableBodyFontString', apply_filters('smart_table_builder_sanitize_array', $tableBodyFontString));
         $response = [
             'ok' => $id,
             "success" => true
@@ -129,13 +129,31 @@ class AjaxCallbacks
     {
         $gfonts_metadata_file = SMART_TABLE_BUILDER_ASSETS_PATH . '/fonts_meta.json';
         // phpcs:ignore
-        $fonts_metadata = file_get_contents($gfonts_metadata_file);
-        header('Content-type: audio/mpeg');
+        $file_path = $gfonts_metadata_file;
 
-        header('Content-Disposition: attachment; filename="fonts.txt"');
-        // phpcs:ignore
-        echo ($fonts_metadata);
-        wp_die();
+        // Check if the file exists
+        if (file_exists($file_path)) {
+            // Set headers to force download
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . basename($file_path) . '"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file_path));
+        
+            // Clear the output buffer
+            ob_clean();
+            flush();
+        
+            // Read the file and send it to the output buffer
+            readfile($file_path);
+        
+            // Exit to ensure no further output is sent
+            exit;
+        } else {
+            echo 'File not found.';
+        }
     }
     public static function delete_table() {
         check_ajax_referer( 'smart-table-builder-nonce', 'nonce' );

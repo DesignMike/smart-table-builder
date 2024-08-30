@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Spreadsheet2Table\\": "includes/"
+            "DesignfulSmartTableBuilder\\": "includes/"
         }
     }
 }

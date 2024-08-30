@@ -1,5 +1,5 @@
 <?php
-namespace Spreadsheet2Table;
+namespace DesignfulSmartTableBuilder;
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 

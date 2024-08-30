@@ -1,5 +1,5 @@
 <?php
-namespace Spreadsheet2Table;
+namespace DesignfulSmartTableBuilder;
 
 /**
  * Scripts and Styles Class
@@ -21,7 +21,7 @@ class Assets {
      * @return void
      */
     public function define_constants() {
-        define( 'REST_ROUTE_PREFIX', rest_url('tablecells/v1') );
+        define( 'REST_ROUTE_PREFIX', rest_url('smart-table-builder-tablecells/v1') );
     }
 
     /**
@@ -51,7 +51,7 @@ class Assets {
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
 
             if ($inline_script) {
-                wp_add_inline_script($handle, $inline_script, 'before');
+                wp_add_inline_script($handle, sanitize_text_field( $inline_script ), 'before');
             }
         }
     }
@@ -78,7 +78,7 @@ class Assets {
      */
     public static function get_scripts() {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
-        $rest_api_routes = rest_url('tablecells/v1');
+        $rest_api_routes = rest_url('smart-table-builder-tablecells/v1');
         $frontend_only = [
             'exceltotable-frontend' => [
                 'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js',

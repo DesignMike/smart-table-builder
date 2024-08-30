@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import vClickOutside from 'v-click-outside';
-import {constructURL} from './google-fonts-helper/index.js';
+import { constructURL } from './google-fonts-helper/index.ts';
 import mock from '../../default_state.js';
 // import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);

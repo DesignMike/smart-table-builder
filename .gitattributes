@@ -30,6 +30,6 @@ appsero.json export-ignore
 /tests/ export-ignore
 /test-results/ export-ignore
 /patches/ export-ignore
-/webpack-backend/ export-ignore
-/new-frontend/ export-ignore
+/backend/ export-ignore
+/frontend/ export-ignore
 /.github/ export-ignore

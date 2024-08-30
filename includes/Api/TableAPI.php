@@ -1,18 +1,18 @@
 <?php
-namespace Spreadsheet2Table\Api;
+namespace DesignfulSmartTableBuilder\Api;
 
 use WP_REST_Controller;
 
 /**
  * REST_API Handler
  */
-class Example extends WP_REST_Controller {
+class TableAPI extends WP_REST_Controller {
 
     /**
      * [__construct description]
      */
     public function __construct() {
-        $this->namespace = 'tablecells/v1';
+        $this->namespace = 'smart-table-builder-tablecells/v1';
         $this->rest_base = 'get-table-cells';
     }
 
@@ -72,7 +72,11 @@ class Example extends WP_REST_Controller {
             'grid' => ['data' => get_post_meta($id, 'table_cells')[0]],
             'title' => $table->post_title,
             'settingsItemProps' => get_post_meta($id, 'settingsItemProps')[0],
-            'fontSettings' => get_post_meta($id, 'fontSettings')[0]
+            'fontSettings' => get_post_meta($id, 'fontSettings')[0],
+            'tableBodyFontSettings' => get_post_meta($id, 'tableBodyFontSettings')[0],
+            'fontUrls' => [],
+            'fontString' => get_post_meta($id, 'fontString')[0],
+            'tableBodyFontString' => get_post_meta($id, 'tableBodyFontString')[0]
         ];
 
         $response = rest_ensure_response( $response );

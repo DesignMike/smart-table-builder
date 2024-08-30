@@ -235,20 +235,20 @@ final class DF_Smart_Table_Builder {
             do_action( "df_stb_{$key}" , $_GET );
         }
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin'] = new Spreadsheet2Table\Admin();
+            $this->container['admin'] = new DesignfulSmartTableBuilder\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new Spreadsheet2Table\Frontend();
+            $this->container['frontend'] = new DesignfulSmartTableBuilder\Frontend();
         }
         // phpcs:ignore
         if ( $this->is_request( 'ajax' ) && !isset($_GET['wc-ajax']) ) {
-            $this->container['ajax'] =  new Spreadsheet2Table\Ajax\AjaxAction();
+            $this->container['ajax'] =  new DesignfulSmartTableBuilder\Ajax\AjaxAction();
         }
 
-        $this->container['api'] = new Spreadsheet2Table\Api();
-        $this->container['fonts'] = new Spreadsheet2Table\GoogleFontsCache("a");
-        $this->container['assets'] = new Spreadsheet2Table\Assets();
+        $this->container['api'] = new DesignfulSmartTableBuilder\Api();
+        $this->container['fonts'] = new DesignfulSmartTableBuilder\GoogleFontsCache("a");
+        $this->container['assets'] = new DesignfulSmartTableBuilder\Assets();
     }
 
     /**
@@ -308,15 +308,15 @@ final class DF_Smart_Table_Builder {
     {
         $admin_bar_name = (!empty($admin_bar_name)) ? $admin_bar_name : $plural;
         return array(
-            'name'               => _x(sprintf('%s', $plural), 'post type general name', 'df-smart-table-builder'),
-            'singular_name'      => sprintf(_x('Calc', 'post type singular name', 'df-smart-table-builder'), $singular),
-            'menu_name'          => _x(sprintf('%s', $plural), 'admin menu', 'df-smart-table-builder'),
-            'name_admin_bar'     => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'), $admin_bar_name),
+            'name'               => sprintf('%s', $plural), 'post type general name', 'df-smart-table-builder',
+            'singular_name'      => sprintf('Calc', 'post type singular name', 'df-smart-table-builder'),
+            'menu_name'          => sprintf('%s', $plural), 'admin menu', 'df-smart-table-builder',
+            'name_admin_bar'     => sprintf('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'),
             'add_new_item'       => sprintf(__('Add New %s', 'df-smart-table-builder'), $singular),
             'new_item'           => sprintf(__('New %s', 'df-smart-table-builder'), $singular),
             'edit_item'          => sprintf(__('Edit %s', 'df-smart-table-builder'), $singular),
             'view_item'          => sprintf(__('View %s', 'df-smart-table-builder'), $singular),
-            'all_items'          => sprintf(_x('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'), $admin_bar_name),
+            'all_items'          => sprintf('%s', 'Admin bar ' . $singular . ' name', 'df-smart-table-builder'),
             'search_items'       => sprintf(__('Search %s', 'df-smart-table-builder'), $plural),
             'parent_item_colon'  => sprintf(__('Parent %s:', 'df-smart-table-builder'), $plural),
             'not_found'          => sprintf(__('No %s found.', 'df-smart-table-builder'), $plural),

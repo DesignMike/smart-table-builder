@@ -1,5 +1,5 @@
 <?php
-namespace Spreadsheet2Table;
+namespace DesignfulSmartTableBuilder;
 
 class Utils {
     // static method to sanitize json data

@@ -1,5 +1,5 @@
 <?php
-namespace Spreadsheet2Table;
+namespace DesignfulSmartTableBuilder;
 
 /**
  * Admin Pages Handler
@@ -21,12 +21,12 @@ class Admin {
         $capability = 'manage_options';
         $slug       = 'smart-table-builder';
 
-        $hook = add_menu_page( __( ' Smart Table Builder', 'textdomain' ), __( 'Smart Table Builder', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8yMDlfOTApIj4KPHBhdGggZD0iTTMxOC4zOSAzNDEuNTAzSDM4Ny43MzJNMzg3LjczMiAzNDEuNTAzSDQ1Ny4wNzNNMzg3LjczMiAzNDEuNTAzVjQxMC44NDVNMzg3LjczMiAzNDEuNTAzVjI3Mi4xNjIiIHN0cm9rZT0iI0Y5ODk2QiIgc3Ryb2tlLXdpZHRoPSI0MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMjUuOTM1IDY0LjEzODdIMzM2Ljg4MUMzNjIuNzY5IDY0LjEzODcgMzc1LjcxMiA2NC4xMzg3IDM4NS42MDUgNjkuMTc3NEMzOTQuMzAzIDczLjYwOTQgNDAxLjM3NCA4MC42ODEgNDA1LjgwNyA4OS4zNzg5QzQxMC44NDUgOTkuMjQ4NSA0MTAuODQ1IDExMi4xOTIgNDEwLjg0NSAxMzguMDMzVjE3OS43MDdIMjI1LjkzNU0yMjUuOTM1IDY0LjEzODdIMTE0Ljk4OUM4OS4xMDE4IDY0LjEzODcgNzYuMTU4MSA2NC4xMzg3IDY2LjI2NTUgNjkuMTc3NEM1Ny41NjY3IDczLjYwOCA1MC40OTQ2IDgwLjY4MDEgNDYuMDY0IDg5LjM3ODlDNDEuMDI1MiA5OS4yNzE2IDQxLjAyNTIgMTEyLjIxNSA0MS4wMjUyIDEzOC4xMDNWMTc5LjcwN00yMjUuOTM1IDY0LjEzODdWMTc5LjcwN00yMjUuOTM1IDE3OS43MDdINDEuMDI1Mk0yMjUuOTM1IDE3OS43MDdWNDMzLjk1OUgxMTQuOTJDODkuMDc4NyA0MzMuOTU5IDc2LjEzNSA0MzMuOTU5IDY2LjI2NTUgNDI4LjkyQzU3LjU2NzYgNDI0LjQ4OCA1MC40OTYgNDE3LjQxNiA0Ni4wNjQgNDA4LjcxOEM0MS4wMjUyIDM5OC44MjYgNDEuMDI1MiAzODUuODgyIDQxLjAyNTIgMzU5Ljk5NVYzMTguMzlNNDEuMDI1MiAxNzkuNzA3VjMxOC4zOU00MS4wMjUyIDMxOC4zOUgyMjUuOTM1IiBzdHJva2U9IiM2MTNCRTMiIHN0cm9rZS13aWR0aD0iNDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzIwOV85MCI+CjxyZWN0IHdpZHRoPSI0NTEiIGhlaWdodD0iNDUxIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQgMjQpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==' );
+        $hook = add_menu_page( __( ' Smart Table Builder', 'smart-table-builder' ), __( 'Smart Table Builder', 'smart-table-builder' ), $capability, $slug, [ $this, 'plugin_page' ], 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8yMDlfOTApIj4KPHBhdGggZD0iTTMxOC4zOSAzNDEuNTAzSDM4Ny43MzJNMzg3LjczMiAzNDEuNTAzSDQ1Ny4wNzNNMzg3LjczMiAzNDEuNTAzVjQxMC44NDVNMzg3LjczMiAzNDEuNTAzVjI3Mi4xNjIiIHN0cm9rZT0iI0Y5ODk2QiIgc3Ryb2tlLXdpZHRoPSI0MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMjUuOTM1IDY0LjEzODdIMzM2Ljg4MUMzNjIuNzY5IDY0LjEzODcgMzc1LjcxMiA2NC4xMzg3IDM4NS42MDUgNjkuMTc3NEMzOTQuMzAzIDczLjYwOTQgNDAxLjM3NCA4MC42ODEgNDA1LjgwNyA4OS4zNzg5QzQxMC44NDUgOTkuMjQ4NSA0MTAuODQ1IDExMi4xOTIgNDEwLjg0NSAxMzguMDMzVjE3OS43MDdIMjI1LjkzNU0yMjUuOTM1IDY0LjEzODdIMTE0Ljk4OUM4OS4xMDE4IDY0LjEzODcgNzYuMTU4MSA2NC4xMzg3IDY2LjI2NTUgNjkuMTc3NEM1Ny41NjY3IDczLjYwOCA1MC40OTQ2IDgwLjY4MDEgNDYuMDY0IDg5LjM3ODlDNDEuMDI1MiA5OS4yNzE2IDQxLjAyNTIgMTEyLjIxNSA0MS4wMjUyIDEzOC4xMDNWMTc5LjcwN00yMjUuOTM1IDY0LjEzODdWMTc5LjcwN00yMjUuOTM1IDE3OS43MDdINDEuMDI1Mk0yMjUuOTM1IDE3OS43MDdWNDMzLjk1OUgxMTQuOTJDODkuMDc4NyA0MzMuOTU5IDc2LjEzNSA0MzMuOTU5IDY2LjI2NTUgNDI4LjkyQzU3LjU2NzYgNDI0LjQ4OCA1MC40OTYgNDE3LjQxNiA0Ni4wNjQgNDA4LjcxOEM0MS4wMjUyIDM5OC44MjYgNDEuMDI1MiAzODUuODgyIDQxLjAyNTIgMzU5Ljk5NVYzMTguMzlNNDEuMDI1MiAxNzkuNzA3VjMxOC4zOU00MS4wMjUyIDMxOC4zOUgyMjUuOTM1IiBzdHJva2U9IiM2MTNCRTMiIHN0cm9rZS13aWR0aD0iNDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzIwOV85MCI+CjxyZWN0IHdpZHRoPSI0NTEiIGhlaWdodD0iNDUxIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQgMjQpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==' );
 
         if ( current_user_can( $capability ) ) {
-            $submenu[ $slug ][] = array( __( 'Create New Table', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/' );
-            $submenu[ $slug ][] = array( __( 'Edit Existing', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/edit' );
-            // $submenu[ $slug ][] = array( __( 'Settings', 'textdomain' ), $capability, 'admin.php?page=' . $slug . '#/settings' );
+            $submenu[ $slug ][] = array( __( 'Create New Table', 'smart-table-builder' ), $capability, 'admin.php?page=' . $slug . '#/' );
+            $submenu[ $slug ][] = array( __( 'Edit Existing', 'smart-table-builder' ), $capability, 'admin.php?page=' . $slug . '#/edit' );
+            // $submenu[ $slug ][] = array( __( 'Settings', 'smart-table-builder' ), $capability, 'admin.php?page=' . $slug . '#/settings' );
         }
 
         add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
@@ -61,7 +61,7 @@ class Admin {
      * @return void
      */
     public function plugin_page() {
-        // $dd = \Spreadsheet2TablePremium\Assets::get_scripts();
+        // $dd = \DesignfulSmartTableBuilderPremium\Assets::get_scripts();
         $config = [ 
             'nonce' => wp_create_nonce( 'smart-table-builder-nonce' ),
             'logo' => plugins_url( 'assets/images/logo.png', SMART_TABLE_BUILDER_FILE ),
