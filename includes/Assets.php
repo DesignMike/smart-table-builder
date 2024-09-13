@@ -51,7 +51,7 @@ class Assets {
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
 
             if ($inline_script) {
-                wp_add_inline_script($handle, sanitize_text_field( $inline_script ), 'before');
+                wp_add_inline_script($handle, wp_kses_post( $inline_script ), 'before');
             }
         }
     }
