@@ -1,5 +1,5 @@
 <?php
-namespace DesignfulSmartTableBuilder;
+namespace SmartTableBuilder;
 
 /**
  * Admin Pages Handler
@@ -61,7 +61,7 @@ class Admin {
      * @return void
      */
     public function plugin_page() {
-        // $dd = \DesignfulSmartTableBuilderPremium\Assets::get_scripts();
+        // $dd = \SmartTableBuilderPremium\Assets::get_scripts();
         $config = [ 
             'nonce' => wp_create_nonce( 'smart-table-builder-nonce' ),
             'logo' => plugins_url( 'assets/images/logo.png', SMART_TABLE_BUILDER_FILE ),

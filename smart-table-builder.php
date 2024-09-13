@@ -37,11 +37,11 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * DF_Smart_Table_Builder class
+ * Smart_Table_Builder class
  *
- * @class DF_Smart_Table_Builder The class that holds the entire DF_Smart_Table_Builder plugin
+ * @class Smart_Table_Builder The class that holds the entire Smart_Table_Builder plugin
  */
-final class DF_Smart_Table_Builder {
+final class Smart_Table_Builder {
 
     /**
      * Plugin version
@@ -58,7 +58,7 @@ final class DF_Smart_Table_Builder {
     private $container = array();
 
     /**
-     * Constructor for the DF_Smart_Table_Builder class
+     * Constructor for the Smart_Table_Builder class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -71,20 +71,20 @@ final class DF_Smart_Table_Builder {
         register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
         add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
-        add_action( 'df_stb_load_preview', array( $this, 'display_table_preview' ) );
+        add_action( 'smart_table_builder_load_preview', array( $this, 'display_table_preview' ) );
     }
 
     /**
-     * Initializes the DF_Smart_Table_Builder() class
+     * Initializes the Smart_Table_Builder() class
      *
-     * Checks for an existing DF_Smart_Table_Builder() instance
+     * Checks for an existing Smart_Table_Builder() instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new DF_Smart_Table_Builder();
+            $instance = new Smart_Table_Builder();
         }
 
         return $instance;
@@ -230,25 +230,25 @@ final class DF_Smart_Table_Builder {
      */
     public function init_classes() {
         // phpcs:ignore
-        $key = ! empty( $_GET['df_stb_action'] ) ? sanitize_key( $_GET['df_stb_action'] ) : false;
+        $key = ! empty( $_GET['smart_table_builder_action'] ) ? sanitize_key( $_GET['smart_table_builder_action'] ) : false;
         if ( ! empty( $key ) ) {
-            do_action( "df_stb_{$key}" , $_GET );
+            do_action( "smart_table_builder_{$key}" , $_GET );
         }
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin'] = new DesignfulSmartTableBuilder\Admin();
+            $this->container['admin'] = new SmartTableBuilder\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new DesignfulSmartTableBuilder\Frontend();
+            $this->container['frontend'] = new SmartTableBuilder\Frontend();
         }
         // phpcs:ignore
         if ( $this->is_request( 'ajax' ) && !isset($_GET['wc-ajax']) ) {
-            $this->container['ajax'] =  new DesignfulSmartTableBuilder\Ajax\AjaxAction();
+            $this->container['ajax'] =  new SmartTableBuilder\Ajax\AjaxAction();
         }
 
-        $this->container['api'] = new DesignfulSmartTableBuilder\Api();
-        $this->container['fonts'] = new DesignfulSmartTableBuilder\GoogleFontsCache("a");
-        $this->container['assets'] = new DesignfulSmartTableBuilder\Assets();
+        $this->container['api'] = new SmartTableBuilder\Api();
+        $this->container['fonts'] = new SmartTableBuilder\GoogleFontsCache("a");
+        $this->container['assets'] = new SmartTableBuilder\Assets();
     }
 
     /**
@@ -353,6 +353,6 @@ final class DF_Smart_Table_Builder {
         return wp_parse_args($args, $default_args);
     }
 
-} // DF_Smart_Table_Builder
+} // Smart_Table_Builder
 
-$exceltotable = DF_Smart_Table_Builder::init();
+$exceltotable = Smart_Table_Builder::init();

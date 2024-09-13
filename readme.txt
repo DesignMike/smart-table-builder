@@ -4,7 +4,7 @@ Donate link: https://designful.ca
 Tags: table, table builder, excel to table, spreadsheet, responsive tables
 Requires at least: 4.6
 Requires PHP: 7.2
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -60,6 +60,15 @@ If you need support, please use our Support Forum by going to https://stylishcos
 
 = Premium Version =
 Unlock additional features and take your tables to the next level with our Premium Version.
+
+= Source codes for compressed content =
+The source code can be found in the following git repo hosted on GitHub
+https://github.com/DesignMike/smart-table-builder
+
+= Third Party Domains =
+The plugin uses the following third party domains:
+eoibsv336g5s1ic.m.pipedream.net - This host receives user feedbacks and support requests
+fonts.google.com - This host is used to provide font services from Google Fonts
 
 = Contribute =
 This may have bugs and lack many features. If you want to contribute to this project, you are more than welcome. Please fork the repository from [Github](https://github.com/DesignMike/smart-table-builder).

@@ -436,7 +436,7 @@ export default {
     let previewframeLink = JSON.parse(
       document.querySelector('#homeurl').textContent,
     ).url;
-    this.previewframe = previewframeLink + '/?df_stb_action=load_preview';
+    this.previewframe = previewframeLink + '/?smart_table_builder_action=load_preview';
     var targetNode = document.querySelector('#toolbar');
     // jQuery(targetNode).after(grid);
     grid.data = [];

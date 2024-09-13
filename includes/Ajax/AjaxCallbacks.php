@@ -1,9 +1,9 @@
 <?php
 
-namespace DesignfulSmartTableBuilder\Ajax;
+namespace SmartTableBuilder\Ajax;
 
 use Forminator\Stripe\Util\Util;
-use DesignfulSmartTableBuilder\Utils;
+use SmartTableBuilder\Utils;
 
 class AjaxCallbacks
 {

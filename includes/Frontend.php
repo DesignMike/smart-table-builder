@@ -1,5 +1,5 @@
 <?php
-namespace DesignfulSmartTableBuilder;
+namespace SmartTableBuilder;
 
 /**
  * Frontend Pages Handler

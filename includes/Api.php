@@ -1,5 +1,5 @@
 <?php
-namespace DesignfulSmartTableBuilder;
+namespace SmartTableBuilder;
 
 use WP_REST_Controller;
 

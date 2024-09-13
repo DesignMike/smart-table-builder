@@ -1,5 +1,5 @@
 <?php
-namespace DesignfulSmartTableBuilder\Api;
+namespace SmartTableBuilder\Api;
 
 use WP_REST_Controller;
 

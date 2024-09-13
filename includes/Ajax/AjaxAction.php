@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignfulSmartTableBuilder\Ajax;
+namespace SmartTableBuilder\Ajax;
 
 class AjaxAction {
     public function __construct() {
