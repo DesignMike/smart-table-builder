@@ -12,7 +12,7 @@ class TableAPI extends WP_REST_Controller {
      * [__construct description]
      */
     public function __construct() {
-        $this->namespace = 'smart-table-builder-tablecells/v1';
+        $this->namespace = 'smart-table-builder/v1';
         $this->rest_base = 'get-table-cells';
     }
 

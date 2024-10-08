@@ -21,7 +21,7 @@ class Assets {
      * @return void
      */
     public function define_constants() {
-        define( 'REST_ROUTE_PREFIX', rest_url('smart-table-builder-tablecells/v1') );
+        define( 'REST_ROUTE_PREFIX', rest_url('smart-table-builder/v1') );
     }
 
     /**
@@ -78,7 +78,7 @@ class Assets {
      */
     public static function get_scripts() {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
-        $rest_api_routes = rest_url('smart-table-builder-tablecells/v1');
+        $rest_api_routes = rest_url('smart-table-builder/v1');
         $frontend_only = [
             'smart-table-builder-frontend' => [
                 'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js',

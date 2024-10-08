@@ -23,7 +23,7 @@ class Frontend {
         wp_enqueue_style( 'smart-table-builder-frontend' );
         wp_enqueue_script( 'smart-table-builder-frontend' );
         // wp_enqueue_script( 'smart-table-builder-frontendz' );
-        // echo rest_url('smart-table-builder-tablecells/v1');
+        // echo rest_url('smart-table-builder/v1');
 
         $content .= "<div class=\"smart-table-builder-app\" data-table-id=$id></div>";
 
