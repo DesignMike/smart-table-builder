@@ -64,7 +64,7 @@ setup({
 
 const getId = () => new Date().getTime()
 
-let listContainer = document.querySelector('.excel-to-table-app')
+let listContainer = document.querySelector('.smart-table-builder-app')
 
 const store = proxy({
     mock,

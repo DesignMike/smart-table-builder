@@ -1,5 +1,5 @@
 {
-    "name": "nahinakbar/excel-to-table",
+    "name": "DesignMike/smart-table-builder",
     "description": "Convert excel sheets to an embeddable table",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "SmartTableBuilder\\": "includes/"
+            "Smart_Table_Builder_Lib\\": "includes/"
         }
     }
 }

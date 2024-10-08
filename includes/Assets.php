@@ -1,5 +1,5 @@
 <?php
-namespace SmartTableBuilder;
+namespace Smart_Table_Builder_Lib;
 
 /**
  * Scripts and Styles Class
@@ -80,7 +80,7 @@ class Assets {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
         $rest_api_routes = rest_url('smart-table-builder-tablecells/v1');
         $frontend_only = [
-            'exceltotable-frontend' => [
+            'smart-table-builder-frontend' => [
                 'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/frontend.js',
                 'version'   => filemtime(SMART_TABLE_BUILDER_ASSETS_PATH . '/js/frontend.js' ),
                 'in_footer' => true,
@@ -88,7 +88,7 @@ class Assets {
             ],
         ];
         $scripts = [
-            'exceltotable-admin' => [
+            'smart-table-builder-admin' => [
                 'src'       => SMART_TABLE_BUILDER_ASSETS_URL . '/js/backend/admin.js',
                 'deps'      => [ 'jquery', 'wp-util' ],
                 'version'   => filemtime( SMART_TABLE_BUILDER_ASSETS_PATH . '/js/backend/admin.js' ),
@@ -111,7 +111,7 @@ class Assets {
     public function get_styles() {
 
         $styles = [
-            'exceltotable-admin' => [
+            'smart-table-builder-admin' => [
                 'src' =>  SMART_TABLE_BUILDER_ASSETS_URL . '/js/backend/main.css'
             ],
         ];

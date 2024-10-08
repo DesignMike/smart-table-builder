@@ -1,5 +1,5 @@
 <?php
-namespace SmartTableBuilder;
+namespace Smart_Table_Builder_Lib;
 
 /**
  * Frontend Pages Handler
@@ -20,12 +20,12 @@ class Frontend {
      */
     public function render_frontend( $atts, $content = '' ) {
         $id = wp_parse_args($atts, ["id" => 0])['id'];
-        wp_enqueue_style( 'exceltotable-frontend' );
-        wp_enqueue_script( 'exceltotable-frontend' );
-        // wp_enqueue_script( 'exceltotable-frontendz' );
+        wp_enqueue_style( 'smart-table-builder-frontend' );
+        wp_enqueue_script( 'smart-table-builder-frontend' );
+        // wp_enqueue_script( 'smart-table-builder-frontendz' );
         // echo rest_url('smart-table-builder-tablecells/v1');
 
-        $content .= "<div class=\"excel-to-table-app\" data-table-id=$id></div>";
+        $content .= "<div class=\"smart-table-builder-app\" data-table-id=$id></div>";
 
         return $content;
     }

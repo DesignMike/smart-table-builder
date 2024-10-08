@@ -1,5 +1,5 @@
 <?php
-namespace SmartTableBuilder;
+namespace Smart_Table_Builder_Lib;
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 

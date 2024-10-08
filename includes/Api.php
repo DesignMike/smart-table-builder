@@ -1,5 +1,5 @@
 <?php
-namespace SmartTableBuilder;
+namespace Smart_Table_Builder_Lib;
 
 use WP_REST_Controller;
 

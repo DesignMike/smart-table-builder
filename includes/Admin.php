@@ -1,5 +1,5 @@
 <?php
-namespace SmartTableBuilder;
+namespace Smart_Table_Builder_Lib;
 
 /**
  * Admin Pages Handler
@@ -48,11 +48,11 @@ class Admin {
      * @return void
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'exceltotable-admin' );
-        wp_enqueue_script( 'exceltotable-admin' );
-        wp_enqueue_style( 'exceltotable-frontend' );
-        wp_enqueue_script( 'exceltotable-frontend' );
-        wp_enqueue_script( 'exceltotable-premium-frontend-runtime' );
+        wp_enqueue_style( 'smart-table-builder-admin' );
+        wp_enqueue_script( 'smart-table-builder-admin' );
+        wp_enqueue_style( 'smart-table-builder-frontend' );
+        wp_enqueue_script( 'smart-table-builder-frontend' );
+        wp_enqueue_script( 'smart-table-builder-premium-frontend-runtime' );
     }
 
     /**
@@ -61,7 +61,6 @@ class Admin {
      * @return void
      */
     public function plugin_page() {
-        // $dd = \SmartTableBuilderPremium\Assets::get_scripts();
         $config = [ 
             'nonce' => wp_create_nonce( 'smart-table-builder-nonce' ),
             'logo' => plugins_url( 'assets/images/logo.png', SMART_TABLE_BUILDER_FILE ),

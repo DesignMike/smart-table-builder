@@ -128,7 +128,7 @@
       >
         <div
           :style="{ display: tabNavigation == 1 ? 'block' : 'none' }"
-          class="excel-to-table-app"
+          class="smart-table-builder-app"
         >
           <iframe
             style="width: 100%; height: 50rem"

@@ -235,20 +235,20 @@ final class Smart_Table_Builder {
             do_action( "smart_table_builder_{$key}" , $_GET );
         }
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin'] = new SmartTableBuilder\Admin();
+            $this->container['admin'] = new Smart_Table_Builder_Lib\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new SmartTableBuilder\Frontend();
+            $this->container['frontend'] = new Smart_Table_Builder_Lib\Frontend();
         }
         // phpcs:ignore
         if ( $this->is_request( 'ajax' ) && !isset($_GET['wc-ajax']) ) {
-            $this->container['ajax'] =  new SmartTableBuilder\Ajax\AjaxAction();
+            $this->container['ajax'] =  new Smart_Table_Builder_Lib\Ajax\AjaxAction();
         }
 
-        $this->container['api'] = new SmartTableBuilder\Api();
-        $this->container['fonts'] = new SmartTableBuilder\GoogleFontsCache("a");
-        $this->container['assets'] = new SmartTableBuilder\Assets();
+        $this->container['api'] = new Smart_Table_Builder_Lib\Api();
+        $this->container['fonts'] = new Smart_Table_Builder_Lib\GoogleFontsCache("a");
+        $this->container['assets'] = new Smart_Table_Builder_Lib\Assets();
     }
 
     /**
@@ -355,4 +355,4 @@ final class Smart_Table_Builder {
 
 } // Smart_Table_Builder
 
-$exceltotable = Smart_Table_Builder::init();
+$smart_table_builder = Smart_Table_Builder::init();

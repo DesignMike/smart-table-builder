@@ -197,14 +197,14 @@ export default {
       if (a == 'Style 2') {
         let ll = JSON.parse($0.innerText);
         let xz = Object.keys(ll)
-          .filter((e) => e !== 'exceltotable-premium-frontend-runtime')
+          .filter((e) => e !== 'smart-table-builder-premium-frontend-runtime')
           .map((e) => ({ [e]: ll[e].src }))[0];
-        xz['exceltotable-style2'];
+        xz['smart-table-builder-style2'];
         var script = document.createElement('script');
         script.onload = function () {
           //do stuff with the script
         };
-        script.src = xz['exceltotable-style2'];
+        script.src = xz['smart-table-builder-style2'];
 
         document.head.appendChild(script);
       }

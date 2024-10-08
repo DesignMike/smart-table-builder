@@ -146,7 +146,7 @@ export default {
     jQuery('#vue-backend-app')
       .parent()
       .on('doPreview', () => {
-        frontVue(jQuery('.excel-to-table-app').get(0));
+        frontVue(jQuery('.smart-table-builder-app').get(0));
       });
   },
   methods: {
