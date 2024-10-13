@@ -1,0 +1,31 @@
+name: PR Agent (main branch)
+
+on:
+  pull_request:
+  issue_comment:
+jobs:
+  pr_agent_job:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    name: Run pr agent on every pull request, respond to user comments
+    steps:
+      - name: PR Agent action step
+        id: pragent
+        uses: Codium-ai/pr-agent@main
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          config.model: gpt-4o-mini
+      - name: Check for failure condition
+        run: |
+          if [ "${{ env.FAIL_CONDITION }}" == "true" ]; then
+            echo "Failure condition met. Failing the job."
+            exit 1
+          else
+            echo "No failure condition met."
+          fi
+        env:
+          FAIL_CONDITION: "true"  # Change this to the actual condition
