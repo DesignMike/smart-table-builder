@@ -16,6 +16,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5');
 console.log('process.env.NODE_ENV :>> ', process.env.NODE_ENV);
 
 export default (env, argv) => {
+	const isDevelopment = argv.mode === 'development';
 	return [
 		{
 			entry: ['@babel/polyfill', './src/main.ts'],
@@ -100,9 +101,10 @@ export default (env, argv) => {
 			},
 			plugins: [
 				new MiniCssExtractPlugin(),
-				new HtmlWebpackPlugin({
-					template: 'src/index.html',
-				}),
+				isDevelopment ? new HtmlWebpackPlugin({
+						template: 'src/index.html',
+					})
+				: null,
 				new Webpack.HotModuleReplacementPlugin(),
 				new CleanWebpackPlugin(),
 				new VueLoaderPlugin(),
@@ -116,7 +118,12 @@ export default (env, argv) => {
 					// 	parallel: false,
 					// },
 				}),
-			],
+			].filter(Boolean),
+			optimization: {
+				splitChunks: false,
+				runtimeChunk: false,
+				minimize: !isDevelopment
+			},
 			resolve: {
 				extensions: ['.ts', '.js', '.vue'],
 				plugins: [
@@ -131,9 +138,9 @@ export default (env, argv) => {
 				},
 			},
 			devtool:
-				process.env.NODE_ENV === 'development'
+				isDevelopment
 					? 'eval-source-map'
-					: 'source-map',
+					: false,
 		},
 		{
 			entry: ['./src/main.ts'],
@@ -218,9 +225,9 @@ export default (env, argv) => {
 			},
 			plugins: [
 				new MiniCssExtractPlugin(),
-				new HtmlWebpackPlugin({
+				isDevelopment ? new HtmlWebpackPlugin({
 					template: 'src/index.html',
-				}),
+				}) : null,
 				new Webpack.HotModuleReplacementPlugin(),
 				new CleanWebpackPlugin(),
 				new VueLoaderPlugin(),
@@ -234,7 +241,7 @@ export default (env, argv) => {
 					// 	parallel: false,
 					// },
 				}),
-			],
+			].filter(Boolean),
 			resolve: {
 				extensions: ['.ts', '.js', '.vue'],
 				plugins: [
@@ -249,20 +256,9 @@ export default (env, argv) => {
 				},
 			},
 			devtool:
-				process.env.NODE_ENV === 'development'
+				isDevelopment
 					? 'eval-source-map'
-					: 'source-map',
-			// devServer: {
-			// 	contentBase: path.resolve(__dirname, '../assets/js'),
-			// 	open: false,
-			// 	port: 8888,
-			// 	publicPath: path.resolve(__dirname, 'dist-dev'),
-			// 	writeToDisk: true,
-			// 	compress: true,
-			// 	hot: true,
-			// 	clientLogLevel: 'silent',
-			// 	noInfo: true,
-			// },
+					: false,
 		},
 	];
 };
