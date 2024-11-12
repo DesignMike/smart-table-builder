@@ -2,7 +2,6 @@
 /**
  * Plugin Name: Smart Table Builder
  * Description: Convert excel sheets to an embeddable table 
- * Plugin URI: https://designful.ca
  * Author: Designful Inc.
  * Author URI: https://designful.ca
  * Version: 1.0.0
