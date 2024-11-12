@@ -231,7 +231,7 @@ final class Smart_Table_Builder {
         // phpcs:ignore
         $key = ! empty( $_GET['smart_table_builder_action'] ) ? sanitize_key( $_GET['smart_table_builder_action'] ) : false;
         if ( ! empty( $key ) ) {
-            do_action( "smart_table_builder_{$key}" , $_GET );
+            do_action( "smart_table_builder_{$key}", [] );
         }
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin'] = new Smart_Table_Builder_Lib\Admin();

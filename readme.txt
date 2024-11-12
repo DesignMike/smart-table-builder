@@ -67,8 +67,9 @@ https://github.com/DesignMike/smart-table-builder
 
 = Third Party Domains =
 The plugin uses the following third party domains:
-eoibsv336g5s1ic.m.pipedream.net - This host receives user feedbacks and support requests
 fonts.google.com - This host is used to provide font services from Google Fonts
+Google Fonts Privacy Policy: https://developers.google.com/fonts/faq/privacy
+Google Fonts Terms & Conditions: https://developers.google.com/fonts/terms
 
 = Contribute =
 This may have bugs and lack many features. If you want to contribute to this project, you are more than welcome. Please fork the repository from [Github](https://github.com/DesignMike/smart-table-builder).

@@ -16,15 +16,6 @@ class Assets {
     }
 
     /**
-     * Define the constants
-     *
-     * @return void
-     */
-    public function define_constants() {
-        define( 'REST_ROUTE_PREFIX', rest_url('smart-table-builder/v1') );
-    }
-
-    /**
      * Register our app scripts and styles
      *
      * @return void
