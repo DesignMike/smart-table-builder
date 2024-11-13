@@ -65,9 +65,14 @@ Unlock additional features and take your tables to the next level with our Premi
 The source code can be found in the following git repo hosted on GitHub
 https://github.com/DesignMike/smart-table-builder
 
-= Third Party Domains =
-The plugin uses the following third party domains:
-fonts.google.com - This host is used to provide font services from Google Fonts
+= Building the javascript files from source =
+The file 'assets/js/frontend.js' has the source code in folder 'frontend'
+The file 'assets/js/backend/admin.js' has the source code in folder 'backend'
+Use 'cd' from your command line to switch to either of the source code folder, install npm dependencies by using command 'npm install', then run 'npm run build'
+
+= Third Party Services =
+The plugin uses the following third party services: 
+Google Fonts - for fonts service in the frontend, and showing a font picker in the table editor page
 Google Fonts Privacy Policy: https://developers.google.com/fonts/faq/privacy
 Google Fonts Terms & Conditions: https://developers.google.com/fonts/terms
 
