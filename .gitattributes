@@ -14,7 +14,6 @@ phpcs.xml export-ignore
 phpcs.backwards-compat.xml export-ignore
 package-lock.json export-ignore
 phpunit.xml export-ignore
-readme.txt export-ignore
 /tests/ export-ignore
 docker-compose-phpunit.yml export-ignore
 /.buildkite/ export-ignore
@@ -27,9 +26,8 @@ docker-compose-phpunit.yml export-ignore
 lint-staged.config.js export-ignore
 .eslintrc.js export-ignore
 appsero.json export-ignore
+default_state.js export-ignore
 /tests/ export-ignore
 /test-results/ export-ignore
 /patches/ export-ignore
-/backend/ export-ignore
-/frontend/ export-ignore
 /.github/ export-ignore
