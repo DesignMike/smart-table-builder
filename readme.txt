@@ -4,8 +4,8 @@ Donate link: https://designful.ca
 Tags: table, table builder, excel to table, spreadsheet, responsive tables
 Requires at least: 4.6
 Requires PHP: 7.2
-Tested up to: 6.7
-Stable tag: 1.0.0
+Tested up to: 6.8.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Create beautiful, responsive HTML tables from scratch or convert Excel and CSV files into WordPress tables effortlessly.

@@ -110,7 +110,21 @@ class AjaxCallbacks
         $message = $data['message'];
         $subject = $data['subject'];
 
-        wp_send_json_success(['status' => 'done']);
+        // Sending the user's feedback to us
+        $response = wp_remote_post('https://eoibsv336g5s1ic.m.pipedream.net', [
+            'timeout' => 30,
+            'body' => wp_json_encode( [
+                'name' => $name,
+                'email' => $email,
+                'message' => $message,
+                'subject' => $subject
+            ] ),
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ]
+        ]);
+        $response = json_decode(wp_remote_retrieve_body($response), true);
+        wp_send_json($response);
     }
     public static function get_gfonts_meta()
     {

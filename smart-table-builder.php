@@ -4,7 +4,7 @@
  * Description: Convert excel sheets to an embeddable table 
  * Plugin URI: https://designful.ca
  * Author: Designful Inc.
- * Version: 1.0.0
+ * Version: 1.0.1
  * License: GPL2
  * Text Domain: smart-table-builder
  * Domain Path: /languages/
