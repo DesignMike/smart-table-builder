@@ -45,7 +45,7 @@
               class="flex flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0"
             >
               <a
-                v-for="(item, index) in navItems"
+                v-for="(item, index) in filteredNavItems"
                 :key="index"
                 @click="navigateTo(item)"
                 class="cursor-pointer dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 flex flex-col items-center rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:ml-4 md:mt-0"
@@ -112,6 +112,7 @@ export default {
           action: () => {
             this.$store.commit('setFeedbackModalStatus', true);
           },
+          exclusiveToRoutes: ['/create-from-scratch', '/edit'],
         },
         {
           title: 'Support',
@@ -127,6 +128,7 @@ export default {
           action: () => {
             this.$store.commit('setFeedbackModalStatus', true);
           },
+          exclusiveToRoutes: ['/create-from-scratch', '/edit'],
         },
       ],
     };
@@ -140,6 +142,13 @@ export default {
     },
     fullscreenStatus: function () {
       return this.$store.state.enableFullScreenEditing;
+    },
+    filteredNavItems: function () {
+      const currentRoute = this.$route.path;
+      return this.navItems.filter((item) => {
+        if (!item.exclusiveToRoutes) return true;
+        return item.exclusiveToRoutes.includes(currentRoute);
+      });
     },
   },
   mounted() {
