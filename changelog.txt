@@ -3,3 +3,7 @@ This is the first release of Smart Table Builder. Enjoy creating beautiful, resp
 
 = 1.0.1 =
 Tested aginst latest WordPress release
+
+= 1.0.2 =
+- Addressed potential XSS vulnerability by authenticated user
+- Fix frontend rendering JS error
