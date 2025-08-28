@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
   return {
     entry: './src/main.js',
     output: {
-      path: isDevelopment ? path.resolve(__dirname, 'dist') : path.resolve(__dirname, '../assets/js'),
+      path: isDevelopment ? path.resolve(__dirname, '../assets/js') : path.resolve(__dirname, '../assets/js'),
       filename: 'frontend.js',
       clean: isDevelopment
     },

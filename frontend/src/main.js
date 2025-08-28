@@ -203,7 +203,7 @@ const store = proxy({
       let tableData = await fetch(`${wpUltimateTablesRoute}/get-table-cells/${tableId}`);
       if (tableData) {
         let data_rcv = await tableData.json();
-        store.mock = x = {
+        store.mock = {
           ...data_rcv.grid,
           tableTitle: data_rcv.title,
           fonts: [
